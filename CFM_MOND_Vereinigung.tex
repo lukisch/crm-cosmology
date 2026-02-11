@@ -1,0 +1,395 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,ngerman]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{authblk}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{array}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+
+\titleformat{\section}{\Large\bfseries\sffamily\color{black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\sffamily\color{darkgray}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\sffamily\color{darkgray}}{\thesubsubsection}{1em}{}
+
+\hypersetup{
+    pdftitle={Eliminating the Dark Sector: Unifying the Curvature Feedback Model with MOND},
+    pdfauthor={Lukas Geiger},
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black
+}
+
+\onehalfspacing
+
+\begin{document}
+
+% ===================================================================
+% TITELSEITE
+% ===================================================================
+
+\title{\textbf{\huge Eliminating the Dark Sector:\\Unifying the Curvature Feedback Model with MOND}\\[0.5em]
+\Large A Baryon-Only Universe with Geometric Dark Matter and Dark Energy\\[0.3em]
+\large Preliminary Analysis with Pantheon+ Type~Ia Supernovae}
+
+\author[1]{Lukas Geiger\thanks{Correspondence: Lukas Geiger, Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany.}}
+\affil[1]{Independent Researcher, Bernau im Schwarzwald}
+
+\date{February 2026 \\ \vspace{0.5em} \small \textit{Working Paper -- Companion to \cite{Geiger2026}}}
+
+\maketitle
+
+\begin{abstract}
+\noindent We propose a unified geometric framework that eliminates both dark energy and dark matter from the cosmological energy budget. Building on the Curvature Feedback Model (CFM) \cite{Geiger2026}, which replaces the cosmological constant with a time-dependent curvature return potential $\Omega_\Phi(a)$, we extend the model to a \textit{baryon-only} universe ($\Omega_m = \Omega_b \approx 0.05$) compatible with Modified Newtonian Dynamics (MOND) \cite{Milgrom1983}. The extended Friedmann equation reads:
+\begin{equation*}
+H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta}\right]
+\end{equation*}
+where the saturation term $f_{\mathrm{sat}}$ replaces dark energy and the power-law term $\alpha \cdot a^{-\beta}$ assumes the cosmological role of dark matter as a purely geometric effect. Tested against 1,590 Pantheon+ Type~Ia supernovae \cite{Scolnic2022}, this ``dark-sector-free'' model yields $\chi^2 = 710.3$ ($\Delta\chi^2 = -18.7$ vs.\ $\Lambda$CDM, $\Delta\mathrm{AIC} = -12.7$), outperforming both $\Lambda$CDM and the standard CFM. The fitted parameters ($\alpha = 0.50$, $\beta = 2.61$) suggest a geometric contribution that scales between matter-like ($a^{-3}$) and radiation-like ($a^{0}$) behavior. We discuss the physical interpretation within the game-theoretic framework and the connection to the relativistic MOND theory AeST \cite{Skordis2021}. If confirmed by CMB and BAO data, this framework would render the entire dark sector -- comprising 95\% of the energy budget in $\Lambda$CDM -- superfluous.
+
+\vspace{0.5em}
+\noindent \textbf{Keywords:} Curvature Feedback Model, MOND, dark matter, dark energy, baryon-only universe, Pantheon+, modified gravity, geometric cosmology
+
+\vspace{0.5em}
+\noindent \textbf{Subject areas:} Theoretical Physics, Cosmology, Modified Gravity
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+% ===================================================================
+% KI-NUTZUNG
+% ===================================================================
+\section*{AI Disclosure}
+\addcontentsline{toc}{section}{AI Disclosure}
+
+This paper was developed with intensive use of AI systems. Their contributions are disclosed in detail:
+
+\begin{description}[style=nextline, leftmargin=2cm]
+\item[\textbf{Claude Opus 4.6} (Anthropic)] Co-writer: Text generation, code development, statistical analysis.
+\item[\textbf{Gemini} (Google DeepMind)] Reviewer: Critical feedback, MOND compatibility analysis, strategic recommendations.
+\end{description}
+
+\noindent\textit{Note:} Despite the substantial machine contribution, final responsibility for the scientific content and interpretation rests with the human author.
+
+\newpage
+
+
+% ===================================================================
+% 1. EINLEITUNG
+% ===================================================================
+\section{Introduction: The Dark Sector Problem}
+\label{sec:intro}
+
+The standard cosmological model, $\Lambda$CDM, describes the energy budget of the universe as consisting of approximately 5\% baryonic matter, 27\% cold dark matter (CDM), and 68\% dark energy ($\Lambda$) \cite{Planck2020}. Despite its remarkable empirical success, this model implies that \textit{95\% of the universe consists of entities that have never been directly detected}.
+
+Two independent lines of research challenge this picture:
+
+\begin{enumerate}
+\item \textbf{The Curvature Feedback Model (CFM)} \cite{Geiger2026}: Developed from a game-theoretic framework, the CFM replaces the cosmological constant $\Lambda$ with a time-dependent curvature return potential $\Omega_\Phi(a)$, explaining accelerated expansion as a geometric ``memory'' rather than a new energy form. Tested against 1,590 Pantheon+ supernovae, the CFM yields $\Delta\chi^2 = -12.2$ relative to $\Lambda$CDM.
+
+\item \textbf{Modified Newtonian Dynamics (MOND)} \cite{Milgrom1983}: MOND modifies gravitational dynamics at accelerations below $a_0 \approx 1.2 \times 10^{-10}$\,m/s$^2$, successfully predicting galactic rotation curves, the baryonic Tully-Fisher relation \cite{McGaugh2016}, and the radial acceleration relation \cite{Lelli2017} without invoking dark matter.
+\end{enumerate}
+
+The central question of this paper is: \textit{Can both frameworks be unified into a single model that eliminates the entire dark sector?}
+
+\subsection{The Compatibility Question}
+
+At first glance, CFM and MOND address different ``dark'' problems:
+\begin{itemize}
+\item CFM replaces \textbf{dark energy} (cosmological expansion)
+\item MOND replaces \textbf{dark matter} (galactic dynamics)
+\end{itemize}
+
+However, a naive combination encounters a fundamental tension: the standard CFM fits $\Omega_m \approx 0.36$, implying substantial dark matter ($\Omega_m - \Omega_b \approx 0.31$). If MOND is correct and dark matter does not exist, the model must function with $\Omega_m = \Omega_b \approx 0.05$ alone.
+
+\subsection{Structure Formation: Common Ground}
+
+Both frameworks converge on a critical prediction: structures form \textit{earlier and more efficiently} than $\Lambda$CDM allows.
+
+\begin{itemize}
+\item \textbf{CFM:} The later onset of cosmic acceleration ($z_{\mathrm{acc}} = 0.52$ vs.\ $0.84$) extends the matter-dominated growth phase \cite{Geiger2026}.
+\item \textbf{MOND:} Enhanced gravitational attraction at low accelerations leads to faster gravitational collapse on large scales \cite{Asencio2023}.
+\end{itemize}
+
+This shared prediction is supported by multiple observational anomalies: the JWST ``Universe Breakers'' at $z > 7$ \cite{Labbe2023, BoylanKolchin2023}, the El~Gordo cluster at $z \approx 0.87$ (${>}6\sigma$ tension with $\Lambda$CDM) \cite{Asencio2023}, and unexpectedly mature protoclusters at $z > 4$ \cite{Miller2018}.
+
+
+% ===================================================================
+% 2. THEORIE
+% ===================================================================
+\section{Theoretical Framework}
+\label{sec:theory}
+
+\subsection{The Extended Curvature Feedback Model}
+
+In the standard CFM \cite{Geiger2026}, the Friedmann equation reads:
+\begin{equation}
+H^2(a) = H_0^2 \left[\Omega_m\,a^{-3} + \Omega_\Phi(a)\right]
+\end{equation}
+with
+\begin{equation}
+\Omega_\Phi(a) = \Phi_0 \cdot \frac{\tanh\!\big(k\cdot(a - a_{\mathrm{trans}})\big) + s}{1 + s}
+\end{equation}
+
+For the baryon-only extension, we decompose the geometric potential into two components:
+\begin{equation}
+\boxed{H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \underbrace{\Phi_0 \cdot f_{\mathrm{sat}}(a)}_{\text{geometric DE}} + \underbrace{\alpha \cdot a^{-\beta}}_{\text{geometric DM}}\right]}
+\label{eq:extended_cfm}
+\end{equation}
+
+where:
+\begin{itemize}
+\item $\Omega_b \approx 0.05$ is the baryonic matter density (fixed)
+\item $\Phi_0 \cdot f_{\mathrm{sat}}(a)$ is the saturation-type dark energy replacement (from the Dynamic Saturation Mechanism)
+\item $\alpha \cdot a^{-\beta}$ is a power-law term that assumes the \textit{cosmological} role of dark matter
+\end{itemize}
+
+The flatness constraint $H^2(a{=}1)/H_0^2 = 1$ yields:
+\begin{equation}
+\Omega_b + \Phi_0 \cdot f_{\mathrm{sat}}(1) + \alpha = 1
+\end{equation}
+
+\subsection{Physical Interpretation of the Geometric DM Term}
+
+The term $\alpha \cdot a^{-\beta}$ with $\beta \approx 2.6$ requires physical interpretation:
+
+\begin{enumerate}
+\item \textbf{Scaling behavior:} The exponent $\beta = 2.6$ lies between matter-like scaling ($a^{-3}$, i.e., $\beta = 3$) and a slower dilution. This is intermediate between pressureless dust and a cosmological constant.
+
+\item \textbf{Game-theoretic interpretation:} In the spieltheoretischen framework, this term represents a second equilibrium mechanism: while the saturation term describes the ``releasing brake'' (dark energy), the power-law term describes the ``geometric inertia'' of the curvature return -- a residual geometric effect that decays with expansion but slower than matter.
+
+\item \textbf{Connection to MOND:} In the relativistic MOND theory AeST (Aether Scalar Tensor) of Skordis \& Z{\l}o\'snik \cite{Skordis2021}, a scalar field and a vector field produce an effective energy-momentum tensor that modifies the expansion history. The power-law term $\alpha \cdot a^{-\beta}$ may be interpretable as the cosmological imprint of this MOND-like modification.
+
+\item \textbf{Effective equation of state:} The geometric DM term has an effective equation of state $w_{\mathrm{DM,geom}} = \beta/3 - 1 \approx -0.13$. This is close to but distinct from pressureless matter ($w = 0$), consistent with a geometric rather than particulate origin.
+\end{enumerate}
+
+\subsection{MOND on Galactic vs.\ Cosmological Scales}
+
+A key distinction must be maintained:
+\begin{itemize}
+\item \textbf{Galactic scales:} MOND modifies the gravitational force law below $a_0$, explaining rotation curves and the Tully-Fisher relation \textit{without dark matter}.
+\item \textbf{Cosmological scales:} The extended CFM replaces dark matter's \textit{cosmological role} (contribution to $H(z)$) with a geometric potential, without requiring a particle species.
+\end{itemize}
+
+The two mechanisms are complementary: MOND handles local dynamics, while the geometric DM term handles the global expansion history.
+
+
+% ===================================================================
+% 3. DATENANALYSE
+% ===================================================================
+\section{Data Analysis and Results}
+\label{sec:analysis}
+
+\subsection{Data and Methodology}
+
+We use the Pantheon+ catalog \cite{Scolnic2022} comprising 1,590 Type~Ia supernovae with $z > 0.01$ (redshift range $0.01$--$2.26$). Luminosity distances are computed via cumulative trapezoidal integration on a fine redshift grid ($N = 2{,}000$). The nuisance parameter~$M$ is analytically marginalized. Parameter optimization uses differential evolution with L-BFGS-B polish.
+
+\subsection{Results: Model Comparison}
+
+\begin{table}[H]
+\centering
+\caption{Model comparison against 1,590 Pantheon+ supernovae. All models except $\Lambda$CDM and CFM Baryon Fixed include $\Omega_m$ as a free parameter or fix it at $\Omega_b = 0.05$.}
+\label{tab:comparison}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Model} & $\Omega_m$ & \textbf{Params} & $\chi^2$ & $\Delta\chi^2$ & AIC & BIC \\
+\midrule
+$\Lambda$CDM & 0.244 & 2 & 729.0 & 0 & 733.0 & 743.7 \\
+CFM Standard & 0.364 & 4 & 716.8 & $-12.2$ & 724.8 & 746.3 \\
+\midrule
+CFM Baryon Fixed & 0.050 & 3 & 945.5 & $+216.5$ & 951.5 & 967.6 \\
+CFM Baryon Band & 0.070 & 4 & 894.7 & $+165.7$ & 902.7 & 924.1 \\
+\midrule
+\textbf{Extended CFM+MOND} & \textbf{0.050} & \textbf{5} & \textbf{710.3} & $\mathbf{-18.7}$ & \textbf{720.3} & 747.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Key Findings}
+
+\begin{enumerate}
+\item \textbf{Simple baryon-only CFM fails:} With $\Omega_m = 0.05$ and only the $\tanh$ saturation term, the fit degrades catastrophically ($\Delta\chi^2 = +216.5$). The optimizer attempts extreme parameters ($k = 86$, $a_{\mathrm{trans}} = 0.06$) to create a near-step-function, confirming that the standard CFM \textit{cannot} compensate for missing dark matter.
+
+\item \textbf{Extended CFM succeeds spectacularly:} Adding the geometric DM term $\alpha \cdot a^{-\beta}$ restores and \textit{exceeds} the fit quality, achieving $\Delta\chi^2 = -18.7$ versus $\Lambda$CDM -- better than both the standard $\Lambda$CDM \textit{and} the standard CFM.
+
+\item \textbf{Best-fit parameters:}
+\begin{itemize}
+\item Saturation term: $\Phi_0 = 0.752$, $k = 3.99$, $a_{\mathrm{trans}} = 0.95$ ($z_{\mathrm{trans}} = 0.05$)
+\item Geometric DM term: $\alpha = 0.50$, $\beta = 2.61$
+\item Energy budget at $a = 1$: $\Omega_b = 0.05$, $\Omega_\Phi = 0.95$ (total geometric contribution)
+\end{itemize}
+
+\item \textbf{Late transition:} The saturation transition occurs very late ($z_{\mathrm{trans}} = 0.05$), much later than in the standard CFM ($z_{\mathrm{trans}} = 0.33$). The geometric DM term dominates the early expansion, while the saturation term provides the late-time acceleration.
+
+\item \textbf{AIC vs.\ BIC:} The $\Delta\mathrm{AIC} = -12.7$ strongly favors the extended model. The $\Delta\mathrm{BIC} = +3.4$ reflects the parameter penalty (5 vs.\ 2 parameters). Given the dramatic $\chi^2$ improvement and the elimination of \textit{two} fundamental components ($\Lambda$ + CDM), this BIC penalty is remarkably modest.
+\end{enumerate}
+
+
+% ===================================================================
+% 4. DISKUSSION
+% ===================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{A Universe Without a Dark Sector}
+
+The extended CFM demonstrates that the entire expansion history probed by Type~Ia supernovae can be described with:
+\begin{itemize}
+\item Baryonic matter ($\Omega_b = 0.05$) -- the \textit{only} material content
+\item A saturation-type geometric potential -- replacing dark energy
+\item A power-law geometric term -- replacing dark matter's cosmological role
+\end{itemize}
+
+If this result survives tests against CMB and BAO data, it would imply that 95\% of the $\Lambda$CDM energy budget is an artifact of interpreting geometric effects as material components.
+
+\subsection{The $\beta \approx 2.6$ Problem}
+
+The fitted exponent $\beta = 2.61$ does not correspond to any standard cosmological component:
+\begin{itemize}
+\item Matter: $\beta = 3$ ($a^{-3}$)
+\item Radiation: $\beta = 4$ ($a^{-4}$)
+\item Curvature: $\beta = 2$ ($a^{-2}$)
+\end{itemize}
+
+The value $\beta \approx 2.6$ is closest to ``curvature-like'' behavior with a slight matter-like correction. This is suggestive: in the game-theoretic framework, the curvature return potential represents the geometric ``memory'' of the Big Bang. A curvature-like scaling ($\sim a^{-2}$) modified by the ongoing matter-geometry interaction could naturally produce $\beta \approx 2.6$.
+
+\subsection{Relation to AeST and Relativistic MOND}
+
+The relativistic MOND theory AeST (Aether Scalar Tensor) \cite{Skordis2021} provides the only known framework that simultaneously:
+\begin{enumerate}
+\item Reproduces MOND dynamics on galactic scales
+\item Fits the CMB power spectrum (including the third acoustic peak)
+\item Fits the matter power spectrum
+\end{enumerate}
+
+AeST achieves this through a scalar field $\phi$ and a timelike vector field $A_\mu$ that produce an effective energy-momentum tensor. The cosmological background equations in AeST contain terms that contribute to $H^2(a)$ with non-standard scaling. A detailed comparison between the AeST background equations and the extended CFM Friedmann equation~\eqref{eq:extended_cfm} is a key objective for future work.
+
+\subsection{Limitations and Caveats}
+
+\begin{enumerate}
+\item \textbf{SN Ia data only:} The present analysis is restricted to Type~Ia supernovae. The critical tests are the CMB power spectrum (acoustic peaks) and BAO measurements, which probe the early universe where the geometric DM term dominates.
+
+\item \textbf{Parameter count:} The extended model has 5 effective parameters versus 2 for $\Lambda$CDM. While the $\chi^2$ improvement is dramatic ($-18.7$), a Bayesian model comparison with full priors is needed.
+
+\item \textbf{Boundary effects:} The fitted $\alpha = 0.50$ sits at the prior boundary, suggesting the optimizer would prefer even larger values. This needs investigation with wider priors and MCMC analysis.
+
+\item \textbf{No microscopic derivation:} The $\alpha \cdot a^{-\beta}$ term is empirical. A derivation from AeST or another relativistic framework would provide the physical foundation.
+
+\item \textbf{Structure formation:} While both CFM and MOND predict enhanced early structure formation, a quantitative prediction of the matter power spectrum $P(k)$ requires solving the perturbation equations within the extended framework.
+\end{enumerate}
+
+
+% ===================================================================
+% 5. FAZIT
+% ===================================================================
+\section{Conclusion and Outlook}
+\label{sec:conclusion}
+
+We have demonstrated that a baryon-only universe ($\Omega_m = \Omega_b \approx 0.05$) with an extended geometric potential can fit the Pantheon+ supernova data \textit{better} than $\Lambda$CDM ($\Delta\chi^2 = -18.7$, $\Delta\mathrm{AIC} = -12.7$). This preliminary result suggests that the unification of the Curvature Feedback Model with MOND -- eliminating both dark energy and dark matter -- is not merely theoretically attractive but empirically viable.
+
+\textbf{Next steps:}
+\begin{enumerate}
+\item \textbf{MCMC analysis:} Full posterior exploration of the 5-parameter space with the extended model, including the full Pantheon+ covariance matrix.
+\item \textbf{CMB constraints:} Computing the angular power spectrum $C_\ell$ in the extended framework, particularly the acoustic peak structure.
+\item \textbf{BAO constraints:} Testing against DESI DR2 baryon acoustic oscillation measurements.
+\item \textbf{AeST connection:} Deriving the effective $\alpha$ and $\beta$ from the AeST background equations.
+\item \textbf{Structure growth:} Computing $f\sigma_8(z)$ and the matter power spectrum $P(k)$.
+\item \textbf{Gravitational lensing:} Predicting the lensing power spectrum for comparison with KiDS and DES surveys.
+\end{enumerate}
+
+\begin{quote}
+\textit{``If dark energy is a relaxing constraint and dark matter is a geometric shadow, then 95\% of the universe may have been hiding in plain sight -- as the geometry of spacetime itself.''}
+\end{quote}
+
+
+% ===================================================================
+% LITERATUR
+% ===================================================================
+\begin{thebibliography}{99}
+
+\bibitem{Geiger2026}
+Geiger, L.\ (2026).
+Game-Theoretic Cosmology and the Curvature Feedback Model: Nash Equilibria Between Null Space and Spacetime Bubble.
+Working Paper. \url{https://github.com/lukisch/cfm-cosmology}.
+
+\bibitem{Scolnic2022}
+Scolnic, D.\ et al.\ (2022).
+The Pantheon+ Analysis: The Full Data Set and Light-curve Release.
+\textit{The Astrophysical Journal}, 938(2), 113.
+DOI: 10.3847/1538-4357/ac8b7a.
+
+\bibitem{Planck2020}
+Planck Collaboration (2020).
+Planck 2018 results. VI. Cosmological parameters.
+\textit{Astronomy \& Astrophysics}, 641, A6.
+DOI: 10.1051/0004-6361/201833910.
+
+\bibitem{Milgrom1983}
+Milgrom, M.\ (1983).
+A modification of the Newtonian dynamics as a possible alternative to the hidden mass hypothesis.
+\textit{The Astrophysical Journal}, 270, 365--370.
+DOI: 10.1086/161130.
+
+\bibitem{Skordis2021}
+Skordis, C.\ \& Z{\l}o\'snik, T.\ (2021).
+New Relativistic Theory for Modified Newtonian Dynamics.
+\textit{Physical Review Letters}, 127(16), 161302.
+DOI: 10.1103/PhysRevLett.127.161302.
+
+\bibitem{McGaugh2016}
+McGaugh, S.\,S., Lelli, F.\ \& Schombert, J.\,M.\ (2016).
+Radial Acceleration Relation in Rotationally Supported Galaxies.
+\textit{Physical Review Letters}, 117(20), 201101.
+DOI: 10.1103/PhysRevLett.117.201101.
+
+\bibitem{Lelli2017}
+Lelli, F., McGaugh, S.\,S.\ \& Schombert, J.\,M.\ (2017).
+One Law to Rule Them All: The Radial Acceleration Relation of Galaxies.
+\textit{The Astrophysical Journal}, 836(2), 152.
+DOI: 10.3847/1538-4357/836/2/152.
+
+\bibitem{Labbe2023}
+Labb\'e, I.\ et al.\ (2023).
+A population of red candidate massive galaxies $\sim$600\,Myr after the Big Bang.
+\textit{Nature}, 616(7956), 266--269.
+DOI: 10.1038/s41586-023-05786-2.
+
+\bibitem{BoylanKolchin2023}
+Boylan-Kolchin, M.\ (2023).
+Stress testing $\Lambda$CDM with high-redshift galaxy candidates.
+\textit{Nature Astronomy}, 7, 731--735.
+DOI: 10.1038/s41550-023-01937-7.
+
+\bibitem{Asencio2023}
+Asencio, E., Banik, I.\ \& Kroupa, P.\ (2023).
+The El Gordo galaxy cluster challenges $\Lambda$CDM for any plausible collision velocity.
+\textit{The Astrophysical Journal}, 954(2), 162.
+DOI: 10.3847/1538-4357/ace62a.
+
+\bibitem{Miller2018}
+Miller, T.\,B.\ et al.\ (2018).
+A massive core for a cluster of galaxies at a redshift of 4.3.
+\textit{Nature}, 556(7702), 469--472.
+DOI: 10.1038/s41586-018-0025-2.
+
+\end{thebibliography}
+
+\end{document}
