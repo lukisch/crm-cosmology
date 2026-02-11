@@ -1,0 +1,30 @@
+ZENODO UPLOAD HELPER
+====================
+
+-------------------------------------------------------------------------------
+ARTIKEL: Spieltheoretische Kosmologie (CFM)
+-------------------------------------------------------------------------------
+Titel:
+Game-Theoretic Cosmology and the Curvature Feedback Model: Nash Equilibria as Explanatory Framework for Accelerated Expansion
+(Spieltheoretische Kosmologie und das Krümmungs-Rückgabepotential-Modell)
+
+Autoren:
+Geiger, Lukas
+
+Abstract:
+This paper introduces the Curvature Feedback Model (CFM), a game-theoretic framework for cosmology where the universe's expansion is modeled as a Nash equilibrium between a metastable quantum vacuum ("null space") and a spacetime bubble. Unlike LambdaCDM, the CFM explains accelerated expansion not through dark energy, but via a diminishing curvature return potential—a geometric "memory" of the Big Bang. Numerical tests against simulated Type Ia supernova data favor CFM over LambdaCDM ($\Delta\chi^2 \approx -4.8$). The model predicts a time-varying equation of state $w(z)$ testable by the Euclid and Roman space telescopes.
+
+Keywords:
+Cosmology, Dark Energy, Nash Equilibrium, Game Theory, Curvature Feedback Model, Friedman Equation, LambdaCDM, Supernova Ia, Finsler Gravity
+
+Upload-Dateien:
+- Spieltheorie_Urknall_Artikel.pdf
+- Spieltheorie_Urknall_Artikel.tex
+
+Community:
+- Astronomy & Astrophysics
+- High Energy Physics - Theory
+- General Relativity and Quantum Cosmology
+
+Lizenz:
+CC-BY 4.0

@@ -1,0 +1,69 @@
+PUBLICATION STRATEGY
+====================
+Ordner: Spieltheorie Urknall
+Erstellt: 2026-02-10
+Status: Aktualisiert
+
+STRATEGIEEMPFEHLUNG
+===================
+Empfehlung: PREPRINT FIRST -> HIGH IMPACT JOURNAL
+
+Das Paper fordert das Standardmodell heraus. Das ist "High Risk, High Reward".
+Wichtig: Erstes Feedback über arXiv/Zenodo einholen, bevor es ins harte Review geht.
+
+ZEITSCHRIFTENRECHERCHE - TOP 3
+==============================
+
+-------------------------------------------------------------------------------
+JOURNAL 1 (TOP): Classical and Quantum Gravity (IOP)
+-------------------------------------------------------------------------------
+- Focus: Gravitationsphysik, Kosmologie.
+- Offen für theoretische Modelle, wenn mathematisch sauber.
+- Impact Factor: Solide.
+
+-------------------------------------------------------------------------------
+JOURNAL 2: Physical Review D (APS)
+-------------------------------------------------------------------------------
+- Der Goldstandard für Teilchenphysik und Kosmologie.
+- Sehr strenges Review. Erfordert exzellente numerische Tests.
+- Wenn das CFM hier durchkommt, ist es etabliert.
+
+-------------------------------------------------------------------------------
+JOURNAL 3: Journal of Cosmology and Astroparticle Physics (JCAP)
+-------------------------------------------------------------------------------
+- Hochspezialisiert. Viele "Alternative Gravity" Papers.
+- Sehr technische Leserschaft.
+
+AUFWANDSSCHAETZUNG
+==================
+Aufwand Zenodo/arXiv: [MITTEL] (TeX-Formatierung muss perfekt sein).
+Aufwand Journal: [SEHR HOCH] (Rechne mit "Major Revisions" und intensiver Diskussion mit Referees).
+
+TODO-LISTE
+==========
+[ ] Zenodo Upload
+[ ] arXiv Submission (benötigt Endorsement!)
+[ ] LinkedIn Post
+[ ] Submission bei Classical and Quantum Gravity vorbereiten
+
+===============================================================================
+PUBLIKATIONSGRUNDSATZ: KEINE APC-KOSTEN
+===============================================================================
+
+Grundsatz: Es werden NUR Journals gewaehlt, bei denen fuer den Autor
+KEINE Article Processing Charges (APC) anfallen.
+
+Akzeptabel:
+- Subscription-Journals (traditionell, kein OA, KOSTENLOS fuer Autor)
+- Hybrid-Journals im Subscription-Modus (kein OA, KOSTENLOS fuer Autor)
+- Journals ohne APC-Modell (z.B. ZKJ, Mind and Matter, JCS, Philosophy E&W)
+- SCOAP3-gedeckte Journals (z.B. JCAP - Kosten von Konsortium getragen)
+- PRD im Subscription-Modus (kostenlos)
+
+NICHT akzeptabel:
+- Gold-OA-Journals mit Pflicht-APC (z.B. Frontiers, JMIR, MDPI)
+- Jede Publikation, die Autorengebuehren erfordert
+
+Die individuellen PUBLICATION_STRATEGY.txt Dateien wurden am 2026-02-11
+entsprechend aktualisiert. Alle Gold-OA-Journals mit Pflicht-APC wurden
+entfernt und durch kostenlose Alternativen ersetzt.

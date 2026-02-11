@@ -19,3 +19,23 @@ Thumbs.db
 
 # Data files (too large / downloaded automatically)
 Pantheon+SH0ES.dat
+Pantheon+SH0ES_STAT+SYS.cov
+_data/Pantheon+SH0ES.dat
+_data/Pantheon+SH0ES_STAT+SYS.cov
+
+# Claude Code settings
+.claude/
+
+# Windows artifacts
+nul
+
+# Archive / working files
+_archive/
+Beispiel_Template_LaTex.tex
+
+# Intermediate analysis plots (regenerable from scripts)
+_data/CFM_Summary.png
+_data/CFM_Finsler_Comparison.png
+_data/expansion_history.png
+_data/final_cfm_analysis.png
+_data/hubble_diagram.png
