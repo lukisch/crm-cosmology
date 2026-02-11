@@ -1,0 +1,20 @@
+============================================================
+MCMC ERGEBNISSE: Extended CFM+MOND (Baryon-Only)
+============================================================
+Omega_b = 0.0500 (fest, nur Baryonen)
+Best-fit chi2 = 702.69
+Delta chi2 vs LCDM = -26.31
+
+  k            = 9.8131  (+6.7393 / -3.8087)
+  a_trans      = 0.9708  (+0.0156 / -0.0310)
+  alpha        = 0.6765  (+0.0190 / -0.0714)
+  beta         = 2.0219  (+0.2558 / -0.1433)
+  Phi0         = 0.4287  (+0.1364 / -0.0811)
+
+  w_eff(DM-Term) = beta/3 - 1 = -0.3260
+    (Materie: 0.000, Kruemmung: -0.333, Strahlung: 0.333)
+
+INTERPRETATION:
+  beta = 2.02 liegt zwischen Materie (3.0) und Kruemmung (2.0)
+  => Geometrischer Effekt mit materie-aehnlicher Skalierung
+  => Konsistent mit MOND-inspiriertem geometrischen DM-Ersatz

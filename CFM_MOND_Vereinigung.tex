@@ -61,7 +61,7 @@
 \begin{equation*}
 H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta}\right]
 \end{equation*}
-where the saturation term $f_{\mathrm{sat}}$ replaces dark energy and the power-law term $\alpha \cdot a^{-\beta}$ assumes the cosmological role of dark matter as a purely geometric effect. Tested against 1,590 Pantheon+ Type~Ia supernovae \cite{Scolnic2022}, this ``dark-sector-free'' model yields $\chi^2 = 710.3$ ($\Delta\chi^2 = -18.7$ vs.\ $\Lambda$CDM, $\Delta\mathrm{AIC} = -12.7$), outperforming both $\Lambda$CDM and the standard CFM. The fitted parameters ($\alpha = 0.50$, $\beta = 2.61$) suggest a geometric contribution that scales between matter-like ($a^{-3}$) and radiation-like ($a^{0}$) behavior. We discuss the physical interpretation within the game-theoretic framework and the connection to the relativistic MOND theory AeST \cite{Skordis2021}. If confirmed by CMB and BAO data, this framework would render the entire dark sector -- comprising 95\% of the energy budget in $\Lambda$CDM -- superfluous.
+where the saturation term $f_{\mathrm{sat}}$ replaces dark energy and the power-law term $\alpha \cdot a^{-\beta}$ assumes the cosmological role of dark matter as a purely geometric effect. Tested against 1,590 Pantheon+ Type~Ia supernovae \cite{Scolnic2022}, this ``dark-sector-free'' model yields $\chi^2 = 702.7$ ($\Delta\chi^2 = -26.3$ vs.\ $\Lambda$CDM, $\Delta\mathrm{AIC} = -16.3$, $\Delta\mathrm{BIC} = -4.2$), dramatically outperforming both $\Lambda$CDM and the standard CFM. MCMC posterior analysis yields $\alpha = 0.68^{+0.02}_{-0.07}$ and $\beta = 2.02^{+0.26}_{-0.14}$, revealing that the geometric DM term scales as \textit{spatial curvature} ($a^{-2}$, $w = -1/3$) -- not as matter ($a^{-3}$). We discuss the physical interpretation within the game-theoretic framework and the connection to the relativistic MOND theory AeST \cite{Skordis2021}. If confirmed by CMB and BAO data, this framework would render the entire dark sector -- comprising 95\% of the energy budget in $\Lambda$CDM -- superfluous.
 
 \vspace{0.5em}
 \noindent \textbf{Keywords:} Curvature Feedback Model, MOND, dark matter, dark energy, baryon-only universe, Pantheon+, modified gravity, geometric cosmology
@@ -169,16 +169,16 @@ The flatness constraint $H^2(a{=}1)/H_0^2 = 1$ yields:
 
 \subsection{Physical Interpretation of the Geometric DM Term}
 
-The term $\alpha \cdot a^{-\beta}$ with $\beta \approx 2.6$ requires physical interpretation:
+The term $\alpha \cdot a^{-\beta}$ with $\beta \approx 2.0$ (from MCMC) requires physical interpretation:
 
 \begin{enumerate}
-\item \textbf{Scaling behavior:} The exponent $\beta = 2.6$ lies between matter-like scaling ($a^{-3}$, i.e., $\beta = 3$) and a slower dilution. This is intermediate between pressureless dust and a cosmological constant.
+\item \textbf{Scaling behavior:} The MCMC posterior yields $\beta = 2.02 \pm 0.20$, consistent with curvature-like scaling ($a^{-2}$, i.e., $\beta = 2$). This is the scaling of spatial curvature in the Friedmann equation, suggesting a geometric rather than material origin.
 
 \item \textbf{Game-theoretic interpretation:} In the spieltheoretischen framework, this term represents a second equilibrium mechanism: while the saturation term describes the ``releasing brake'' (dark energy), the power-law term describes the ``geometric inertia'' of the curvature return -- a residual geometric effect that decays with expansion but slower than matter.
 
 \item \textbf{Connection to MOND:} In the relativistic MOND theory AeST (Aether Scalar Tensor) of Skordis \& Z{\l}o\'snik \cite{Skordis2021}, a scalar field and a vector field produce an effective energy-momentum tensor that modifies the expansion history. The power-law term $\alpha \cdot a^{-\beta}$ may be interpretable as the cosmological imprint of this MOND-like modification.
 
-\item \textbf{Effective equation of state:} The geometric DM term has an effective equation of state $w_{\mathrm{DM,geom}} = \beta/3 - 1 \approx -0.13$. This is close to but distinct from pressureless matter ($w = 0$), consistent with a geometric rather than particulate origin.
+\item \textbf{Effective equation of state:} The geometric DM term has an effective equation of state $w_{\mathrm{DM,geom}} = \beta/3 - 1 = -0.33 \pm 0.07$, virtually identical to the curvature equation of state ($w_k = -1/3$). The ``dark matter'' component is indistinguishable from spatial curvature.
 \end{enumerate}
 
 \subsection{MOND on Galactic vs.\ Cosmological Scales}
@@ -190,6 +190,29 @@ A key distinction must be maintained:
 \end{itemize}
 
 The two mechanisms are complementary: MOND handles local dynamics, while the geometric DM term handles the global expansion history.
+
+\subsection{The Efficiency Hypothesis: Why No Dark Matter?}
+\label{subsec:efficiency}
+
+A critical question remains: the extended CFM shows that the data \textit{permit} a baryon-only universe, but why should the universe \textit{be} baryon-only? The game-theoretic framework provides a compelling answer.
+
+In the Nash equilibrium between null space and spacetime bubble \cite{Geiger2026}, the spacetime bubble receives a finite energy budget $E_0$ from the null space. Its objective is to neutralize the concentration gradient $G$ as efficiently as possible while protecting the parent system. This creates a resource allocation problem:
+
+\begin{itemize}
+\item \textbf{Baryonic matter:} Interacts electromagnetically, forms stars, produces radiation, collapses into black holes, and generates entropy at maximal rates. Baryons are \textit{highly efficient tools} for gradient reduction.
+
+\item \textbf{Dark matter (hypothetical):} Interacts only gravitationally. It clumps but does not radiate, does not form stars, and contributes minimally to entropy production compared to an equivalent mass of baryonic matter.
+\end{itemize}
+
+In a game-theoretically optimized universe, allocating 85\% of the energy budget to a component that barely contributes to the primary objective (entropy-driven gradient reduction) would be a \textit{strategically inferior allocation}. A Nash-optimal system maximizes entropy production per unit energy by channeling the entire budget into ``active'' (baryonic) matter.
+
+\begin{proposition}[Efficiency Principle]
+In a Nash-equilibrium universe, the matter content consists exclusively of baryonic matter ($\Omega_m = \Omega_b$), because dark matter represents an inefficient allocation of the initial energy budget with respect to the primary objective function (entropy-driven gradient neutralization). The gravitational effects conventionally attributed to dark matter are instead geometric consequences of the curvature return mechanism (the $\alpha \cdot a^{-\beta}$ term).
+\end{proposition}
+
+This provides a \textit{theoretical prediction} rather than a mere observational constraint: the game-theoretic framework does not merely accommodate a baryon-only universe -- it \textit{requires} one. Dark matter is not just observationally absent; it is theoretically disfavored.
+
+The quantitative test is whether the geometric term $\alpha \cdot a^{-\beta}$ can reproduce all cosmological signatures traditionally attributed to dark matter (expansion history, CMB acoustic peaks, matter power spectrum). The Pantheon+ test presented below addresses the first of these.
 
 
 % ===================================================================
@@ -206,7 +229,7 @@ We use the Pantheon+ catalog \cite{Scolnic2022} comprising 1,590 Type~Ia superno
 
 \begin{table}[H]
 \centering
-\caption{Model comparison against 1,590 Pantheon+ supernovae. All models except $\Lambda$CDM and CFM Baryon Fixed include $\Omega_m$ as a free parameter or fix it at $\Omega_b = 0.05$.}
+\caption{Model comparison against 1,590 Pantheon+ supernovae.}
 \label{tab:comparison}
 \begin{tabular}{lcccccc}
 \toprule
@@ -218,7 +241,7 @@ CFM Standard & 0.364 & 4 & 716.8 & $-12.2$ & 724.8 & 746.3 \\
 CFM Baryon Fixed & 0.050 & 3 & 945.5 & $+216.5$ & 951.5 & 967.6 \\
 CFM Baryon Band & 0.070 & 4 & 894.7 & $+165.7$ & 902.7 & 924.1 \\
 \midrule
-\textbf{Extended CFM+MOND} & \textbf{0.050} & \textbf{5} & \textbf{710.3} & $\mathbf{-18.7}$ & \textbf{720.3} & 747.1 \\
+\textbf{Extended CFM+MOND} & \textbf{0.050} & \textbf{5} & \textbf{702.7} & $\mathbf{-26.3}$ & \textbf{712.7} & 739.5 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -228,18 +251,20 @@ CFM Baryon Band & 0.070 & 4 & 894.7 & $+165.7$ & 902.7 & 924.1 \\
 \begin{enumerate}
 \item \textbf{Simple baryon-only CFM fails:} With $\Omega_m = 0.05$ and only the $\tanh$ saturation term, the fit degrades catastrophically ($\Delta\chi^2 = +216.5$). The optimizer attempts extreme parameters ($k = 86$, $a_{\mathrm{trans}} = 0.06$) to create a near-step-function, confirming that the standard CFM \textit{cannot} compensate for missing dark matter.
 
-\item \textbf{Extended CFM succeeds spectacularly:} Adding the geometric DM term $\alpha \cdot a^{-\beta}$ restores and \textit{exceeds} the fit quality, achieving $\Delta\chi^2 = -18.7$ versus $\Lambda$CDM -- better than both the standard $\Lambda$CDM \textit{and} the standard CFM.
+\item \textbf{Extended CFM succeeds spectacularly:} Adding the geometric DM term $\alpha \cdot a^{-\beta}$ restores and \textit{exceeds} the fit quality, achieving $\Delta\chi^2 = -26.3$ versus $\Lambda$CDM -- better than both the standard $\Lambda$CDM \textit{and} the standard CFM by a wide margin.
 
-\item \textbf{Best-fit parameters:}
+\item \textbf{Best-fit parameters (MCMC):} A full Markov Chain Monte Carlo analysis (emcee, 48 walkers, 5000 steps) yields:
 \begin{itemize}
-\item Saturation term: $\Phi_0 = 0.752$, $k = 3.99$, $a_{\mathrm{trans}} = 0.95$ ($z_{\mathrm{trans}} = 0.05$)
-\item Geometric DM term: $\alpha = 0.50$, $\beta = 2.61$
+\item Saturation term: $\Phi_0 = 0.43^{+0.14}_{-0.08}$, $k = 9.8^{+6.7}_{-3.8}$, $a_{\mathrm{trans}} = 0.971^{+0.016}_{-0.031}$ ($z_{\mathrm{trans}} = 0.03$)
+\item Geometric DM term: $\alpha = 0.68^{+0.02}_{-0.07}$, $\beta = 2.02^{+0.26}_{-0.14}$
 \item Energy budget at $a = 1$: $\Omega_b = 0.05$, $\Omega_\Phi = 0.95$ (total geometric contribution)
 \end{itemize}
 
-\item \textbf{Late transition:} The saturation transition occurs very late ($z_{\mathrm{trans}} = 0.05$), much later than in the standard CFM ($z_{\mathrm{trans}} = 0.33$). The geometric DM term dominates the early expansion, while the saturation term provides the late-time acceleration.
+\item \textbf{$\beta \approx 2.0$: Curvature scaling.} The MCMC posterior for $\beta$ peaks at $2.02 \pm 0.20$, consistent with \textit{curvature-like scaling} ($a^{-2}$, i.e., $w = -1/3$). This is a remarkable result: the data independently recover a scaling exponent that corresponds to \textit{spatial curvature}, not to a material component. The effective equation of state $w_{\mathrm{DM,geom}} = \beta/3 - 1 = -0.33$ is virtually identical to the curvature equation of state.
 
-\item \textbf{AIC vs.\ BIC:} The $\Delta\mathrm{AIC} = -12.7$ strongly favors the extended model. The $\Delta\mathrm{BIC} = +3.4$ reflects the parameter penalty (5 vs.\ 2 parameters). Given the dramatic $\chi^2$ improvement and the elimination of \textit{two} fundamental components ($\Lambda$ + CDM), this BIC penalty is remarkably modest.
+\item \textbf{Late saturation transition:} The saturation transition occurs very late ($z_{\mathrm{trans}} \approx 0.03$), much later than in the standard CFM ($z_{\mathrm{trans}} = 0.33$). The geometric DM term (curvature-like) dominates the early expansion, while the saturation term provides the late-time acceleration.
+
+\item \textbf{AIC vs.\ BIC:} The $\Delta\mathrm{AIC} = -16.3$ strongly favors the extended model. The $\Delta\mathrm{BIC} = -4.2$ also favors it despite the parameter penalty (5 vs.\ 2 parameters). This is the first model in our analysis to achieve \textit{both} AIC and BIC preference over $\Lambda$CDM simultaneously.
 \end{enumerate}
 
 
@@ -260,16 +285,16 @@ The extended CFM demonstrates that the entire expansion history probed by Type~I
 
 If this result survives tests against CMB and BAO data, it would imply that 95\% of the $\Lambda$CDM energy budget is an artifact of interpreting geometric effects as material components.
 
-\subsection{The $\beta \approx 2.6$ Problem}
+\subsection{The $\beta \approx 2.0$ Result: Curvature as Dark Matter}
 
-The fitted exponent $\beta = 2.61$ does not correspond to any standard cosmological component:
+The MCMC posterior for the scaling exponent yields $\beta = 2.02^{+0.26}_{-0.14}$, remarkably close to -- and statistically consistent with -- the curvature scaling $\beta = 2$ ($a^{-2}$). This corresponds to an effective equation of state $w_{\mathrm{DM,geom}} = -0.33$, indistinguishable from spatial curvature ($w_k = -1/3$). For comparison, the standard cosmological components scale as:
 \begin{itemize}
-\item Matter: $\beta = 3$ ($a^{-3}$)
-\item Radiation: $\beta = 4$ ($a^{-4}$)
-\item Curvature: $\beta = 2$ ($a^{-2}$)
+\item Matter: $\beta = 3$ ($a^{-3}$, $w = 0$)
+\item Curvature: $\beta = 2$ ($a^{-2}$, $w = -1/3$) $\quad\leftarrow$ \textbf{recovered by MCMC}
+\item Radiation: $\beta = 4$ ($a^{-4}$, $w = 1/3$)
 \end{itemize}
 
-The value $\beta \approx 2.6$ is closest to ``curvature-like'' behavior with a slight matter-like correction. This is suggestive: in the game-theoretic framework, the curvature return potential represents the geometric ``memory'' of the Big Bang. A curvature-like scaling ($\sim a^{-2}$) modified by the ongoing matter-geometry interaction could naturally produce $\beta \approx 2.6$.
+This result has profound implications: the component traditionally identified as ``dark matter'' in the Friedmann equation may in fact be \textit{spatial curvature} -- not the global curvature $k$ of the FLRW metric, but a \textit{dynamic, decaying curvature memory} encoded in the geometric potential. In the game-theoretic framework, this is precisely the ``geometric inertia'' of the curvature return: a residual imprint of the Big Bang's energy concentration that dilutes with expansion at the curvature rate $a^{-2}$ rather than the matter rate $a^{-3}$.
 
 \subsection{Relation to AeST and Relativistic MOND}
 
@@ -303,7 +328,7 @@ AeST achieves this through a scalar field $\phi$ and a timelike vector field $A_
 \section{Conclusion and Outlook}
 \label{sec:conclusion}
 
-We have demonstrated that a baryon-only universe ($\Omega_m = \Omega_b \approx 0.05$) with an extended geometric potential can fit the Pantheon+ supernova data \textit{better} than $\Lambda$CDM ($\Delta\chi^2 = -18.7$, $\Delta\mathrm{AIC} = -12.7$). This preliminary result suggests that the unification of the Curvature Feedback Model with MOND -- eliminating both dark energy and dark matter -- is not merely theoretically attractive but empirically viable.
+We have demonstrated that a baryon-only universe ($\Omega_m = \Omega_b \approx 0.05$) with an extended geometric potential can fit the Pantheon+ supernova data \textit{dramatically better} than $\Lambda$CDM ($\Delta\chi^2 = -26.3$, $\Delta\mathrm{AIC} = -16.3$, $\Delta\mathrm{BIC} = -4.2$). This preliminary result suggests that the unification of the Curvature Feedback Model with MOND -- eliminating both dark energy and dark matter -- is not merely theoretically attractive but empirically viable.
 
 \textbf{Next steps:}
 \begin{enumerate}
