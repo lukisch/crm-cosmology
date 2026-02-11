@@ -493,6 +493,56 @@ where $\Gamma_{\mathrm{GW}}$ and $m_{\mathrm{GW}}^2$ are corrections from the cu
 \end{itemize}
 The LIGO/Virgo/KAGRA constraint $|c_{\mathrm{GW}}/c - 1| < 10^{-15}$ \cite{Abbott2017} places an upper bound on $\gamma$.
 
+\subsection{Discriminating the Microscopic Candidates}
+
+Each of the five microscopic approaches (Sections~\ref{subsec:lqg}--\ref{subsec:qec}) produces a distinct experimental signature. Crucially, several of these tests have already been performed or are imminent:
+
+\begin{center}
+\small
+\begin{tabular}{lllp{4.5cm}}
+\toprule
+\textbf{Candidate} & \textbf{Signature} & \textbf{Instrument} & \textbf{Status} \\
+\midrule
+A: Holographic & Spacetime noise & Holometer (Fermilab) & \textbf{Null result} (2015). Simplest models excluded \cite{Chou2017}. \\
+B: Spin networks & Vacuum birefringence & Planck CMB polarization & \textbf{$2.4\sigma$ hint}: $\beta \approx 0.35^\circ$ \cite{Minami2020}. \\
+C: Entanglement & Gravity-induced collapse & Gran Sasso (underground) & Simple Di\'osi-Penrose \textbf{excluded} \cite{Donadi2021}. \\
+D: QEC codes & GW horizon echoes & LIGO/Virgo & \textbf{$\sim2.5\sigma$ tentative} \cite{Abedi2017}. Contested. \\
+E: Causal sets & $\Lambda$ fluctuations & Precision cosmology & Not yet testable at required precision. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsubsection{The Cosmic Birefringence Signal (Candidate B)}
+
+The most promising existing signal is the \textit{isotropic cosmic birefringence} reported by Minami \& Komatsu \cite{Minami2020} in reanalyzed Planck polarization data. They found a rotation of the CMB polarization plane by $\beta = 0.35^\circ \pm 0.14^\circ$ ($2.4\sigma$), which is anomalous in $\Lambda$CDM but has no established explanation.
+
+In the CFM framework with spin-network microstructure (Candidate~B), this signal has a natural interpretation: the saturating spacetime (the ``aligning spins'') acts as a \textit{birefringent medium}. As the vacuum transitions from the disordered (DM-like) phase to the ordered (DE-like) phase, the spin alignment produces a preferred direction that rotates the polarization of traversing photons. The rotation angle $\beta$ should be proportional to the \textit{degree of saturation} $X = \Omega_\Phi/\Phi_0$ integrated along the photon path.
+
+\textit{CFM prediction:} If the cosmic birefringence is caused by the geometric phase transition, then:
+\begin{enumerate}
+\item The rotation angle should be \textit{isotropic} (same in all directions) -- consistent with the Minami-Komatsu measurement.
+\item The rotation should be \textit{frequency-independent} at CMB frequencies (since it is geometric, not dispersive) -- testable by Simons Observatory ($\sim$2025) and LiteBIRD ($\sim$2028).
+\item The rotation should be \textit{redshift-dependent}: photons from higher redshift (less saturated vacuum) should show less rotation. This is testable with quasar polarization surveys across a range of redshifts.
+\end{enumerate}
+
+\subsubsection{Gravitational Wave Echoes (Candidate D)}
+
+Several groups \cite{Abedi2017} have reported tentative evidence ($\sim2.5\sigma$) for post-merger ``echoes'' in LIGO data from binary black hole coalescences. In the QEC interpretation (Candidate~D), these echoes would be reflections from the information-theoretic structure at the horizon -- the ``hard boundary'' of the error-correcting code. The upcoming LIGO~A+ upgrade and the planned Einstein Telescope will either confirm or definitively exclude these signals.
+
+\textit{CFM prediction:} If echoes are real, their damping time should be related to the local saturation rate $k$ -- the same parameter that governs cosmological dark energy. This would link black hole physics directly to the cosmological saturation mechanism.
+
+\subsubsection{Current Experimental Scorecard}
+
+\begin{itemize}
+\item Candidate~A (holographic noise) is \textbf{disfavored} by the Holometer null result, unless the noise is correlated (not random) as the CFM would predict.
+\item Candidate~B (spin networks) is \textbf{mildly favored} by the cosmic birefringence hint.
+\item Candidate~C (entanglement) is \textbf{constrained} but not excluded; the simple models fail, but more sophisticated entanglement-saturation models remain viable.
+\item Candidate~D (QEC) has \textbf{tentative} support from GW echoes, but the signal is contested.
+\item Candidate~E (causal sets) remains \textbf{untested} at the required precision.
+\end{itemize}
+
+The CFM framework is agnostic about which candidate provides the microscopic basis -- the $\tanh$ saturation is universal across all of them (cf.\ Section~\ref{sec:phase_transition}). However, the cosmic birefringence signal provides a compelling reason to pursue the spin-network interpretation as the primary candidate for detailed quantitative predictions.
+
 
 % ===================================================================
 % 7. ZUSAMMENHANG MIT BEKANNTEN THEORIEN
@@ -713,6 +763,30 @@ Pastawski, F., Yoshida, B., Harlow, D.\ \& Preskill, J.\ (2015).
 Holographic quantum error-correcting codes: Toy models for the bulk/boundary correspondence.
 \textit{Journal of High Energy Physics}, 2015(6), 149.
 DOI: 10.1007/JHEP06(2015)149.
+
+\bibitem{Minami2020}
+Minami, Y.\ \& Komatsu, E.\ (2020).
+New Extraction of the Cosmic Birefringence from the Planck 2018 Polarization Data.
+\textit{Physical Review Letters}, 125(22), 221301.
+DOI: 10.1103/PhysRevLett.125.221301.
+
+\bibitem{Chou2017}
+Chou, A.\,S.\ et al.\ (Holometer Collaboration) (2017).
+First Measurements of High Frequency Cross-Spectra from a Pair of Large Michelson Interferometers.
+\textit{Physical Review Letters}, 117(11), 111102.
+DOI: 10.1103/PhysRevLett.117.111102.
+
+\bibitem{Donadi2021}
+Donadi, S.\ et al.\ (2021).
+Underground test of gravity-related wave function collapse.
+\textit{Nature Physics}, 17(1), 74--78.
+DOI: 10.1038/s41567-020-1008-4.
+
+\bibitem{Abedi2017}
+Abedi, J., Dykaar, H.\ \& Afshordi, N.\ (2017).
+Echoes from the Abyss: Tentative evidence for Planck-scale structure at black hole horizons.
+\textit{Physical Review D}, 96(8), 082004.
+DOI: 10.1103/PhysRevD.96.082004.
 
 \end{thebibliography}
 
