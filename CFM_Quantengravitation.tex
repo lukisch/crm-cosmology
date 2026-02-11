@@ -260,6 +260,8 @@ If spacetime is fundamentally information-theoretic (as suggested by the hologra
 
 In this picture, the game-theoretic interpretation of Paper~I \cite{Geiger2026} becomes literal: the null space and spacetime bubble are two subsystems of a quantum information network, and their Nash equilibrium is determined by the information-theoretic constraints of the holographic bound.
 
+A closely related mechanism is \textit{entanglement entropy saturation} \cite{VanRaamsdonk2010}. If spacetime connectivity is built from quantum entanglement (the ``ER=EPR'' hypothesis \cite{Maldacena2013}), then two points in space are ``close'' because their quantum states are entangled. Entanglement, however, is a finite resource subject to the monogamy constraint: a quantum system cannot be maximally entangled with arbitrarily many partners simultaneously. As the universe expands and new spacetime degrees of freedom are created, the entanglement budget per degree of freedom decreases. The saturation ODE then describes the approach to the entanglement capacity limit: when the ``glue'' (entanglement) that holds spacetime together reaches its maximum dilution, the expansion accelerates -- not because of a new energy form, but because the binding capacity is exhausted.
+
 \subsection{Approach 4: Causal Set Theory}
 \label{subsec:causal_sets}
 
@@ -268,6 +270,48 @@ Causal set theory \cite{Bombelli1987, Sorkin2003} models spacetime as a discrete
 \begin{conjecture}[Causal Set--CFM Connection]
 In a dynamically evolving causal set, the curvature return potential $\Omega_\Phi$ corresponds to the ``effective cosmological constant'' that changes as new elements are added to the set. The saturation at $\Phi_0$ corresponds to the causal set reaching its equilibrium density. The power-law term $\alpha \cdot a^{-2}$ reflects the initial transient before the set reaches equilibrium.
 \end{conjecture}
+
+\subsection{Approach 5: Quantum Error Correction}
+\label{subsec:qec}
+
+A recent and particularly compelling framework interprets spacetime as a \textit{quantum error-correcting code} \cite{Almheiri2015, Pastawski2015}. In this picture, the holographic principle is not merely a bound on information storage but a statement about \textit{redundancy}: the bulk spacetime geometry is an error-protected encoding of the boundary (holographic) degrees of freedom.
+
+The saturation mechanism acquires a natural interpretation:
+\begin{itemize}
+\item Every error-correcting code has a finite \textbf{code capacity} -- a maximum rate at which it can protect information against noise (decoherence).
+\item As the universe expands and the information content grows (structure formation, increasing entropy), the code approaches its capacity limit.
+\item The saturation $\Phi_0$ is the code capacity: the point at which the spacetime ``code'' can no longer accommodate additional complexity without becoming unstable.
+\item The accelerated expansion (dark energy) is the code's \textbf{self-protection mechanism}: by diluting the information density, it prevents the code from exceeding its error-correction threshold.
+\end{itemize}
+
+\begin{conjecture}[QEC--CFM Connection]
+The curvature return potential $\Omega_\Phi$ measures the fraction of the spacetime error-correcting code's capacity that is utilized. The saturation ODE $dX/da = k(1-X^2)$ describes the approach to code capacity. The accelerated expansion is the code's autonomous response to impending saturation -- it creates more ``storage space'' (volume) to maintain the code's integrity.
+\end{conjecture}
+
+This interpretation connects directly to the game-theoretic framework of Paper~I \cite{Geiger2026}: the null space's ``self-protection motive'' is \textit{literally} the error-correcting code's drive to maintain integrity. The spacetime bubble is not merely a ``daughter'' of the null space -- it is the null space's mechanism for protecting its quantum information against decoherence, implemented as a holographic code whose capacity limit manifests as dark energy.
+
+
+% ===================================================================
+% 3b. NATUR DES NULLRAUMS
+% ===================================================================
+\subsection{The Nature of the Null Space}
+\label{subsec:null_space}
+
+Papers~I and II postulated the null space as the ``other player'' in the cosmological game -- the pre-geometric ground state from which the spacetime bubble emerges. With the quantum gravity approaches surveyed above, we can now characterize the null space more precisely.
+
+\textbf{A-geometric:} The null space has no metric. There is no notion of distance, duration, or dimensionality. It is a \textit{topological} or \textit{algebraic} entity, not a geometric one. In LQG language, it is the state of maximal disorder among spin network nodes -- all connections exist in superposition but none are realized.
+
+\textbf{Superposition of all geometries:} Quantum-mechanically, the null space is the path-integral over all possible spacetime configurations, weighted equally. It is the state of maximal uncertainty about geometry -- not ``empty space'' but ``no space at all.''
+
+\textbf{The energy reservoir:} In the game-theoretic framework, the null space possesses the total energy budget $E_0$ but exists in a metastable state (the ``bank'' that holds the capital but does not invest it). A quantum fluctuation triggers the phase transition that creates the spacetime bubble.
+
+\textbf{The code:} In the QEC interpretation, the null space is the \textit{logical} quantum information that the spacetime code protects. The bulk spacetime (our universe) is the \textit{physical} qubits of the code. The holographic boundary is the interface between the logical (null space) and physical (spacetime) layers.
+
+\begin{definition}[Geometric Crystallization]
+The emergence of spacetime from the null space is a \textit{geometric phase transition} -- analogous to the crystallization of water into ice. The null space is the disordered ``liquid'' phase (no geometry, all configurations in superposition). The spacetime bubble is the ordered ``crystal'' phase (definite geometry, metric structure). The saturation ODE describes the completion of this crystallization: the curvature return potential $\Omega_\Phi$ is the order parameter, and its saturation at $\Phi_0$ is the fully crystallized state (de~Sitter equilibrium).
+\end{definition}
+
+In this picture, the question ``What saturates?'' has a unified answer: \textit{the geometric order of spacetime.} Whether we describe this order in terms of spin alignment (LQG), entanglement connectivity (ER=EPR), information capacity (holography), or code utilization (QEC), the mathematical structure is the same -- a cooperative system of discrete degrees of freedom approaching their collective equilibrium. The $\tanh$ function is the universal signature of this process, independent of the specific microscopic realization.
 
 
 % ===================================================================
@@ -651,6 +695,24 @@ In \textit{Complexity, Entropy, and the Physics of Information}, Addison-Wesley,
 Feynman, R.\,P.\ (1948).
 Space-Time Approach to Non-Relativistic Quantum Mechanics.
 \textit{Reviews of Modern Physics}, 20(2), 367--387.
+
+\bibitem{VanRaamsdonk2010}
+Van~Raamsdonk, M.\ (2010).
+Building up spacetime with quantum entanglement.
+\textit{General Relativity and Gravitation}, 42(10), 2323--2329.
+DOI: 10.1007/s10714-010-1034-0.
+
+\bibitem{Almheiri2015}
+Almheiri, A., Dong, X.\ \& Harlow, D.\ (2015).
+Bulk Locality and Quantum Error Correction in AdS/CFT.
+\textit{Journal of High Energy Physics}, 2015(4), 163.
+DOI: 10.1007/JHEP04(2015)163.
+
+\bibitem{Pastawski2015}
+Pastawski, F., Yoshida, B., Harlow, D.\ \& Preskill, J.\ (2015).
+Holographic quantum error-correcting codes: Toy models for the bulk/boundary correspondence.
+\textit{Journal of High Energy Physics}, 2015(6), 149.
+DOI: 10.1007/JHEP06(2015)149.
 
 \end{thebibliography}
 
