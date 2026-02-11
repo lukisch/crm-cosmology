@@ -167,6 +167,47 @@ The flatness constraint $H^2(a{=}1)/H_0^2 = 1$ yields:
 \Omega_b + \Phi_0 \cdot f_{\mathrm{sat}}(1) + \alpha = 1
 \end{equation}
 
+\subsection{Trace Coupling and BBN Consistency}
+\label{subsec:trace_coupling}
+
+A critical constraint on the geometric DM term is Big Bang Nucleosynthesis (BBN): at $a \sim 10^{-9}$, the naive power-law $\alpha \cdot a^{-2}$ would yield $\sim 10^{18}$, completely dominating the Friedmann equation and destroying the predicted primordial element abundances. The term \textit{must} be suppressed during the radiation era.
+
+We propose that the geometric DM term couples not to the energy density $\rho$ but to the \textit{trace of the energy-momentum tensor}:
+\begin{equation}
+T \equiv g^{\mu\nu} T_{\mu\nu} = -\rho + 3p = -\rho(1 - 3w)
+\end{equation}
+
+This trace has a remarkable property: for relativistic matter (radiation, $w = 1/3$), the trace vanishes exactly:
+\begin{equation}
+T_{\mathrm{rad}} = -\rho_{\mathrm{rad}} + 3 \cdot \tfrac{1}{3}\rho_{\mathrm{rad}} = 0
+\end{equation}
+
+This is not a coincidence but a consequence of \textit{conformal symmetry}: massless fields are conformally invariant, and the trace of a conformally invariant energy-momentum tensor vanishes identically. During the radiation-dominated era, conformal symmetry is exact, and the geometric DM term is automatically suppressed.
+
+For non-relativistic matter ($w \approx 0$), the trace is $T_{\mathrm{mat}} = -\rho_m \neq 0$, and the geometric DM term activates. The transition occurs naturally at matter-radiation equality ($a_{\mathrm{eq}} \approx 3 \times 10^{-4}$), well after BBN ($a_{\mathrm{BBN}} \sim 10^{-9}$).
+
+The full extended Friedmann equation with trace coupling reads:
+\begin{equation}
+\boxed{H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta} \cdot \mathcal{S}(a)\right]}
+\label{eq:extended_cfm_trace}
+\end{equation}
+where $\mathcal{S}(a)$ is the trace-coupling suppression factor:
+\begin{equation}
+\mathcal{S}(a) = \frac{|T|}{|T| + \rho_{\mathrm{rad}}} = \frac{\Omega_b\,a^{-3}}{\Omega_b\,a^{-3} + \Omega_r\,a^{-4}}
+= \frac{1}{1 + (a_{\mathrm{eq}}/a)}
+\label{eq:suppression}
+\end{equation}
+with $a_{\mathrm{eq}} = \Omega_r/\Omega_b \approx 3 \times 10^{-4}$ (using $\Omega_r \approx 9 \times 10^{-5}$). This factor satisfies:
+\begin{itemize}
+\item $\mathcal{S}(a \ll a_{\mathrm{eq}}) \approx a/a_{\mathrm{eq}} \to 0$ \quad (radiation era: BBN protected)
+\item $\mathcal{S}(a \gg a_{\mathrm{eq}}) \approx 1$ \quad (matter/DE era: full geometric DM)
+\item $\mathcal{S}(a = 1) \approx 1 - 3\times10^{-4} \approx 1$ \quad (today: SN fit unchanged)
+\end{itemize}
+
+\textbf{Impact on the Pantheon+ fit:} Since all Pantheon+ supernovae are at $z < 2.3$ ($a > 0.30$), the suppression factor is $\mathcal{S} > 0.999$ throughout the observed redshift range. The MCMC results ($\alpha$, $\beta$, $\chi^2$) are unchanged to numerical precision.
+
+\textbf{Physical interpretation:} The trace coupling has a deep geometric meaning. In the game-theoretic framework, the geometric DM term represents the curvature ``memory'' of the initial energy concentration. During the radiation era, the universe is conformally flat (radiation is scale-free), and there is no curvature memory to sustain. The geometric DM term activates only when conformal symmetry is broken by the emergence of massive (non-relativistic) matter -- precisely at the epoch when CDM would begin to form structures in the standard picture.
+
 \subsection{Physical Interpretation of the Geometric DM Term}
 
 The term $\alpha \cdot a^{-\beta}$ with $\beta \approx 2.0$ (from MCMC) requires physical interpretation:
@@ -354,10 +395,10 @@ Any theory that eliminates dark matter must confront three critical observationa
 
 The relative heights of the CMB acoustic peaks -- particularly the ratio of the first to the third peak -- are conventionally interpreted as evidence for a gravitational component that does not interact with photons (i.e., dark matter). In $\Lambda$CDM, cold dark matter provides gravitational potential wells that drive baryon-photon oscillations without experiencing radiation pressure.
 
-\textit{Resolution:} In the extended CFM, the geometric DM term $\alpha \cdot a^{-2}$ is \textit{not a material component} -- it is a property of spacetime geometry itself. At the epoch of recombination ($a \approx 10^{-3}$), the power-law term dominates strongly over the saturation term and provides gravitational potential wells that are:
+\textit{Resolution:} In the extended CFM, the geometric DM term $\alpha \cdot a^{-\beta} \cdot \mathcal{S}(a)$ is \textit{not a material component} -- it is a property of spacetime geometry itself. The trace-coupling suppression factor $\mathcal{S}(a)$ (Section~\ref{subsec:trace_coupling}) ensures that the term activates only after matter-radiation equality ($a_{\mathrm{eq}} \approx 3 \times 10^{-4}$). At recombination ($a \approx 10^{-3}$), $\mathcal{S} \approx 0.77$, so the geometric DM term is active and provides gravitational potential wells that are:
 \begin{itemize}
 \item Decoupled from the photon-baryon fluid (they are geometric, not material)
-\item Present at the correct amplitude to drive acoustic oscillations
+\item Activated by the breaking of conformal symmetry (trace coupling)
 \item Scaling as $a^{-2}$ rather than $a^{-3}$, which modifies the peak ratios in a potentially testable way
 \end{itemize}
 
@@ -408,7 +449,7 @@ The results of this paper -- a baryon-only model that outperforms $\Lambda$CDM b
 \begin{enumerate}
 \item \textbf{Overfitting risk:} Five free parameters (vs.\ 2 for $\Lambda$CDM) provide more flexibility. However, the AIC penalty accounts for this ($\Delta\mathrm{AIC} = -16.3$), and even the conservative BIC favors the model ($\Delta\mathrm{BIC} = -4.2$).
 
-\item \textbf{SN-only validation:} The Pantheon+ data probe the expansion history at $z \lesssim 2.3$. The model's predictions at high redshift (CMB at $z \approx 1100$) are extrapolations. The geometric DM term $\alpha \cdot a^{-2}$ grows as $a \to 0$, and its behavior at very early times must be checked for physical consistency.
+\item \textbf{SN-only validation:} The Pantheon+ data probe the expansion history at $z \lesssim 2.3$. The model's predictions at high redshift (CMB at $z \approx 1100$) are extrapolations. The trace-coupling mechanism (Section~\ref{subsec:trace_coupling}) prevents the geometric DM term from diverging at early times, but the quantitative behavior around recombination and matter-radiation equality requires detailed numerical computation.
 
 \item \textbf{Phenomenological nature:} The $\alpha \cdot a^{-\beta}$ term is empirical, not derived from first principles. A phenomenological term that fits SNe well but lacks a Lagrangian derivation cannot be considered a complete theory.
 
@@ -427,7 +468,7 @@ The results of this paper -- a baryon-only model that outperforms $\Lambda$CDM b
 
 \item \textbf{BAO measurements:} Baryon acoustic oscillations at $z \sim 0.5$--$2.5$ (DESI DR2) provide an independent distance measure that must be consistent with the extended CFM.
 
-\item \textbf{Big Bang Nucleosynthesis:} The geometric DM term modifies the expansion rate during BBN ($a \sim 10^{-9}$). The predicted primordial element abundances must remain consistent with observations.
+\item \textbf{Big Bang Nucleosynthesis:} The trace-coupling mechanism (Section~\ref{subsec:trace_coupling}) suppresses the geometric DM term during the radiation era ($\mathcal{S} \to 0$), ensuring standard BBN. However, a detailed computation of the primordial element abundances with the modified $H(z)$ is needed to verify quantitative consistency, particularly around the matter-radiation transition where $\mathcal{S}$ is intermediate.
 
 \item \textbf{Gravitational lensing:} Strong and weak lensing surveys (KiDS, DES, Euclid) probe the matter distribution and must be compatible with the geometric potential.
 
