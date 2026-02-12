@@ -1,69 +1,165 @@
 PUBLICATION STRATEGY
 ====================
-Ordner: Spieltheorie Urknall
-Erstellt: 2026-02-10
-Status: Aktualisiert
-
-STRATEGIEEMPFEHLUNG
-===================
-Empfehlung: PREPRINT FIRST -> HIGH IMPACT JOURNAL
-
-Das Paper fordert das Standardmodell heraus. Das ist "High Risk, High Reward".
-Wichtig: Erstes Feedback über arXiv/Zenodo einholen, bevor es ins harte Review geht.
-
-ZEITSCHRIFTENRECHERCHE - TOP 3
-==============================
-
--------------------------------------------------------------------------------
-JOURNAL 1 (TOP): Classical and Quantum Gravity (IOP)
--------------------------------------------------------------------------------
-- Focus: Gravitationsphysik, Kosmologie.
-- Offen für theoretische Modelle, wenn mathematisch sauber.
-- Impact Factor: Solide.
-
--------------------------------------------------------------------------------
-JOURNAL 2: Physical Review D (APS)
--------------------------------------------------------------------------------
-- Der Goldstandard für Teilchenphysik und Kosmologie.
-- Sehr strenges Review. Erfordert exzellente numerische Tests.
-- Wenn das CFM hier durchkommt, ist es etabliert.
-
--------------------------------------------------------------------------------
-JOURNAL 3: Journal of Cosmology and Astroparticle Physics (JCAP)
--------------------------------------------------------------------------------
-- Hochspezialisiert. Viele "Alternative Gravity" Papers.
-- Sehr technische Leserschaft.
-
-AUFWANDSSCHAETZUNG
-==================
-Aufwand Zenodo/arXiv: [MITTEL] (TeX-Formatierung muss perfekt sein).
-Aufwand Journal: [SEHR HOCH] (Rechne mit "Major Revisions" und intensiver Diskussion mit Referees).
-
-TODO-LISTE
-==========
-[ ] Zenodo Upload
-[ ] arXiv Submission (benötigt Endorsement!)
-[ ] LinkedIn Post
-[ ] Submission bei Classical and Quantum Gravity vorbereiten
+Stand: 2026-02-11
+Autor: Lukas Geiger
+Repository: lukisch/cfm-cosmology (aktuell PRIVATE)
 
 ===============================================================================
-PUBLIKATIONSGRUNDSATZ: KEINE APC-KOSTEN
+UEBERSICHT: DREI-PAPER-PROGRAMM
 ===============================================================================
 
-Grundsatz: Es werden NUR Journals gewaehlt, bei denen fuer den Autor
-KEINE Article Processing Charges (APC) anfallen.
+Paper I:  "Game-Theoretic Cosmology and the Curvature Feedback Model"
+          -> Spieltheoretische Grundlegung, CFM ersetzt Dunkle Energie
+          -> 30 Seiten, bilingual (DE/EN), Delta chi^2 = -12.2
 
-Akzeptabel:
-- Subscription-Journals (traditionell, kein OA, KOSTENLOS fuer Autor)
-- Hybrid-Journals im Subscription-Modus (kein OA, KOSTENLOS fuer Autor)
-- Journals ohne APC-Modell (z.B. ZKJ, Mind and Matter, JCS, Philosophy E&W)
-- SCOAP3-gedeckte Journals (z.B. JCAP - Kosten von Konsortium getragen)
-- PRD im Subscription-Modus (kostenlos)
+Paper II: "Eliminating the Dark Sector" (FLAGGSCHIFF)
+          -> CFM+MOND Vereinigung, Baryon-Only-Universum
+          -> 16 Seiten, EN, Delta chi^2 = -26.3, beta = 2.02
+          -> Trace-Kopplung loest BBN-Problem
 
-NICHT akzeptabel:
-- Gold-OA-Journals mit Pflicht-APC (z.B. Frontiers, JMIR, MDPI)
-- Jede Publikation, die Autorengebuehren erfordert
+Paper III: "Microscopic Foundations of the CFM"
+          -> Lagrangian, Quantengravitation, fraktale Spieltheorie
+          -> 20 Seiten, EN, Poeschl-Teller + R^2
 
-Die individuellen PUBLICATION_STRATEGY.txt Dateien wurden am 2026-02-11
-entsprechend aktualisiert. Alle Gold-OA-Journals mit Pflicht-APC wurden
-entfernt und durch kostenlose Alternativen ersetzt.
+===============================================================================
+PHASE 1: ZENODO (DOI sichern)
+===============================================================================
+
+Zeitpunkt: Sobald Papers final reviewt sind
+Reihenfolge: Paper I -> Paper II -> Paper III -> Code/Daten
+Ergebnis: Vier DOIs (10.5281/zenodo.XXXXXXX)
+
+Ablauf:
+1. zenodo.org Account (existiert bereits?)
+2. "New Upload" -> Preprint
+3. PDF + TEX hochladen
+4. Metadaten aus ZENODO.txt uebernehmen
+5. Communities auswaehlen
+6. Publish -> DOI wird sofort vergeben
+
+Wichtig:
+- Zenodo erlaubt Updates (neue Versionen) nach Erstupload
+- Jede Version bekommt eine eigene DOI + eine "Concept DOI" (versionlos)
+- Die Concept DOI fuer Zitierungen verwenden
+
+===============================================================================
+PHASE 2: DOIs IN PAPERS EINTRAGEN
+===============================================================================
+
+Nach Zenodo-Upload:
+- Paper I: DOI in die \url{} bei \bibitem{Geiger2026} eintragen
+- Paper II: DOI in die \url{} eintragen, Paper I DOI referenzieren
+- Paper III: DOIs von Paper I und II referenzieren
+- Alle Papers neu kompilieren und auf Zenodo als v2 hochladen
+
+===============================================================================
+PHASE 3: arXiv (Sichtbarkeit)
+===============================================================================
+
+Zeitpunkt: 1-2 Tage nach Zenodo
+Kategorie: astro-ph.CO (primaer), gr-qc (sekundaer)
+
+WICHTIG - arXiv Endorsement:
+- Als unabhaengiger Forscher braucht man ein "Endorsement" von einem
+  registrierten arXiv-Autor in der gewaehlten Kategorie
+- OHNE Endorsement: Kein Upload moeglich
+- Alternativen:
+  a) Einen Kosmologen kontaktieren und um Endorsement bitten
+  b) Ueber eine Universitaet einreichen (Gastforscherstatus?)
+  c) Zuerst in einem Journal einreichen und die Akzeptanz fuer
+     arXiv-Berechtigung nutzen
+
+Reihenfolge auf arXiv:
+- Paper I und II gleichzeitig oder Paper II zuerst
+- Paper III 1-2 Wochen spaeter (gibt Zeit fuer erste Reaktionen)
+- Zenodo DOI im arXiv-Kommentarfeld angeben
+
+===============================================================================
+PHASE 4: JOURNAL-EINREICHUNG (OPTIONAL)
+===============================================================================
+
+Grundsatz: KEINE Article Processing Charges (APC)
+
+Empfohlene Journals (kostenfrei fuer Autor):
+
+1. Physical Review D (APS)
+   - Goldstandard fuer Kosmologie
+   - Subscription-Modus: kostenlos fuer Autor
+   - Sehr strenges Review, aber bei Akzeptanz sofort etabliert
+   - Paper II hier einreichen (das staerkste Ergebnis)
+
+2. Classical and Quantum Gravity (IOP)
+   - Offen fuer theoretische Modelle
+   - Guter Ort fuer Paper III (Lagrangian/QG)
+
+3. Journal of Cosmology and Astroparticle Physics (JCAP)
+   - SCOAP3-gedeckt: kostenlos fuer Autor
+   - Spezialisiert auf Kosmologie
+   - Alternative fuer Paper II
+
+4. Monthly Notices of the Royal Astronomical Society (MNRAS)
+   - Kostenlos fuer Autor (kein APC)
+   - Sehr breit gelesen
+
+NICHT einreichen bei:
+- Frontiers, MDPI, Hindawi (Pflicht-APC)
+- Nature/Science (unrealistisch ohne institutionelle Anbindung)
+
+===============================================================================
+PHASE 5: SOCIAL MEDIA & COMMUNITY
+===============================================================================
+
+Nach arXiv-Upload:
+[ ] LinkedIn-Post (siehe LINKEDIN.txt)
+[ ] Twitter/X-Post mit arXiv-Link
+[ ] Relevante Forscher direkt kontaktieren:
+    - Constantinos Skordis (AeST/MOND)
+    - Pavel Kroupa (MOND-Befuerworter)
+    - Stacy McGaugh (MOND/Tully-Fisher)
+    - Sabine Hossenfelder (Wissenschaftskommunikation)
+[ ] GitHub Repo auf PUBLIC schalten
+
+===============================================================================
+PHASE 6: NACH VEROEFFENTLICHUNG
+===============================================================================
+
+[ ] Zenodo: Code/Daten-Paket mit Paper-DOIs verlinken
+[ ] GitHub: README mit allen DOIs und Links aktualisieren
+[ ] Auf Reaktionen/Kommentare reagieren
+[ ] Bei Bedarf: Erratum oder v2 auf Zenodo/arXiv
+
+===============================================================================
+RISIKOBEWERTUNG
+===============================================================================
+
+Staerken:
++ Delta chi^2 = -26.3 ist statistisch sehr signifikant
++ beta = 2.02 aus MCMC (nicht hineingesteckt, von Daten gefunden)
++ Trace-Kopplung loest BBN-Problem elegant
++ Drei-Paper-Struktur ist kohaerent
++ Code/Daten reproduzierbar (Pantheon+ oeffentlich)
+
+Schwaechen / Angriffspunkte:
+- Kein CMB C_l Fit (wichtigster fehlender Test)
+- Kein P(k) Fit (Strukturbildung)
+- 5 Parameter vs 2 (LambdaCDM) - Overfitting-Vorwurf moeglich
+- Unabhaengiger Forscher ohne institutionelle Anbindung
+- KI-Co-Autorschaft kann polarisieren
+
+Strategie gegen Kritik:
+- CMB/P(k): Ehrlich als "next step" markiert, AeST als Praezedenz
+- Overfitting: AIC UND BIC favorisieren das Modell
+- Institution: Zenodo DOI + arXiv machen Institution irrelevant
+- KI: Transparent deklariert (AI Disclosure in jedem Paper)
+
+===============================================================================
+TIMELINE (VORSCHLAG)
+===============================================================================
+
+Woche 1:  Finales Review (Gemini + eigene Pruefung)
+Woche 2:  Zenodo Upload (4 Pakete, DOIs sichern)
+Woche 2:  DOIs in Papers eintragen, neu kompilieren, Zenodo v2
+Woche 3:  arXiv Endorsement organisieren
+Woche 3-4: arXiv Upload
+Woche 4:  GitHub auf PUBLIC, Social Media
+Woche 5+: Journal-Einreichung vorbereiten (optional)
