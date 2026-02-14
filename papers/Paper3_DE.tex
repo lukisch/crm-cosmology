@@ -1,0 +1,854 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{authblk}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{array}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}{Vermutung}
+
+\titleformat{\section}{\Large\bfseries\sffamily\color{black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\sffamily\color{darkgray}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\sffamily\color{darkgray}}{\thesubsubsection}{1em}{}
+
+\hypersetup{
+    pdftitle={Vom Kr\"ummungs-Feedback zur Quantengravitation},
+    pdfauthor={Lukas Geiger},
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black
+}
+
+\onehalfspacing
+
+\begin{document}
+
+% ===================================================================
+% TITELSEITE
+% ===================================================================
+
+\title{\textbf{\huge Vom Kr\"ummungs-Feedback zur Quantengravitation}\\[0.5em]
+\Large Lagrange-Fundament, Skalaron-Dynamik und testbare Vorhersagen des CFM}
+
+\author[1]{Lukas Geiger\thanks{Korrespondenz: Lukas Geiger, Gei\ss{}b\"uhlweg~1, 79872~Bernau, Deutschland.}}
+\affil[1]{Unabh\"angiger Forscher, Bernau im Schwarzwald}
+
+\date{Februar 2026 \\ \vspace{0.5em} \small \textit{Arbeitspapier -- Paper III der CFM-Serie \cite{Geiger2026,Geiger2026b}}}
+
+\maketitle
+
+\begin{abstract}
+\noindent Die Paper~I und~II dieser Serie haben das Kr\"ummungsr\"uckkopplungsmodell (Curvature Feedback Model, CFM) als ph\"anomenologisch erfolgreiche Alternative zu $\Lambda$CDM etabliert, die den gesamten dunklen Sektor durch einen geometrischen Kr\"ummungsr\"uckkehrmechanismus eliminiert. Das vorliegende Paper behandelt die ausstehende theoretische Herausforderung: \textit{Was ist der mikroskopische Ursprung der S\"attigungs-ODE?} Wir suchen das Quantensystem, dessen makroskopischer (thermodynamischer) Grenzfall die Kr\"ummungsr\"uckkehrgleichung $d\Omega_\Phi/da = k\,[1 - (\Omega_\Phi/\Phi_0)^2]$ liefert. Wir untersuchen vier Kandidatenrahmenwerke: (1)~ein Skalarfeld mit einem Doppelmuldenpotential, das $\tanh$-artige S\"attigung durch spontane Symmetriebrechung erzeugt; (2)~Schleifen-Quantengravitation, bei der Holonomie-Korrekturen beschr\"ankte Kr\"ummungsinvarianten erzeugen; (3)~Finsler-Geometrie, bei der richtungsabh\"angige Metriken nat\"urlicherweise skalenabh\"angige Gravitationseffekte erzeugen; und (4)~informationstheoretische Raumzeit, bei der die S\"attigungs-ODE aus einem Maximum-Entropie-Prinzip auf kausalen Mengen hervorgeht. Wir leiten die effektive Lagrange-Dichte $\mathcal{L}_{\mathrm{CFM}}$ her, die die erweiterte Friedmann-Gleichung reproduziert, und diskutieren ihre Implikationen f\"ur die Quantengravitation. Dar\"uber hinaus schlagen wir eine \textit{fraktale Spieltheorie} vor, in der die Nash-Gleichgewichtsstruktur auf drei Ebenen selbst\"ahnlich ist -- Raumzeitbits, Elementarteilchen und kosmische Expansion -- was nahelegt, dass Quantenmechanik, das Standardmodell und die kosmologische Evolution Manifestationen desselben Optimierungsprinzips auf verschiedenen Skalen sind.
+
+\vspace{0.5em}
+\noindent \textbf{Schl\"usselw\"orter:} Kr\"ummungsr\"uckkopplungsmodell, Quantengravitation, Lagrange-Formulierung, Schleifen-Quantengravitation, Finsler-Geometrie, S\"attigungsmechanismus, fraktale Spieltheorie, modifizierte Gravitation
+
+\vspace{0.5em}
+\noindent \textbf{Themenbereiche:} Theoretische Physik, Quantengravitation, Mathematische Physik
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+% ===================================================================
+% KI-OFFENLEGUNG
+% ===================================================================
+\section*{KI-Offenlegung und Methodik}
+\addcontentsline{toc}{section}{KI-Offenlegung und Methodik}
+
+\noindent\textbf{Erweiterte Methodenerkl\"arung:} Dieses Paper ist ein Experiment in \textit{KI-gest\"utzter Wissenschaft}. Die Arbeitsteilung wird transparent offengelegt:
+
+\begin{description}[style=nextline, leftmargin=2cm]
+\item[\textbf{Menschlicher Autor} (Lukas Geiger)] Physikalische Intuition, Kernhypothesen (S\"attigung als Phasen\"ubergang, fraktale Spieltheorie \"uber Skalen hinweg, Verbindung zur Quanten-Fehlerkorrektur, "`Mutter--Tochter--Enkelin"'-Ontologie), Interpretation, strategische Entscheidungen und letztliche Verantwortung f\"ur alle wissenschaftlichen Inhalte.
+\item[\textbf{Claude Opus 4.6} (Anthropic)] Ko-Autor: Mathematische Formalisierung (Lagrange-Dichte, P\"oschl-Teller-Herleitung, St\"orungsgleichungen), Code-Entwicklung, Texterstellung, Strukturierung.
+\item[\textbf{Gemini} (Google DeepMind)] Gutachter: Quantengravitationsverbindungen, Analyse mikroskopischer Kandidaten, Identifikation experimenteller Tests, kosmische Doppelbrechungsverbindung, unabh\"angige Konvergenzverifikation ("`RQI-Theorie"', die die CFM-Kernstruktur aus ersten Prinzipien reproduziert).
+\end{description}
+
+\vspace{0.5em}
+\noindent\textit{Hinweis:} Die mathematische Formalisierung wurde von KI-Systemen durchgef\"uhrt. Der Autor pr\"asentiert diese Hypothesen als \textit{Arbeitspapier}, um \"Uberpr\"ufung und Weiterentwicklung durch die wissenschaftliche Gemeinschaft zu erm\"oglichen. \textbf{Unabh\"angige mathematische Verifikation wird ausdr\"ucklich ermutigt.} Der Analysecode ist quelloffen und zur Replikation verf\"ugbar.
+
+\newpage
+
+
+% ===================================================================
+% 1. EINLEITUNG
+% ===================================================================
+\section{Einleitung -- Die zentrale Frage}
+\label{sec:intro}
+
+Das Kr\"ummungsr\"uckkopplungsmodell (CFM) \cite{Geiger2026} und seine MOND-kompatible Erweiterung \cite{Geiger2026b} haben bemerkenswerten ph\"anomenologischen Erfolg gezeigt:
+
+\begin{itemize}
+\item \textbf{Paper~I:} Das Standard-CFM ersetzt Dunkle Energie durch ein Kr\"ummungsr\"uckkehrpotential und erreicht $\Delta\chi^2 = -12{,}2$ gegen\"uber $\Lambda$CDM auf Pantheon+-Daten.
+\item \textbf{Paper~II:} Das erweiterte CFM eliminiert den gesamten dunklen Sektor (sowohl Dunkle Energie als auch Dunkle Materie) in einem rein baryonischen Universum und erreicht $\Delta\chi^2 = -26{,}3$ mit einem geometrischen "`Dunkle-Materie"'-Term, der wie r\"aumliche Kr\"ummung skaliert ($\beta = 2{,}02 \pm 0{,}20$).
+\end{itemize}
+
+Beide Ergebnisse leiten sich aus einer einzigen dynamischen Gleichung ab -- der \textit{S\"attigungs-ODE}:
+\begin{equation}
+\frac{d\Omega_\Phi}{da} = k \left[1 - \left(\frac{\Omega_\Phi}{\Phi_0}\right)^2\right]
+\label{eq:saturation_ode}
+\end{equation}
+
+deren L\"osung die $\tanh$-Funktion ist, die die sp\"atzeitliche Beschleunigung liefert. Das erweiterte Modell f\"ugt einen Potenzgesetzterm $\alpha \cdot a^{-\beta}$ hinzu, der die unges\"attigte (fr\"uhzeitliche) Phase desselben geometrischen Prozesses darstellt.
+
+Die zentrale Frage dieses Papers lautet:
+
+\begin{quote}
+\textit{Welches mikroskopische (Quanten-)System hat die Eigenschaft, dass sein makroskopischer (thermodynamischer) Grenzfall die S\"attigungs-ODE liefert? Und kann die vollst\"andige erweiterte Friedmann-Gleichung aus einer Lagrange-Dichte hergeleitet werden?}
+\end{quote}
+
+Diese Frage ist nicht nur akademisch. Ohne eine Lagrange-Formulierung kann das CFM nicht:
+\begin{enumerate}
+\item konsistent an Materiefelder gekoppelt werden,
+\item St\"orungsgleichungen f\"ur $C_\ell$- und $P(k)$-Vorhersagen erzeugen,
+\item mit bekannten Quantengravitationsrahmenwerken verbunden werden,
+\item als vollst\"andige physikalische Theorie betrachtet werden.
+\end{enumerate}
+
+
+% ===================================================================
+% 2. DIE EFFEKTIVE LAGRANGE-DICHTE
+% ===================================================================
+\section{Die effektive Lagrange-Dichte}
+\label{sec:lagrangian}
+
+\subsection{Anforderungen}
+
+Die effektive Lagrange-Dichte $\mathcal{L}_{\mathrm{CFM}}$ muss erf\"ullen:
+\begin{enumerate}
+\item \textbf{Hintergrund:} Die Euler-Lagrange-Gleichungen, ausgewertet auf der FLRW-Metrik, m\"ussen die erweiterte Friedmann-Gleichung liefern:
+\begin{equation}
+H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta}\right]
+\end{equation}
+
+\item \textbf{S\"attigungsdynamik:} Die Skalarfeld-Bewegungsgleichung muss auf dem FLRW-Hintergrund auf $d\Omega_\Phi/da = k[1 - (\Omega_\Phi/\Phi_0)^2]$ reduzieren.
+
+\item \textbf{Allgemeine Kovarianz:} Die Wirkung muss diffeomorphismusinvariant sein.
+
+\item \textbf{Korrekte Grenzf\"alle:} Im Grenzfall $k \to 0$, $\alpha \to 0$ muss die Theorie auf die ART mit kosmologischer Konstante reduzieren.
+\end{enumerate}
+
+\subsection{Skalarfeld-Ansatz}
+
+Die nat\"urlichste Lagrange-Formulierung f\"uhrt ein Skalarfeld $\phi$ mit einem Potential $V(\phi)$ ein:
+\begin{equation}
+S = \int d^4x \sqrt{-g} \left[\frac{R}{16\pi G} - \frac{1}{2} g^{\mu\nu}\partial_\mu\phi\,\partial_\nu\phi - V(\phi) + \mathcal{L}_m\right]
+\label{eq:action_scalar}
+\end{equation}
+
+Damit die S\"attigungs-ODE hervorgeht, ben\"otigen wir ein $V(\phi)$ derart, dass die homogene Feldgleichung auf FLRW $\tanh$-artige L\"osungen liefert.
+
+\begin{proposition}[Doppelmulden-S\"attigungspotential]
+Das Potential
+\begin{equation}
+V(\phi) = V_0 \left[1 - \tanh^2\!\left(\frac{\phi}{\phi_0}\right)\right] = \frac{V_0}{\cosh^2(\phi/\phi_0)}
+\label{eq:double_well}
+\end{equation}
+erzeugt eine Skalenfeldgleichung, deren sp\"atzeitliche L\"osung auf dem FLRW-Hintergrund $\phi(a) \propto \tanh(k(a - a_{\mathrm{trans}}))$ ist und den S\"attigungsterm des CFM reproduziert.
+\end{proposition}
+
+\textit{Beweisskizze:} Die Klein-Gordon-Gleichung auf FLRW,
+\begin{equation}
+\ddot{\phi} + 3H\dot{\phi} + V'(\phi) = 0
+\end{equation}
+mit $V'(\phi) = -2V_0 \tanh(\phi/\phi_0)/(\phi_0 \cosh^2(\phi/\phi_0))$, besitzt die L\"osung $\phi = \phi_0 \tanh(\lambda t)$ im Slow-Roll-Regime, in dem $\ddot{\phi} \ll 3H\dot{\phi}$, wobei $\lambda$ mit $k$ und $H_0$ zusammenh\"angt. Die Energiedichte $\rho_\phi = \frac{1}{2}\dot{\phi}^2 + V(\phi)$ bildet dann ab auf $\Omega_\Phi(a) = \Phi_0 \cdot f_{\mathrm{sat}}(a)$. \hfill $\square$
+
+\textit{Anmerkung:} Das $\cosh^{-2}$-Potential ist in der Quantenmechanik als P\"oschl-Teller-Potential wohlbekannt. Sein Auftreten hier legt eine tiefe Verbindung zwischen quantenmechanischen Bindungszust\"anden und kosmologischer S\"attigung nahe.
+
+\subsection{Der Potenzgesetzterm: Geometrischer Ursprung}
+
+Der geometrische "`Dunkle-Materie"'-Term $\alpha \cdot a^{-\beta}$ mit $\beta \approx 2$ erfordert einen separaten Ursprung. Zwei Ans\"atze sind m\"oglich:
+
+\textbf{Ansatz 1: Kr\"ummungsquadratische Terme.} Hinzuf\"ugen eines Gauss-Bonnet- oder $R^2$-Terms zur Wirkung:
+\begin{equation}
+S_{\mathrm{geom}} = \int d^4x \sqrt{-g} \left[\frac{R}{16\pi G} + \gamma\, R^2 + \delta\, R_{\mu\nu}R^{\mu\nu}\right]
+\end{equation}
+erzeugt Korrekturen zur Friedmann-Gleichung, die in der Strahlungs-Materie-\"Ubergangs\"ara wie $a^{-2}$ skalieren. Der Koeffizient $\gamma$ kann mit $\alpha$ in Beziehung gesetzt werden.
+
+\textbf{Ansatz 2: Vektorfeld (AeST-inspiriert).} Nach Skordis \& Z{\l}o\'snik \cite{Skordis2021} tr\"agt ein zeitartiges Vektorfeld $A_\mu$, das durch $g^{\mu\nu}A_\mu A_\nu = -1$ eingeschr\"ankt ist, eine effektive Energiedichte bei, die nichtstandardm\"a\ss ig mit $a$ skaliert. Der CFM-Potenzgesetzterm k\"onnte als kosmologischer Hintergrund eines solchen Vektorfeldes hervorgehen.
+
+\subsection{Die kombinierte Wirkung}
+
+Durch Kombination beider Beitr\"age lautet die vollst\"andige CFM-Wirkung:
+\begin{equation}
+\boxed{S_{\mathrm{CFM}} = \int d^4x \sqrt{-g} \left[\frac{R}{16\pi G} + \gamma R^2 - \frac{1}{2}(\partial\phi)^2 - \frac{V_0}{\cosh^2(\phi/\phi_0)} + \mathcal{L}_m\right]}
+\label{eq:full_action}
+\end{equation}
+
+wobei der $R^2$-Term den Potenzgesetz-Beitrag ("`Dunkle Materie"') und das Skalarfeld den S\"attigungsbeitrag ("`Dunkle Energie"') erzeugt. Das spieltheoretische Gleichgewicht zwischen Nullraum und Raumzeitblase ist in der Balance zwischen $\gamma$ und $V_0$ kodiert.
+
+Eine entscheidende Verfeinerung, die in Paper~II \cite{Geiger2026b} eingef\"uhrt wurde, ist die \textit{Spurkopplung}: Der $R^2$-Term koppelt an die Spur des Energie-Impuls-Tensors $T = g^{\mu\nu}T_{\mu\nu}$, die f\"ur Strahlung ($w = 1/3$) aufgrund der konformen Symmetrie verschwindet. Dies unterdr\"uckt automatisch den geometrischen DM-Beitrag w\"ahrend der Strahlungs\"ara und sch\"utzt die Urknall-Nukleosynthese ohne einen ad-hoc-Abschneideparameter. Die modifizierte Wirkung lautet:
+\begin{equation}
+S_{\mathrm{CFM}} = \int d^4x \sqrt{-g} \left[\frac{R}{16\pi G} + \gamma\, \mathcal{F}(T/\rho)\, R^2 - \frac{1}{2}(\partial\phi)^2 - \frac{V_0}{\cosh^2(\phi/\phi_0)} + \mathcal{L}_m\right]
+\end{equation}
+wobei $\mathcal{F}(T/\rho) \to 0$ in der Strahlungs\"ara und $\mathcal{F} \to 1$ in der Materie\"ara. Die spezifische Form $\mathcal{F} = |T|/(|T| + \rho_{\mathrm{rad}})$ reproduziert den Unterdr\"uckungsfaktor $\mathcal{S}(a)$ aus Paper~II.
+
+\textit{Status:} Dies ist eine Kandidaten-Wirkung. Ihre Konsistenz (Geisterfreiheit, Stabilit\"at, korrekter Newtonscher Grenzfall) muss verifiziert werden. Die vollst\"andigen St\"orungsgleichungen, die aus der Wirkung hergeleitet werden, bestimmen, ob das Modell CMB- und gro\ss r\"aumige Strukturbeobachtungen reproduzieren kann.
+
+
+% ===================================================================
+% 3. QUANTENGRAVITATIONSVERBINDUNGEN
+% ===================================================================
+\section{Quantengravitationsverbindungen}
+\label{sec:quantum_gravity}
+
+\subsection{Warum die S\"attigungs-ODE?}
+
+Das zentrale R\"atsel ist die spezifische Form der S\"attigungs-ODE: $dX/da = k(1 - X^2)$. Diese Gleichung hat zwei Fixpunkte ($X = \pm 1$), von denen $X = +1$ stabil ist. Die $\tanh$-L\"osung ist die einzige Trajektorie, die $X = 0$ (keine Kr\"ummungsr\"uckkehr) mit $X = 1$ (vollst\"andige S\"attigung) verbindet. Wir \"uberblicken vier Rahmenwerke, die solche Dynamik nat\"urlicherweise erzeugen.
+
+\subsection{Ansatz 1: Schleifen-Quantengravitation}
+\label{subsec:lqg}
+
+In der Schleifen-Quantengravitation (Loop Quantum Gravity, LQG) \cite{Rovelli2004, Thiemann2007} wird die Raumzeit in diskrete Spinnetzwerkzust\"ande quantisiert. Das Schl\"usselmerkmal f\"ur unsere Zwecke ist die Eigenschaft der \textit{beschr\"ankten Kr\"ummung}: Holonomie-Korrekturen ersetzen Kr\"ummungsinvarianten $R$ durch beschr\"ankte Funktionen $\sin(\mu R)/\mu$ (wobei $\mu$ mit der Planck-Fl\"ache zusammenh\"angt).
+
+In der Schleifen-Quantenkosmologie (Loop Quantum Cosmology, LQC) \cite{Ashtekar2011} wird die Friedmann-Gleichung zu:
+\begin{equation}
+H^2 = \frac{8\pi G}{3} \rho \left(1 - \frac{\rho}{\rho_c}\right)
+\label{eq:lqc_friedmann}
+\end{equation}
+wobei $\rho_c \sim \rho_{\mathrm{Pl}}$ eine kritische Dichte ist. Diese hat die Struktur einer S\"attigungsgleichung: Die Expansionsrate ist beschr\"ankt, wenn $\rho \to \rho_c$.
+
+\begin{conjecture}[LQG--CFM-Verbindung]
+Die S\"attigungs-ODE ist das sp\"atzeitliche, niederenergetische Residuum der LQC-Kr\"ummungsschranke. Im fr\"uhen Universum verhindert die Schranke Singularit\"aten; im sp\"aten Universum erzeugt derselbe Mechanismus die Kr\"ummungsr\"uckkehr-S\"attigung. Die Parameter $k$ und $\Phi_0$ h\"angen mit der LQG-Fl\"achenl\"ucke $\Delta$ und dem Barbero-Immirzi-Parameter $\gamma_{\mathrm{BI}}$ zusammen.
+\end{conjecture}
+
+\textit{Evidenz:} Beide Gleichungen teilen die Struktur $dX/dt \propto (1 - X^2)$. In der LQC ist $X$ die Kr\"ummung; im CFM ist $X$ das Kr\"ummungsr\"uckkehrpotential. Die Abbildung erfordert die Identifikation von $\Omega_\Phi/\Phi_0$ mit einer normierten Kr\"ummungsinvariante.
+
+\subsection{Ansatz 2: Finsler-Geometrie}
+\label{subsec:finsler}
+
+Die Finsler-Geometrie verallgemeinert die Riemannsche Geometrie, indem sie der Metrik erlaubt, sowohl von der Position als auch von der Richtung abzuh\"angen: $F(x, \dot{x})$ statt $g_{\mu\nu}(x)\,dx^\mu\,dx^\nu$ \cite{Bao2000}. Diese Richtungsabh\"angigkeit kann erzeugen:
+
+\begin{itemize}
+\item Skalenabh\"angige Gravitationseffekte (die MOND auf galaktischen Skalen nachahmen)
+\item Nichtstandardm\"a\ss ige kosmologische Skalierung (der $a^{-\beta}$-Term)
+\item Einen nat\"urlichen S\"attigungsmechanismus, wenn die Richtungsabh\"angigkeit eine geometrische Schranke erreicht
+\end{itemize}
+
+\begin{conjecture}[Finsler--CFM-Verbindung]
+Die erweiterte CFM-Friedmann-Gleichung entspricht einer Finsler-Raumzeit mit einer spezifischen Wahl der Finsler-Funktion $F$. Der "`Dunkle-Materie"'-Term $\alpha \cdot a^{-2}$ entsteht aus der oskulierenden Riemannschen Kr\"ummung der Finsler-Metrik, und der S\"attigungsterm entsteht aus dem Finsler-Analogon des Ricci-Skalars, der eine geometrische Schranke erreicht.
+\end{conjecture}
+
+\textit{Anmerkung:} Finsler-Geometrie wurde auf MOND \cite{Chang2009} und auf modifizierte Dispersionsrelationen in der Quantengravitation \cite{Girelli2007} angewendet. Das CFM k\"onnte die kosmologische Realisierung einer Finsler-Raumzeit liefern.
+
+\subsection{Ansatz 3: Informationstheoretische Raumzeit}
+\label{subsec:information}
+
+Wenn die Raumzeit fundamental informationstheoretisch ist (wie durch das holographische Prinzip \cite{Bousso2002} und die ER=EPR-Vermutung \cite{Maldacena2013} nahegelegt), dann kann die S\"attigungs-ODE als \textit{Maximum-Entropie-Prinzip} uminterpretiert werden:
+
+\begin{itemize}
+\item Das Kr\"ummungsr\"uckkehrpotential $\Omega_\Phi$ repr\"asentiert die "`verarbeitete Information"' des Raumzeitsystems.
+\item Die S\"attigungsgrenze $\Phi_0$ repr\"asentiert die maximale Informationskapazit\"at (holographische Schranke).
+\item Die ODE $dX/da = k(1 - X^2)$ ist die logistische Wachstumsgleichung f\"ur Informationsverarbeitung, bei der die Rate des Informationsgewinns abnimmt, wenn sich das System seiner Kapazit\"at n\"ahert.
+\end{itemize}
+
+In diesem Bild wird die spieltheoretische Interpretation aus Paper~I \cite{Geiger2026} w\"ortlich: Der Nullraum und die Raumzeitblase sind zwei Teilsysteme eines Quanteninformationsnetzwerks, und ihr Nash-Gleichgewicht wird durch die informationstheoretischen Beschr\"ankungen der holographischen Schranke bestimmt.
+
+Ein eng verwandter Mechanismus ist die \textit{S\"attigung der Verschr\"ankungsentropie} \cite{VanRaamsdonk2010}. Wenn Raumzeitkonnektivit\"at aus Quantenverschr\"ankung aufgebaut ist (die "`ER=EPR"'-Hypothese \cite{Maldacena2013}), dann sind zwei Punkte im Raum "`nahe"', weil ihre Quantenzust\"ande verschr\"ankt sind. Verschr\"ankung ist jedoch eine endliche Ressource, die der Monogamie-Beschr\"ankung unterliegt: Ein Quantensystem kann nicht gleichzeitig maximal mit beliebig vielen Partnern verschr\"ankt sein. Wenn das Universum expandiert und neue Raumzeitfreiheitsgrade erzeugt werden, nimmt das Verschr\"ankungsbudget pro Freiheitsgrad ab. Die S\"attigungs-ODE beschreibt dann die Ann\"aherung an die Verschr\"ankungskapazit\"atsgrenze: Wenn der "`Klebstoff"' (Verschr\"ankung), der die Raumzeit zusammenh\"alt, seine maximale Verd\"unnung erreicht, beschleunigt die Expansion -- nicht wegen einer neuen Energieform, sondern weil die Bindungskapazit\"at ersch\"opft ist.
+
+\subsection{Ansatz 4: Theorie der kausalen Mengen}
+\label{subsec:causal_sets}
+
+Die Theorie der kausalen Mengen \cite{Bombelli1987, Sorkin2003} modelliert die Raumzeit als diskrete Halbordnung von Ereignissen. Das Schl\"usselergebnis f\"ur unsere Zwecke ist die \textit{Sorkin-kosmologische-Konstante} \cite{Sorkin1991}: In einem kausalen-Mengen-Universum mit $N$ Elementen hat die kosmologische Konstante Fluktuationen der Gr\"o\ss enordnung $\Lambda \sim 1/\sqrt{N}$, was eine nat\"urliche Erkl\"arung f\"ur die beobachtete Kleinheit von $\Lambda$ liefert.
+
+\begin{conjecture}[Kausale-Mengen--CFM-Verbindung]
+In einer dynamisch evolvierenden kausalen Menge entspricht das Kr\"ummungsr\"uckkehrpotential $\Omega_\Phi$ der "`effektiven kosmologischen Konstante"', die sich \"andert, wenn neue Elemente zur Menge hinzugef\"ugt werden. Die S\"attigung bei $\Phi_0$ entspricht dem Erreichen der Gleichgewichtsdichte der kausalen Menge. Der Potenzgesetzterm $\alpha \cdot a^{-2}$ spiegelt den anf\"anglichen \"Ubergangsprozess wider, bevor die Menge das Gleichgewicht erreicht.
+\end{conjecture}
+
+\subsection{Ansatz 5: Quanten-Fehlerkorrektur}
+\label{subsec:qec}
+
+Ein neueres und besonders \"uberzeugendes Rahmenwerk interpretiert die Raumzeit als \textit{fehlerkorrigierenden Quantencode} \cite{Almheiri2015, Pastawski2015}. In diesem Bild ist das holographische Prinzip nicht nur eine Schranke f\"ur die Informationsspeicherung, sondern eine Aussage \"uber \textit{Redundanz}: Die Volumen-Raumzeitgeometrie ist eine fehlergesch\"utzte Kodierung der Rand-Freiheitsgrade (holographische Freiheitsgrade).
+
+Der S\"attigungsmechanismus erh\"alt eine nat\"urliche Interpretation:
+\begin{itemize}
+\item Jeder fehlerkorrigierende Code hat eine endliche \textbf{Code-Kapazit\"at} -- eine maximale Rate, mit der er Information gegen Rauschen (Dekoh\"arenz) sch\"utzen kann.
+\item Wenn das Universum expandiert und der Informationsgehalt w\"achst (Strukturbildung, zunehmende Entropie), n\"ahert sich der Code seiner Kapazit\"atsgrenze.
+\item Die S\"attigung $\Phi_0$ ist die Code-Kapazit\"at: der Punkt, an dem der Raumzeit-"`Code"' keine zus\"atzliche Komplexit\"at mehr aufnehmen kann, ohne instabil zu werden.
+\item Die beschleunigte Expansion (Dunkle Energie) ist der \textbf{Selbstschutzmechanismus} des Codes: Durch Verd\"unnung der Informationsdichte verhindert er, dass der Code seine Fehlerkorrekturschwelle \"uberschreitet.
+\end{itemize}
+
+\begin{conjecture}[QEC--CFM-Verbindung]
+Das Kr\"ummungsr\"uckkehrpotential $\Omega_\Phi$ misst den Anteil der genutzten Kapazit\"at des fehlerkorrigierenden Raumzeitcodes. Die S\"attigungs-ODE $dX/da = k(1-X^2)$ beschreibt die Ann\"aherung an die Code-Kapazit\"at. Die beschleunigte Expansion ist die autonome Reaktion des Codes auf drohende S\"attigung -- er erzeugt mehr "`Speicherplatz"' (Volumen), um die Integrit\"at des Codes aufrechtzuerhalten.
+\end{conjecture}
+
+Diese Interpretation verbindet sich direkt mit dem spieltheoretischen Rahmenwerk aus Paper~I \cite{Geiger2026}: Das "`Selbstschutzmotiv"' des Nullraums ist \textit{buchst\"ablich} das Bestreben des fehlerkorrigierenden Codes, seine Integrit\"at zu wahren. Die Raumzeitblase ist nicht nur eine "`Tochter"' des Nullraums -- sie ist der Mechanismus des Nullraums zum Schutz seiner Quanteninformation gegen Dekoh\"arenz, implementiert als holographischer Code, dessen Kapazit\"atsgrenze sich als Dunkle Energie manifestiert.
+
+\subsection{Die Natur des Nullraums}
+\label{subsec:null_space}
+
+Paper~I und~II postulierten den Nullraum als den "`anderen Spieler"' im kosmologischen Spiel -- den pr\"ageometrischen Grundzustand, aus dem die Raumzeitblase hervorgeht. Mit den oben dargelegten Quantengravitationsans\"atzen k\"onnen wir den Nullraum nun pr\"aziser charakterisieren.
+
+\textbf{A-geometrisch:} Der Nullraum hat keine Metrik. Es gibt keinen Begriff von Abstand, Dauer oder Dimensionalit\"at. Er ist eine \textit{topologische} oder \textit{algebraische} Entit\"at, keine geometrische. In LQG-Sprache ist er der Zustand maximaler Unordnung unter Spinnetzwerkknoten -- alle Verbindungen existieren in Superposition, aber keine ist realisiert.
+
+\textbf{Superposition aller Geometrien:} Quantenmechanisch ist der Nullraum das Pfadintegral \"uber alle m\"oglichen Raumzeitkonfigurationen, gleichm\"a\ss ig gewichtet. Er ist der Zustand maximaler Unsicherheit \"uber die Geometrie -- nicht "`leerer Raum"', sondern "`\"uberhaupt kein Raum"'.
+
+\textbf{Das Energiereservoir:} Im spieltheoretischen Rahmenwerk besitzt der Nullraum das gesamte Energiebudget $E_0$, existiert aber in einem metastabilen Zustand (die "`Bank"', die das Kapital h\"alt, aber nicht investiert). Eine Quantenfluktuation l\"ost den Phasen\"ubergang aus, der die Raumzeitblase erzeugt.
+
+\textbf{Der Code:} In der QEC-Interpretation ist der Nullraum die \textit{logische} Quanteninformation, die der Raumzeitcode sch\"utzt. Die Volumen-Raumzeit (unser Universum) sind die \textit{physikalischen} Qubits des Codes. Der holographische Rand ist die Schnittstelle zwischen der logischen (Nullraum-) und der physikalischen (Raumzeit-)Schicht.
+
+\begin{definition}[Geometrische Kristallisation]
+Die Entstehung der Raumzeit aus dem Nullraum ist ein \textit{geometrischer Phasen\"ubergang} -- analog zur Kristallisation von Wasser zu Eis. Der Nullraum ist die ungeordnete "`fl\"ussige"' Phase (keine Geometrie, alle Konfigurationen in Superposition). Die Raumzeitblase ist die geordnete "`kristalline"' Phase (definite Geometrie, metrische Struktur). Die S\"attigungs-ODE beschreibt den Abschluss dieser Kristallisation: Das Kr\"ummungsr\"uckkehrpotential $\Omega_\Phi$ ist der Ordnungsparameter, und seine S\"attigung bei $\Phi_0$ ist der vollst\"andig kristallisierte Zustand (de-Sitter-Gleichgewicht).
+\end{definition}
+
+In diesem Bild hat die Frage "`Was s\"attigt?"' eine vereinheitlichte Antwort: \textit{die geometrische Ordnung der Raumzeit.} Ob wir diese Ordnung in Begriffen der Spinausrichtung (LQG), der Verschr\"ankungskonnektivit\"at (ER=EPR), der Informationskapazit\"at (Holographie) oder der Code-Auslastung (QEC) beschreiben, die mathematische Struktur ist dieselbe -- ein kooperatives System diskreter Freiheitsgrade, das sich seinem kollektiven Gleichgewicht n\"ahert. Die $\tanh$-Funktion ist die universelle Signatur dieses Prozesses, unabh\"angig von der spezifischen mikroskopischen Realisierung.
+
+
+% ===================================================================
+% 4. DER GEOMETRISCHE PHASEN\"UBERGANG
+% ===================================================================
+\section{Der geometrische Phasen\"ubergang}
+\label{sec:phase_transition}
+
+\subsection{Von der Dunkle-Materie-Phase zur Dunkle-Energie-Phase}
+
+Paper~II \cite{Geiger2026b} f\"uhrte das Konzept eines geometrischen Phasen\"ubergangs ein: Zu fr\"uhen Zeiten verh\"alt sich das Kr\"ummungsr\"uckkehrpotential wie Dunkle Materie ($\alpha \cdot a^{-2}$), und zu sp\"aten Zeiten s\"attigt es zu Dunkler Energie ($\Phi_0 \cdot f_{\mathrm{sat}}$). Dieser Abschnitt liefert die theoretische Fundierung.
+
+\subsection{Ordnungsparameter und Symmetriebrechung}
+
+Die S\"attigungsvariable $X = \Omega_\Phi / \Phi_0 \in [0, 1]$ kann als \textit{Ordnungsparameter} interpretiert werden:
+\begin{itemize}
+\item $X = 0$: Ungeordnete Phase (keine Kr\"ummungsr\"uckkehr, geometrische "`DM"' dominiert)
+\item $X = 1$: Geordnete Phase (volle S\"attigung, geometrische "`DE"' dominiert)
+\item Der \"Ubergang bei $a_{\mathrm{trans}}$: Die \"Uberkreuzung zwischen den Phasen
+\end{itemize}
+
+Die S\"attigungs-ODE $dX/da = k(1 - X^2)$ hat die Form einer Ginzburg-Landau-Gleichung f\"ur einen Phasen\"ubergang zweiter Ordnung mit einer Doppelmulden-freien Energie $F(X) = -k(X - X^3/3)$. Der "`Temperatur"'-Parameter ist der Skalenfaktor $a$, und der \"Ubergang findet statt, wenn $a$ \"uber $a_{\mathrm{trans}}$ hinaus ansteigt.
+
+\subsection{Analogie zur spontanen Magnetisierung}
+
+Die mathematische Struktur ist identisch mit der Molekularfeldtheorie des Ferromagnetismus:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Ferromagnetismus} & \textbf{CFM-Kosmologie} & \textbf{Variable} \\
+\midrule
+Magnetisierung $M$ & Kr\"ummungsr\"uckkehr $\Omega_\Phi$ & Ordnungsparameter \\
+Temperatur $T$ & Skalenfaktor $a$ & Kontrollparameter \\
+Curie-Punkt $T_c$ & \"Ubergang $a_{\mathrm{trans}}$ & Kritischer Punkt \\
+Spin-Wechselwirkung $J$ & Kr\"ummungskopplung $k$ & Wechselwirkungsst\"arke \\
+S\"attigung $M_s$ & S\"attigung $\Phi_0$ & Maximalwert \\
+$\tanh(J/k_BT)$ & $\tanh(k(a - a_{\mathrm{trans}}))$ & L\"osung \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Diese Analogie legt nahe, dass die Kr\"ummungsr\"uckkehr durch \textit{kooperative Ph\"anomene} angetrieben wird: Einzelne Raumzeitfreiheitsgrade (Fl\"achenquanten in der LQG, Elemente kausaler Mengen usw.) richten sich kollektiv aus und erzeugen einen makroskopischen S\"attigungseffekt. Das spieltheoretische "`Gleichgewicht"' aus Paper~I ist das kosmologische Analogon des thermischen Gleichgewichts in der statistischen Mechanik.
+
+\subsection{Kritische Exponenten und Universalit\"at}
+
+Wenn die Analogie zu Phasen\"uberg\"angen mehr als formal ist, sollte das CFM \textit{Universalit\"at} aufweisen: Der S\"attigungsexponent und die \"Ubergangsform sollten robust gegen mikroskopische Details sein. Dies w\"urde erkl\"aren, warum die ph\"anomenologische $\tanh$-Funktion die Daten gut anpasst -- sie ist die universelle Skalenfunktion eines Molekularfeld-Phasen\"ubergangs, unabh\"angig vom mikroskopischen Mechanismus.
+
+\begin{conjecture}[Universalit\"at des S\"attigungsmechanismus]
+Die $\tanh$-Form des Kr\"ummungsr\"uckkehrpotentials ist eine \textit{universelle} Konsequenz jeder mikroskopischen Theorie mit:
+\begin{enumerate}
+\item Einer beschr\"ankten Kr\"ummungsr\"uckkehr (S\"attigungsgrenze $\Phi_0$)
+\item Einer kooperativen Wechselwirkung zwischen Raumzeitfreiheitsgraden (Kopplung $k$)
+\item Einer einzigen relevanten Richtung (dem Skalenfaktor $a$)
+\end{enumerate}
+Der spezifische mikroskopische Mechanismus (LQG, Finsler, kausale Mengen) beeinflusst nur die Werte von $k$ und $\Phi_0$, nicht die funktionale Form.
+\end{conjecture}
+
+
+% ===================================================================
+% 5. FRAKTALE SPIELTHEORIE
+% ===================================================================
+\section{Fraktale Spieltheorie -- Selbst\"ahnliche Struktur \"uber Skalen}
+\label{sec:fractal}
+
+Wenn das spieltheoretische Rahmenwerk auf kosmologischer Ebene wirkt (Paper~I, II), stellt sich eine nat\"urliche Frage: Gilt dieselbe Logik auf \textit{allen} Skalen? Wir argumentieren, dass die Nash-Gleichgewichtsstruktur selbst\"ahnlich ist -- ein "`fraktales Spiel"', in dem dasselbe Optimierungsprinzip Raumzeitbits, Elementarteilchen und die kosmische Expansion regiert.
+
+\subsection{Drei Ebenen des Spiels}
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+\textbf{Ebene} & \textbf{Spieler} & \textbf{Spiel} & \textbf{Gleichgewicht} \\
+\midrule
+0: Substrat & Raumzeitbits/Spins & Ausrichtung & Geometrie ($\tanh$-S\"attigung) \\
+1: Quanten & Feldanregungen & Stabilit\"at & Teilchen (Standardmodell) \\
+2: Kosmos & Geometrie $\leftrightarrow$ Nullraum & Gradientenreduktion & Expansion (CFM) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Ebene~0 (Raumzeitsubstrat):} Die fundamentalen Freiheitsgrade (Fl\"achenquanten in der LQG, Elemente kausaler Mengen, Informationsbits) spielen ein kooperatives Ausrichtungsspiel. Wenn sich hinreichend viele Bits "`ausrichten"' (analog zu Spins in einem Ferromagneten), ist das makroskopische Ergebnis das Kr\"ummungsr\"uckkehrpotential. Die $\tanh$-Funktion ist die Molekularfeldl\"osung dieses Ausrichtungsspiels -- dieselbe mathematische Struktur, die die ferromagnetische Ordnung beherrscht. Die S\"attigungsgrenze $\Phi_0$ ist der Zustand, in dem alle verf\"ugbaren Bits ausgerichtet sind.
+
+\textbf{Ebene~1 (Quanten/Teilchen):} Die Anregungen des ausgerichteten Substrats bilden stabile Muster -- Elementarteilchen. In diesem Bild sind Teilchen keine fundamentalen Punktobjekte, sondern \textit{topologische Defekte} oder \textit{koh\"arente Anregungen} des Raumzeitsubstrats, analog zu Magnonen oder Phononen in der kondensierten Materie. Ihre Stabilit\"at wird durch dieselbe Nash-Gleichgewichtslogik garantiert: Ein Teilchen persistiert, weil keine lokale St\"orung die Gesamtkosten (Wirkung) der Konfiguration senken kann.
+
+\textbf{Ebene~2 (Kosmologisch):} Die makroskopische Geometrie, bestehend aus $\sim 10^{120}$ Substratbits, spielt das Gradientenreduktionsspiel mit dem Nullraum (Paper~I). Die Expansionsgeschichte -- einschlie\ss lich der "`Dunkle-Materie"'- und "`Dunkle-Energie"'-Phasen -- ist die L\"osung dieses Spiels. Dies ist die in Paper~I und~II beschriebene Ebene.
+
+Die Selbst\"ahnlichkeit ist nicht nur eine Analogie: Wenn die $\tanh$-S\"attigung aus einem kooperativen Molekularfeldspiel auf Ebene~0 hervorgeht, dann regiert \textit{dieselbe Gleichung} sowohl die mikroskopische Ausrichtung als auch die makroskopische Expansion. Die Parameter $k$ und $\Phi_0$ werden durch das mikroskopische Spiel (Ebene~0) bestimmt und vom kosmologischen Spiel (Ebene~2) geerbt.
+
+\subsection{Quantenmechanik als Gleichgewicht gemischter Strategien}
+
+Es besteht eine frappante Verbindung zwischen Quantenmechanik und Spieltheorie:
+
+\begin{itemize}
+\item In der Spieltheorie weist eine \textbf{gemischte Strategie} Aktionen Wahrscheinlichkeiten zu: Ein Spieler legt sich nicht auf einen einzigen Zug fest, sondern h\"alt eine Wahrscheinlichkeitsverteilung aufrecht. Das Nash-Gleichgewicht vieler Spiele ist \textit{gemischt} -- reine Strategien sind suboptimal.
+
+\item In der Quantenmechanik legt sich ein Teilchen in \textbf{Superposition} nicht auf einen einzigen Zustand fest, sondern h\"alt eine Wahrscheinlichkeitsamplitudenverteilung aufrecht. Das System "`w\"ahlt"' einen bestimmten Zustand erst bei der Messung (Wechselwirkung).
+\end{itemize}
+
+\begin{conjecture}[Quanten-Spiel-Dualit\"at]
+Quantensuperposition ist die physikalische Manifestation eines Nash-Gleichgewichts gemischter Strategien auf Ebene~1. Die Wellenfunktion $\psi(x)$ ist das Strategieprofil, die Bornsche Regel $|\psi|^2$ ist die Strategiewahrscheinlichkeit, und der Kollaps der Wellenfunktion (Messung) ist die Auszahlungsrealisierung -- der Moment, in dem das Spiel in ein bestimmtes Ergebnis aufgel\"ost wird. Die Heisenbergsche Unsch\"arferelation ist kein "`Defekt"' der Natur, sondern die strategische Flexibilit\"at, die f\"ur Nash-optimales Spielen erforderlich ist.
+\end{conjecture}
+
+Diese Vermutung verbindet sich mit der \textit{Pfadintegral}-Formulierung: Feynmans Summe \"uber alle Pfade ist das "`Erw\"agen"' aller m\"oglichen Strategien durch das Teilchen, wobei der klassische Pfad (station\"are Phase) das Nash-Gleichgewicht des lokalen Wirkungsspiels ist. Destruktive Interferenz eliminiert Nicht-Nash-Strategien; konstruktive Interferenz verst\"arkt den Gleichgewichtspfad.
+
+\subsection{Das Standardmodell als Nash-optimaler Werkzeugkasten}
+
+Wenn die Zielfunktion des Universums die Entropieproduktion (Gradientenreduktion) ist, dann ist der spezifische Teilcheninhalt des Standardmodells nicht willk\"urlich, sondern \textit{optimal}:
+
+\begin{itemize}
+\item \textbf{Quarks:} Erm\"oglichen Kernbindung und stellare Fusion -- die effizienteste nachhaltige Entropiequelle im Universum. Ohne Quarks keine Sterne, keine nachhaltige Nukleosynthese, keine schweren Elemente.
+
+\item \textbf{Elektronen:} Erm\"oglichen elektromagnetische Wechselwirkungen, Chemie und Strahlungsthermalisierung. Sie sind das "`Verteilungsnetzwerk"', das Entropie im Raum verteilt.
+
+\item \textbf{Neutrinos:} Dienen als Energiefreisetzungsventile bei Fusions- und Kollapsprozessen und erm\"oglichen schnellen Energietransport aus dichten Kernen (Supernovae, Neutronensterne).
+
+\item \textbf{Die vier Kr\"afte:} Repr\"asentieren den minimalen Satz von Wechselwirkungen, der f\"ur ein stabiles, langlebiges entropieproduzierendes System erforderlich ist:
+\begin{itemize}
+\item \textit{Starke Kraft:} Bindet Energie in dichte, langlebige Speichereinheiten (Atomkerne)
+\item \textit{Schwache Kraft:} Liefert den "`Z\"undmechanismus"' f\"ur Kernprozesse (Betazerfall)
+\item \textit{Elektromagnetismus:} Verteilt Energie im Raum (Strahlung)
+\item \textit{Gravitation:} Liefert die globale Geometrie und den Kollapsmechanismus (Strukturbildung)
+\end{itemize}
+\end{itemize}
+
+Die \textit{Feinabstimmung} der Teilchenmassen und Kopplungskonstanten -- lange als tiefstes R\"atsel der Physik betrachtet -- k\"onnte dann die L\"osung eines Nash-Optimierungsproblems sein: Die spezifischen Werte sind diejenigen, die die integrierte Entropieproduktion \"uber die Lebensdauer des Universums maximieren. Jede Abweichung w\"urde eine weniger effiziente "`Maschine"' ergeben und somit ein suboptimales Gleichgewicht.
+
+\begin{conjecture}[Spieltheoretische Feinabstimmung]
+Die 19 freien Parameter des Standardmodells sind nicht willk\"urlich, sondern bilden das einzige Nash-Gleichgewicht des Ebene-1-Spiels: den Satz von Teilchenmassen und Kopplungen, der die Entropieproduktionsrate der Raumzeitblase \"uber ihre gesamte Expansionsgeschichte maximiert, unter der Nebenbedingung globaler Stabilit\"at.
+\end{conjecture}
+
+\textit{Anmerkung:} Diese Vermutung ist derzeit weit von Testbarkeit entfernt. Sie transformiert jedoch das Feinabstimmungsproblem von einem metaphysischen R\"atsel ("`Warum diese Zahlen?"') in ein mathematisches Optimierungsproblem ("`Welche Werte maximieren die Entropieproduktion?"') -- was zumindest im Prinzip berechenbar ist.
+
+
+% ===================================================================
+% 6. TESTBARE VORHERSAGEN
+% ===================================================================
+\section{Testbare Vorhersagen aus der Lagrange-Dichte}
+\label{sec:predictions}
+
+Die effektive Wirkung erzeugt spezifische Vorhersagen jenseits der Hintergrundexpansionsgeschichte:
+
+\subsection{St\"orungsgleichungen}
+
+Linearisierung der Wirkung um den FLRW-Hintergrund liefert gekoppelte Gleichungen f\"ur:
+\begin{itemize}
+\item Die Metrikst\"orungen $\Phi_N$ (Newtonsches Potential) und $\Psi$ (Kr\"ummungsst\"orung)
+\item Die Skalenfeldst\"orung $\delta\phi$
+\item Die Materiest\"orungen $\delta_m$ und $v_m$
+\end{itemize}
+
+Der $R^2$-Term erzeugt eine \textit{anisotrope Spannung} ($\Phi_N \neq \Psi$), was eine testbare Vorhersage ist, die das CFM von $\Lambda$CDM und von einfachen Quintessenz-Modellen unterscheidet.
+
+\subsection{Gravitativer Schlupfparameter}
+
+Das Verh\"altnis $\eta = \Phi_N / \Psi$ weicht vorhergesagt von Eins ab:
+\begin{equation}
+\eta(a, k) = 1 + \delta\eta(a, k)
+\end{equation}
+wobei $\delta\eta$ von der $R^2$-Kopplung $\gamma$ abh\"angt und skalenabh\"angig ist. Dies kann getestet werden, indem schwache Gravitationslinseneffekte (empfindlich auf $\Phi_N + \Psi$) mit Galaxienh\"aufung (empfindlich auf $\Psi$ allein) verglichen werden.
+
+\subsection{Skalenfeldoszillationen}
+
+Das P\"oschl-Teller-Potential unterst\"utzt ein diskretes Spektrum gebundener Zust\"ande. Im kosmologischen Kontext entsprechen diese oszillatorischen Korrekturen der Expansionsrate zu sp\"aten Zeiten:
+\begin{equation}
+H^2(a) = H^2_{\mathrm{smooth}}(a) \left[1 + \epsilon \cdot e^{-\Gamma a} \cos(\omega a + \delta)\right]
+\end{equation}
+mit Amplitude $\epsilon \ll 1$. Diese Oszillationen, falls in hochpr\"azisen BAO- oder SN-Daten detektierbar, w\"urden einen direkten Beweis f\"ur die Quantennatur des S\"attigungsmechanismus liefern.
+
+\subsection{Modifizierte Gravitationswellen}
+
+Der $R^2$-Term modifiziert die Ausbreitungsgleichung f\"ur Gravitationswellen:
+\begin{equation}
+\ddot{h}_{ij} + (3H + \Gamma_{\mathrm{GW}})\dot{h}_{ij} + \left(\frac{k^2}{a^2} + m_{\mathrm{GW}}^2\right) h_{ij} = 0
+\end{equation}
+wobei $\Gamma_{\mathrm{GW}}$ und $m_{\mathrm{GW}}^2$ Korrekturen aus dem kr\"ummungsquadratischen Term sind. Dies sagt vorher:
+\begin{itemize}
+\item Eine frequenzabh\"angige Gravitationswellengeschwindigkeit ($c_{\mathrm{GW}} \neq c$ bei hohen Frequenzen)
+\item Eine massive Gravitonmode mit $m_{\mathrm{GW}} \propto \sqrt{\gamma}$
+\end{itemize}
+Die LIGO/Virgo/KAGRA-Beschr\"ankung $|c_{\mathrm{GW}}/c - 1| < 10^{-15}$ \cite{Abbott2017} setzt eine Obergrenze f\"ur $\gamma$.
+
+\subsection{Unterscheidung der mikroskopischen Kandidaten}
+
+Jeder der f\"unf mikroskopischen Ans\"atze erzeugt eine distinkte experimentelle Signatur. Entscheidend ist, dass mehrere dieser Tests bereits durchgef\"uhrt wurden oder unmittelbar bevorstehen:
+
+\begin{center}
+\small
+\begin{tabular}{lllp{4.5cm}}
+\toprule
+\textbf{Kandidat} & \textbf{Signatur} & \textbf{Instrument} & \textbf{Status} \\
+\midrule
+A: Holographisch & Raumzeitrauschen & Holometer (Fermilab) & \textbf{Nullresultat} (2015). Einfachste Modelle ausgeschlossen \cite{Chou2017}. \\
+B: Spinnetzwerke & Vakuum-Doppelbrechung & Planck-CMB-Polarisation & \textbf{$2{,}4\sigma$-Hinweis}: $\beta \approx 0{,}35^\circ$ \cite{Minami2020}. \\
+C: Verschr\"ankung & Gravitationsinduzierter Kollaps & Gran Sasso (unterirdisch) & Einfaches Di\'osi-Penrose \textbf{ausgeschlossen} \cite{Donadi2021}. \\
+D: QEC-Codes & GW-Horizontechos & LIGO/Virgo & \textbf{$\sim2{,}5\sigma$ vorl\"aufig} \cite{Abedi2017}. Umstritten. \\
+E: Kausale Mengen & $\Lambda$-Fluktuationen & Pr\"azisionskosmologie & Noch nicht mit erforderlicher Pr\"azision testbar. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsubsection{Das kosmische Doppelbrechungssignal (Kandidat B)}
+
+Das vielversprechendste existierende Signal ist die \textit{isotrope kosmische Doppelbrechung}, die von Minami \& Komatsu \cite{Minami2020} in reanalysierten Planck-Polarisationsdaten berichtet wurde. Sie fanden eine Rotation der CMB-Polarisationsebene um $\beta = 0{,}35^\circ \pm 0{,}14^\circ$ ($2{,}4\sigma$), die in $\Lambda$CDM anomal ist, aber keine etablierte Erkl\"arung hat.
+
+Im CFM-Rahmenwerk mit Spinnetzwerk-Mikrostruktur (Kandidat~B) hat dieses Signal eine nat\"urliche Interpretation: Die s\"attigende Raumzeit (die "`sich ausrichtenden Spins"') wirkt als \textit{doppelbrechendes Medium}. Wenn das Vakuum vom ungeordneten (DM-artigen) Zustand in den geordneten (DE-artigen) Zustand \"ubergeht, erzeugt die Spinausrichtung eine bevorzugte Richtung, die die Polarisation durchlaufender Photonen dreht. Der Rotationswinkel $\beta$ sollte proportional zum \textit{S\"attigungsgrad} $X = \Omega_\Phi/\Phi_0$ sein, integriert entlang des Photonenpfades.
+
+\textit{CFM-Vorhersage:} Wenn die kosmische Doppelbrechung durch den geometrischen Phasen\"ubergang verursacht wird, dann:
+\begin{enumerate}
+\item Sollte der Rotationswinkel \textit{isotrop} sein (in allen Richtungen gleich) -- konsistent mit der Minami-Komatsu-Messung.
+\item Sollte die Rotation bei CMB-Frequenzen \textit{frequenzunabh\"angig} sein (da sie geometrisch, nicht dispersiv ist) -- testbar durch das Simons Observatory ($\sim$2025) und LiteBIRD ($\sim$2028).
+\item Sollte die Rotation \textit{rotverschiebungsabh\"angig} sein: Photonen von h\"oherer Rotverschiebung (weniger ges\"attigtes Vakuum) sollten weniger Rotation zeigen. Dies ist testbar mit Quasar-Polarisationsdurchmusterungen \"uber einen Bereich von Rotverschiebungen.
+\end{enumerate}
+
+\subsubsection{Gravitationswellenechos (Kandidat D)}
+
+Mehrere Gruppen \cite{Abedi2017} haben vorl\"aufige Evidenz ($\sim2{,}5\sigma$) f\"ur "`Echos"' nach Verschmelzungen in LIGO-Daten von bin\"aren Schwarzloch-Kollisionen berichtet. In der QEC-Interpretation (Kandidat~D) w\"aren diese Echos Reflexionen von der informationstheoretischen Struktur am Horizont -- die "`harte Grenze"' des fehlerkorrigierenden Codes. Das bevorstehende LIGO~A+-Upgrade und das geplante Einstein-Teleskop werden diese Signale entweder best\"atigen oder definitiv ausschlie\ss en.
+
+\textit{CFM-Vorhersage:} Wenn Echos real sind, sollte ihre Abklingzeit mit der lokalen S\"attigungsrate $k$ zusammenh\"angen -- demselben Parameter, der die kosmologische Dunkle Energie regiert. Dies w\"urde die Schwarzlochphysik direkt mit dem kosmologischen S\"attigungsmechanismus verbinden.
+
+\subsubsection{Aktuelle experimentelle Bewertung}
+
+\begin{itemize}
+\item Kandidat~A (holographisches Rauschen) wird durch das Holometer-Nullresultat \textbf{benachteiligt}, es sei denn, das Rauschen ist korreliert (nicht zuf\"allig), wie das CFM vorhersagen w\"urde.
+\item Kandidat~B (Spinnetzwerke) wird durch den Hinweis auf kosmische Doppelbrechung \textbf{leicht beg\"unstigt}.
+\item Kandidat~C (Verschr\"ankung) ist \textbf{eingeschr\"ankt}, aber nicht ausgeschlossen; die einfachen Modelle scheitern, aber komplexere Verschr\"ankungs-S\"attigungsmodelle bleiben viable.
+\item Kandidat~D (QEC) hat \textbf{vorl\"aufige} Unterst\"utzung durch GW-Echos, aber das Signal ist umstritten.
+\item Kandidat~E (kausale Mengen) bleibt bei der erforderlichen Pr\"azision \textbf{ungetestet}.
+\end{itemize}
+
+Das CFM-Rahmenwerk ist agnostisch bez\"uglich des Kandidaten, der die mikroskopische Basis liefert -- die $\tanh$-S\"attigung ist universell \"uber alle Kandidaten hinweg (vgl.\ Abschnitt~\ref{sec:phase_transition}). Allerdings liefert das kosmische Doppelbrechungssignal einen \"uberzeugenden Grund, die Spinnetzwerk-Interpretation als prim\"aren Kandidaten f\"ur detaillierte quantitative Vorhersagen zu verfolgen.
+
+
+% ===================================================================
+% 7. VERBINDUNG ZU BEKANNTEN RAHMENWERKEN
+% ===================================================================
+\section{Verbindung zu bekannten Rahmenwerken}
+\label{sec:connections}
+
+\subsection{Relation zur $f(R)$-Gravitation}
+
+Die Wirkung mit dem $R^2$-Term ist ein Spezialfall der $f(R) = R + \gamma R^2$-Gravitation (Starobinsky-Modell) \cite{Starobinsky1980}. Das CFM f\"ugt das Skalarfeld mit dem P\"oschl-Teller-Potential hinzu und bricht damit die Entartung zwischen $f(R)$-Modellen.
+
+\subsection{Relation zu AeST}
+
+Die relativistische MOND-Theorie AeST \cite{Skordis2021} enth\"alt ein Skalarfeld $\phi$ und ein eingeschr\"anktes Vektorfeld $A_\mu$. Das CFM-Skalarfeld kann mit dem AeST-Skalarfeld identifiziert (oder in Beziehung gesetzt) werden, w\"ahrend der $R^2$-Term den kosmologischen Effekt des AeST-Vektorfeldes kodieren k\"onnte. Eine pr\"azise Abbildung zwischen den beiden Theorien ist ein zentrales Ziel.
+
+\subsection{Relation zur emergenten Gravitation}
+
+Verlindes Vorschlag der emergenten Gravitation \cite{Verlinde2017} leitet MOND-artige Effekte aus der Verschr\"ankungsentropie des de-Sitter-Raums her. Das spieltheoretische Rahmenwerk des CFM teilt die Kernidee, dass Gravitation (und ihre "`dunklen"' Erweiterungen) emergente Ph\"anomene sind, keine fundamentalen Kr\"afte. Der S\"attigungsmechanismus k\"onnte die kosmologische Realisierung von Verlindes Entropie-Fl\"achen-Relation sein.
+
+
+% ===================================================================
+% 8. DISKUSSION UND AUSBLICK
+% ===================================================================
+\section{Diskussion und Ausblick}
+\label{sec:discussion}
+
+\subsection{Zusammenfassung des Drei-Paper-Programms}
+
+Das CFM-Programm umfasst nun drei Paper:
+\begin{enumerate}
+\item \textbf{Paper~I} \cite{Geiger2026}: Spieltheoretische Grundlage, Standard-CFM, Ersetzung der Dunklen Energie. Validiert gegen Pantheon+.
+\item \textbf{Paper~II} \cite{Geiger2026b}: MOND-Vereinheitlichung, erweitertes CFM, rein baryonisches Universum, Hypothese der zerfallenden dunklen Geometrie. Validiert gegen Pantheon+.
+\item \textbf{Paper~III} (diese Arbeit): Lagrange-Formulierung, Quantengravitationsverbindungen, Phasen\"ubergangsinterpretation, testbare Vorhersagen.
+\end{enumerate}
+
+Zusammen schlagen diese Paper ein \textit{vollst\"andiges kosmologisches Rahmenwerk} vor, in dem:
+\begin{itemize}
+\item Der dunkle Sektor eliminiert wird (Paper~II)
+\item Die Expansionsgeschichte durch geometrische Kr\"ummungsr\"uckkehr erkl\"art wird (Paper~I, II)
+\item Der mikroskopische Ursprung ein $\tanh$-artiger Phasen\"ubergang der Raumzeitgeometrie ist (Paper~III)
+\item Die Lagrange-Dichte $R + \gamma R^2$ plus ein P\"oschl-Teller-Skalarfeld ist (Paper~III)
+\end{itemize}
+
+\subsection{Was noch aussteht}
+
+Die folgenden kritischen Schritte verbleiben:
+
+\begin{enumerate}
+\item \textbf{$\sqrt{\pi}$-Vermutung:} Die kosmologische MOND-Verst\"arkung $\mu_{\mathrm{eff}} = \sqrt{\pi}$ (Paper~II) hat drei unabh\"angige Motivationen -- geometisch, thermodynamisch und dimensional. Ein vollst\"andiger Beweis erfordert die explizite Berechnung der Funktionaldeterminante $\det(\Delta_{S^2} + m_{\mathrm{PT}}^2)$ f\"ur den P\"oschl-Teller-Operator auf der kosmologischen Zweisph\"are.
+
+\item \textbf{Volle MCMC-Parameterabsch\"atzung:} Das native \texttt{cfm\_fR}-Gravitationsmodell ist in hi\_class implementiert. Eine volle MCMC-Analyse \"uber $(\alpha_{M,0}, n, \omega_{\mathrm{cdm}}, A_s, n_s)$ mit \texttt{emcee} gegen Planck TT+TE+EE l\"auft derzeit. Diese wird marginalisierte Posterior-Beschr\"ankungen auf $\alpha_{M,0}$ und die Detektionssignifikanz f\"ur $\alpha_{M,0} > 0$ liefern.
+
+\item \textbf{Quantengravitation:} Herleitung der S\"attigungsparameter $k$, $\Phi_0$ und der Kopplung $\gamma$ aus einem der f\"unf mikroskopischen Kandidaten bleibt die zentrale theoretische Herausforderung.
+
+\item \textbf{$S_8$-Spannung:} Das CFM sagt generisch $S_8 > S_8^{\Lambda\mathrm{CDM}}$ vorher. Aktuelle Weak-Lensing-Surveys geben $S_8 \approx 0{,}76$--$0{,}78$, w\"ahrend das CFM $S_8 = 0{,}845$--$0{,}855$ vorhersagt. KiDS-Legacy (2025) zeigt verbesserte \"Ubereinstimmung mit dem CMB. Euclids erste kosmologische Weak-Lensing-Analyse (erwartet Oktober 2026) wird entscheidend sein.
+\end{enumerate}
+
+\subsection{Die Vision: Kosmologie als Phasen\"ubergang}
+
+Wenn das Programm gelingt, wird die Geschichte des Universums zu einem \textit{geometrischen Phasen\"ubergang}:
+
+\begin{enumerate}
+\item \textbf{Urknall:} Entstehung der Raumzeitblase aus dem Nullraum (spieltheoretische Nukleation).
+\item \textbf{Fr\"uhes Universum:} Unges\"attigte Kr\"ummungsr\"uckkehr dominiert -- Geometrie verh\"alt sich wie "`Dunkle Materie"' ($a^{-2}$) und liefert das gravitationelle Ger\"ust f\"ur die Strukturbildung.
+\item \textbf{\"Ubergang:} Die Kr\"ummungsr\"uckkehr n\"ahert sich der S\"attigung ($a \approx a_{\mathrm{trans}}$) -- der geometrische Phasen\"ubergang vom DM-artigen zum DE-artigen Verhalten.
+\item \textbf{Sp\"ates Universum:} Ges\"attigte Kr\"ummungsr\"uckkehr dominiert -- Geometrie verh\"alt sich wie "`Dunkle Energie"' (beschleunigte Expansion).
+\item \textbf{Ferne Zukunft:} Volle S\"attigung $\Omega_\Phi \to \Phi_0$ -- das Nash-Gleichgewicht ist erreicht, der Nullraumgradient ist neutralisiert, und die Expansion n\"ahert sich dem de-Sitter-Zustand.
+\end{enumerate}
+
+Die gesamte Geschichte der kosmischen Beschleunigung und Strukturbildung wird dann durch eine einzige Gleichung beschrieben -- die S\"attigungs-ODE --, deren Form universell ist (eine Konsequenz der Molekularfeld-Phasen\"ubergangstheorie) und deren Parameter durch die Quantengravitation bestimmt werden.
+
+\subsection{Technologische Horizonte: Das Zeitalter der Geometrie}
+
+Wenn das CFM-Rahmenwerk best\"atigt und der S\"attigungsmechanismus auf mikroskopischer Ebene verstanden wird, w\"aren die technologischen Implikationen tiefgreifend. Wir skizzieren vier spekulative, aber logisch konsistente M\"oglichkeiten, geordnet nach zunehmendem Ambitionsgrad:
+
+\begin{enumerate}
+\item \textbf{Nash-Optimierungs-Hardware.} Die S\"attigungs-ODE ist ein physikalischer Analogrechner, der Nash-Gleichgewichte l\"ost. Wenn wir mesoskopische Systeme bauen k\"onnen, die von derselben $dX/dt = k(1-X^2)$-Dynamik beherrscht werden, erhalten wir Hardware, die NP-schwere Optimierungsprobleme (Logistik, Proteinfaltung, Ressourcenallokation) l\"ost, indem sie ins Gleichgewicht "`relaxiert"' -- nicht durch Berechnung, sondern durch Physik. Dies ist analog zum Quanten-Annealing, nutzt aber den geometrischen S\"attigungsmechanismus statt Quantentunneln.
+
+\item \textbf{Pr\"azisions-Kosmographie.} Ein validiertes CFM+MOND-Rahmenwerk mit einer Lagrange-Dichte w\"urde die Berechnung des vollst\"andigen St\"orungsspektrums ($C_\ell$, $P(k)$, $f\sigma_8$) aus ersten Prinzipien erm\"oglichen. Dies w\"urde die kosmologische Parametersch\"atzung transformieren: Anstatt $\Lambda$CDM-Parameter anzupassen, w\"urden wir die geometrischen Parameter ($k$, $\Phi_0$, $\alpha$, $\gamma$) mit beispielloser Pr\"azision aus CMB-, BAO- und LSS-Daten bestimmen und ein vollst\"andiges dynamisches Modell der kosmischen Entwicklung erhalten.
+
+\item \textbf{Metrik-Ingenieurwesen.} Wenn das Kr\"ummungsr\"uckkehrpotential eine manipulierbare physikalische Gr\"o\ss e ist (nicht nur eine passive geometrische Eigenschaft), werden lokale Modifikationen des S\"attigungszustands prinzipiell denkbar. Ents\"attigung ($\Omega_\Phi \to 0$) w\"urde die lokale gravitative Anziehung erh\"ohen; erzwungene S\"attigung ($\Omega_\Phi \to \Phi_0$) w\"urde lokale Expansion erzeugen. Dies ist die physikalische Grundlage dessen, was als "`Metrik-Ingenieurwesen"' \cite{Alcubierre1994} bezeichnet wurde -- Manipulation der Raumzeitgeometrie statt Bewegung von Objekten durch sie. Das CFM liefert den ersten konkreten physikalischen Mechanismus (S\"attigungskontrolle) f\"ur solche Manipulation, obwohl die erforderlichen Energieskalen noch bestimmt werden m\"ussen.
+
+\item \textbf{Zugang zur Vakuumenergie.} Im spieltheoretischen Rahmenwerk repr\"asentiert der Nullraum ein Energiereservoir, das an die Raumzeitblase gekoppelt ist. Der S\"attigungsparameter $k$ regiert die Kopplungsst\"arke. Wenn $k$ lokal verst\"arkt werden kann, w\"urde der Energiefluss vom Nullraum zur Blase zunehmen -- effektiv ein "`Anzapfen"' der Vakuumenergie. Diese M\"oglichkeit birgt offensichtliche Stabilit\"atsbedenken: Unkontrollierte Ents\"attigung k\"onnte einen lokalen Vakuumzerfall ausl\"osen. Jede solche Technologie erfordert ein vollst\"andiges Verst\"andnis der Lagrange-Stabilit\"atsbedingungen.
+\end{enumerate}
+
+\textit{Vorbehalt:} Diese technologischen Horizonte sind \textit{logische Extrapolationen}, keine Vorhersagen. Sie h\"angen davon ab, dass das CFM auf fundamentaler Ebene korrekt ist (nicht nur ph\"anomenologisch), dass der S\"attigungsmechanismus lokal steuerbar ist und dass die Energieskalen zug\"anglich sind. Wir schlie\ss en sie ein, um den Umfang des Rahmenwerks zu illustrieren, nicht als Technologie-Fahrplan.
+
+\subsection{Einladung an die Gemeinschaft}
+
+Das Drei-Paper-CFM-Programm pr\"asentiert eine koh\"arente, aber unverifizierte Hypothese. Der Autor l\"adt die wissenschaftliche Gemeinschaft ein, sich mit diesem Rahmenwerk zu befassen:
+
+\begin{enumerate}
+\item \textbf{Mathematische Verifikation:} Die Herleitungen in diesem Paper -- insbesondere die P\"oschl-Teller-Korrespondenz, die Spurkopplungs-Lagrange-Dichte und die St\"orungsgleichungen -- erfordern unabh\"angige Verifikation durch mathematische Physiker.
+\item \textbf{Numerische Implementierung:} Ein modifizierter CLASS- oder CAMB-Code, der die erweiterte Friedmann-Gleichung mit Spurkopplung implementiert, w\"urde die kritischen $C_\ell$- und $P(k)$-Vorhersagen liefern.
+\item \textbf{Mikroskopische Herleitung:} Die Herleitung der S\"attigungs-ODE aus einem der f\"unf Kandidatenrahmenwerke (LQG, Finsler, Verschr\"ankung, QEC, kausale Mengen) w\"urde das CFM von der Ph\"anomenologie zur fundamentalen Theorie erheben.
+\item \textbf{Experimentelle Tests:} Das kosmische Doppelbrechungssignal, GW-Echos und die Vorhersage des gravitativen Schlupfs liefern konkrete Ziele f\"ur Beobachter.
+\end{enumerate}
+
+\noindent Der gesamte Analysecode ist quelloffen. Die Pantheon+-Daten sind \"offentlich verf\"ugbar. Replikation und Erweiterung dieser Arbeit ist nicht nur willkommen, sondern \textit{wesentlich} f\"ur die Beurteilung ihrer G\"ultigkeit.
+
+
+% ===================================================================
+% LITERATUR
+% ===================================================================
+\subsection*{Software}
+
+Diese Arbeit verwendet \texttt{hi\_class} \cite{Zumalacarregui2017} (Horndeski in CLASS \cite{Blas2011}) mit einem eigenen \texttt{cfm\_fR}-Gravitationsmodell, \texttt{emcee} \cite{ForemanMackey2013} f\"ur MCMC-Sampling, \texttt{NumPy} \cite{Harris2020}, \texttt{SciPy} \cite{Virtanen2020} f\"ur numerische Berechnungen und \texttt{Matplotlib} \cite{Hunter2007} f\"ur Visualisierungen.
+
+\begin{thebibliography}{99}
+
+\bibitem{Geiger2026}
+Geiger, L.\ (2026).
+Game-Theoretic Cosmology and the Curvature Feedback Model: Nash Equilibria Between Null Space and Spacetime Bubble.
+Working Paper. \url{https://github.com/lukisch/cfm-cosmology}.
+
+\bibitem{Geiger2026b}
+Geiger, L.\ (2026).
+Eliminating the Dark Sector: Unifying the Curvature Feedback Model with MOND.
+Working Paper.
+
+\bibitem{Scolnic2022}
+Scolnic, D.\ et al.\ (2022).
+The Pantheon+ Analysis: The Full Data Set and Light-curve Release.
+\textit{The Astrophysical Journal}, 938(2), 113.
+
+\bibitem{Milgrom1983}
+Milgrom, M.\ (1983).
+A modification of the Newtonian dynamics as a possible alternative to the hidden mass hypothesis.
+\textit{The Astrophysical Journal}, 270, 365--370.
+
+\bibitem{Skordis2021}
+Skordis, C.\ \& Z{\l}o\'snik, T.\ (2021).
+New Relativistic Theory for Modified Newtonian Dynamics.
+\textit{Physical Review Letters}, 127(16), 161302.
+
+\bibitem{Rovelli2004}
+Rovelli, C.\ (2004).
+\textit{Quantum Gravity}. Cambridge University Press.
+
+\bibitem{Thiemann2007}
+Thiemann, T.\ (2007).
+\textit{Modern Canonical Quantum General Relativity}. Cambridge University Press.
+
+\bibitem{Ashtekar2011}
+Ashtekar, A.\ \& Singh, P.\ (2011).
+Loop Quantum Cosmology: A Status Report.
+\textit{Classical and Quantum Gravity}, 28(21), 213001.
+
+\bibitem{Bao2000}
+Bao, D., Chern, S.-S.\ \& Shen, Z.\ (2000).
+\textit{An Introduction to Riemann-Finsler Geometry}. Springer.
+
+\bibitem{Chang2009}
+Chang, Z.\ \& Li, X.\ (2009).
+Modified Friedmann model in Randers-Finsler space of approximate Berwald type.
+\textit{Physics Letters B}, 676(4-5), 173--176.
+
+\bibitem{Girelli2007}
+Girelli, F., Liberati, S.\ \& Sindoni, L.\ (2007).
+Planck-scale modified dispersion relations and Finsler geometry.
+\textit{Physical Review D}, 75(6), 064015.
+
+\bibitem{Bousso2002}
+Bousso, R.\ (2002).
+The holographic principle.
+\textit{Reviews of Modern Physics}, 74(3), 825--874.
+
+\bibitem{Maldacena2013}
+Maldacena, J.\ \& Susskind, L.\ (2013).
+Cool horizons for entangled black holes.
+\textit{Fortschritte der Physik}, 61(9), 781--811.
+
+\bibitem{Bombelli1987}
+Bombelli, L., Lee, J., Meyer, D.\ \& Sorkin, R.\,D.\ (1987).
+Space-time as a causal set.
+\textit{Physical Review Letters}, 59(5), 521--524.
+
+\bibitem{Sorkin2003}
+Sorkin, R.\,D.\ (2003).
+Causal Sets: Discrete Gravity.
+In \textit{Lectures on Quantum Gravity}, Springer, 305--327.
+
+\bibitem{Sorkin1991}
+Sorkin, R.\,D.\ (1991).
+Spacetime and causal sets.
+In \textit{Relativity and Gravitation}, World Scientific, 150--173.
+
+\bibitem{Starobinsky1980}
+Starobinsky, A.\,A.\ (1980).
+A new type of isotropic cosmological models without singularity.
+\textit{Physics Letters B}, 91(1), 99--102.
+
+\bibitem{Verlinde2017}
+Verlinde, E.\ (2017).
+Emergent Gravity and the Dark Universe.
+\textit{SciPost Physics}, 2(3), 016.
+
+\bibitem{Abbott2017}
+Abbott, B.\,P.\ et al.\ (LIGO/Virgo \& Fermi GBM) (2017).
+Gravitational Waves and Gamma-Rays from a Binary Neutron Star Merger: GW170817 and GRB~170817A.
+\textit{The Astrophysical Journal Letters}, 848(2), L13.
+
+\bibitem{Alcubierre1994}
+Alcubierre, M.\ (1994).
+The warp drive: hyper-fast travel within general relativity.
+\textit{Classical and Quantum Gravity}, 11(5), L73--L77.
+DOI: 10.1088/0264-9381/11/5/001.
+
+\bibitem{Wheeler1990}
+Wheeler, J.\,A.\ (1990).
+Information, physics, quantum: The search for links.
+In \textit{Complexity, Entropy, and the Physics of Information}, Addison-Wesley, 3--28.
+
+\bibitem{Feynman1948}
+Feynman, R.\,P.\ (1948).
+Space-Time Approach to Non-Relativistic Quantum Mechanics.
+\textit{Reviews of Modern Physics}, 20(2), 367--387.
+
+\bibitem{VanRaamsdonk2010}
+Van~Raamsdonk, M.\ (2010).
+Building up spacetime with quantum entanglement.
+\textit{General Relativity and Gravitation}, 42(10), 2323--2329.
+DOI: 10.1007/s10714-010-1034-0.
+
+\bibitem{Almheiri2015}
+Almheiri, A., Dong, X.\ \& Harlow, D.\ (2015).
+Bulk Locality and Quantum Error Correction in AdS/CFT.
+\textit{Journal of High Energy Physics}, 2015(4), 163.
+DOI: 10.1007/JHEP04(2015)163.
+
+\bibitem{Pastawski2015}
+Pastawski, F., Yoshida, B., Harlow, D.\ \& Preskill, J.\ (2015).
+Holographic quantum error-correcting codes: Toy models for the bulk/boundary correspondence.
+\textit{Journal of High Energy Physics}, 2015(6), 149.
+DOI: 10.1007/JHEP06(2015)149.
+
+\bibitem{Minami2020}
+Minami, Y.\ \& Komatsu, E.\ (2020).
+New Extraction of the Cosmic Birefringence from the Planck 2018 Polarization Data.
+\textit{Physical Review Letters}, 125(22), 221301.
+DOI: 10.1103/PhysRevLett.125.221301.
+
+\bibitem{Chou2017}
+Chou, A.\,S.\ et al.\ (Holometer Collaboration) (2017).
+First Measurements of High Frequency Cross-Spectra from a Pair of Large Michelson Interferometers.
+\textit{Physical Review Letters}, 117(11), 111102.
+DOI: 10.1103/PhysRevLett.117.111102.
+
+\bibitem{Donadi2021}
+Donadi, S.\ et al.\ (2021).
+Underground test of gravity-related wave function collapse.
+\textit{Nature Physics}, 17(1), 74--78.
+DOI: 10.1038/s41567-020-1008-4.
+
+\bibitem{Abedi2017}
+Abedi, J., Dykaar, H.\ \& Afshordi, N.\ (2017).
+Echoes from the Abyss: Tentative evidence for Planck-scale structure at black hole horizons.
+\textit{Physical Review D}, 96(8), 082004.
+DOI: 10.1103/PhysRevD.96.082004.
+
+\bibitem{DESI2025}
+DESI Collaboration (2025).
+DESI DR2 Results II: Measurements of Baryon Acoustic Oscillations and Cosmological Constraints.
+\textit{arXiv:2503.14738}.
+
+\bibitem{KiDS2021}
+Asgari, M.\ et al.\ (KiDS Collaboration) (2021).
+KiDS-1000 Cosmology: Cosmic shear constraints on the amplitude of matter fluctuations.
+\textit{Astronomy \& Astrophysics}, 645, A104.
+
+\bibitem{DESY3}
+Abbott, T.\,M.\,C.\ et al.\ (DES Collaboration) (2022).
+Dark Energy Survey Year 3 results: Cosmological constraints from galaxy clustering and weak lensing.
+\textit{Physical Review D}, 105(2), 023520.
+
+\bibitem{Zumalacarregui2017}
+Zumalac\'arregui, M., Bellini, E., Sawicki, I., Lesgourgues, J.\ \& Ferreira, P.\,G.\ (2017).
+hi\_class: Horndeski in the Cosmic Linear Anisotropy Solving System.
+\textit{Journal of Cosmology and Astroparticle Physics}, 2017(08), 019.
+DOI: 10.1088/1475-7516/2017/08/019.
+
+\bibitem{Blas2011}
+Blas, D., Lesgourgues, J.\ \& Tram, T.\ (2011).
+The Cosmic Linear Anisotropy Solving System (CLASS). Part~II: Approximation schemes.
+\textit{Journal of Cosmology and Astroparticle Physics}, 2011(07), 034.
+DOI: 10.1088/1475-7516/2011/07/034.
+
+\bibitem{Harris2020}
+Harris, C.\,R.\ et al.\ (2020).
+Array programming with NumPy.
+\textit{Nature}, 585, 357--362.
+DOI: 10.1038/s41586-020-2649-2.
+
+\bibitem{Virtanen2020}
+Virtanen, P.\ et al.\ (2020).
+SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python.
+\textit{Nature Methods}, 17, 261--272.
+DOI: 10.1038/s41592-019-0686-2.
+
+\bibitem{Hunter2007}
+Hunter, J.\,D.\ (2007).
+Matplotlib: A 2D Graphics Environment.
+\textit{Computing in Science \& Engineering}, 9(3), 90--95.
+DOI: 10.1109/MCSE.2007.55.
+
+\end{thebibliography}
+
+\end{document}

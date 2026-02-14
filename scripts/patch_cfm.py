@@ -1,7 +1,54 @@
 #!/usr/bin/env python3
-"""Patch hi_class gravity_models_smg.c to add cfm_fR model"""
+"""Patch hi_class to add cfm_fR gravity model.
 
-filepath = '/home/hi_class/gravity_smg/gravity_models_smg.c'
+Modifies two files:
+  1. include/background.h       -- adds cfm_fR to gravity_model enum
+  2. gravity_smg/gravity_models_smg.c -- model registration, alphas, print, error msg
+
+Usage:
+  cd /path/to/hi_class_public
+  python /path/to/patch_cfm.py
+"""
+
+import os
+import sys
+import shutil
+
+# Auto-detect hi_class root: either CWD or the script's hardcoded path
+hi_class_root = os.getcwd()
+if not os.path.isfile(os.path.join(hi_class_root, 'gravity_smg', 'gravity_models_smg.c')):
+    hi_class_root = '/home/hi_class'
+if not os.path.isfile(os.path.join(hi_class_root, 'gravity_smg', 'gravity_models_smg.c')):
+    print("ERROR: Cannot find hi_class directory. Run from hi_class root or set path.")
+    sys.exit(1)
+
+print(f"hi_class root: {hi_class_root}")
+
+# --- Patch 0: background.h (add cfm_fR to enum) ---
+header_path = os.path.join(hi_class_root, 'include', 'background.h')
+with open(header_path, 'r') as f:
+    header = f.read()
+
+if 'cfm_fR' in header:
+    print("0. background.h already contains cfm_fR (skipping)")
+else:
+    # Add cfm_fR before the closing of the gravity_model enum
+    # The enum ends with: alpha_attractor_canonical } gravity_model_smg;
+    old_enum = 'alpha_attractor_canonical'
+    new_enum = 'alpha_attractor_canonical,\n  cfm_fR'
+    if old_enum in header:
+        shutil.copy2(header_path, header_path + '.bak')
+        header = header.replace(old_enum, new_enum, 1)
+        with open(header_path, 'w') as f:
+            f.write(header)
+        print("0. background.h: cfm_fR added to gravity_model enum")
+    else:
+        print("0. WARNING: Could not find enum insertion point in background.h")
+
+# --- Patches 1-4: gravity_models_smg.c ---
+filepath = os.path.join(hi_class_root, 'gravity_smg', 'gravity_models_smg.c')
+
+shutil.copy2(filepath, filepath + '.bak')
 
 with open(filepath, 'r') as f:
     content = f.read()
@@ -92,4 +139,9 @@ else:
 with open(filepath, 'w') as f:
     f.write(content)
 
-print(f"\nDone: {changes}/4 modifications applied successfully!")
+print(f"\nDone: {changes}/4 modifications to gravity_models_smg.c applied!")
+print("Backup files created with .bak extension.")
+print("\nNext steps:")
+print("  cd python && python setup.py build")
+print("  # Then test: python -c \"from classy import Class; print('OK')\"")
+

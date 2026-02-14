@@ -8,6 +8,7 @@
 *.fdb_latexmk
 *.bbl
 *.blg
+*.pdf
 
 # Python
 __pycache__/
@@ -16,26 +17,29 @@ __pycache__/
 # OS
 Thumbs.db
 .DS_Store
+nul
+_ul
 
-# Data files (too large / downloaded automatically)
-Pantheon+SH0ES.dat
-Pantheon+SH0ES_STAT+SYS.cov
-_data/Pantheon+SH0ES.dat
-_data/Pantheon+SH0ES_STAT+SYS.cov
-
-# Claude Code settings
+# Claude Code / IDE settings
 .claude/
 
-# Windows artifacts
-nul
-
-# Archive / working files
+# Archive (old versions, planning docs, intermediate scripts)
 _archive/
-Beispiel_Template_LaTex.tex
 
-# Intermediate analysis plots (regenerable from scripts)
-_data/CFM_Summary.png
-_data/CFM_Finsler_Comparison.png
-_data/expansion_history.png
-_data/final_cfm_analysis.png
-_data/hubble_diagram.png
+# Old directory stubs (content moved to new structure)
+_data/
+_results/
+_scripts/
+
+# Temporary / private files
+Beispiel_Template_LaTex.tex
+CFM_CODE_REVIEW_BUNDLE.txt
+COMPLETE_PROJECT_CONTEXT.txt
+project_bundler.py
+PUBLICATION_PLAN.md
+
+# Large data (downloaded automatically by scripts)
+Pantheon+SH0ES.dat
+Pantheon+SH0ES_STAT+SYS.cov
+data/Pantheon+SH0ES.dat
+data/Pantheon+SH0ES_STAT+SYS.cov

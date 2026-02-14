@@ -1,66 +1,159 @@
 # Curvature Feedback Model (CFM)
 
-**Game-Theoretic Cosmology: An Alternative to Dark Energy**
+**A Three-Paper Program for Geometric Cosmology Without Dark Energy**
+
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Overview
 
-The Curvature Feedback Model (CFM) explains the accelerated expansion of the universe without dark energy. Instead of introducing a cosmological constant $\Lambda$ or a new scalar field, the CFM postulates a time-dependent curvature return potential $\Phi(a)$ -- a geometric "memory" of the initial energy concentration at the Big Bang.
+The Curvature Feedback Model (CFM) replaces dark energy with a geometric curvature return potential and embeds modified gravity within the Horndeski/f(R) framework. The model is validated against Planck 2018 CMB data (TT+TE+EE, 6,405 data points) using [hi_class](https://github.com/miguelzuma/hi_class_public) with a custom `cfm_fR` gravity model.
 
-The modified Friedmann equation reads:
+**Key result:** The native `cfm_fR` model achieves **Delta chi2 = -2.7** vs. LCDM on Planck CMB data, with sigma8 = 0.899 and 100*theta_s = 1.04173 (identical to LCDM).
 
-$$H^2(a) = H_0^2 \left[\Omega_m \, a^{-3} + \Omega_\Phi(a)\right]$$
+## Papers
 
-with
+| Paper | EN | DE | Topic |
+|-------|----|----|-------|
+| I | `papers/Paper1_EN.tex` | `papers/Paper1_DE.tex` | Game-theoretic foundation, CFM, Pantheon+ validation |
+| II | `papers/Paper2_EN.tex` | `papers/Paper2_DE.tex` | MOND unification, baryon-only universe, running coupling |
+| III | `papers/Paper3_EN.tex` | `papers/Paper3_DE.tex` | Lagrangian (R + gamma R^2), scalaron dynamics, predictions |
 
-$$\Omega_\Phi(a) = \Phi_0 \cdot \frac{\tanh(k \cdot (a - a_\mathrm{trans})) + s}{1 + s}$$
+## Key Results
 
-where $s = \tanh(k \cdot a_\mathrm{trans})$ ensures $\Omega_\Phi(0) = 0$.
+| Model | chi2 (TT+TE+EE) | Delta chi2 | sigma8 | 100*theta_s |
+|-------|----------------:|----------:|-------:|------------:|
+| LCDM | 6628.8 | --- | 0.811 | 1.04173 |
+| propto_omega cM=0.0002 | 6628.6 | -0.2 | 0.826 | 1.04173 |
+| **cfm_fR n=0.5, aM0=0.001** | **6626.1** | **-2.7** | 0.899 | 1.04173 |
+| cfm_fR n=1.0, aM0=0.0005 | 6627.1 | -1.6 | 0.879 | 1.04173 |
 
-## Key Results (Pantheon+ Test)
-
-The CFM was tested against **1,590 real Type Ia supernovae** from the Pantheon+ catalog (Scolnic et al. 2022, ApJ 938, 113):
-
-| Criterion | LCDM | CFM (flat) | Winner |
-|-----------|------|------------|--------|
-| chi2 | 729.0 | 716.8 (**-12.2**) | CFM |
-| AIC | 733.0 | 724.8 (**-8.2**) | CFM |
-| BIC | 743.7 | 746.3 (+2.6) | LCDM (marginal) |
-| 5-Fold CV | 0.4519 | 0.4499 | CFM |
-
-**3 of 4 model selection criteria favor CFM over LCDM.**
-
-### Fitted Parameters (flat CFM)
-- $\Omega_m = 0.364$ (Planck: 0.315)
-- $k = 1.30$ (transition sharpness)
-- $a_\mathrm{trans} = 0.75$ ($z_\mathrm{trans} = 0.33$)
-- $\Phi_0 = 1.047$ (derived from flatness condition)
-
-## Repository Contents
-
-| File | Description |
-|------|-------------|
-| `Spieltheorie_Urknall_Artikel.tex` | Full paper (German + English) |
-| `cfm_pantheonplus_test.py` | Analysis script (documented) |
-| `CFM_Pantheon_Plus_Ergebnis.txt` | Detailed results report |
-| `CFM_Pantheon_Plus_Ergebnis.png` | 6-panel visualization |
-
-## Running the Analysis
-
-```bash
-pip install numpy pandas scipy matplotlib requests
-python cfm_pantheonplus_test.py
+The cfm_fR model implements:
+```
+alpha_M(a) = alpha_M_0 * n * a^n / (1 + alpha_M_0 * a^n)
+alpha_B(a) = -alpha_M(a) / 2     [f(R) relation]
+alpha_T    = 0                     [c_gw = c, consistent with GW170817]
+alpha_K    = 0
 ```
 
-The script automatically downloads the Pantheon+ dataset from GitHub and produces the results report and visualization.
+## Installation
 
-## Paper
+### 1. Python Dependencies
 
-**"Spieltheoretische Kosmologie und das Kruemmungs-Rueckgabepotential-Modell"**
-(Game-Theoretic Cosmology and the Curvature Feedback Model)
+```bash
+pip install -r requirements.txt
+```
 
-Lukas Geiger, February 2026
+### 2. hi_class (Horndeski in CLASS Boltzmann code)
 
-The paper develops a game-theoretic framework where the emergence of spacetime is modeled as a Nash equilibrium between a metastable quantum vacuum ("null space") and a spacetime bubble. The key insight: accelerated expansion is not a new "drive" but a "releasing brake."
+hi_class is required for CMB power spectrum computations and the cfm_fR model.
+
+```bash
+# Clone hi_class
+git clone https://github.com/miguelzuma/hi_class_public.git
+cd hi_class_public
+
+# Apply cfm_fR patch (adds the native CFM gravity model)
+python /path/to/cfm-cosmology/scripts/patch_cfm.py
+
+# Build hi_class with Python wrapper
+cd python
+python setup.py build
+```
+
+The patch modifies `gravity_models_smg.c` to add the `cfm_fR` gravity model. See [Patch Documentation](#cfm_fr-patch-documentation) below for details.
+
+**Tested with:** hi_class v2.9.4+, Python 3.12, Cython 0.29.37, NumPy 1.26.4 on Ubuntu 24.04 (WSL).
+
+### 3. Pantheon+ Data
+
+The Pantheon+ supernova data (Scolnic et al. 2022) and Planck 2018 CMB spectra are downloaded automatically by the analysis scripts. No manual download required.
+
+## Reproducing the Results
+
+### Paper I: Pantheon+ Analysis
+```bash
+python scripts/cfm_pantheonplus_test.py    # Main SN analysis
+python scripts/cfm_enhanced_analysis.py    # Extended functional forms
+```
+
+### Paper II: MOND + Baryon-Only
+```bash
+python scripts/cfm_baryon_only_test.py     # Baryon-only universe test
+python scripts/cfm_mond_mcmc.py            # MOND MCMC analysis
+```
+
+### Paper III: hi_class CMB Validation
+```bash
+# Requires hi_class with cfm_fR patch (see Installation above)
+python scripts/test_cfm_fR_native.py       # Systematic cfm_fR parameter scan
+python scripts/compute_TT_TE_EE.py         # Planck TT+TE+EE chi2 computation
+python scripts/scalaron_alphaM_theta_s.py  # theta_s resolution analysis
+python scripts/compute_fsigma8.py          # Growth rate f*sigma8
+python scripts/run_full_mcmc.py            # Full MCMC (5 params, ~8h runtime)
+python scripts/analyze_mcmc_results.py     # MCMC posterior analysis
+```
+
+### Supplementary
+```bash
+python scripts/poeschl_teller_path_integral.py  # sqrt(pi) path integral
+```
+
+## Repository Structure
+
+```
+cfm-cosmology/
+  README.md                  # This file
+  LICENSE                    # CC BY 4.0
+  requirements.txt           # Python dependencies
+  CHANGES_cfm_fR.md          # Patch documentation
+  papers/                    # LaTeX sources (3 papers x 2 languages)
+  scripts/                   # All analysis scripts
+  results/                   # Key numerical results
+  figures/                   # Plots referenced in papers
+  data/                      # Pantheon+ analysis outputs
+```
+
+## cfm_fR Patch Documentation
+
+The file `scripts/patch_cfm.py` applies 4 modifications to `hi_class/gravity_models_smg.c`:
+
+| # | Location | Change |
+|---|----------|--------|
+| 1 | `gravity_models_init()` | Registers `cfm_fR` as a new gravity model |
+| 2 | `gravity_functions_smg()` | Computes alpha_M, alpha_B from parameters `(alpha_M_0, n_exp, M*2_init)` |
+| 3 | `gravity_print_smg()` | Adds print output for cfm_fR parameters |
+| 4 | Error message | Adds cfm_fR to the list of recognized models |
+
+**Parameters passed via hi_class:**
+```python
+cosmo.set({
+    'gravity_model': 'cfm_fR',
+    'parameters_smg': f'{alpha_M_0}, {n_exp}, 1.0',
+    'expansion_model': 'lcdm',
+    'Omega_smg': -1,
+})
+```
+
+**Physical interpretation:**
+- `alpha_M_0`: Amplitude of the Planck mass running rate
+- `n_exp`: Power-law index controlling time evolution (n=0.5 best fit, n=1 reproduces propto_scale)
+- At early times (a << 1): alpha_M ~ alpha_M_0 * n * a^n (perturbative)
+- At late times (a ~ 1): alpha_M -> n_exp / (1 + alpha_M_0) (saturates)
+
+## Software Citations
+
+This work uses the following open-source software:
+
+- **CLASS** (Cosmic Linear Anisotropy Solving System): Blas, Lesgourgues & Tram (2011), JCAP 07, 034. [arXiv:1104.2933](https://arxiv.org/abs/1104.2933)
+- **hi_class** (Horndeski in CLASS): Zumalacarregui, Bellini, Sawicki, Lesgourgues & Ferreira (2017), JCAP 01, 019. [arXiv:1605.06102](https://arxiv.org/abs/1605.06102)
+- **emcee** (MCMC sampler): Foreman-Mackey, Hogg, Lang & Goodman (2013), PASP 125, 306. [arXiv:1202.3665](https://arxiv.org/abs/1202.3665)
+- **NumPy**: Harris et al. (2020), Nature 585, 357.
+- **SciPy**: Virtanen et al. (2020), Nature Methods 17, 261.
+- **Matplotlib**: Hunter (2007), Computing in Science & Engineering 9, 90.
+
+**Observational data:**
+- **Pantheon+**: Scolnic et al. (2022), ApJ 938, 113. [arXiv:2112.03863](https://arxiv.org/abs/2112.03863)
+- **Planck 2018**: Aghanim et al. (2020), A&A 641, A6. [arXiv:1807.06209](https://arxiv.org/abs/1807.06209)
 
 ## Citation
 
@@ -69,10 +162,25 @@ The paper develops a game-theoretic framework where the emergence of spacetime i
   author  = {Geiger, Lukas},
   title   = {Game-Theoretic Cosmology and the Curvature Feedback Model},
   year    = {2026},
-  note    = {Available at \url{https://github.com/lukisch/cfm-cosmology}}
+  note    = {Paper I of the CFM program}
+}
+
+@article{Geiger2026CFMMOND,
+  author  = {Geiger, Lukas},
+  title   = {CFM-MOND Unification: A Baryonic Universe Without Dark Matter},
+  year    = {2026},
+  note    = {Paper II of the CFM program}
+}
+
+@article{Geiger2026CFMQG,
+  author  = {Geiger, Lukas},
+  title   = {From Curvature Feedback to Quantum Gravity: Lagrangian Foundations
+             and Testable Predictions},
+  year    = {2026},
+  note    = {Paper III of the CFM program}
 }
 ```
 
 ## License
 
-CC BY 4.0
+This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

@@ -1,0 +1,40 @@
+VEROEFFENTLICHUNGSSTRATEGIE - CFM Papers
+==========================================
+Stand: 2026-02-12
+
+KOOPERATIONSPARTNER (Prioritaet):
+1. Miguel Zumalacarregui - AEI Potsdam - hi_class-Entwickler
+   Email: @aei.mpg.de, Web: miguelzuma.github.io
+2. Luca Amendola - Uni Heidelberg - f(R)-Experte
+   Email: l.amendola@thphys.uni-heidelberg.de, Tel: +49 6221 549407
+3. Julien Lesgourgues - RWTH Aachen - CLASS-Entwickler
+   Email: Julien.Lesgourgues@physik.rwth-aachen.de
+4. Ignacy Sawicki - Prag/Genf - hi_class + Hu-Sawicki f(R)
+   Email: ignacy.sawicki@unige.ch
+5. Jochen Weller - LMU Muenchen - Modified Gravity Testing
+6. Pavel Kroupa - Uni Bonn - MOND, offen fuer Neues
+7. Lucas Lombriser - Uni Genf - Leading MG-Theoretiker
+   Email: lucas.lombriser@unige.ch
+8. Pedro Ferreira - Oxford - hi_class Co-Autor
+   Email: pedro.ferreira@physics.ox.ac.uk
+9. Lavinia Heisenberg - Uni Heidelberg - f(Q) Gravity
+10. Alessandra Silvestri - Leiden - EFT modified gravity
+11. Tessa Baker - Portsmouth - GW + modified gravity
+    Web: tessabaker.space
+
+BESONDERS RELEVANT:
+- Plaza & Kraiselburd (2025, arXiv:2504.05432): "First very strong
+  statistical evidence in favor of f(R) models over LCDM" mit DESI DR2!
+  Email: Fran22@fcaglp.unlp.edu.ar
+
+VEROEFFENTLICHUNGSPFAD:
+1. Zenodo -> sofort DOI + Zeitstempel (Prioritaet!)
+2. arXiv (gr-qc + cross-list astro-ph.CO) -> Endorsement noetig
+3. SciPost Physics -> kostenlos, Peer-Review, ~10 Wochen
+4. Backup: MDPI Universe (Fee-Waiver moeglich)
+
+ANONYMITAET:
+- Zenodo: Jeder Name moeglich
+- arXiv: Echte Identitaet fuer Account, Display-Name flexibel
+- Journals: Echte Identitaet noetig
+- Empfehlung: Kooperationspartner als Erstautor, L.G. als Co-Autor
