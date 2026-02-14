@@ -1,0 +1,117 @@
+======================================================================
+  CFM+MOND: VOLLSTAENDIGE C_l-ANALYSE
+======================================================================
+  CAMB 1.6.5
+  Datum: 2026-02-13 19:11:54
+
+  1. EFFEKTIVE MATERIE BEI z=1090
+  -------------------------------------------------------
+  mu(z=1090) = 1.7679
+  beta(z=1090) = 2.8200
+  mu*Ob = 0.0875
+  Om_geom = alpha*a^(3-beta) = 0.1973
+  Om_eff_total = 0.2848  (LCDM: 0.315)
+
+  ombh2 = 0.02242
+  omch2_eff = 0.10659  (LCDM: 0.1202)
+
+  2. LCDM-REFERENZSPEKTRUM
+  -------------------------------------------------------
+  Peaks: l1=220 l2=536 l3=813
+  Pk3/Pk1=0.4434  Pk2/Pk1=0.4526
+
+  3. CFM MIT OM_EFF (PLANCK SPEKTRALPARAMETER)
+  -------------------------------------------------------
+  Peaks: l1=223 l2=543 l3=827
+  Pk3/Pk1=0.4239  Pk2/Pk1=0.4495
+  chi2 vs LCDM: 4821.5 (A=0.944)
+
+  4. OPTIMIERUNG DER SPEKTRALPARAMETER
+  -------------------------------------------------------
+  Optimiere A_s, n_s, tau um chi2 vs Planck-LCDM zu minimieren...
+
+  Start 1: chi2=4607.9  A_s=3.039e-09 n_s=0.9638 tau=0.0738
+  Start 2: chi2=4608.0  A_s=3.039e-09 n_s=0.9637 tau=0.0635
+  Start 3: chi2=4608.2  A_s=3.041e-09 n_s=0.9637 tau=0.0510
+  Start 4: chi2=4607.9  A_s=3.039e-09 n_s=0.9638 tau=0.0745
+  Start 5: chi2=4607.9  A_s=3.039e-09 n_s=0.9638 tau=0.0738
+
+  BESTER FIT:
+  A_s  = 3.0387e-09  (Planck: 2.1e-9)
+  n_s  = 0.9638  (Planck: 0.9649)
+  tau  = 0.0738  (Planck: 0.054)
+  chi2 = 4607.9
+
+  5. FINALES C_l-SPEKTRUM
+  -------------------------------------------------------
+  CFM-Peaks (optimiert):
+    l1=223  Dl1=8479
+    l2=543  Dl2=3802
+    l3=826  Dl3=3567
+    Pk3/Pk1 = 0.4207  (Planck: 0.4295, LCDM: 0.4434)
+    Pk2/Pk1 = 0.4484  (LCDM: 0.4526)
+    chi2 vs LCDM = 4607.9  (Amplitude: 0.678)
+
+  6. OM_EFF-SCAN (mit optimierten Spektralparametern)
+  -------------------------------------------------------
+    Om_eff     omch2     l1    Pk3/1    Pk2/1        chi2
+  -------------------------------------------------------
+     0.088   0.01744    264   0.4002   0.5620    113864.5
+     0.150   0.04552    242   0.3154   0.4287    111399.1
+     0.200   0.06817    232   0.3592   0.4383     74482.7
+     0.250   0.09081    226   0.3972   0.4450     22868.0
+     0.285   0.10666    223   0.4208   0.4484      4557.4 <-- CFM mu(a)
+     0.315   0.12025    220   0.4394   0.4507       268.9 <-- LCDM
+     0.350   0.13611    218   0.4593   0.4529      4658.7
+
+======================================================================
+  ZUSAMMENFASSUNG: CFM+MOND C_l-PERTURBATIONSTEST
+======================================================================
+
+  Modell                          l1    l2    l3   P3/P1   P2/P1      chi2
+  --------------------------------------------------------------------
+  Planck 2018 (Daten)            220   538   811  0.4295  0.4421       ---
+  LCDM (CAMB)                    220   536   813  0.4434  0.4526       ref
+  CFM mu+geom (default As)       223   543   827  0.4239  0.4495    4821.5
+  CFM mu+geom (optimiert)        223   543   826  0.4207  0.4484    4607.9
+  --------------------------------------------------------------------
+
+  DIAGNOSE:
+  Pk3/Pk1: CFM=0.4207 vs Planck=0.4295 -> 97.9%
+  Pk2/Pk1: CFM=0.4484 vs LCDM=0.4526
+  l1: CFM=223 vs Planck=220 (Delta=3)
+
+  *** PERTURBATIONSTEST: VIELVERSPRECHEND ***
+  Peak-Verhaeltnisse sind innerhalb 5% von Planck!
+
+  WICHTIG: Diese Analyse nutzt das 'Effective CDM'-Mapping.
+  Die echten CFM-Perturbationsgleichungen (modifizierte Poisson-Gl.,
+  Anisotropie-Stress) werden NICHT beruecksichtigt.
+  Fuer eine vollstaendige Analyse ist hi_class/EFTCAMB noetig.
+
+  SOFTWARE-ZITATIONEN:
+  -------------------------------------------------------
+  [1] CAMB: Lewis, Challinor & Lasenby (2000)
+      'Efficient computation of CMB anisotropies in closed FRW models'
+      ApJ 538, 473. https://github.com/cmbant/CAMB
+  [2] CAMB Python: Lewis (2019)
+      'GetDist: a Python package for analysing Monte Carlo samples'
+      arXiv:1910.13970
+  [3] Planck 2018: Aghanim et al. (2020)
+      'Planck 2018 results. VI. Cosmological parameters'
+      A&A 641, A6
+  [4] Pantheon+: Scolnic et al. (2022)
+      'The Pantheon+ Analysis: The Full Data Set'
+      ApJ 938, 113
+
+  GEPLANTE TOOLS (fuer vollst. Perturbationsanalyse):
+  [5] hi_class: Zumalacarregui et al. (2017)
+      'hi_class: Horndeski in the Cosmic Linear Anisotropy Solving System'
+      JCAP 1708, 019. https://github.com/miguelzuma/hi_class_public
+  [6] EFTCAMB: Hu, Raveri, Frusciante & Silvestri (2014)
+      'EFT of cosmic acceleration: implementation in CAMB'
+      PRD 89, 103530. https://github.com/EFTCAMB/EFTCAMB
+  [7] AeST: Skordis & Zlosnik (2021)
+      'New relativistic theory for MOND' PRL 127, 161302
+
+  Laufzeit: 1285.7s

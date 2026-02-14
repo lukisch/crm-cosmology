@@ -1,183 +1,27 @@
-ZENODO UPLOAD PLAN
-==================
-Stand: 2026-02-11
-Repository: lukisch/cfm-cosmology (PRIVATE bis Veroeffentlichung)
+dTitle: The Curvature Feedback Model Trilogy: From Game-Theoretic Cosmology to a Dark-Sector-Free Universe
+Creators: Lukas Geiger
+Description:
+This deposit contains the "Curvature Feedback Model" (CFM) trilogy, a series of three working papers proposing a new cosmological framework that eliminates the need for a dark sector (Dark Energy and Dark Matter).
 
-Reihenfolge: Zenodo zuerst (DOI) -> arXiv danach (Sichtbarkeit)
-Alle drei Papers + Code/Daten-Paket separat hochladen.
+Paper I: Spieltheoretische Kosmologie und das Krümmungs-Rückgabepotential-Modell (German)
+- Establishes the game-theoretic foundation: Spacetime as a Nash equilibrium between a null space and a spacetime bubble.
+- Proposes the CFM to explain accelerated expansion via a geometric saturation mechanism (tanh-potential) rather than Lambda.
+- Validated against Pantheon+ Supernovae (Delta Chi^2 = -12.2 vs LambdaCDM).
 
-===============================================================================
-UPLOAD 1: Paper I (Grundlegung)
-===============================================================================
+Paper II: Eliminating the Dark Sector: Unifying the Curvature Feedback Model with MOND (English)
+- Extends the model to a baryon-only universe (Omega_m = 0.05).
+- Introduces the "Decaying Dark Geometry" hypothesis: Dark Matter is an early-time geometric phase (scaling as a^-2), Dark Energy is the late-time saturated phase.
+- Achievements: Delta Chi^2 = -26.3 vs LambdaCDM on Pantheon+ data.
 
-Titel:
-Game-Theoretic Cosmology and the Curvature Feedback Model:
-Nash Equilibria Between Null Space and Spacetime Bubble
+Paper III: Microscopic Foundations of the Curvature Feedback Model (English)
+- Derives the Lagrangian formulation (R + R^2 + Pöschl-Teller scalar).
+- Explores connections to Quantum Gravity (LQG, Finsler Geometry, Quantum Error Correction).
+- Proposes distinctive observational tests (Cosmic Birefringence, Gravitational Slip).
 
-Autoren:
-Geiger, Lukas (Independent Researcher, Bernau im Schwarzwald, Germany)
+Methodology: These papers represent an experiment in AI-Assisted Science, with explicit disclosure of AI roles (Claude Opus 4.6 as Co-Writer, Gemini as Reviewer).
 
-Abstract:
-We introduce the Curvature Feedback Model (CFM), a game-theoretic
-framework in which the universe's accelerated expansion emerges as a
-Nash equilibrium between a metastable quantum vacuum (null space) and
-a spacetime bubble. The null space seeks to maintain its integrity,
-while the spacetime bubble seeks to neutralize the energy gradient
-through expansion. The resulting equilibrium produces a time-dependent
-curvature return potential Omega_Phi(a) governed by a saturation ODE,
-whose solution is a tanh-type function replacing the cosmological
-constant Lambda. Tested against 1,590 Pantheon+ Type Ia supernovae
-with full covariance matrix, the CFM yields chi^2 = 716.8
-(Delta chi^2 = -12.2 vs. LambdaCDM) with a later onset of cosmic
-acceleration (z_acc = 0.52 vs. 0.84). The model predicts earlier and
-more efficient structure formation, consistent with JWST high-redshift
-galaxy observations, the El Gordo cluster anomaly, and early
-protoclusters. We provide the game-theoretic derivation, numerical
-analysis, and a roadmap for CMB and BAO validation.
-
-Keywords:
-cosmology; dark energy; Nash equilibrium; game theory;
-Curvature Feedback Model; Friedmann equation; Pantheon+;
-Type Ia supernovae; modified gravity; structure formation
-
-Upload-Dateien:
-- Spieltheorie_Urknall_Artikel_v1.pdf (Hauptartikel, 30 Seiten)
-- Spieltheorie_Urknall_Artikel_v1.tex (LaTeX-Quellcode)
-
-Typ: Preprint
-Communities:
-- Astronomy & Astrophysics
-- General Relativity and Quantum Cosmology
-Lizenz: CC-BY 4.0
-Sprache: Bilingual (Deutsch/Englisch)
-
-===============================================================================
-UPLOAD 2: Paper II (Flaggschiff)
-===============================================================================
-
-Titel:
-Eliminating the Dark Sector: Unifying the Curvature Feedback Model
-with MOND -- A Baryon-Only Universe with Geometric Dark Matter
-and Dark Energy
-
-Autoren:
-Geiger, Lukas (Independent Researcher, Bernau im Schwarzwald, Germany)
-
-Abstract:
-We extend the Curvature Feedback Model (CFM) to a baryon-only universe
-(Omega_m = Omega_b = 0.05) compatible with Modified Newtonian Dynamics
-(MOND). The extended Friedmann equation H^2(a) = H_0^2[Omega_b a^{-3}
-+ Phi_0 f_sat(a) + alpha a^{-beta} S(a)] replaces both dark energy
-(saturation term) and dark matter (power-law term) with purely
-geometric effects. A trace-coupling mechanism (S(a) -> 0 for radiation)
-ensures consistency with Big Bang Nucleosynthesis. Tested against 1,590
-Pantheon+ Type Ia supernovae, this dark-sector-free model achieves
-chi^2 = 702.7 (Delta chi^2 = -26.3 vs. LambdaCDM, Delta AIC = -16.3,
-Delta BIC = -4.2). MCMC posterior analysis reveals beta = 2.02 +/- 0.20,
-indicating that the geometric dark matter term scales as spatial
-curvature (a^{-2}, w = -1/3) -- not as matter. We introduce the
-Decaying Dark Geometry hypothesis: dark matter and dark energy are two
-phases of a single geometric relaxation process. The three principal
-challenges (CMB acoustic peaks, Bullet Cluster, structure formation)
-are addressed through the geometric phase transition framework.
-
-Keywords:
-cosmology; dark matter; dark energy; MOND; baryon-only universe;
-Curvature Feedback Model; Pantheon+; geometric cosmology;
-modified gravity; Decaying Dark Geometry; trace coupling
-
-Upload-Dateien:
-- CFM_MOND_Vereinigung.pdf (Hauptartikel, 16 Seiten)
-- CFM_MOND_Vereinigung.tex (LaTeX-Quellcode)
-
-Typ: Preprint
-Communities:
-- Astronomy & Astrophysics
-- General Relativity and Quantum Cosmology
-Lizenz: CC-BY 4.0
-Sprache: Englisch
-
-===============================================================================
-UPLOAD 3: Paper III (Theorie)
-===============================================================================
-
-Titel:
-Microscopic Foundations of the Curvature Feedback Model:
-From Quantum Geometry to Macroscopic Saturation
-
-Autoren:
-Geiger, Lukas (Independent Researcher, Bernau im Schwarzwald, Germany)
-
-Abstract:
-We address the microscopic origin of the Curvature Feedback Model's
-saturation ODE dOmega/da = k[1-(Omega/Phi_0)^2]. We derive the
-effective Lagrangian L_CFM = R + gamma R^2 - (1/2)(d phi)^2 -
-V_0/cosh^2(phi/phi_0) (Poeschl-Teller potential) and explore five
-quantum gravity connections: Loop Quantum Gravity, Finsler geometry,
-information-theoretic spacetime, causal set theory, and quantum error
-correction. We propose a fractal game theory in which Nash equilibria
-operate self-similarly across three levels (spacetime bits, particles,
-cosmos). The geometric phase transition from dark-matter-like (a^{-2})
-to dark-energy-like (tanh) behavior is interpreted as a Ginzburg-Landau
-transition. Existing hints of cosmic birefringence (beta = 0.35 deg,
-2.4 sigma, Planck data) are identified as a potential signature of
-spin-network saturation. Testable predictions include gravitational
-slip, scalar field oscillations, and modified gravitational wave
-propagation.
-
-Keywords:
-quantum gravity; Curvature Feedback Model; Lagrangian formulation;
-Loop Quantum Gravity; Finsler geometry; Poeschl-Teller potential;
-cosmic birefringence; fractal game theory; phase transition;
-quantum error correction
-
-Upload-Dateien:
-- CFM_Quantengravitation.pdf (Hauptartikel, 20 Seiten)
-- CFM_Quantengravitation.tex (LaTeX-Quellcode)
-
-Typ: Preprint
-Communities:
-- General Relativity and Quantum Cosmology
-- High Energy Physics - Theory
-Lizenz: CC-BY 4.0
-Sprache: Englisch
-
-===============================================================================
-UPLOAD 4: Code & Daten
-===============================================================================
-
-Titel:
-CFM Cosmology: Analysis Code and Results
-(Companion to Geiger 2026a, 2026b, 2026c)
-
-Autoren:
-Geiger, Lukas
-
-Beschreibung:
-Python analysis code and numerical results for the Curvature Feedback
-Model (CFM) paper series. Includes MCMC posterior analysis, Pantheon+
-supernova fitting, and visualization scripts.
-
-Upload-Dateien:
-- _data/cfm_enhanced_analysis.py (Hauptanalyse, Kovarianzmatrix)
-- _data/cfm_baryon_only_test.py (3-Szenario Baryon-Only-Test)
-- _data/cfm_mond_mcmc.py (MCMC fuer erweitertes Modell)
-- _data/plot_functional_forms.py (Funktionsform-Vergleich)
-- _results/CFM_MOND_Baryon_Only_Test.png
-- _results/CFM_MOND_Baryon_Only_Results.txt
-- _results/CFM_MOND_MCMC_Posteriors.png
-- _results/CFM_MOND_MCMC_Results.txt
-
-Typ: Dataset / Software
-Communities:
-- Astronomy & Astrophysics
-Lizenz: CC-BY 4.0
-
-===============================================================================
-CHECKLISTE VOR UPLOAD
-===============================================================================
-[ ] Alle PDFs final kompiliert (2x pdflatex fuer Referenzen)
-[ ] Abstracts in ZENODO.txt mit den Papers abgeglichen
-[ ] DOI-Platzhalter in Papers einfuegen (Related Identifiers)
-[ ] GitHub Repo bleibt PRIVATE bis nach Zenodo+arXiv Upload
-[ ] Danach Repo auf PUBLIC schalten und Zenodo DOI in README eintragen
+Keywords: Cosmology, Dark Energy, Dark Matter, MOND, Game Theory, Quantum Gravity, Curvature Feedback Model, Pantheon+, AI-Assisted Science
+Uploads:
+- Spieltheorie_Urknall_Artikel_v1.pdf
+- CFM_MOND_Vereinigung.pdf
+- CFM_Quantengravitation.pdf

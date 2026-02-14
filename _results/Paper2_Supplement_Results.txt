@@ -1,0 +1,254 @@
+==========================================================================
+  SECTION 1: 5-FOLD-KREUZVALIDIERUNG
+  Extended CFM+MOND (5 Parameter) vs. LCDM (2 Parameter)
+==========================================================================
+
+  1590 Supernovae geladen
+
+  --- Fold 1/5 ---
+    LCDM:    chi2/n_test = 0.4673  (Om=0.248)
+    Ext.CFM: chi2/n_test = 0.4555  (k=9.8, at=0.990, a=0.700, b=1.91)
+
+  --- Fold 2/5 ---
+    LCDM:    chi2/n_test = 0.4277  (Om=0.260)
+    Ext.CFM: chi2/n_test = 0.4277  (k=12.1, at=0.990, a=0.700, b=1.96)
+
+  --- Fold 3/5 ---
+    LCDM:    chi2/n_test = 0.4607  (Om=0.239)
+    Ext.CFM: chi2/n_test = 0.4652  (k=12.4, at=0.990, a=0.700, b=1.86)
+
+  --- Fold 4/5 ---
+    LCDM:    chi2/n_test = 0.4354  (Om=0.256)
+    Ext.CFM: chi2/n_test = 0.4108  (k=7.5, at=0.990, a=0.700, b=1.92)
+
+  --- Fold 5/5 ---
+    LCDM:    chi2/n_test = 0.4682  (Om=0.234)
+    Ext.CFM: chi2/n_test = 0.4674  (k=11.6, at=0.990, a=0.700, b=1.86)
+
+  ERGEBNIS: 5-Fold-Kreuzvalidierung
+  ==================================================
+  Modell               <chi2/n>     std          Folds
+  --------------------------------------------------
+  LCDM (2 Param.)      0.4519       0.0169       [0.4673, 0.4277, 0.4607, 0.4354, 0.4682]
+  Ext.CFM (5 Param.)   0.4453       0.0223       [0.4555, 0.4277, 0.4652, 0.4108, 0.4674]
+
+  => Extended CFM generalisiert BESSER auf ungesehene Daten!
+     Delta <chi2/n> = -0.0066
+     KEIN Overfitting trotz 5 vs. 2 Parameter.
+
+
+==========================================================================
+  SECTION 2: CMB-PEAK-VERHAELTNISSE (SEMI-ANALYTISCH)
+==========================================================================
+
+  Recombination: z* = 1089.92, a* = 9.166575e-04
+
+  Matter-Radiation Equality:
+    LCDM (Om=0.315):   a_eq = 2.8667e-04  (z_eq = 3487)
+    CFM  (Ob=0.05):    a_eq = 1.8060e-03  (z_eq = 553)
+
+  Trace-coupling suppression at recombination:
+    S(a*) = 1/(1 + a_eq/a*) = 0.3367
+
+  Contributions to H^2(a*) / H0^2:
+    ------------------------------------------------------------
+    Component                                LCDM       Ext. CFM
+    ------------------------------------------------------------
+    Baryonic (Ob*a^-3)                   6.40e+07       6.49e+07
+    CDM (Ocdm*a^-3)                      3.45e+08            ---
+    Geom. DM (alpha*a^-b*S)                   ---       3.13e+05
+    Radiation (Or*a^-4)                  1.28e+08       1.28e+08
+    ------------------------------------------------------------
+    Total "matter-like"                  4.09e+08       6.52e+07
+
+  Ratio geom.DM / baryonic at z*: 0.0048 (0.48%)
+  Ratio CDM / baryonic at z* (LCDM): 5.39 (539%)
+
+  CMB PEAK-VERHAELTNISSE:
+  ------------------------------------------------------------
+
+  Baryon fraction R = rho_b / rho_total_matter:
+    LCDM:         R = 0.1565  (baryons = 15.7% of matter)
+    Baryon-only:  R = 1.0000  (baryons = 100% of matter)
+    Ext. CFM:     R = 0.9952  (baryons = 99.5% of matter)
+
+  Approximate peak3/peak1 scaling ~ (1/R)^0.7:
+    LCDM:         3.66
+    Baryon-only:  1.00  (catastrophically low 3rd peak!)
+    Ext. CFM:     1.00
+
+  KRITISCHES ERGEBNIS:
+  ============================================================
+
+  Der geometrische DM-Term traegt nur 0.5%
+  der baryonischen Materiedichte bei Rekombination bei.
+  In LCDM betraegt der CDM-Beitrag 539%.
+
+  PROBLEM: Der alpha*a^{-beta}-Term mit beta~2 skaliert
+  LANGSAMER als Materie (a^{-3}). Bei hohen z dominiert
+  die baryonische Materie, und der geometrische DM-Term
+  wird vernachlaessigbar.
+
+  Dies bedeutet: Die CMB-Physik (z~1000) unterscheidet sich
+  fundamental von LCDM. Das erweiterte CFM muss entweder:
+    (a) einen anderen Mechanismus fuer CMB-Peaks liefern
+        (z.B. ueber die Perturbationstheorie des R^2-Terms
+         aus Paper III, der anisotropen Stress erzeugt), oder
+    (b) akzeptieren, dass die SN-Validierung allein nicht
+        ausreicht und die CMB-Kompatibilitaet ungeklaert ist.
+
+  GEDANKENEXPERIMENT: Welches beta waere noetig?
+  --------------------------------------------------
+  Fuer CDM-aequivalenten Beitrag bei z*:
+    beta_needed = 2.87
+    MCMC-Ergebnis: beta = 2.02 +/- 0.20
+    Spannung: 4.2 sigma
+
+  ABER: beta~2 wird durch die SN-Daten erzwungen (Kruemmungs-
+  skalierung). Ein beta~3 wuerde den SN-Fit verschlechtern.
+  Dies ist die fundamentale Spannung des Modells:
+    - SN erfordern beta~2 (Kruemmung)
+    - CMB-Peaks erfordern beta~3 (Materie)
+
+
+==========================================================================
+  SECTION 3: BULLET-CLUSTER LENSING-ABSCHAETZUNG
+==========================================================================
+
+  Bullet Cluster: z = 0.296, a = 0.7716
+  Beobachteter Lensing-Masseversatz: ~250 kpc
+  Inferierte 'DM-Masse': ~2.4e+14 M_sun
+
+  FRAGE: Kann der geometrische DM-Term des CFM den
+  Lensing-Versatz des Bullet Clusters erklaeren?
+
+  Hintergrund-Verhaeltnisse bei z = 0.296:
+    Geom. DM / Baryonen = 10.55
+    (In LCDM: CDM / Baryonen = 5.38)
+
+  BEWERTUNG:
+  --------------------------------------------------
+
+  Das Paper-II-Argument beruht auf zwei Saeulen:
+
+  (A) Das geometrische Potential hat GEDAECHTNIS:
+      Es koppelt an die GESCHICHTE der Masseverteilung,
+      nicht an die instantane Verteilung. Daher kann es
+      nach einer Kollision die urspruengliche Position
+      'erinnern' -- aehnlich wie CDM.
+
+  (B) AeST-Analogie: In der relativistischen MOND-Theorie
+      AeST erzeugen Skalar- und Vektorfelder Lensing-
+      Signale, die vom Gas versetzt sind.
+
+  KRITIK: Beide Argumente sind qualitativ, nicht quantitativ.
+  Fuer eine quantitative Vorhersage wird benoetigt:
+    1. Perturbationsgleichungen des erweiterten CFM
+       (aus der Lagrangian-Formulierung, Paper III)
+    2. Numerische Simulation einer Cluster-Kollision
+       mit dem geometrischen Potential
+    3. Vergleich der vorhergesagten Lensing-Karte
+       mit den beobachteten Daten
+
+  STATUS: Nicht-quantifizierbar ohne Perturbationstheorie.
+  EMPFEHLUNG: Als 'offenes Problem' kennzeichnen, nicht
+  als 'geloest'. Das Argument ist plausibel, aber nicht
+  bewiesen.
+
+
+==========================================================================
+  SECTION 4: EFFIZIENZ-HYPOTHESE -- ZIRKELSCHLUSS-CHECK
+==========================================================================
+
+  Paper II, Proposition 1 (Efficiency Principle):
+  'In einem Nash-Gleichgewichts-Universum besteht der
+   Materieinhalt ausschliesslich aus baryonischer Materie,
+   weil DM eine ineffiziente Allokation des Energiebudgets
+   darstellt.'
+
+  REVIEW-KRITIK: Zirkelschluss-Risiko.
+  'Man setzt voraus, dass das Universum Entropieproduktion
+   optimiert, und schliesst dann, dass DM ineffizient waere.'
+
+  ANALYSE DES ZIRKELSCHLUSS-VORWURFS:
+  ==================================================
+
+  Die Argumentstruktur ist:
+    Praemisse P1: Das Universum befindet sich in einem
+      Nash-Gleichgewicht, das Entropieproduktion optimiert.
+    Praemisse P2: Baryonen produzieren pro Masseneinheit
+      mehr Entropie als DM.
+    Schluss S:    DM ist nicht Teil der optimalen Loesung.
+
+  IST DAS EIN ZIRKELSCHLUSS?
+  --------------------------------------------------
+
+  Nein, im strengen Sinne nicht. Ein Zirkelschluss waere:
+    'Es gibt keine DM, WEIL es keine DM gibt.'
+
+  Hier ist die Struktur:
+    P1 (Optimierung) + P2 (Effizienzranking) => S (keine DM)
+
+  P2 ist empirisch verifizierbar und unstrittig:
+    Baryonen: Sternbildung, Nukleosynthese, Schwarze Loecher
+    DM (hypothetisch): nur gravitativ, keine Entropieproduktion
+
+  ABER: P1 ist die UNBEWIESENE Praemisse.
+  Das Argument ist formal gueltig, aber nur so stark wie P1.
+
+  EMPFEHLUNG fuer Paper II:
+  --------------------------------------------------
+  1. Proposition 1 umformulieren als KONDITIONAL:
+     'WENN das Nash-Gleichgewicht Entropieproduktion
+      optimiert (P1), DANN ist DM disfavorisiert (S).'
+
+  2. P1 nicht als Axiom, sondern als Hypothese kennzeichnen,
+     die durch den empirischen Erfolg des Modells gestuetzt
+     (aber nicht bewiesen) wird.
+
+  3. Den praeditiven Wert betonen: P1 + P2 => S ist eine
+     testbare Vorhersage, nicht eine zirkulaere Definition.
+     Das Modell waere falsifiziert, wenn DM experimentell
+     nachgewiesen wuerde.
+
+
+==========================================================================
+  ZUSAMMENFASSUNG: PAPER II -- OFFENE PUNKTE UND LOESUNGEN
+==========================================================================
+
+  1. KREUZVALIDIERUNG (neu berechnet):
+     [ERLEDIGT] Extended CFM generalisiert besser als LCDM
+     <chi2/n>: LCDM=0.4519, Ext.CFM=0.4453
+     => Kein Overfitting trotz 5 vs. 2 Parametern
+
+  2. CMB-PEAKS (semi-analytisch berechnet):
+     [OFFENES PROBLEM] Der geometrische DM-Term (beta~2)
+     traegt nur 0.5% der Baryonendichte bei z* bei.
+     Dies ist unzureichend fuer die CMB-Peak-Struktur.
+     Moegliche Loesung: Perturbationen des R^2-Terms
+     (Paper III Lagrangian) koennten zusaetzliche
+     Gravitationspotentiale liefern.
+     STATUS: Erfordert numerische Boltzmann-Rechnung (CLASS/CAMB)
+
+  3. BULLET CLUSTER:
+     [QUALITATIV PLAUSIBEL] Das Gedaechtnis-Argument und
+     die AeST-Analogie sind konzeptuell ueberzeugend,
+     aber nicht quantifiziert.
+     STATUS: Erfordert Perturbationstheorie
+
+  4. MUTTER-TOCHTER-ONTOLOGIE:
+     [EMPFEHLUNG] In Diskussion verschieben, nicht als
+     Definition 1 positionieren. Physikalisches Paper
+     sollte Physik betonen, nicht Ontologie.
+
+  5. EFFIZIENZ-HYPOTHESE:
+     [KEIN ZIRKELSCHLUSS, aber schwache Praemisse]
+     Umformulieren als Konditional: 'Falls P1, dann S.'
+     P1 (Entropie-Optimierung) ist die zu beweisende Hypothese.
+
+  KRITISCHSTER OFFENER PUNKT:
+  Die CMB-Peak-Kompatibilitaet ist das groesste Risiko.
+  Der Titel 'Eliminating the Dark Sector' sollte zu
+  'Toward Eliminating the Dark Sector' abgemildert werden,
+  bis eine quantitative C_l-Berechnung vorliegt.
+

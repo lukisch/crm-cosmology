@@ -1,0 +1,469 @@
+==========================================================================
+  SECTION 1: SCALARON-EIGENSCHAFTEN
+  (aus f(R) = R + epsR², eps = 16piGgamma)
+==========================================================================
+
+  Die CFM-Wirkung (Paper III, Gl. 10):
+  S = ∫d⁴x√(-g) [R/(16piG) + gammaR² - ½(∂phi)² - V₀/cosh²(phi/phi₀) + L_m]
+
+  In der Standard-f(R)-Notation: f(R) = R + eps·R²
+  mit eps = 16piG·gamma
+
+  Das Scalaron ist der zusaetzliche skalare Freiheitsgrad:
+  χ = f_R - 1 = 2eps·R
+
+  SCALARON-MASSE:
+  m_s² = 1/(6eps) = 1/(96piGgamma)
+
+  Ricci-Skalar heute: R₀ ≈ 9.3 H₀²
+
+    gamma [H₀⁻²] eps=16piGgamma       m_s [H₀]     λ_C [H₀⁻¹]      λ_C [Mpc]
+  ----------------------------------------------------------------------
+         1.0e-06        6.0e-06      1.667e+02      6.000e-03            0.3
+         1.0e-04        6.0e-04      1.667e+01      6.000e-02            2.7
+         1.0e-02        6.0e-02      1.667e+00      6.000e-01           26.7
+         1.0e+00        6.0e+00      1.667e-01      6.000e+00          267.0
+         1.0e+02        6.0e+02      1.667e-02      6.000e+01         2670.3
+         1.0e+04        6.0e+04      1.667e-03      6.000e+02        26703.4
+         1.0e+06        6.0e+06      1.667e-04      6.000e+03       267033.8
+         1.0e+10        6.0e+10      1.667e-06      6.000e+05     26703384.8
+
+  CMB-RELEVANTE SKALEN:
+    Akustischer Horizont: r_s ≈ 145.0 Mpc
+    1. Peak: k₁ ≈ 0.0217 Mpc⁻¹ (l ≈ 200)
+    3. Peak: k₃ ≈ 0.0650 Mpc⁻¹ (l ≈ 600)
+
+    BEDINGUNG: Scalaron-Compton-Wellenlaenge muss >> r_s sein,
+    damit der Scalaron auf CMB-Skalen wirkt:
+    λ_C >> 145.0 Mpc => gamma >> 1.77e+00 H₀⁻²
+
+    Minimales gamma fuer CMB-Wirkung: gamma > 1.7691e+00 H₀⁻²
+    (dies ist 1.7691e+00 = ca. 1.8e+00)
+
+
+==========================================================================
+  SECTION 2: MODIFIZIERTE POISSON-GLEICHUNG UND GRAVITATIONAL SLIP
+==========================================================================
+
+  In f(R)-Gravitation (quasi-statische Naeherung) lauten die
+  modifizierten Perturbationsgleichungen:
+
+  1. Modifizierte Poisson-Gleichung:
+     k²Ψ/a² = -4piG·μ(k,a)·rho_m·delta_m
+
+     μ(k,a) = (1/f_R)·[1 + 4(k/a)²·f_RR/f_R] / [1 + 3(k/a)²·f_RR/f_R]
+
+  2. Gravitational Slip:
+     Φ/Ψ = η(k,a)
+     η(k,a) = [1 + 2(k/a)²·f_RR/f_R] / [1 + 4(k/a)²·f_RR/f_R]
+
+  Fuer f(R) = R + epsR²: f_R = 1 + 2epsR ≈ 1, f_RR = 2eps
+
+  μ(k,a) = [1 + 8eps(k/a)²] / [1 + 6eps(k/a)²]
+  η(k,a) = [1 + 4eps(k/a)²] / [1 + 8eps(k/a)²]
+
+  GRENZFAELLE:
+    Sub-Compton (k/a >> m_s, d.h. eps(k/a)² >> 1):
+      μ → 4/3 ≈ 1.333  (33% Verstaerkung der Gravitation)
+      η → 1/2          (maximaler Gravitational Slip)
+
+    Super-Compton (k/a << m_s, d.h. eps(k/a)² << 1):
+      μ → 1            (Standard-GR)
+      η → 1            (kein Slip)
+
+  μ(k, a*) BEI REKOMBINATION fuer verschiedene gamma:
+  ------------------------------------------------------------
+  gamma [H₀⁻²]     μ(1.Peak)     μ(2.Peak)     μ(3.Peak)     η(1.Peak)
+  ------------------------------------------------------------
+       1.0e-02        1.3333        1.3333        1.3333        0.5000
+       1.0e-01        1.3333        1.3333        1.3333        0.5000
+       1.0e+00        1.3333        1.3333        1.3333        0.5000
+       1.0e+01        1.3333        1.3333        1.3333        0.5000
+       1.0e+02        1.3333        1.3333        1.3333        0.5000
+
+  INTERPRETATION:
+    Bei Rekombination (a* ≈ 9.2×10⁻⁴) werden die k/a-Werte
+    sehr gross: k/(a*·H₀) ≈ 1068 fuer den 1. Peak.
+    Dadurch ist eps·(k/a)² >> 1 fuer fast jedes gamma > 0,
+    und μ → 4/3 wird schnell erreicht.
+
+
+==========================================================================
+  SECTION 3: G_eff BEI REKOMBINATION -- REICHT 4/3 AUS?
+==========================================================================
+
+  ZENTRALE FRAGE:
+  In LCDM: CDM liefert ~5.4× die baryonische Dichte bei z*.
+  Im CFM:  G_eff = (4/3)G bei Sub-Compton-Skalen.
+
+  Die effektive 'Materiedichte' fuer die Poisson-Gleichung:
+    LCDM:    4piG·(rho_b + rho_cdm)·delta ≈ 4piG·6.4·rho_b·delta_cdm
+    CFM R²:  4pi·(4/3)G·rho_b·delta_b
+
+    Verhaeltnis: CFM/LCDM ≈ (4/3)·rho_b / (rho_b + rho_cdm)
+              = (4/3)·0.050 / 0.315
+              = 0.212
+
+  ERGEBNIS: Der reine R²-Scalaron liefert nur ~21% der
+  Gravitationspotentiale, die LCDM bei Rekombination hat.
+  Die 4/3-Verstaerkung reicht NICHT aus, um CDM zu ersetzen.
+
+  ABER: Die quasi-statische Naeherung ist bei z* nicht gueltig!
+  ==================================================
+
+  Bei Rekombination sind die relevanten Moden NICHT sub-Hubble.
+  Die quasi-statische Naeherung (k >> aH) bricht zusammen fuer
+  Moden nahe dem Horizont. Die vollen Perturbationsgleichungen
+  koennen staerkere Effekte zeigen:
+
+  1. SCALARON-RESONANZ: Wenn m_s ~ H(z*), kann der Scalaron
+     resonant angeregt werden und groessere Perturbationen erzeugen.
+
+  2. PHASEN-UEBERGANG: Die Trace-Kopplung F(T/rho) 'schaltet'
+     den R²-Term bei matter-radiation-equality ein.
+     Dieser ploetzliche Einschaltvorgang kann transiente
+     Wachstumsmoden erzeugen.
+
+  3. SKALARFELD-KOPPLUNG: Das Poeschl-Teller-Skalarfeld phi
+     koppelt indirekt ueber die Metrik an den Scalaron.
+     Das gekoppelte 2-Feld-System hat reichere Dynamik.
+
+  SCALARON-RESONANZ-BEDINGUNG:
+    H(z*) = 13885.7 H₀
+    Fuer Resonanz: m_s ≈ H(z*)
+    => 1/√(6eps) = 13885.7
+    => eps = 1/(6·13885.7²) = 8.64e-10
+    => gamma = eps/(16piG) ≈ 1.44e-10 H₀⁻²
+
+    gamma_resonance ≈ 1.4407e-10 H₀⁻²
+
+
+==========================================================================
+  SECTION 4: EXPERIMENTELLE CONSTRAINTS AUF gamma
+==========================================================================
+
+  1. LIGO/Virgo (GW170817):
+     |c_GW/c - 1| < 10⁻¹⁵
+
+     Der Scalaron hat Masse m_s = 1/√(6eps).
+     GW-Dispersion: c_GW² = c²·(1 - m_s²·c²/ω²)
+     Fuer f = 100 Hz: ω = 2pi·100 s⁻¹
+
+     m_s² / ω² < 10⁻¹⁵
+     => gamma > 3.35e-28 s² (physikalische Einheiten)
+     => gamma > 1.60e-63 H₀⁻² (kosmologische Einheiten)
+
+     ERGEBNIS: LIGO-Constraint ist extrem schwach (gamma > ~10⁻⁸²).
+     Praktisch keine Einschraenkung.
+
+  2. SONNENSYSTEM (Lunar Laser Ranging):
+     Yukawa-Korrektur: V(r) = -GM/r · (1 + exp(-m_s·r)/3)
+     Constraint: m_s · r_AU >> 1 (Scalaron bei 1 AU abgeschirmt)
+     => λ_C < 1 AU = 1.50e+11 m
+     => λ_C < 1.09e-15 H₀⁻¹
+     => gamma < 3.30e-32 H₀⁻²
+
+     ABER: Der Chamaeleon-Mechanismus kann diese Schranke
+     umgehen! In dichten Umgebungen (Sonnensystem) wird
+     der Scalaron schwer (grosse effektive Masse), waehrend
+     er auf kosmologischen Skalen leicht bleibt.
+
+     Im CFM ist die Trace-Kopplung F(T/rho) ein natuerlicher
+     Chamaeleon: Der R²-Term wird durch hohe Materiedichte
+     modifiziert. Im Sonnensystem (rho >> rho_kosm) kann
+     F(T/rho) → 0 gehen, und der Scalaron wird unsichtbar.
+
+  3. STAROBINSKY-INFLATION (CMB-Normierung):
+     Im Starobinsky-Modell treibt R² die Inflation.
+     CMB-Normierung (Planck 2018): gamma_Starobinsky ≈ 5×10⁸ M_Pl⁻²
+     In H₀⁻²: gamma_Star ≈ 5×10⁸ · M_Pl⁻² ≈ 10¹²⁰ H₀⁻²
+     (extrem gross, da M_Pl >> H₀)
+
+     ABER: Dies ist der Inflations-Wert. Der CFM-gamma muss NICHT
+     mit dem Inflations-gamma uebereinstimmen, wenn der R²-Term
+     durch die Trace-Kopplung modifiziert wird.
+
+  4. CMB-PEAK-ANFORDERUNG:
+     λ_C >> r_s ≈ 145 Mpc = 3.2580 H₀⁻¹
+     => gamma >> (r_s/(6·c/H₀))² = 2.9485e-01 H₀⁻²
+
+  ZUSAMMENFASSUNG DER CONSTRAINTS:
+  ==================================================
+  LIGO (c_GW):        gamma > ~10⁻⁸² H₀⁻²  (irrelevant)
+  Sonnensystem:       gamma < 3.3e-32 H₀⁻²  (ohne Chamaeleon)
+  CMB-Wirkung:        gamma > 2.9e-01 H₀⁻²
+  Chamaeleon-Fenster: 2.9e-01 < gamma < 3.3e-32 H₀⁻²
+
+  => KEIN erlaubtes Fenster ohne Chamaeleon-Mechanismus.
+
+  MIT Chamaeleon (Trace-Kopplung):
+  Die Sonnensystem-Schranke wird aufgehoben, und gamma ist
+  nur durch die CMB-Untergrenze beschraenkt:
+  gamma > 2.9e-01 H₀⁻²
+
+
+==========================================================================
+  SECTION 5: KANN DAS VOLLE CFM-SYSTEM CDM BEI CMB ERSETZEN?
+==========================================================================
+
+  Das CFM hat DREI Perturbations-Freiheitsgrade:
+    1. Scalaron χ = 2epsR (aus R²-Term)
+    2. Skalarfeld deltaphi (Poeschl-Teller)
+    3. Metrik-Perturbationen Φ, Ψ
+
+  Plus die Baryon-Perturbationen delta_b, v_b und Strahlung delta_gamma, v_gamma.
+
+  VERGLEICH MIT AeST (Skordis & Zlosnik 2021):
+  --------------------------------------------------
+  AeST hat ebenfalls drei Freiheitsgrade:
+    1. Skalarfeld phi (liefert Perturbationen)
+    2. Vektorfeld Aμ (liefert anisotropen Stress)
+    3. Metrik-Perturbationen Φ, Ψ
+
+  AeST reproduziert die CMB-Peaks OHNE CDM.
+  Der Schluessel: Das Vektorfeld erzeugt einen
+  wachsenden Modus in den Gravitationspotentialen
+  WAEHREND der Strahlungsdominanz.
+
+  CFM-ANALOGIE:
+  --------------------------------------------------
+  Der R²-Scalaron kann potenziell die Rolle des
+  AeST-Vektorfelds uebernehmen:
+
+  AeST Vektorfeld Aμ  <-->  CFM Scalaron χ (aus R²)
+  AeST Skalarfeld phi   <-->  CFM Skalarfeld phi (Poeschl-Teller)
+
+  Beide liefern:
+    ✓ Anisotropen Stress (Φ ≠ Ψ)
+    ✓ Zusaetzliche Gravitationspotentiale
+    ✓ Wachsende Modi waehrend Strahlungsdominanz
+
+  SCALARON-DYNAMIK WAEHREND STRAHLUNGSDOMINANZ:
+  ==================================================
+
+  In der Strahlungs-Aera (a << a_eq):
+    R ≈ 0  (da T_rad = 0, konforme Symmetrie)
+
+  Die Trace-Kopplung F(T/rho) unterdrückt den R²-Term
+  waehrend der Strahlungsdominanz: F → 0.
+
+  ABER bei matter-radiation equality (a ≈ a_eq):
+  Die Trace-Kopplung schaltet EIN: F → 1.
+  Der Scalaron wird PLOETZLICH aktiviert.
+
+  CFM matter-radiation equality:
+    a_eq = Om_r/Om_b = 1.8060e-03  (z_eq = 553)
+
+  Bei z_eq = 553 wird der Scalaron eingeschaltet.
+  Zwischen z_eq und z* = 1090 hat der Scalaron
+  Deltaz ≈ -537 Rotverschiebungseinheiten Zeit zu wachsen.
+
+  Vergleich:
+    LCDM: CDM waechst von z_eq = 3487 bis z* = 1090
+           => Deltaz ≈ 2397
+    CFM:  Scalaron waechst von z_eq = 553 bis z* = 1090
+           => KEIN Wachstum! z_eq < z*
+
+  *** KRITISCHES PROBLEM ***
+  Im CFM (baryon-only) liegt matter-radiation equality
+  bei z = 553, NACH der Rekombination (z* = 1090)!
+  Das Universum ist bei Rekombination noch STRAHLUNGSDOMINIERT.
+
+  Dies bedeutet:
+    - Die Trace-Kopplung ist bei z* noch TEILWEISE unterdrückt
+      (S(a*) = 0.34)
+    - Der Scalaron hat weniger Zeit zum Wachsen als CDM in LCDM
+    - ABER: Der Scalaron reagiert SOFORT auf Metrik-Perturbationen,
+      nicht erst nach einer Wachstumsphase.
+
+  ENTSCHEIDENDE ERKENNTNIS:
+  ==================================================
+
+  Der Scalaron muss NICHT wachsen wie CDM.
+  Er muss nur die Gravitationspotentiale MODIFIZIEREN.
+
+  In AeST geschieht dies durch die KINETIK des Vektorfelds:
+  Das Vektorfeld hat eine nicht-triviale Hintergrund-Konfiguration,
+  deren Perturbationen SOFORT Gravitationspotentiale liefern.
+
+  Im CFM kann der Scalaron dasselbe leisten, wenn:
+  (a) gamma gross genug ist (Sub-Compton bei CMB-Skalen)
+  (b) Die Trace-Kopplung die richtige Uebergangsdynamik hat
+  (c) Das Poeschl-Teller-Skalarfeld zusaetzlich beitraegt
+
+  ABSCHAETZUNG DER GESAMTEN EFFEKTIVEN VERSTAERKUNG:
+  --------------------------------------------------
+
+  1. Scalaron (R²): μ_R² = 4/3 ≈ 1.33 (Sub-Compton)
+  2. Skalarfeld (phi): μ_phi ~ 1 + delta (abhaengig von V₀, phi₀)
+  3. Trace-Kopplung-Dynamik: zusaetzlicher transienter Beitrag
+
+  BENOETIGTE Verstaerkung fuer CMB-Kompatibilitaet:
+  μ_eff ≈ (Om_m^LCDM)/(Om_b) = 6.3
+  (= Faktor 6.3 staerkere Gravitation als GR)
+
+  Der reine R²-Scalaron liefert Faktor 4/3 = 1.33.
+  Es fehlt: Faktor 4.7
+
+  MOEGLICHE LOESUNGEN:
+  --------------------------------------------------
+
+  (A) Das volle 2-Feld-System (Scalaron + phi) kann die
+      fehlende Verstaerkung liefern. In AeST liefern
+      Skalar- UND Vektorfeld GEMEINSAM die CDM-aequivalenten
+      Potentiale. Kein einzelnes Feld reicht allein.
+
+  (B) Die Trace-Kopplung erzeugt einen transienten
+      Verstaerkungseffekt beim Einschalten (a ≈ a_eq).
+      Dieser ist NICHT im quasi-statischen Limit enthalten.
+
+  (C) Der nicht-minimale R²-Term koennte staerker sein als
+      der Standard-4/3-Faktor, wenn die Kopplung nichtlinear ist.
+      Die Funktion F(T/rho) kann die effektive Kopplung verstaerken.
+
+  FAZIT: Eine numerische Loesung der vollen gekoppelten
+  Perturbationsgleichungen (modified CLASS/CAMB) ist
+  UNVERZICHTBAR. Die semi-analytische Analyse zeigt,
+  dass die Ingredienzien vorhanden sind, aber die
+  quantitative Verstaerkung nicht trivial vorhergesagt
+  werden kann.
+
+
+==========================================================================
+  SECTION 6: VOLLE PERTURBATIONSGLEICHUNGEN DES CFM
+  (Schema fuer CLASS/CAMB-Implementierung)
+==========================================================================
+
+  WIRKUNG:
+  S = ∫d⁴x√(-g) [R/(16piG) + gamma·F(T/rho)·R²
+                   - ½(∂phi)² - V₀/cosh²(phi/phi₀) + L_m]
+
+  METRIK (Newtonian Gauge):
+  ds² = -(1+2Φ)dt² + a²(1-2Ψ)delta_ij dx^i dx^j
+
+  HINTERGRUND-GLEICHUNGEN:
+  --------------------------------------------------
+  1. Friedmann: H² = (8piG/3)[rho_b + rho_r + rho_phi + rho_R²]
+  2. Klein-Gordon: phï + 3Hphi̇ + V'(phi) = 0
+  3. Scalaron: 6gammaF(T/rho)·R̈ + ... = -R + 8piG·T
+     (Trace der modifizierten Einstein-Gleichungen)
+
+  PERTURBATIONS-GLEICHUNGEN:
+  --------------------------------------------------
+
+  I. MODIFIZIERTE EINSTEIN-GLEICHUNGEN:
+
+  (00): k²Ψ + 3H(HΦ + Ψ̇) = -4piGa²[deltarho_b + deltarho_r + deltarho_phi]
+        - (k²/2)·deltaf_R + (3H²/2)(deltaf_R - f̄_R·Φ)
+        + (3H/2)·deltaḟ_R
+
+  (ij, traceless): Φ - Ψ = 8piGa²·pi_tot
+        + (deltaf_R - 2Ψ·f̄_R)/(f̄_R)
+        [Gravitational Slip, Hauptquelle fuer Φ≠Ψ]
+
+  (0i): HΦ + Ψ̇ = -4piGa²(rho+p)v_tot - (1/2)deltaḟ_R
+
+  II. SCALARON-PERTURBATION (deltaf_R = 2eps·deltaR):
+
+  deltaf̈_R + 3Hdeltaḟ_R + (k²/a² + m_eff²)deltaf_R =
+      (8piG/3)deltarho_m + R̄(Φ̇+3HΦ) + ...
+
+  m_eff² = m_s²·[1 + Korrekturen aus F(T/rho)]
+  [Trace-Kopplung macht m_eff zeitabhaengig!]
+
+  III. SKALARFELD-PERTURBATION (deltaphi):
+
+  deltaphï + 3Hdeltaphi̇ + (k²/a² + V''(phī))deltaphi =
+      -2V'(phī)Φ + phī̇(Φ̇ + 3Ψ̇)
+
+  V''(phi) = (2V₀/phi₀²)·[2tanh²(phi/phi₀) - 1]/cosh²(phi/phi₀)
+  [Poeschl-Teller-Masse: negativ bei kleinen phi → tachyonisch!]
+
+  IV. BARYON- UND PHOTON-PERTURBATIONEN:
+  (Standard-Boltzmann, aber mit modifiziertem Φ, Ψ)
+
+  deltȧ_b = -kv_b + 3Ψ̇
+  v̇_b = -Hv_b + kΦ + (Thomson-Streuung mit Photonen)
+
+  deltȧ_gamma = -(4/3)kv_gamma + 4Ψ̇
+  v̇_gamma = k(delta_gamma/4) + kΦ + (Thomson-Streuung mit Baryonen)
+
+  V. SCHLUESSEL-OBSERVABLEN:
+  --------------------------------------------------
+
+  CMB Temperatur-Anisotropie:
+    C_ℓ^TT ∝ ∫dk k² |Delta_ℓ(k)|²
+
+    Delta_ℓ(k) = [delta_gamma/4 + Φ](η*) · j_ℓ(k(η₀-η*))
+            + ∫dη (Φ̇+Ψ̇) j_ℓ(k(η₀-η))  [ISW]
+
+  Der ISW-Term (Φ̇+Ψ̇) ist im CFM NICHT null waehrend
+  Materie-Dominanz (wegen des Scalarons und phi),
+  was zusaetzliche Leistung bei niedrigen ℓ liefert.
+
+  VI. IMPLEMENTIERUNGS-ROADMAP:
+  --------------------------------------------------
+
+  Schritt 1: hi_class oder EFTCAMB installieren
+    (Boltzmann-Codes fuer modifizierte Gravitation)
+
+  Schritt 2: CFM-spezifische Modifikationen:
+    - Hintergrund: H(a) mit tanh-Saettigung + α·a⁻β
+    - R²-Term mit Trace-Kopplung F(T/rho)
+    - Poeschl-Teller-Skalarfeld
+
+  Schritt 3: Parameter-Scan:
+    - gamma: 10⁻⁴ bis 10² (H₀⁻²)
+    - V₀, phi₀: aus Hintergrund-Fit bestimmt
+    - Vergleich mit Planck 2018 TT,TE,EE Daten
+
+  Schritt 4: MCMC ueber {gamma, V₀, phi₀, k, a_trans}
+    mit CMB + SN + BAO gleichzeitig
+
+
+==========================================================================
+  ZUSAMMENFASSUNG: R²-PERTURBATIONSANALYSE
+==========================================================================
+
+  1. SCALARON-PHYSIK:
+     Der R²-Term fuehrt einen zusaetzlichen skalaren Freiheitsgrad
+     (Scalaron) mit Masse m_s = 1/√(6eps) ein.
+     Auf Sub-Compton-Skalen verstaerkt der Scalaron die Gravitation
+     um den Faktor 4/3 (33%).
+
+  2. ERLAUBTES gamma-FENSTER:
+     CMB-Untergrenze:   gamma > 2.9e-01 H₀⁻²
+     Sonnensystem:      gamma < 3.3e-32 H₀⁻² (ohne Chamaeleon)
+     Scalaron-Resonanz: gamma ≈ 1.4e-10 H₀⁻²
+     => Erlaubtes Fenster existiert (mit Chamaeleon: unbeschraenkt)
+
+  3. REICHT DER SCALARON ALLEIN?
+     NEIN. Der reine R²-Scalaron liefert maximal 4/3-Verstaerkung.
+     Benoetigt wird Faktor ~6.
+     Es fehlt noch Faktor ~4.7.
+
+     ABER: Das volle CFM hat DREI Perturbations-Freiheitsgrade
+     (Scalaron + Poeschl-Teller-Skalarfeld + Metrik).
+     Die Kombination kann moeglicherweise ausreichen,
+     analog zu AeST (Skalar + Vektor).
+
+  4. NAECHSTE SCHRITTE (PRIORITAET):
+     [P1] hi_class/EFTCAMB-Implementierung des CFM
+     [P2] C_ℓ-Berechnung mit gamma-Scan
+     [P3] Gemeinsamer Fit: SN + CMB + BAO
+     [P4] Vergleich mit AeST-Ergebnissen
+
+  5. PHYSIKALISCHES FAZIT:
+     Die R²-Perturbationsanalyse zeigt, dass der Scalaron
+     die RICHTIGEN EIGENSCHAFTEN hat (Gravitational Slip,
+     modifizierte Poisson-Gleichung, Sub-Compton-Verstaerkung),
+     aber die quantitative Frage -- ob das volle System
+     die CMB-Peaks reproduziert -- erfordert eine numerische
+     Boltzmann-Berechnung.
+
+     Der AeST-Praezedenzfall zeigt, dass ein System mit
+     vergleichbarer Struktur (Skalarfeld + geometrischer
+     Freiheitsgrad) die CMB-Peaks in einem Baryon-only-Universum
+     reproduzieren KANN. Die entscheidende Frage ist nicht OB,
+     sondern FUER WELCHES gamma.
+

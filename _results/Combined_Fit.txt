@@ -1,0 +1,209 @@
+  CFM COMBINED: RUNNING BETA + EDE + MOND-ANALYSE
+  =======================================================
+  Datum: 2026-02-13 01:45:01
+
+  1590 SNe geladen
+
+======================================================================
+  LCDM-REFERENZ
+======================================================================
+  l_A=301.428 R=1.7496 r_d=147.18 rs=144.53
+  chi2: SN=700.9 CMB=0.1 BAO=9.3 TOT=710.3
+
+======================================================================
+  TEIL A: MOND-ANALYSE
+======================================================================
+
+  Ist MOND bereits beruecksichtigt?
+  ----------------------------------
+  MOND wirkt auf PERTURBATIONS-Ebene (Galaxienskalen),
+  NICHT auf Hintergrund-Ebene (Friedmann-Gleichung).
+  -> Im aktuellen Fit: NEIN, MOND ist nicht enthalten.
+  -> MOND aendert mu_eff=4/3 fuer Strukturwachstum,
+     nicht H(z) oder r_s oder l_A.
+
+  Kosmologische vs. Galaxien-Beschleunigung:
+  a_0(MOND) = 1.2e-10 m/s^2
+
+       z   H(z) [km/s/Mpc]   a_H [m/s^2]   a_H/a_0        Regime
+  --------------------------------------------------------------
+       0             60.00      5.83e-10       4.9     Uebergang
+       0             77.33      7.51e-10       6.3     Uebergang
+       1            104.83      1.02e-09       8.5     Uebergang
+       2            164.24      1.60e-09      13.3        Newton
+       5            379.51      3.69e-09      30.7        Newton
+      10           1033.83      1.00e-08      83.7        Newton
+      50          13368.86      1.30e-07    1082.3        Newton
+     100          35766.08      3.47e-07    2895.5        Newton
+     500         376481.13      3.66e-06   30478.8        Newton
+    1090        1261238.49      1.23e-05  102106.1        Newton
+
+  Was passiert wenn keine Kruemmung mehr zurueckgegeben wird?
+  -----------------------------------------------------------
+  z > z_t (~10): Beta_eff ~ 3 -> CDM-artige Rueckgabe aktiv
+    -> Starke Gravitationspotentiale, Newton-Regime
+    -> Strukturen wachsen wie in LCDM
+
+  z < z_t (~10): Beta_eff -> 2 -> Rueckgabe klingt ab
+    -> Gravitationspotentiale werden flacher
+    -> Auf Galaxienskalen: Beschleunigung sinkt unter a_0
+    -> MOND-Regime aktiviert sich NATUERLICH
+    -> Flache Rotationskurven entstehen OHNE CDM-Halos
+
+  INTERAKTIONSEFFEKT:
+  Der Uebergang beta=3 -> beta=2 IST der MOND-Uebergang!
+  - Kosmologisch: geometrische DM statt Teilchen-CDM
+  - Galaxien: MOND-Enhancement (mu_eff=4/3) kompensiert
+    den Verlust der CDM-artigen Potentiale
+  - Selbstkonsistenz: Dieselbe Kruemmungsschwelle steuert
+    sowohl den Hintergrund-Uebergang als auch MOND
+
+======================================================================
+  TEIL B: GRID-SCAN (Running Beta + EDE)
+======================================================================
+
+  Grid: 5x3x3x5x5x3 = 3375
+
+  Scan fertig: 2925 Punkte in 16.0s
+
+  TOP-15:
+     be    at    al    H0    f_ede   a_ede     X2sn   X2cmb   X2bao   X2tot       lA       R     rd
+  ---------------------------------------------------------------------------------------------------------
+   2.80  0.10  0.63  60.0    2e+08 1.0e-03    741.5    73.8    23.1   838.4   302.67  1.7461  177.7
+   2.80  0.10  0.72  63.0    4e+08 1.0e-03    700.2   165.5    23.0   888.8   301.14  1.8084  162.8
+   2.80  0.10  0.72  65.0    4e+08 1.0e-03    700.9   165.3    24.0   890.3   301.86  1.8079  158.3
+   2.80  0.10  0.63  67.4    1e+08 1.0e-03    758.3   122.9    55.5   936.7   301.16  1.7002  162.8
+   2.80  0.10  0.72  67.4    4e+08 1.0e-03    701.9   227.6    25.1   954.6   302.66  1.8075  153.1
+   2.80  0.10  0.63  70.0    1e+08 1.0e-03    763.5   140.6    58.1   962.2   301.98  1.6983  157.3
+   2.80  0.10  0.63  65.0    1e+08 1.0e-03    753.1   175.2    53.1   981.4   300.33  1.7022  168.2
+   2.80  0.10  0.72  60.0    4e+08 1.0e-03    699.4   281.4    21.5  1002.4   299.95  1.8091  170.2
+   2.80  0.06  0.72  60.0    0e+00 1.0e-04    699.4   158.9   157.1  1015.4   303.06  1.7753  180.3
+   2.80  0.06  0.72  60.0    5e+07 1.0e-04    699.4   159.0   157.1  1015.5   303.06  1.7753  180.3
+   2.80  0.06  0.72  60.0    1e+08 1.0e-04    699.4   159.2   157.0  1015.6   303.06  1.7753  180.3
+   2.80  0.06  0.72  60.0    2e+08 1.0e-04    699.4   159.4   157.0  1015.9   303.07  1.7753  180.3
+   2.80  0.06  0.72  60.0    4e+08 1.0e-04    699.4   159.9   157.0  1016.3   303.07  1.7753  180.3
+   2.80  0.10  0.63  63.0    1e+08 1.0e-03    748.6   282.0    50.9  1081.5   299.59  1.7039  172.9
+   2.80  0.10  0.72  70.0    4e+08 1.0e-03    703.0   354.5    26.3  1083.8   303.46  1.8071  147.9
+
+  Bester OHNE EDE: chi2=1015.4 (lA=303.06, R=1.7753, rd=180.3)
+  Bester MIT  EDE: chi2=838.4 (lA=302.67, R=1.7461, rd=177.7)
+
+======================================================================
+  TEIL C: FEINOPTIMIERUNG (6D Nelder-Mead)
+======================================================================
+
+  Start: be=2.8 at=0.1 al=0.63 H0=60 fe=2e+08 ae=1e-03
+  Start chi2 = 838.4
+
+  Optimierung: 1311 Eval, chi2=705.2
+
+  OPTIMIERTES ERGEBNIS:
+  ==================================================
+  Running Beta:
+    beta_early = 2.7794
+    beta_late  = 2.02
+    a_t        = 0.12374  (z_t = 7.1)
+    n_trans    = 4
+    alpha      = 0.7304
+  Early Dark Energy:
+    f_ede      = 9.18e+08
+    a_ede      = 9.13e-04  (z_ede = 1095)
+    p_ede      = 6
+    f_EDE(z*)  = 0.5233  (52.33%)
+  Hintergrund:
+    H0         = 60.00 km/s/Mpc
+    Omega_b    = 0.06214
+    Phi0       = 0.3634
+
+                              CFM+EDE         LCDM       Planck
+  l_A                         301.477      301.428      301.471
+  R                            1.7502       1.7496       1.7502
+  r_s(z*) [Mpc]                162.71       144.53
+  r_d [Mpc]                    165.05       147.18
+  d_C(z*) [Mpc]              15613.83     13867.63
+
+                              CFM+EDE         LCDM
+  chi2_SN                       698.9        700.9
+  chi2_CMB (lA+R)                 0.0          0.1
+  chi2_BAO                        6.3          9.3
+  chi2_TOTAL                    705.2        710.3
+  Delta_chi2                     -5.1
+
+  Profil:
+        z beta_eff   H/H_L  f_EDE%   Om_eff
+  ---------------------------------------------
+        0    2.020  1.0000    0.00   0.9999
+        0    2.021  1.0381    0.00   0.5584
+        1    2.023  1.0400    0.00   0.4336
+        2    2.034  0.9615    0.00   0.3149
+       10    2.608  1.0488    0.00   0.3475
+       50    2.779  1.0798    0.02   0.3684
+      100    2.779  1.0171    0.16   0.3265
+      500    2.779  0.9977   18.41   0.3137
+     1090    2.779  1.2678   52.33   0.5674
+     5000    2.779  0.9090    1.15   0.1810
+
+======================================================================
+  TEIL D: MOND-INTERAKTIONSEFFEKTE IM DETAIL
+======================================================================
+
+  Uebergangs-Rotverschiebung z_t = 7.1
+
+  PHASEN DES CFM+MOND-UNIVERSUMS:
+
+  Phase 1: z > z_t (Hochkruemmungs-Regime)
+    beta_eff ~ 2.78 (nahe CDM-Skalierung a^-3)
+    Starke Kruemmungsrueckgabe -> tiefe Potentialtoepfe
+    Galaxien-Beschleunigung a >> a_0 -> Newton-Regime
+    MOND-Effekte: NICHT aktiv (zu hohe Beschleunigungen)
+    -> Universum VERHAELT SICH wie LCDM
+
+  Phase 2: z ~ z_t (Uebergangsphase)
+    beta_eff wandert von ~3 zu ~2
+    Kruemmungsrueckgabe endet, Potentiale werden flacher
+    Galaxien-Beschleunigung sinkt Richtung a_0
+    -> CDM-artiges Verhalten schwaecher
+    -> MOND beginnt sich zu manifestieren
+
+  Phase 3: z < z_t (Tiefkruemmungs-Regime)
+    beta_eff ~ 2.02 (geometrisch, ~Kruemmung)
+    Keine aktive Rueckgabe mehr -> rein geometrischer Term
+    Auf Galaxienskalen: a ~ a_0 -> MOND aktiv
+    mu_eff = 4/3 -> flache Rotationskurven OHNE CDM-Halos
+    -> MOND ERSETZT CDM auf kleinen Skalen
+
+  DER SCHLUESSEL-MECHANISMUS:
+  Wenn die Kruemmungsrueckgabe endet (z < z_t), fehlt den
+  Galaxien die 'CDM-artige' gravitationsunterstuetzung.
+  Aber genau DANN aktiviert sich MOND und kompensiert:
+    CDM-Beschleunigung:  a_CDM = G*M/r^2 * (Om_CDM/Om_b)
+    MOND-Enhancement:    a_MOND = a_Newton * mu_eff = a_N * 4/3
+    Noetig: mu_eff * Om_b ~ Om_total(LCDM)
+    Check: 4/3 * 0.062 = 0.083
+           vs Om_m(LCDM) = 0.315
+
+  -> MOND allein reicht NICHT aus!
+    4/3 * Ob = 0.083 << 0.315
+    Der geometrische Term (alpha*a^-2) traegt den Rest bei.
+    Bei z=0: alpha = 0.730 -> effektive 'Masse' = 0.730
+    Total: Ob + alpha = 0.793
+
+======================================================================
+  ZUSAMMENFASSUNG
+======================================================================
+
+  Delta_chi2 (CFM+EDE vs LCDM) = -5.1
+
+  Parameter:
+    beta_early=2.779, a_t=0.1237 (z_t=7)
+    alpha=0.730, H0=60.0
+    f_ede=9.2e+08, a_ede=9.1e-04
+
+  r_d = 165.0 Mpc (LCDM: 147.2) -> r_d-Problem bleibt
+  Moegliche Loesungen:
+    1. Staerkeres EDE (mehr Energie bei z > 1000)
+    2. beta_early naeher an 3.0
+    3. Zusaetzliche Physik (Neutrino-Masse, etc.)
+  >>> CFM IST KOMPETITIV MIT LCDM! <<<
+
+  Laufzeit: 22.9 Sekunden

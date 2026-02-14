@@ -1,32 +1,14 @@
-REVIEW REPORT
-==============
-Datum: 2026-02-10
-Ordner: C:\Users\User\OneDrive\Desktop\Forschung\Spieltheorie Urknall
+REVIEW REPORT - SPIELTHEORIE URKNALL TRILOGY
+================================================
 
--------------------------------------------------------------------------------
-ARTIKEL: Spieltheoretische Kosmologie und das Krümmungs-Rückgabepotential-Modell
-Datei: Spieltheorie_Urknall_Artikel.tex
-Version: Februar 2026
-
-STATUS:
--------
-Theoretical Physics / Cosmology Paper.
-
-INHALT:
--------
-Ein radikaler neuer Ansatz zur Erklärung der dunklen Energie.
-- Modelliert das Universum als Nash-Gleichgewicht zwischen "Nullraum" (Vakuum) und "Raumzeitblase".
-- Führt das "Curvature Feedback Model" (CFM) ein: $\Omega_\Phi(a)$ statt $\Lambda$.
-- Die beschleunigte Expansion ist keine neue Energie, sondern eine "nachlassende Bremse".
-- Numerische Tests gegen simulierte SN Ia-Daten zeigen besseren Fit als LambdaCDM ($\Delta \chi^2 \approx -5$).
-- Vorhersage: $w(z)$ variiert messbar (Testbar mit Euclid/Roman).
-
-BEWERTUNG:
-----------
-Technisch sehr anspruchsvoll (Friedmann-Gleichungen, Chi-Quadrat-Tests).
-Die Verbindung von Spieltheorie und Kosmologie ist extrem innovativ ("Cosmological Teleodynamics").
-Der Text ist zweisprachig (DE/EN) und bereit zur Einreichung.
-
-GENUTZTE TOOLS:
----------------
-- TeX File Read (lokal)
+1. DESI DR2 quantitativer Vergleich -- Erfordert Implementierung des CFM-Expansionsmodells (H(z) mit
+   tanh-Sattigung) direkt in hi_class. Bisher nur qualitativer Vergleich (w0=-0.42 vs CFM
+  w_eff=-0.33).
+  2. Euclid-Vorhersagen -- Erste kosmologische Cosmic-Shear-Ergebnisse werden 2026 erwartet. Kann erst
+   dann verglichen werden.
+  3. Explizite Pfadintegral-Berechnung fuer sqrt(pi) -- Die starkste Ableitung (B) nutzt die
+  Zeta-Regularisierung auf S^2 (Camporesi & Higuchi). Eine vollstandige Berechnung der funktionalen
+  Determinante det(Delta_{S^2} + m_PT^2) steht noch aus. Das ist reine Mathematik/theoretische Physik.
+  4. Volle 3-Feld-Perturbationsgleichungen -- Das gekoppelte System (Skalaron chi + Poeschl-Teller phi
+   + Metrik) musste in einen Boltzmann-Code (hi_class/EFTCAMB) implementiert werden, um die CFM-C_l
+  vollstandig vorherzusagen. Das ist ein grosses Softwareprojekt.

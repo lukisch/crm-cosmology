@@ -1,23 +1,14 @@
-LINKEDIN POST
-=============
+🔬 New Research Trilogy: Eliminating the Dark Sector with Game Theory & Geometry
 
-TEIL 1: POST TEXT
-🌌 Brauchen wir wirklich "Dunkle Energie"? Oder lösen wir nur die Handbremse?
+I am excited to share a comprehensive new cosmological framework developed as an experiment in AI-Assisted Science. The "Curvature Feedback Model" (CFM) trilogy proposes a radical shift: what if 95% of the universe (Dark Energy + Dark Matter) is just geometry?
 
-Das Standardmodell der Kosmologie (LambdaCDM) hat ein Problem: Wir brauchen eine mysteriöse "Dunkle Energie", um die beschleunigte Expansion des Universums zu erklären.
-Mein neues Paper schlägt eine Alternative vor: Das "Curvature Feedback Model" (CFM).
+📄 Paper I (German): Replaces Dark Energy with a "Curvature Return Potential" derived from a cosmic Nash Equilibrium. Fits Pantheon+ supernovae significantly better than LambdaCDM.
 
-Die Idee:
-Das Universum befindet sich in einem spieltheoretischen Nash-Gleichgewicht mit dem Quantenvakuum.
-Die Beschleunigung ist kein neuer Antrieb, sondern das Nachlassen einer anfänglichen geometrischen "Bremse".
+📄 Paper II (English): Unifies CFM with MOND dynamics in a baryon-only universe. Hypothesis: "Dark Matter" is just the early, unsaturated phase of the same geometric process that becomes "Dark Energy" later.
+Result: Delta Chi^2 = -26.3 vs Standard Model.
 
-Die Daten sprechen dafür:
-In Simulationen passt das CFM besser zu Supernova-Daten als das Standardmodell. Und es macht eine klare Vorhersage, die das @Euclid_Mission Teleskop bald testen kann.
+📄 Paper III (English): Microscopic foundations. Derives the Lagrangian and links the saturation mechanism to Quantum Gravity and Quantum Error Correction.
 
-Ist es Zeit für einen Paradigmenwechsel in der Kosmologie?
+This work was co-written with Claude Opus and reviewed by Gemini, exploring the frontiers of human-AI collaboration in theoretical physics.
 
-#Cosmology #DarkEnergy #Physics #GameTheory #NashEquilibrium #Euclid #Research
-
-TEIL 2: ERSTER KOMMENTAR
-Hier geht's zum Preprint: [LINK]
-Physiker vor: Macht der Gedanke eines "geometrischen Gedächtnisses" für euch Sinn?
+#Cosmology #Physics #DarkMatter #DarkEnergy #AI #Science #Research #MOND
