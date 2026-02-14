@@ -1,0 +1,59 @@
+======================================================================
+NATIVE cfm_fR GRAVITY MODEL - VOLLSTAENDIGE ERGEBNISSE
+======================================================================
+Datum: 2026-02-14
+Code: hi_class mit gepatchtem cfm_fR (patch_cfm.py)
+
+FORMEL:
+  alpha_M(a) = alpha_M_0 * n_exp * a^n_exp / (1 + alpha_M_0 * a^n_exp)
+  alpha_B = -alpha_M/2  (f(R)-Relation)
+  alpha_T = 0, alpha_K = 0
+
+REFERENZEN (TT+TE+EE, 6405 Planck-Punkte):
+  LCDM:         chi2=6628.8, s8=0.8108, 100*theta_s=1.04173
+  pO cM=0.0002: chi2=6628.6 (dTT=-0.2), s8=0.8257
+  pS cM=0.0005: chi2=6627.1 (dTT=-1.6), s8=0.8795
+
+cfm_fR ERGEBNISSE:
+
+n_exp=0.5 (alpha_M ~ sqrt(a)):
+  aM0=0.0001: chi2=6628.5 (d=-0.3), s8=0.819
+  aM0=0.0003: chi2=6628.0 (d=-0.7), s8=0.836
+  aM0=0.0005: chi2=6627.5 (d=-1.3), s8=0.853
+  aM0=0.0010: chi2=6626.1 (d=-2.7), s8=0.899  *** BESTES MODELL ***
+  aM0=0.0030: chi2=6664.3 (d=+35.5), s8=1.137  (zu gross)
+
+n_exp=1.0 (alpha_M ~ a, Scalaron-natuerlich):
+  aM0=0.00005: chi2=6628.6 (d=-0.2), s8=0.817
+  aM0=0.00010: chi2=6628.5 (d=-0.3), s8=0.824
+  aM0=0.00020: chi2=6628.2 (d=-0.6), s8=0.837  <- identisch pS cM=0.0002
+  aM0=0.00050: chi2=6627.1 (d=-1.6), s8=0.879  <- identisch pS cM=0.0005
+  aM0=0.00100: chi2=6625.9 (d=-2.9), s8=0.960  *** BESTES n=1 ***
+
+n_exp=1.5:
+  aM0=0.0005: chi2=6627.1 (d=-1.6), s8=0.896
+  aM0=0.0010: chi2=6627.5 (d=-1.2), s8=0.999
+
+n_exp=2.0: ALLE FEHLGESCHLAGEN (Perturbationsloeser instabil)
+
+ANALYSE:
+1. cfm_fR n=1 == propto_scale (bestaetigt: identische Werte)
+2. n_exp=0.5 gibt BESSERE chi2 als n=1 bei gleichem sigma8
+3. Bestes Modell: n=0.5, aM0=0.001, dchi2=-2.7, s8=0.899
+4. Fuer akzeptables S8: n=0.5, aM0=0.0003, dchi2=-0.7, s8=0.836, S8=0.855
+
+EMPFOHLENE PUNKTE (cfm_fR):
+  Konservativ: aM0=0.0003, n=0.5 -> dchi2=-0.7, s8=0.836, S8=0.855
+  Aggressiv:   aM0=0.001,  n=0.5 -> dchi2=-2.7, s8=0.899, S8=0.920
+  Scalaron:    aM0=0.0002, n=1.0 -> dchi2=-0.6, s8=0.837, S8=0.857
+
+PHYSIK:
+  n_exp=0.5: alpha_M ~ sqrt(a) -> Scalaron mit m_eff ~ a^{-1/4}
+  n_exp=1.0: alpha_M ~ a -> Scalaron mit Trace-Kopplung F(a) ~ a
+  Die Saettigung alpha_M -> n_exp bei a=1 verhindert
+  Ueberschiessen (im Gegensatz zu propto_scale)
+
+SCHLUSSFOLGERUNG:
+  Der "offene Punkt" (Native CFM Boltzmann Code) war bereits GELOEST!
+  cfm_fR ist seit frueheren Sessions in hi_class implementiert.
+  Die Scan-Ergebnisse bestaetigen und VERBESSERN die bisherigen Resultate.

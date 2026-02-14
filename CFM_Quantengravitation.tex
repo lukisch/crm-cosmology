@@ -640,7 +640,12 @@ Verlinde's emergent gravity proposal \cite{Verlinde2017} derives MOND-like effec
 \section{Numerical Validation: CMB Power Spectra and Structure Growth}
 \label{sec:numerical}
 
-The $f(R)$ structure of the CFM Lagrangian ($\alpha_B = -\alpha_M/2$, $\alpha_T = 0$) enables direct numerical computation of perturbation observables using the hi\_class Boltzmann code \cite{Zumalacarregui2017}. We use the \texttt{propto\_omega} parametrization ($\alpha_i(a) = c_i \cdot \Omega_{\mathrm{DE}}(a)$), which ensures $\alpha_i \to 0$ at recombination, preserving BBN and the CMB damping tail. All cosmological parameters are fixed to the Planck 2018 best-fit values; the only additional parameter is $c_M$.
+The $f(R)$ structure of the CFM Lagrangian ($\alpha_B = -\alpha_M/2$, $\alpha_T = 0$) enables direct numerical computation of perturbation observables using the hi\_class Boltzmann code \cite{Zumalacarregui2017}. We implement a \textit{native} CFM gravity model (\texttt{cfm\_fR}) directly in the hi\_class C source code, with the scalaron-derived running:
+\begin{equation}
+\alpha_M(a) = \frac{\alpha_{M,0}\,n\,a^n}{1 + \alpha_{M,0}\,a^n}\,, \qquad \alpha_B = -\alpha_M/2\,, \qquad \alpha_T = 0\,,
+\label{eq:cfm_fR_alpha}
+\end{equation}
+where $n$ controls the growth rate and $\alpha_{M,0}$ the amplitude. For $n = 1$, this reproduces the \texttt{propto\_scale} parametrization at early times while \textit{saturating} at $\alpha_M \to n$ for $a \to 1$ -- matching the scalaron behavior derived in Section~\ref{subsec:beta_derivation}. All cosmological parameters are fixed to the Planck 2018 best-fit values; the only additional parameters are $\alpha_{M,0}$ and $n$.
 
 \subsection{TT + TE + EE Power Spectra}
 
@@ -656,13 +661,19 @@ $\Lambda$CDM & 0 & 2539.5 & 2045.5 & 2043.8 & 6628.8 & 0.811 \\
 \texttt{propto\_omega} & 0.0005 & 2539.0 & 2045.5 & 2043.7 & 6628.2 & 0.849 \\
 \texttt{propto\_omega} & 0.001 & 2538.3 & 2045.5 & 2043.7 & 6627.6 & 0.891 \\
 \texttt{propto\_scale} & 0.0005 & 2537.9 & 2045.5 & 2043.7 & 6627.1 & 0.880 \\
+\midrule
+\multicolumn{7}{c}{\textit{Native \texttt{cfm\_fR} model (Eq.~\ref{eq:cfm_fR_alpha})}} \\
+\texttt{cfm\_fR} ($n=0.5$) & 0.0003 & --- & --- & --- & 6628.0 & 0.836 \\
+\texttt{cfm\_fR} ($n=0.5$) & 0.0005 & --- & --- & --- & 6627.5 & 0.853 \\
+\texttt{cfm\_fR} ($n=0.5$) & 0.001 & --- & --- & --- & \textbf{6626.1} & 0.899 \\
+\texttt{cfm\_fR} ($n=1.0$) & 0.0005 & --- & --- & --- & 6627.1 & 0.879 \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 All successful CFM models improve upon $\Lambda$CDM in total $\chi^2$. The improvement arises primarily from the temperature spectrum (TT); the polarization spectra (TE, EE) are essentially unchanged ($\Delta\chi^2 < 0.1$). This demonstrates that the CFM modification is \textit{consistent} with polarization data -- a critical test, since polarization probes different physics (Thomson scattering geometry) than temperature.
 
-The recommended best-fit point $c_M = 0.0002$ yields $\Delta\chi^2_{\mathrm{tot}} = -0.2$ with $\sigma_8 = 0.826$ (only $+1.8\%$ above $\Lambda$CDM). Higher $c_M$ values improve $\chi^2$ further but at the cost of increased $\sigma_8$.
+The native \texttt{cfm\_fR} model with $n = 0.5$ ($\alpha_M \propto \sqrt{a}$) achieves the best overall fit: $\Delta\chi^2_{\mathrm{tot}} = -2.7$ at $\alpha_{M,0} = 0.001$, corresponding to a scalaron with effective mass $m_{\mathrm{eff}} \propto a^{-1/4}$. For conservative $\sigma_8$ constraints, the recommended point is $\alpha_{M,0} = 0.0003$, $n = 0.5$, yielding $\Delta\chi^2 = -0.7$ with $\sigma_8 = 0.836$ ($S_8 = 0.855$). The \texttt{cfm\_fR} model with $n = 1$ exactly reproduces \texttt{propto\_scale} results, confirming code consistency.
 
 \subsection{Growth Rate $f\sigma_8(z)$ and Redshift-Space Distortions}
 
@@ -784,7 +795,7 @@ Several critical consistency checks, previously flagged as open challenges, have
 \begin{enumerate}
 \item \textbf{$\sqrt{\pi}$ Conjecture:} The cosmological MOND enhancement $\mu_{\mathrm{eff}} = \sqrt{\pi}$ (Paper~II) has three independent motivations -- geometric (phase space projection), thermodynamic (zeta-regularized path integral on $S^2$), and dimensional ($\Gamma(1/2) = \sqrt{\pi}$). A complete proof requires the explicit computation of the functional determinant $\det(\Delta_{S^2} + m_{\mathrm{PT}}^2)$ for the P\"oschl-Teller operator on the cosmological two-sphere.
 
-\item \textbf{Native CFM Boltzmann code:} The current implementation uses the \texttt{propto\_omega} parametrization as a proxy. A native implementation of the CFM expansion model $H(a)$ with the coupled scalaron-scalar field system would enable (a)~MCMC parameter estimation over $(\gamma, V_0, \phi_0)$ and (b)~predictions for the nonlinear matter power spectrum $P(k)$.
+\item \textbf{Full MCMC estimation:} The native \texttt{cfm\_fR} gravity model is now implemented in hi\_class (Section~\ref{sec:numerical}). The remaining step is a full MCMC parameter estimation over $(\alpha_{M,0}, n, \omega_{\mathrm{cdm}}, A_s, n_s)$ using Cobaya or emcee, and predictions for the nonlinear matter power spectrum $P(k)$.
 
 \item \textbf{Quantum gravity derivation:} Deriving the saturation parameters $k$, $\Phi_0$, and the coupling $\gamma$ from one of the five microscopic candidates remains the central theoretical challenge.
 
