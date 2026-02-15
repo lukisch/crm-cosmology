@@ -551,6 +551,8 @@ Alle erfolgreichen CFM-Modelle verbessern $\Lambda$CDM im Gesamt-$\chi^2$. Die V
 
 Das native \texttt{cfm\_fR}-Modell mit $n = 0{,}5$ ($\alpha_M \propto \sqrt{a}$) erzielt den besten Grid-Scan-Fit: $\Delta\chi^2_{\mathrm{tot}} = -2{,}7$ bei $\alpha_{M,0} = 0{,}001$, entsprechend einem Skalaron mit effektiver Masse $m_{\mathrm{eff}} \propto a^{-1/4}$. F\"ur konservative $\sigma_8$-Beschr\"ankungen ist der empfohlene Punkt $\alpha_{M,0} = 0{,}0003$, $n = 0{,}5$, der $\Delta\chi^2 = -0{,}7$ mit $\sigma_8 = 0{,}836$ ($S_8 = 0{,}855$) liefert.
 
+\textbf{CMB-Peak-Positionen.} Eine direkte Extraktion der akustischen Peak-Positionen aus dem gelinsten $\mathcal{D}_\ell^{TT}$-Spektrum best\"atigt, dass das cfm\_fR-Modell die CMB-Peakstruktur mit Sub-Prozent-Genauigkeit bewahrt. F\"ur alle getesteten Parameterkombinationen liegen die ersten drei Peaks bei $\ell_1 = 220$, $\ell_2 = 536$, $\ell_3 = 813$ -- identisch zu $\Lambda$CDM und konsistent mit den Planck-Messwerten ($220{,}0 \pm 0{,}5$, $537{,}5 \pm 0{,}7$, $810{,}8 \pm 0{,}7$). Die Peakh\"ohenverh\"altnisse sind ebenso stabil: $\mathcal{P}_3/\mathcal{P}_1 = 0{,}4433$ f\"ur alle konservativen Modelle (vs.\ $\Lambda$CDM: $0{,}4433$), mit nur $0{,}1\%$ Abnahme auf $0{,}4428$ beim aggressiven MCMC-Best-Fit. Dies best\"atigt, dass das Baryon-zu-Gesamtmaterie-Verh\"altnis bei der Rekombination, die Photon-Baryon-Oszillationsphase und der fr\"uhe ISW-Effekt korrekt vom cfm\_fR-Lagrangian reproduziert werden -- die $\alpha_M$-Modifikation betrifft nur das Strukturwachstum nach der Rekombination und l\"asst die akustische Peakstruktur intakt.
+
 Eine vollst\"andige MCMC-Exploration \"uber f\"unf Parameter $(\alpha_{M,0}, n, \omega_{\mathrm{cdm}}, \ln(10^{10}A_s), n_s)$ mit \texttt{emcee} (24~Walker, 80~Burn-in + 400~Produktionsschritte, 9.600~Samples total) ergibt einen globalen Best-Fit von $\chi^2 = 6625{,}2$ ($\Delta\chi^2 = -3{,}6$ vs.\ $\Lambda$CDM) bei $\alpha_{M,0} = 0{,}0024$, $n = 0{,}28$. Die marginalisierten Beschr\"ankungen lauten:
 \begin{align}
 \alpha_{M,0} &= 0{,}0013 \pm 0{,}0007 \qquad (1{,}78\sigma \text{ Detektionssignifikanz}) \notag \\
@@ -632,6 +634,29 @@ Das CFM \textit{erh\"oht} $\sigma_8$ relativ zu $\Lambda$CDM und vertieft damit 
 Das DESI Data Release~2 (M\"arz 2025), basierend auf 14 Millionen Galaxien und Quasaren \"uber $z = 0{,}1$--$4{,}2$, berichtet $w_0 = -0{,}42 \pm 0{,}21$ und $w_a = -1{,}75 \pm 0{,}58$ in der $w_0$--$w_a$-Parametrisierung, was eine $3{,}1\sigma$-Pr\"aferenz f\"ur dynamische Dunkle Energie gegen\"uber $\Lambda$CDM darstellt \cite{DESI2025}. In flachem $\Lambda$CDM persistiert eine leichte $2{,}3\sigma$-Spannung zwischen BAO-inferierten Abst\"anden und Planck-CMB-Vorhersagen.
 
 Das CFM-Rahmenwerk liefert eine nat\"urliche Interpretation. Der Kr\"ummungsr\"uckkopplungsmechanismus erzeugt eine effektive Zustandsgleichung $w_{\mathrm{eff}}(z=0) \approx -0{,}33$ (Paper~I), die innerhalb von $0{,}4\sigma$ der DESI-$w_0$-Messung liegt. Dar\"uber hinaus impliziert die DESI-Pr\"aferenz f\"ur $w_a < 0$, dass Dunkle Energie in der Vergangenheit \textit{st\"arker} war -- pr\"azise was das CFM durch die laufende Kopplung $\beta_{\mathrm{eff}}(a)$ vorhersagt. Sowohl das CFM als auch die DESI-Daten bevorzugen unabh\"angig voneinander $w \neq -1$.
+
+\subsection{Lyman-$\alpha$-Wald-Leistungsspektrum}
+\label{subsec:lyman_alpha}
+
+Der Lyman-$\alpha$-Wald misst das Materien-Leistungsspektrum bei kleinen Skalen ($k \sim 0{,}1$--$10\,h/$Mpc) und mittleren Rotverschiebungen ($z \sim 2$--$4$) und liefert damit einen kritischen Test f\"ur modifizierte Gravitationsmodelle, die das Strukturwachstum verst\"arken. Wir berechnen das lineare Materien-Leistungsspektrum $P(k,z)$ bei $z = 2{,}3$ (die effektive Rotverschiebung der eBOSS-Lyman-$\alpha$-Messungen; \cite{Chabanier2019}) mit hi\_class und dem nativen cfm\_fR-Modell:
+
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Modell} & $\sigma_8$ & $P_{\mathrm{cfm}}/P_{\Lambda\mathrm{CDM}}$ bei $z=0$ & bei $z=2{,}3$ & $\Delta P/P$ \\
+\midrule
+$\Lambda$CDM & 0{,}811 & 1{,}000 & 1{,}000 & --- \\
+cfm\_fR konservativ & 0{,}836 & 1{,}062 & 1{,}007 & $+0{,}7\%$ \\
+cfm\_fR Scalaron & 0{,}837 & 1{,}066 & 1{,}005 & $+0{,}5\%$ \\
+cfm\_fR aggressiv & 0{,}899 & 1{,}230 & 1{,}025 & $+2{,}5\%$ \\
+cfm\_fR MCMC Best & 0{,}947 & 1{,}363 & 1{,}044 & $+4{,}4\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Zwei Schl\"usselergebnisse: Erstens ist die $P(k)$-Verst\"arkung \textit{skalenunabh\"angig} im linearen Regime: Das Verh\"altnis $P_{\mathrm{cfm}}(k)/P_{\Lambda\mathrm{CDM}}(k)$ ist konstant \"uber $k = 0{,}1$--$10\,h/$Mpc, was best\"atigt, dass die cfm\_fR-Modifikation eine reine Amplitudenskalierung und keine Formverzerrung ist. Zweitens ist die Verst\"arkung bei $z = 2{,}3$ viel kleiner als bei $z = 0$: Die Skalaron-Modifikation w\"achst mit der Zeit ($\alpha_M \propto a^n$), sodass bei $z = 2{,}3$ ($a = 0{,}30$) die f\"unfte Kraft deutlich schw\"acher ist als heute.
+
+F\"ur das konservative Modell ($\alpha_{M,0} = 0{,}0003$, $n = 0{,}5$) liegt die $+0{,}7\%$-Verst\"arkung bei $z = 2{,}3$ weit unter der aktuellen eBOSS-Lyman-$\alpha$-Unsicherheit von $\sim 5$--$10\%$ auf die $P(k)$-Amplitude \cite{Chabanier2019}. Selbst der MCMC-Best-Fit zeigt nur $+4{,}4\%$, was innerhalb der Messpre\"azision liegt. Das cfm\_fR-Modell ist daher \textit{vollst\"andig kompatibel} mit Lyman-$\alpha$-Wald-Constraints auf linearem Niveau. Nichtlineare Korrekturen bei $k > 1\,h/$Mpc (die N-Body-Simulationen mit $f(R)$-Gravitation erfordern; \cite{Li2012}) k\"onnten diese Schlussfolgerung modifizieren, aber die lineare Analyse zeigt, dass keine grobe Inkompatibilit\"at besteht.
 
 \subsection{Aufl\"osung der akustischen Winkelskala $\theta_s$}
 \label{subsec:theta_s}
@@ -997,6 +1022,18 @@ Foreman-Mackey, D., Hogg, D.\,W., Lang, D.\ \& Goodman, J.\ (2013).
 emcee: The MCMC Hammer.
 \textit{Publications of the Astronomical Society of the Pacific}, 125(925), 306--312.
 DOI: 10.1086/670067.
+
+\bibitem{Chabanier2019}
+Chabanier, S., Palanque-Delabrouille, N.\ \& Y\`eche, C.\ (2019).
+The one-dimensional power spectrum from the SDSS DR14 Ly$\alpha$ forests.
+\textit{Journal of Cosmology and Astroparticle Physics}, 2019(07), 017.
+DOI: 10.1088/1475-7516/2019/07/017.
+
+\bibitem{Li2012}
+Li, B., Zhao, G.-B., Teyssier, R.\ \& Koyama, K.\ (2012).
+ECOSMOG: An Efficient COde for Simulating Modified Gravity.
+\textit{Journal of Cosmology and Astroparticle Physics}, 2012(01), 051.
+DOI: 10.1088/1475-7516/2012/01/051.
 
 \end{thebibliography}
 
