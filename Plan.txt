@@ -1,0 +1,158 @@
+# CFM Cosmology -- Plan bis zur Veroeffentlichung
+# Projekt: Spieltheorie Urknall / Curvature Feedback Model (Papers I-III)
+# GitHub: github.com/lukisch/cfm-cosmology (aktuell PRIVAT)
+# Ziel-Journal: PRD (Physical Review D) oder JCAP -- KEIN APC!
+# Stand: 2026-02-15
+
+===============================================================================
+REVIEW-HISTORIE
+===============================================================================
+
+Gen 1: Gemini Strict Review -> MAJOR REVISION (6 kritische Punkte)
+Gen 2: Opus 4.6 Strict Review -> MINOR REVISION (4 blockierend + 5 empfohlen)
+
+===============================================================================
+PHASE 1: REVIEW-PUNKTE LOESEN
+===============================================================================
+
+Gen 1 Punkte (alle aus Major Revision):
+[X] P1: CMB C_l-Spektrum -- Figures + Chi2-Tabelle in Paper III integriert
+[X] P2: Schallgeschwindigkeit & anisotroper Stress -- c_s^2, mu, Sigma, eta
+[X] P3: Bullet Cluster Lensing -- Sigma=1 rigoros abgeleitet
+[X] P4: Corner Plots -- cfm_contour.png generiert und eingebaut
+[X] P5: Kitchen Sink -- QG in Appendix, R^2 als Kern positioniert (teilweise)
+[X] P6: Trace Coupling -- R+12*gamma*Box(R)=-8piGT rigoros abgeleitet
+
+Gen 2 Blockierende Punkte:
+[X] N2: Diagonale Chi2 Disclaimer -- ausfuehrlicher Disclaimer eingebaut
+[X] N3: Baryon-only Formulierung -- "ausschliesslich baryonischer Materieinhalt"
+      + testbarer Unterschied (mu!=1, eta!=1, Sigma=1)
+[X] N4: mu(a) als phaenomenologisch gelabelt (nicht Lagrangian-derived)
+[ ] N1: MCMC Konvergenz -- LAEUFT AUF ANDEREM SYSTEM (siehe MCMC_SETUP_GUIDE.md)
+      Ziel: 48 Walkers, 5000 Steps, 240k Samples, R-hat < 1.01
+      Geschaetzt: 16-33h mit 8 Kernen
+      -> Nach Ergebnis: Werte in Papers updaten, Corner Plot neu, Diagnostik eintragen
+
+Gen 2 Empfohlene Punkte (non-blocking aber wichtig fuer PRD):
+[ ] N5+N6: Paper III splitten
+      -> Fractal Game Theory (Section 5) entfernen -> eigenes Paper
+      -> Technological Horizons entfernen -> eigenes Paper
+      -> Ergebnis: Paper III = "Lagrangian + Perturbations + Numerics" (sauber)
+[X] N7: Gamma-Wert berechnen, Compton-Wellenlaenge, lokale Gravitationstests
+      -> m_s, lambda_C, Chameleon-Screening in Paper3_EN Subsubsection eingebaut
+[ ] N8: Lyman-alpha Forest P(k) bei k~0.1-10 h/Mpc pruefen
+[ ] N9: SN-Framework (Paper II) und Boltzmann (Paper III) harmonisieren
+      -> Ein Satz Lagrangian-Parameter fuer beide Fits zeigen
+
+Moerder-Fragen (muessen im Text beantwortet sein):
+[X] Q1: omega_cdm vs. baryonisch -> entschaerft durch N3
+[X] Q2: Compton-Wellenlaenge -> = N7 (erledigt)
+[ ] Q3: SN vs. Boltzmann -> = N9
+[X] Q4: z_t=9.2 als Fit-Parameter ehrlich einordnen (Absatz in Paper2_EN Critical Self-Assessment)
+[ ] Q5: Lyman-alpha -> = N8
+[X] Q6: Delta_N_eff bei BBN analytisch abschaetzen (Absatz in Paper3_EN, ~0 da alpha_M->0)
+[ ] Q7: Peak-Positionen l_1, P3/P1 aus nativem cfm_fR extrahieren
+
+===============================================================================
+PHASE 2: PAPER-POLISHING (nach MCMC-Ergebnis)
+===============================================================================
+
+[ ] MCMC-Ergebnisse eintragen (alpha_M_0, n, chi2, Signifikanz)
+[ ] Corner Plot aus echter Chain neu generieren (generate_corner_plot.py updaten)
+[ ] Konvergenz-Diagnostik (R-hat, ESS, tau) als Tabelle in Paper III
+[ ] Alle Zahlen in Paper2_EN, Paper3_EN, Paper2_DE, Paper3_DE synchronisieren
+[ ] RESPONSE_TO_REVIEWER.md mit finalen Zahlen aktualisieren
+
+===============================================================================
+PHASE 3: JOURNAL-READY MACHEN
+===============================================================================
+
+[X] "Working Paper" Labels entfernen (alle 6 .tex Dateien)
+[X] AI-Disclosure kuerzen: Fussnote statt eigener Abschnitt
+      -> In allen 6 Papers: \footnotetext mit KI-Nutzungshinweis
+[X] KI-Co-Autorenschaft aus Titelseiten entfernen (AUFGABEN.txt Punkt 1!)
+      -> Autor nur: "Lukas Geiger" -- war bereits korrekt
+      -> Claude/Gemini in Methods-Fussnote
+[X] Boxed equations entfernen (nicht PRD-Standard)
+[X] Self-Referenz [Geiger2026c] als "companion paper" formulieren
+[X] 1590 SN-Zahl klaeren (Redshift-Cut z>0.01 explizit angeben)
+[ ] Game-theoretische Sprache reduzieren (Nash, Gradient Reduction Game etc.)
+      -> In Paper II+III nur sparsam verwenden, Paper I referenzieren
+[ ] "Brand names" entfernen (Decaying Dark Geometry, Geometric Crystallization)
+      -> Physik fuer sich sprechen lassen
+[ ] Tabellen konsolidieren (Paper II Table 5: nur CFM vs LCDM zeigen)
+[ ] Notation vereinheitlichen: mu_eff (MOND) vs. mu(k,a) (Perturbationen)
+      -> Verschiedene Symbole verwenden um Verwechslung zu vermeiden
+
+===============================================================================
+PHASE 4: FINALE PRUEFUNG
+===============================================================================
+
+[ ] pdflatex 2x fuer alle 4 Papers (keine Warnings ausser hyperref tokens)
+[ ] Gen 3 Review laufen lassen (Opus oder Gemini, streng)
+      -> Ziel: ACCEPT oder Minor Revision mit nur kosmetischen Punkten
+[ ] Englisches Lektorat (Physik-Fachsprache pruefen)
+[ ] Alle Figures in hoher Aufloesung (mind. 300 DPI)
+[ ] Supplemental Material vorbereiten falls noetig (Scripts, Daten)
+
+===============================================================================
+PHASE 5: EINREICHUNG
+===============================================================================
+
+[ ] Journal waehlen:
+      Option A: PRD (Regular Article) -- Subscription-Modus, kostenlos
+      Option B: JCAP -- SCOAP3-gedeckt, kostenlos
+      Option C: PRL (Letter) -- nur beta~2.0 + dchi2=-3.6, rest supplemental
+[ ] Zenodo-Upload als Preprint (DOI sichern, Priority Claim)
+      -> DOI in AUFGABEN.txt und Plan.txt eintragen
+[ ] arXiv-Upload (astro-ph.CO + gr-qc)
+[ ] Journal-Submission vorbereiten:
+      [ ] Cover Letter schreiben
+      [ ] Suggested Reviewers (3-5 Namen aus Modified Gravity Community)
+      [ ] Formatting nach Journal-Template anpassen
+[ ] Einreichen
+[ ] DOI in STATUS_UEBERSICHT.md eintragen
+[ ] Ordner umbenennen: SUB-[PRD]__ oder SUB-[JCAP]__
+[ ] GitHub Repo auf OEFFENTLICH stellen
+
+===============================================================================
+PHASE 6: NACH EINREICHUNG
+===============================================================================
+
+[ ] LinkedIn-Post mit Zenodo-DOI
+[ ] ResearchGate-Upload
+[ ] Spekulatives Material (Fractal GT, QG, Tech Horizons) als eigenes
+      Paper vorbereiten -> Foundations of Physics oder CQG
+
+===============================================================================
+DATEIEN-REFERENZ
+===============================================================================
+
+Papers:
+  papers/Paper1_EN.tex, Paper1_DE.tex  (Paper I: Game Theory + CFM)
+  papers/Paper2_EN.tex, Paper2_DE.tex  (Paper II: MOND + Dark Sector)
+  papers/Paper3_EN.tex, Paper3_DE.tex  (Paper III: Lagrangian + Numerics)
+
+Scripts:
+  scripts/run_full_mcmc.py             (MCMC -- muss auf anderem System laufen)
+  scripts/analyze_mcmc_results.py      (Ergebnis-Analyse)
+  scripts/generate_corner_plot.py      (Corner Plot)
+  scripts/patch_cfm.py                 (hi_class patchen)
+  scripts/compute_TT_TE_EE.py         (CMB Chi2)
+
+Reviews:
+  reviews/REVIEW_Strict_Gen1.md        (Gemini: Major Revision)
+  reviews/RESPONSE_TO_REVIEWER.md      (Autoren-Antwort Gen 1)
+  reviews/REVIEW_Strict_Gen2.md        (Opus 4.6: Minor Revision)
+
+Ergebnisse:
+  results/CFM_fR_Native_Results.txt    (Grid Scan)
+  results/CFM_MCMC_Results.txt         (MCMC Summary Statistics)
+  results/cfm_fR_mcmc_chain.npz       (MCMC Chain -- NOCH NICHT VORHANDEN, nach Rerun)
+
+Anleitung:
+  MCMC_SETUP_GUIDE.md                  (Setup fuer anderes System)
+
+===============================================================================
+AKTUELLER BLOCKER: N1 (MCMC Rerun) -- alles andere kann parallel laufen
+===============================================================================

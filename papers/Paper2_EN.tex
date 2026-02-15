@@ -55,7 +55,7 @@
 \author[1]{Lukas Geiger\thanks{Correspondence: Lukas Geiger, Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany.}}
 \affil[1]{Independent Researcher, Bernau im Schwarzwald}
 
-\date{February 2026 \\ \vspace{0.5em} \small \textit{Working Paper -- Companion to \cite{Geiger2026}}}
+\date{February 2026 \\ \vspace{0.5em} \small \textit{Paper~II in the CFM series -- Companion to \cite{Geiger2026}}}
 
 \maketitle
 
@@ -80,19 +80,7 @@ where $\mu(a)$ is a \textit{scale-dependent} MOND gravitational enhancement fact
 % ===================================================================
 % KI-NUTZUNG
 % ===================================================================
-\section*{AI Disclosure and Methodology}
-\addcontentsline{toc}{section}{AI Disclosure and Methodology}
-
-\noindent\textbf{Extended Methodology Statement:} This paper is an experiment in \textit{AI-Assisted Science}. The division of labor is disclosed transparently:
-
-\begin{description}[style=nextline, leftmargin=2cm]
-\item[\textbf{Human author} (Lukas Geiger)] Physical intuition, core hypotheses (game-theoretic foundation, saturation mechanism, geometry-as-dark-sector, Efficiency Hypothesis, phase transition concept), interpretation of results, strategic decisions, and final responsibility for all scientific content.
-\item[\textbf{Claude Opus 4.6} (Anthropic)] Co-writer: Mathematical formalization, derivation of equations, code development (Python/MCMC), statistical analysis (Pantheon+ fits), text generation, and structural organization.
-\item[\textbf{Gemini} (Google DeepMind)] Reviewer: Critical feedback, MOND compatibility analysis, identification of BBN crisis, trace-coupling suggestion, strategic recommendations.
-\end{description}
-
-\vspace{0.5em}
-\noindent\textit{Note:} The mathematical formalization and the statistical fits were performed by AI systems. The author presents these hypotheses as a \textit{Working Paper} to enable scrutiny and further development by the scientific community. \textbf{Independent mathematical verification is explicitly encouraged.}
+\footnotetext{AI tools (Claude, Anthropic; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/lukisch/cfm-cosmology}.}
 
 \newpage
 
@@ -156,7 +144,7 @@ with
 
 For the baryon-only extension, we decompose the geometric potential into two components:
 \begin{equation}
-\boxed{H^2(a) = H_0^2 \left[\mu_{\mathrm{eff}}\,\Omega_b\,a^{-3} + \underbrace{\Phi_0 \cdot f_{\mathrm{sat}}(a)}_{\text{geometric DE}} + \underbrace{\alpha \cdot a^{-\beta}}_{\text{geometric DM}} + f_{\mathrm{EDE}}(a)\right]}
+H^2(a) = H_0^2 \left[\mu_{\mathrm{eff}}\,\Omega_b\,a^{-3} + \underbrace{\Phi_0 \cdot f_{\mathrm{sat}}(a)}_{\text{geometric DE}} + \underbrace{\alpha \cdot a^{-\beta}}_{\text{geometric DM}} + f_{\mathrm{EDE}}(a)\right]
 \label{eq:extended_cfm}
 \end{equation}
 
@@ -194,7 +182,7 @@ For non-relativistic matter ($w \approx 0$), the trace is $T_{\mathrm{mat}} = -\
 
 The full extended Friedmann equation with trace coupling reads:
 \begin{equation}
-\boxed{H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta} \cdot \mathcal{S}(a)\right]}
+H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta} \cdot \mathcal{S}(a)\right]
 \label{eq:extended_cfm_trace}
 \end{equation}
 where $\mathcal{S}(a)$ is the trace-coupling suppression factor:
@@ -219,7 +207,7 @@ with $a_{\mathrm{eq}} = \Omega_r/\Omega_b \approx 3 \times 10^{-4}$ (using $\Ome
 R + 12\gamma\,\Box R = -8\pi G\,T
 \label{eq:trace_fR}
 \end{equation}
-where $T = g^{\mu\nu}T_{\mu\nu}$ is the matter energy-momentum trace. During the radiation era, $T_{\mathrm{rad}} = 0$ (conformal symmetry), which implies $R + 12\gamma\,\Box R = 0$. On FLRW, the decaying solution gives $R \to 0$ in the radiation era, so the $R^2$ correction -- which sources the scalaron and hence the geometric DM term -- vanishes automatically. The suppression factor $\mathcal{S}(a)$ in Eq.~\eqref{eq:suppression} is thus the phenomenological parametrization of a rigorous $f(R)$ result: the geometric DM ``activates'' precisely when $T \neq 0$ (i.e., when non-relativistic matter dominates). The only genuine postulate is the choice $f(R) = R + 2\gamma R^2$ -- the trace coupling is a \textit{consequence}, not an input.
+where $T = g^{\mu\nu}T_{\mu\nu}$ is the matter energy-momentum trace. During the radiation era, $T_{\mathrm{rad}} = 0$ (conformal symmetry), which implies $R + 12\gamma\,\Box R = 0$. On FLRW, the decaying solution gives $R \to 0$ in the radiation era, so the $R^2$ correction -- which sources the scalaron and hence the geometric DM term -- vanishes automatically. The suppression factor $\mathcal{S}(a)$ in Eq.~\eqref{eq:suppression} is thus the phenomenological parametrization of a rigorous $f(R)$ result: the geometric DM ``activates'' precisely when $T \neq 0$ (i.e., when non-relativistic matter dominates). The only genuine postulate is the choice $f(R) = R + 2\gamma R^2$ -- the trace coupling is a \textit{consequence}, not an input. Paper~III also derives the scalaron mass $m_s \sim \mathcal{O}(10)\,H_0 \sim 10^{-32}\,\mathrm{eV}$ from the MCMC constraint $\alpha_{M,0} = 0.0013 \pm 0.0007$, corresponding to a cosmological Compton wavelength $\lambda_C \gtrsim 100\,\mathrm{Mpc}$ and a solar system screening length $\lambda_C^{\mathrm{solar}} \sim 20\,\mathrm{m}$ (chameleon mechanism), ensuring compatibility with local gravity tests.
 
 \subsection{Physical Interpretation of the Geometric DM Term}
 
@@ -303,7 +291,7 @@ This tension has a natural resolution within the MOND-CFM framework. Just as MON
 \end{equation}
 the curvature coupling $\beta$ should transition between two regimes separated by a curvature scale:
 \begin{equation}
-\boxed{\beta_{\mathrm{eff}}(a) = \beta_{\mathrm{late}} + \frac{\beta_{\mathrm{early}} - \beta_{\mathrm{late}}}{1 + (a/a_t)^n}}
+\beta_{\mathrm{eff}}(a) = \beta_{\mathrm{late}} + \frac{\beta_{\mathrm{early}} - \beta_{\mathrm{late}}}{1 + (a/a_t)^n}
 \label{eq:running_beta}
 \end{equation}
 where $\beta_{\mathrm{late}} = 2.02$ (curvature-like, from the SN fit), $\beta_{\mathrm{early}} \approx 2.8$ (approaching CDM-like $a^{-3}$), $a_t$ is the transition scale factor, and $n$ controls the transition sharpness.
@@ -793,7 +781,7 @@ The lensing signal would then trace the geometric potential (which co-moves with
 \end{equation}
 Since the CFM Lagrangian~\eqref{eq:full_action} (Paper~III) has $\alpha_T = 0$ identically -- as confirmed by GW170817 \cite{Abbott2017gw} -- we obtain:
 \begin{equation}
-\boxed{\Sigma = 1 \qquad \text{(exact, at all scales and redshifts)}}
+\Sigma = 1 \qquad \text{(exact, at all scales and redshifts)}
 \end{equation}
 This means that \textit{gravitational lensing in the cfm\_fR model is identical to GR}. The lensing convergence $\kappa$ traces the total matter distribution through the standard relation $\nabla^2\Phi_{\mathrm{lens}} = -4\pi G\,a^2\,\rho_{\mathrm{tot}}\,\Delta_{\mathrm{tot}}$. Consequently:
 \begin{enumerate}
@@ -861,6 +849,8 @@ The results of this paper -- a baryon-only model that outperforms $\Lambda$CDM o
 \item \textbf{Overfitting risk for SN-only fit -- ruled out by cross-validation:} The SN-only analysis uses 5 free parameters (vs.\ 2 for $\Lambda$CDM). Beyond information-theoretic penalties ($\Delta\mathrm{AIC} = -16.3$, $\Delta\mathrm{BIC} = -4.2$), a rigorous 5-fold cross-validation (Section~\ref{subsec:crossval}) confirms generalization ($0.445 \pm 0.022$ vs.\ $0.452 \pm 0.017$).
 
 \item \textbf{Parameter count -- now resolved:} The preferred $\mu(a)$ variant uses 6 free parameters ($\beta_{\mathrm{early}}$, $a_t$, $\alpha$, $H_0$, $\mu_{\mathrm{early}}$, $a_\mu$), the same count as $\Lambda$CDM. The EDE component is entirely eliminated. A formal information-criterion comparison is straightforward: with equal parameter count and $\Delta\chi^2 = -5.5$, the CFM+MOND is statistically preferred.
+
+\item \textbf{Transition redshift $z_t$ is a fitted parameter:} The transition redshift $z_t = 9.2$ of the running coupling $\beta_{\mathrm{eff}}(a)$ is optimized against the data, not derived from first principles. Its coincidence with the epoch of first galaxy formation is suggestive but may be coincidental. A Lagrangian derivation of $z_t$ from the scalaron dynamics (Paper~III) would elevate this from a retrodiction to a prediction; until then, $z_t$ should be considered a phenomenological fit parameter.
 
 \item \textbf{EDE -- now eliminated:} The previously problematic $f_{\mathrm{EDE}} \approx 50\%$ is reduced to \textit{zero} by the scale-dependent $\mu(a)$ parametrization (Section~\ref{subsubsec:mu_scale}). The constant-$\mu$ variants still require large EDE, but the preferred variant does not.
 
@@ -960,7 +950,7 @@ This work uses \texttt{hi\_class} \cite{Zumalacarregui2017} (Horndeski in CLASS 
 \bibitem{Geiger2026}
 Geiger, L.\ (2026).
 Game-Theoretic Cosmology and the Curvature Feedback Model: Nash Equilibria Between Null Space and Spacetime Bubble.
-Working Paper. \url{https://github.com/lukisch/cfm-cosmology}.
+Companion paper (Paper~I). \url{https://github.com/lukisch/cfm-cosmology}.
 
 \bibitem{Scolnic2022}
 Scolnic, D.\ et al.\ (2022).
@@ -1031,7 +1021,7 @@ DOI: 10.1086/508162.
 \bibitem{Geiger2026c}
 Geiger, L.\ (2026).
 Microscopic Foundations of the Curvature Feedback Model: From Quantum Geometry to Macroscopic Saturation.
-Working Paper (in preparation).
+Companion paper (Paper~III), submitted simultaneously.
 
 \bibitem{Lewis2000}
 Lewis, A., Challinor, A.\ \& Lasenby, A.\ (2000).

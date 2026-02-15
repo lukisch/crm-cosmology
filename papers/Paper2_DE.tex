@@ -54,7 +54,7 @@
 \author[1]{Lukas Geiger\thanks{Korrespondenz: Lukas Geiger, Gei\ss{}b\"uhlweg~1, 79872~Bernau, Deutschland.}}
 \affil[1]{Unabh\"angiger Forscher, Bernau im Schwarzwald}
 
-\date{Februar 2026 \\ \vspace{0.5em} \small \textit{Arbeitspapier -- Begleitpaper zu \cite{Geiger2026}}}
+\date{Februar 2026 \\ \vspace{0.5em} \small \textit{Paper~II der CFM-Serie -- Begleitpaper zu \cite{Geiger2026}}}
 
 \maketitle
 
@@ -83,19 +83,7 @@ wobei der S\"attigungsterm $f_{\mathrm{sat}}$ die Dunkle Energie ersetzt und der
 % -------------------------------------------------------------------
 % KI-OFFENLEGUNG
 % -------------------------------------------------------------------
-\section*{KI-Offenlegung und Methodik}
-\addcontentsline{toc}{section}{KI-Offenlegung und Methodik}
-
-\noindent\textbf{Erweiterte Methodenerkl\"arung:} Dieses Paper ist ein Experiment in \textit{KI-gest\"utzter Wissenschaft}. Die Arbeitsteilung wird transparent offengelegt:
-
-\begin{description}[style=nextline, leftmargin=2cm]
-\item[\textbf{Menschlicher Autor} (Lukas Geiger)] Physikalische Intuition, Kernhypothesen (spieltheoretische Grundlage, S\"attigungsmechanismus, Geometrie-als-dunkler-Sektor, Effizienzhypothese, Phasen\"ubergangskonzept), Interpretation der Ergebnisse, strategische Entscheidungen und endg\"ultige Verantwortung f\"ur alle wissenschaftlichen Inhalte.
-\item[\textbf{Claude Opus 4.6} (Anthropic)] Co-Autor: Mathematische Formalisierung, Herleitung der Gleichungen, Code-Entwicklung (Python/MCMC), statistische Analyse (Pantheon+-Fits), Textgenerierung und strukturelle Organisation.
-\item[\textbf{Gemini} (Google DeepMind)] Gutachter: Kritisches Feedback, MOND-Kompatibilit\"atsanalyse, Identifizierung der BBN-Krise, Vorschlag der Spur-Kopplung, strategische Empfehlungen.
-\end{description}
-
-\vspace{0.5em}
-\noindent\textit{Hinweis:} Die mathematische Formalisierung und die statistischen Fits wurden von KI-Systemen durchgef\"uhrt. Der Autor pr\"asentiert diese Hypothesen als \textit{Arbeitspapier}, um eine \"Uberpr\"ufung und Weiterentwicklung durch die wissenschaftliche Gemeinschaft zu erm\"oglichen. \textbf{Eine unabh\"angige mathematische Verifikation wird ausdr\"ucklich ermutigt.}
+\footnotetext{Bei der Erstellung dieses Manuskripts wurden KI-gest\"utzte Werkzeuge (Claude, Anthropic; Gemini, Google DeepMind) f\"ur mathematische Formalisierung, Code-Entwicklung und Textgenerierung eingesetzt. Alle physikalischen Hypothesen, wissenschaftliche Interpretation und Verantwortung f\"ur den Inhalt liegen ausschlie\ss{}lich beim Autor. Der Analysecode ist verf\"ugbar unter \url{https://github.com/lukisch/cfm-cosmology}.}
 
 \newpage
 
@@ -157,7 +145,7 @@ mit
 
 F\"ur die Erweiterung auf ein Universum mit ausschlie\ss{}lich baryonischem Materieinhalt zerlegen wir das geometrische Potential in zwei Komponenten:
 \begin{equation}
-\boxed{H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \underbrace{\Phi_0 \cdot f_{\mathrm{sat}}(a)}_{\text{geometrische DE}} + \underbrace{\alpha \cdot a^{-\beta}}_{\text{geometrische DM}}\right]}
+{H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \underbrace{\Phi_0 \cdot f_{\mathrm{sat}}(a)}_{\text{geometrische DE}} + \underbrace{\alpha \cdot a^{-\beta}}_{\text{geometrische DM}}\right]}
 \label{eq:extended_cfm}
 \end{equation}
 
@@ -194,7 +182,7 @@ F\"ur nicht-relativistische Materie ($w \approx 0$) ist die Spur $T_{\mathrm{mat
 
 Die vollst\"andige erweiterte Friedmann-Gleichung mit Spur-Kopplung lautet:
 \begin{equation}
-\boxed{H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta} \cdot \mathcal{S}(a)\right]}
+{H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta} \cdot \mathcal{S}(a)\right]}
 \label{eq:extended_cfm_trace}
 \end{equation}
 wobei $\mathcal{S}(a)$ der Spur-Kopplungs-Unterdr\"uckungsfaktor ist:
@@ -457,7 +445,7 @@ Das Linsensignal w\"urde dann das geometrische Potential (das mit den Galaxien m
 \end{equation}
 Da das CFM-Lagrangian $\alpha_T = 0$ identisch hat (best\"atigt durch GW170817 \cite{Abbott2017gw}), erhalten wir:
 \begin{equation}
-\boxed{\Sigma = 1 \qquad \text{(exakt, bei allen Skalen und Rotverschiebungen)}}
+{\Sigma = 1 \qquad \text{(exakt, bei allen Skalen und Rotverschiebungen)}}
 \end{equation}
 Dies bedeutet, dass Gravitationslinsen im cfm\_fR-Modell \textit{identisch} zu GR sind. Konsequenzen:
 \begin{enumerate}
@@ -599,7 +587,7 @@ Diese Arbeit verwendet \texttt{hi\_class} \cite{Zumalacarregui2017} (Horndeski i
 \bibitem{Geiger2026}
 Geiger, L.\ (2026).
 Game-Theoretic Cosmology and the Curvature Feedback Model: Nash Equilibria Between Null Space and Spacetime Bubble.
-Working Paper. \url{https://github.com/lukisch/cfm-cosmology}.
+Begleitpaper (Paper~I). \url{https://github.com/lukisch/cfm-cosmology}.
 
 \bibitem{Scolnic2022}
 Scolnic, D.\ et al.\ (2022).
@@ -670,7 +658,7 @@ DOI: 10.1086/508162.
 \bibitem{Geiger2026c}
 Geiger, L.\ (2026).
 Microscopic Foundations of the Curvature Feedback Model: From Quantum Geometry to Macroscopic Saturation.
-Working Paper (in preparation).
+Begleitpaper (Paper~III), gleichzeitig eingereicht.
 
 \bibitem{Lewis2000}
 Lewis, A., Challinor, A.\ \& Lasenby, A.\ (2000).
