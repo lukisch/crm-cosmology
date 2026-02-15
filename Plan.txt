@@ -76,13 +76,14 @@ PHASE 3: JOURNAL-READY MACHEN
 [X] Boxed equations entfernen (nicht PRD-Standard)
 [X] Self-Referenz [Geiger2026c] als "companion paper" formulieren
 [X] 1590 SN-Zahl klaeren (Redshift-Cut z>0.01 explizit angeben)
-[ ] Game-theoretische Sprache reduzieren (Nash, Gradient Reduction Game etc.)
-      -> In Paper II+III nur sparsam verwenden, Paper I referenzieren
-[ ] "Brand names" entfernen (Decaying Dark Geometry, Geometric Crystallization)
-      -> Physik fuer sich sprechen lassen
-[ ] Tabellen konsolidieren (Paper II Table 5: nur CFM vs LCDM zeigen)
-[ ] Notation vereinheitlichen: mu_eff (MOND) vs. mu(k,a) (Perturbationen)
-      -> Verschiedene Symbole verwenden um Verwechslung zu vermeiden
+[X] Game-theoretische Sprache reduzieren (Nash, Gradient Reduction Game etc.)
+      -> "Nash equilibrium" -> "equilibrium", Verweis auf Paper I statt Wiederholung
+[X] "Brand names" entfernen (Decaying Dark Geometry, Geometric Crystallization)
+      -> Definition-Environments entfernt, physikalische Beschreibungen beibehalten
+[X] Tabellen konsolidieren (Paper II Table 5: nur CFM vs LCDM zeigen)
+      -> 5-Spalten-Tabelle auf 2 Spalten reduziert (CFM+MOND vs LCDM)
+[X] Notation vereinheitlichen: mu_eff (MOND) vs. mu(k,a) (Perturbationen)
+      -> Klarstellende Fussnoten in Paper2 und Paper3 eingefuegt
 
 ===============================================================================
 PHASE 4: FINALE PRUEFUNG
