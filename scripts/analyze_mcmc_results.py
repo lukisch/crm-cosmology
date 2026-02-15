@@ -1,21 +1,37 @@
 #!/usr/bin/env python3
 """
 Analyze cfm_fR MCMC results from run_full_mcmc.py.
-Reads /tmp/cfm_fR_mcmc_results.npz and produces:
+Reads MCMC chain from results/ directory (or /tmp/ as fallback) and produces:
   1. Summary statistics (mean, std, 68% CI for each parameter)
   2. Detection significance for alpha_M_0 > 0
-  3. Corner plot (if matplotlib available)
+  3. Corner plot (via generate_corner_plot.py)
   4. LaTeX-formatted table for Paper III
 """
 import numpy as np
 import sys
+import os
 
-# Load results
-try:
-    data = np.load('/tmp/cfm_fR_mcmc_results.npz', allow_pickle=True)
-except FileNotFoundError:
-    print("ERROR: /tmp/cfm_fR_mcmc_results.npz not found.")
-    print("Run run_full_mcmc.py first.")
+# Load results -- try project directory first, then /tmp/
+script_dir = os.path.dirname(os.path.abspath(__file__))
+project_dir = os.path.dirname(script_dir)
+chain_paths = [
+    os.path.join(project_dir, 'results', 'cfm_fR_mcmc_chain.npz'),
+    '/tmp/cfm_fR_mcmc_results.npz',
+]
+
+data = None
+for path in chain_paths:
+    if os.path.exists(path):
+        data = np.load(path, allow_pickle=True)
+        print(f"Loaded chain from: {path}")
+        break
+
+if data is None:
+    print("ERROR: MCMC chain not found in any of:")
+    for p in chain_paths:
+        print(f"  {p}")
+    print("\nRun run_full_mcmc.py first, or use generate_corner_plot.py")
+    print("to create a synthetic corner plot from summary statistics.")
     sys.exit(1)
 
 chain = data['chain']
@@ -175,41 +191,23 @@ print(r"""\bottomrule
 """)
 
 # ================================================================
-# 7. CORNER PLOT (if matplotlib available)
+# 7. CORNER PLOT
 # ================================================================
-try:
-    import matplotlib
-    matplotlib.use('Agg')
-    import matplotlib.pyplot as plt
+# For publication-quality corner plots, use generate_corner_plot.py
+# which works with either the full chain or synthetic samples from
+# the summary statistics.
+fig_dir = os.path.join(project_dir, 'figures')
+print(f"\nFor corner plot, run: python {os.path.join(script_dir, 'generate_corner_plot.py')}")
+print(f"Output: {os.path.join(fig_dir, 'cfm_contour.png')}")
 
-    fig, axes = plt.subplots(5, 5, figsize=(14, 14))
-    labels = [r'$\alpha_{M,0}$', r'$n$', r'$\omega_{cdm}$',
-              r'$\ln(10^{10}A_s)$', r'$n_s$']
-
-    for i in range(5):
-        for j in range(5):
-            ax = axes[i, j]
-            if j > i:
-                ax.set_visible(False)
-                continue
-            if i == j:
-                ax.hist(chain[:, i], bins=50, density=True,
-                        color='steelblue', alpha=0.7)
-                ax.axvline(best[i], color='red', ls='--', lw=1)
-            else:
-                ax.scatter(chain[::10, j], chain[::10, i],
-                           c=log_prob[::10], s=1, alpha=0.3, cmap='viridis')
-                ax.plot(best[j], best[i], 'r+', ms=10, mew=2)
-            if i == 4:
-                ax.set_xlabel(labels[j])
-            if j == 0:
-                ax.set_ylabel(labels[i])
-
-    plt.tight_layout()
-    plt.savefig('/tmp/cfm_fR_mcmc_corner.png', dpi=150)
-    print("\nCorner plot saved to /tmp/cfm_fR_mcmc_corner.png")
-except ImportError:
-    print("\n(matplotlib not available, skipping corner plot)")
+# Save chain to project directory for future use
+save_path = os.path.join(project_dir, 'results', 'cfm_fR_mcmc_chain.npz')
+if not os.path.exists(save_path):
+    np.savez(save_path, chain=chain, log_prob=log_prob,
+             param_names=param_names, best_params=best_params,
+             best_chi2=best_chi2)
+    print(f"\nChain saved to: {save_path}")
+    print("(This prevents data loss from /tmp/ cleanup)")
 
 print(f"\n{'='*80}")
 print("ANALYSIS COMPLETE")

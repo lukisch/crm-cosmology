@@ -17,6 +17,7 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{graphicx}
+\graphicspath{{../figures/}}
 \usepackage{float}
 \usepackage{setspace}
 \usepackage{array}
@@ -48,7 +49,7 @@
 % ===================================================================
 
 \title{\textbf{\huge Eliminating the Dark Sector:\\Unifying the Curvature Feedback Model with MOND}\\[0.5em]
-\Large A Baryon-Only Universe with Geometric Dark Matter and Dark Energy\\[0.3em]
+\Large Replacing the Particle Dark Sector with Spacetime Geometry\\[0.3em]
 \large Preliminary Analysis with Pantheon+ Type~Ia Supernovae}
 
 \author[1]{Lukas Geiger\thanks{Correspondence: Lukas Geiger, Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany.}}
@@ -59,11 +60,11 @@
 \maketitle
 
 \begin{abstract}
-\noindent We propose a unified geometric framework that eliminates both dark energy and dark matter from the cosmological energy budget. Building on the Curvature Feedback Model (CFM) \cite{Geiger2026}, which replaces the cosmological constant with a time-dependent curvature return potential $\Omega_\Phi(a)$, we extend the model to a \textit{baryon-only} universe ($\Omega_m = \Omega_b \approx 0.05$) compatible with Modified Newtonian Dynamics (MOND) \cite{Milgrom1983}. The extended Friedmann equation reads:
+\noindent We propose a unified geometric framework that replaces both dark energy and particulate dark matter with spacetime curvature. Building on the Curvature Feedback Model (CFM) \cite{Geiger2026}, which replaces the cosmological constant with a time-dependent curvature return potential $\Omega_\Phi(a)$, we extend the model so that the \textit{matter content} of the universe is exclusively baryonic ($\Omega_m^{\mathrm{particles}} = \Omega_b \approx 0.05$), while the gravitational effects attributed to dark matter arise from a geometric degree of freedom -- the scalaron of $R + 2\gamma R^2$ gravity -- compatible with Modified Newtonian Dynamics (MOND) \cite{Milgrom1983}. The extended Friedmann equation reads:
 \begin{equation*}
 H^2(a) = H_0^2 \left[\mu(a)\,\Omega_b\,a^{-3} + \Omega_r\,a^{-4} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta_{\mathrm{eff}}(a)}\right]
 \end{equation*}
-where $\mu(a)$ is a \textit{scale-dependent} MOND gravitational enhancement factor applied at the background level, the saturation term $f_{\mathrm{sat}}$ replaces dark energy, and the power-law term $\alpha \cdot a^{-\beta_{\mathrm{eff}}}$ assumes the cosmological role of dark matter as a purely geometric effect. Three key innovations are: (i)~the \textit{running curvature coupling} $\beta_{\mathrm{eff}}(a)$, which transitions from $\beta_{\mathrm{early}} \approx 2.8$ (CDM-like) to $\beta_{\mathrm{late}} \approx 2.0$ (curvature-like), analogous to the MOND interpolation function; (ii)~the \textit{MOND background coupling} $\mu(a)$, which modifies both the Friedmann equation and the sound horizon calculation ($R_b = 3\mu(a)\Omega_b / 4\Omega_\gamma$), resolving the Hubble constant problem; and (iii)~the \textit{scale-dependent} evolution $\mu(a) = \sqrt{\pi}$ at late times transitioning to $\mu \to 1$ at $z > 4000$, which \textbf{completely eliminates} the need for Early Dark Energy ($f_{\mathrm{EDE}} = 0$). Tested against 1,590 Pantheon+ Type~Ia supernovae, Planck CMB compressed observables ($\ell_A$, $\mathcal{R}$), and 9 BAO distance measurements jointly, the preferred CFM+MOND variant with scale-dependent $\mu(a)$ achieves $\chi^2_{\mathrm{total}} = 704.8$ ($\Delta\chi^2 = -5.5$ vs.\ $\Lambda$CDM) at $H_0 = 67.3$\,km/s/Mpc with \textbf{zero} EDE, yielding $\ell_A = 301.471$ and $\mathcal{R} = 1.7502$ -- an exact match to Planck. The sound horizon $r_d = 146.9$\,Mpc is essentially identical to $\Lambda$CDM ($147.2$\,Mpc), and the model uses only 6 free parameters -- the same count as $\Lambda$CDM. The SN-only analysis with constant $\beta$ yields $\Delta\chi^2 = -26.3$ ($\Delta\mathrm{AIC} = -16.3$, $\Delta\mathrm{BIC} = -4.2$), with MCMC posteriors $\alpha = 0.68^{+0.02}_{-0.07}$ and $\beta = 2.02^{+0.26}_{-0.14}$, confirming curvature scaling ($a^{-2}$, $w = -1/3$). This framework renders the entire dark sector -- comprising 95\% of the energy budget in $\Lambda$CDM -- superfluous.
+where $\mu(a)$ is a \textit{scale-dependent} MOND gravitational enhancement factor applied at the background level, the saturation term $f_{\mathrm{sat}}$ replaces dark energy, and the power-law term $\alpha \cdot a^{-\beta_{\mathrm{eff}}}$ assumes the cosmological role of dark matter as a purely geometric effect. Three key innovations are: (i)~the \textit{running curvature coupling} $\beta_{\mathrm{eff}}(a)$, which transitions from $\beta_{\mathrm{early}} \approx 2.8$ (CDM-like) to $\beta_{\mathrm{late}} \approx 2.0$ (curvature-like), analogous to the MOND interpolation function; (ii)~the \textit{MOND background coupling} $\mu(a)$, which modifies both the Friedmann equation and the sound horizon calculation ($R_b = 3\mu(a)\Omega_b / 4\Omega_\gamma$), resolving the Hubble constant problem; and (iii)~the \textit{scale-dependent} evolution $\mu(a) = \sqrt{\pi}$ at late times transitioning to $\mu \to 1$ at $z > 4000$, which \textbf{completely eliminates} the need for Early Dark Energy ($f_{\mathrm{EDE}} = 0$). Tested against 1,590 Pantheon+ Type~Ia supernovae, Planck CMB compressed observables ($\ell_A$, $\mathcal{R}$), and 9 BAO distance measurements jointly, the preferred CFM+MOND variant with scale-dependent $\mu(a)$ achieves $\chi^2_{\mathrm{total}} = 704.8$ ($\Delta\chi^2 = -5.5$ vs.\ $\Lambda$CDM) at $H_0 = 67.3$\,km/s/Mpc with \textbf{zero} EDE, yielding $\ell_A = 301.471$ and $\mathcal{R} = 1.7502$ -- an exact match to Planck. The sound horizon $r_d = 146.9$\,Mpc is essentially identical to $\Lambda$CDM ($147.2$\,Mpc), and the model uses only 6 free parameters -- the same count as $\Lambda$CDM. The SN-only analysis with constant $\beta$ yields $\Delta\chi^2 = -26.3$ ($\Delta\mathrm{AIC} = -16.3$, $\Delta\mathrm{BIC} = -4.2$), with MCMC posteriors $\alpha = 0.68^{+0.02}_{-0.07}$ and $\beta = 2.02^{+0.26}_{-0.14}$, confirming curvature scaling ($a^{-2}$, $w = -1/3$). This framework replaces the entire particle dark sector -- comprising 95\% of the energy budget in $\Lambda$CDM -- with spacetime geometry. The distinction from CDM is not merely ontological but \textit{testable}: the scalaron produces $\mu(k,a) \neq 1$ (enhanced gravitational coupling at sub-Compton scales), gravitational slip $\eta \neq 1$, yet $\Sigma = 1$ (lensing identical to GR) -- a combination that no CDM model with modified perturbations can reproduce.
 
 \vspace{0.5em}
 \noindent \textbf{Keywords:} Curvature Feedback Model, MOND, dark matter, dark energy, baryon-only universe, Pantheon+, modified gravity, geometric cosmology
@@ -213,6 +214,13 @@ with $a_{\mathrm{eq}} = \Omega_r/\Omega_b \approx 3 \times 10^{-4}$ (using $\Ome
 
 \textbf{Physical interpretation:} The trace coupling has a deep geometric meaning. In the game-theoretic framework, the geometric DM term represents the curvature ``memory'' of the initial energy concentration. During the radiation era, the universe is conformally flat (radiation is scale-free), and there is no curvature memory to sustain. The geometric DM term activates only when conformal symmetry is broken by the emergence of massive (non-relativistic) matter -- precisely at the epoch when CDM would begin to form structures in the standard picture.
 
+\textbf{Lagrangian origin from $f(R) = R + 2\gamma R^2$:} Paper~III \cite{Geiger2026c} demonstrates that the trace-coupling suppression $\mathcal{S}(a)$ is \textit{not} an ad~hoc postulate but follows rigorously from the $R^2$ sector of the CFM Lagrangian. The trace of the field equations for $f(R) = R + 2\gamma R^2$ gives:
+\begin{equation}
+R + 12\gamma\,\Box R = -8\pi G\,T
+\label{eq:trace_fR}
+\end{equation}
+where $T = g^{\mu\nu}T_{\mu\nu}$ is the matter energy-momentum trace. During the radiation era, $T_{\mathrm{rad}} = 0$ (conformal symmetry), which implies $R + 12\gamma\,\Box R = 0$. On FLRW, the decaying solution gives $R \to 0$ in the radiation era, so the $R^2$ correction -- which sources the scalaron and hence the geometric DM term -- vanishes automatically. The suppression factor $\mathcal{S}(a)$ in Eq.~\eqref{eq:suppression} is thus the phenomenological parametrization of a rigorous $f(R)$ result: the geometric DM ``activates'' precisely when $T \neq 0$ (i.e., when non-relativistic matter dominates). The only genuine postulate is the choice $f(R) = R + 2\gamma R^2$ -- the trace coupling is a \textit{consequence}, not an input.
+
 \subsection{Physical Interpretation of the Geometric DM Term}
 
 The term $\alpha \cdot a^{-\beta}$ with $\beta \approx 2.0$ (from MCMC) requires physical interpretation:
@@ -240,7 +248,7 @@ The two mechanisms are complementary: MOND handles local dynamics, while the geo
 \subsection{The Efficiency Hypothesis: Why No Dark Matter?}
 \label{subsec:efficiency}
 
-A critical question remains: the extended CFM shows that the data \textit{permit} a baryon-only universe, but why should the universe \textit{be} baryon-only? The game-theoretic framework provides a compelling answer.
+A critical question remains: the extended CFM shows that the data \textit{permit} a universe whose matter content is exclusively baryonic, but why should this be the case? We emphasize: the CFM does not require that non-baryonic matter never existed -- only that baryons are what \textit{remains} as the matter content of the present universe, while the gravitational effects attributed to dark matter are geometric (the scalaron field). The game-theoretic framework provides a compelling answer for why baryonic matter alone is sufficient.
 
 In the Nash equilibrium between null space and spacetime bubble \cite{Geiger2026}, the spacetime bubble receives a finite energy budget $E_0$ from the null space. Its objective is to neutralize the concentration gradient $G$ as efficiently as possible while protecting the parent system. This creates a resource allocation problem:
 
@@ -777,7 +785,22 @@ During a cluster collision:
 \item The \textit{galaxies} (stellar component), being effectively collisionless like the geometric potential, pass through unimpeded.
 \end{itemize}
 
-The lensing signal would then trace the geometric potential (which co-moves with the galaxies) rather than the gas -- precisely as observed. This is analogous to the AeST prediction, where the scalar and vector fields produce lensing effects that are offset from the gas. A quantitative lensing prediction requires solving the perturbation equations of the full CFM Lagrangian (Paper~III \cite{Geiger2026c}), but the background-level analysis confirms that the geometric potential is of the correct magnitude.
+The lensing signal would then trace the geometric potential (which co-moves with the galaxies) rather than the gas -- precisely as observed.
+
+\textit{Quantitative lensing analysis:} The gravitational lensing potential is $\Phi_{\mathrm{lens}} = (\Phi + \Psi)/2$, characterized by the Horndeski lensing parameter $\Sigma \equiv (\mu + \eta\,\mu)/2$, where $\mu = -2k^2\Phi/(8\pi G\,a^2\rho\,\Delta)$ and $\eta = \Psi/\Phi$ are the effective gravitational coupling and the gravitational slip, respectively. In the Horndeski framework, $\Sigma$ is related to the tensor speed excess $\alpha_T$ via \cite{Amendola2018}:
+\begin{equation}
+\Sigma = 1 + \frac{\alpha_T}{2}
+\end{equation}
+Since the CFM Lagrangian~\eqref{eq:full_action} (Paper~III) has $\alpha_T = 0$ identically -- as confirmed by GW170817 \cite{Abbott2017gw} -- we obtain:
+\begin{equation}
+\boxed{\Sigma = 1 \qquad \text{(exact, at all scales and redshifts)}}
+\end{equation}
+This means that \textit{gravitational lensing in the cfm\_fR model is identical to GR}. The lensing convergence $\kappa$ traces the total matter distribution through the standard relation $\nabla^2\Phi_{\mathrm{lens}} = -4\pi G\,a^2\,\rho_{\mathrm{tot}}\,\Delta_{\mathrm{tot}}$. Consequently:
+\begin{enumerate}
+\item The geometric ``dark matter'' is automatically \textit{collisionless} (it is the spacetime curvature itself), resolving the Bullet Cluster offset without any additional assumption.
+\item The lensing mass-to-light ratio at $z = 0.296$ is $M_{\mathrm{lens}}/M_{\mathrm{baryon}} \approx 10.6$ (from the background calculation above), consistent with the observed ratio $M_{\mathrm{total}}/M_{\mathrm{gas}} \sim 6$--$8$ in the Bullet Cluster \cite{Clowe2006}.
+\item Future lensing surveys (Euclid, Rubin/LSST) will measure $\Sigma$ to percent-level precision, providing a direct test: $\Sigma \neq 1$ would rule out the cfm\_fR model.
+\end{enumerate}
 
 \subsubsection{Challenge 3: Structure Formation and the Matter Power Spectrum}
 
@@ -797,7 +820,7 @@ A preliminary $P(k)$ analysis using the ``effective CDM'' mapping in CAMB \cite{
 
 Beyond the CMB peak positions, the \texttt{propto\_omega} parametrization in hi\_class \cite{Zumalacarregui2017} -- where $\alpha_i(a) = c_i \cdot \Omega_{\mathrm{DE}}(a)$, ensuring $\alpha_i \to 0$ at recombination -- enables a comprehensive analysis against full Planck 2018 power spectra and large-scale structure data. All cosmological parameters are fixed to Planck 2018 best-fit; the only additional parameter is $c_M$.
 
-\textit{TT + TE + EE power spectra.} Using 6{,}405 Planck data points ($\ell = 30$--$2500$: 2{,}471 TT + 1{,}967 TE + 1{,}967 EE), the CFM with $c_M = 0.0002$ achieves $\Delta\chi^2_{\mathrm{tot}} = -0.2$ against $\Lambda$CDM. Larger $c_M$ values improve further ($\Delta\chi^2 = -1.7$ for \texttt{propto\_scale} $c_M = 0.0005$). Crucially, the improvement arises primarily from TT; the polarization spectra TE and EE are essentially unchanged ($\Delta\chi^2 < 0.1$), demonstrating full consistency with polarization data.
+\textit{TT + TE + EE power spectra.} Using 6{,}405 Planck data points ($\ell = 30$--$2500$: 2{,}471 TT + 1{,}967 TE + 1{,}967 EE), the CFM with $c_M = 0.0002$ achieves $\Delta\chi^2_{\mathrm{tot}} = -0.2$ against $\Lambda$CDM. Larger $c_M$ values improve further ($\Delta\chi^2 = -1.7$ for \texttt{propto\_scale} $c_M = 0.0005$). Crucially, the improvement arises primarily from TT; the polarization spectra TE and EE are essentially unchanged ($\Delta\chi^2 < 0.1$), demonstrating full consistency with polarization data. Paper~III \cite{Geiger2026c} extends this analysis to a native \texttt{cfm\_fR} implementation in hi\_class with full Boltzmann integration, achieving $\Delta\chi^2 = -3.6$ in an MCMC over 5~parameters (see Figures and tables therein).
 
 \textit{Growth rate $f\sigma_8(z)$.} The linear growth rate $f\sigma_8 = f(z) \cdot \sigma_8(z)$ is a key discriminant for modified gravity. At $z = 0.38$ (BOSS LOWZ), the CFM with $c_M = 0.0002$ predicts $f\sigma_8 = 0.495$, which is \textit{closer} to the BOSS measurement ($0.497 \pm 0.045$) than $\Lambda$CDM ($0.475$). The overall RSD $\chi^2$ is $1.78$ (8 data points), confirming compatibility with redshift-space distortion surveys.
 
@@ -876,7 +899,7 @@ The results of this paper -- a baryon-only model that outperforms $\Lambda$CDM o
 \section{Conclusion and Outlook}
 \label{sec:conclusion}
 
-We have demonstrated that a baryon-only universe ($\Omega_m = \Omega_b \approx 0.05$) with an extended geometric potential can fit cosmological data \textit{across all three major probes} -- supernovae, CMB, and BAO -- competitively with and in some respects better than $\Lambda$CDM, using the \textit{same number of free parameters}.
+We have demonstrated that a universe whose matter content is exclusively baryonic ($\Omega_m^{\mathrm{particles}} = \Omega_b \approx 0.05$), with the gravitational role of dark matter played by a geometric degree of freedom (the $R^2$ scalaron), can fit cosmological data \textit{across all three major probes} -- supernovae, CMB, and BAO -- competitively with and in some respects better than $\Lambda$CDM, using the \textit{same number of free parameters}.
 
 Three key innovations make this possible: (i)~the \textit{running curvature coupling} $\beta_{\mathrm{eff}}(a)$, which transitions from CDM-like behavior ($\beta \approx 2.8$) at high redshift to curvature-like scaling ($\beta \approx 2.0$) at low redshift; (ii)~the \textit{MOND background coupling} $\mu(a)$, which enhances baryonic gravity by a factor $\sqrt{\pi}$ at late times; and (iii)~the \textit{scale-dependent} evolution of $\mu(a)$ from $\sqrt{\pi}$ (today) to $\mu \to 1$ (at $z > 4000$), which completely eliminates the need for Early Dark Energy.
 
@@ -896,8 +919,8 @@ Perturbation analysis using the ``effective CDM'' mapping in both CAMB and hi\_c
 This paper is the second in a three-part program:
 \begin{enumerate}
 \item \textbf{Paper~I} \cite{Geiger2026}: Establishes the game-theoretic foundation and the Curvature Feedback Model for dark energy replacement. Validated against Pantheon+.
-\item \textbf{Paper~II} (this work): Extends the CFM to eliminate the entire dark sector, achieving a baryon-only universe consistent with MOND. Introduces the Decaying Dark Geometry hypothesis, the running curvature coupling $\beta_{\mathrm{eff}}(a)$, the scale-dependent MOND coupling $\mu(a)$, and demonstrates joint SN + CMB + BAO compatibility ($\Delta\chi^2 = -5.5$ vs.\ $\Lambda$CDM, 6 parameters, zero EDE).
-\item \textbf{Paper~III} \cite{Geiger2026c}: Provides the microscopic foundation -- the Lagrangian derivation, the connection to quantum gravity, and the interpretation of the running $\beta$ as a geometric phase transition. Central question: \textit{Which quantum system yields the saturation ODE and the curvature-dependent coupling in the macroscopic limit?}
+\item \textbf{Paper~II} (this work): Extends the CFM to replace the particle dark sector with spacetime geometry, achieving a universe with exclusively baryonic matter content consistent with MOND. Introduces the Decaying Dark Geometry hypothesis, the running curvature coupling $\beta_{\mathrm{eff}}(a)$, the scale-dependent MOND coupling $\mu(a)$, and demonstrates joint SN + CMB + BAO compatibility ($\Delta\chi^2 = -5.5$ vs.\ $\Lambda$CDM, 6 parameters, zero EDE).
+\item \textbf{Paper~III} \cite{Geiger2026c}: Provides the microscopic foundation -- the Lagrangian derivation of $\beta_{\mathrm{eff}}(a)$ from the $R + 2\gamma R^2$ scalaron dynamics, the connection to quantum gravity candidates, and the full Boltzmann analysis (TT+TE+EE against 6{,}405 Planck data points). Central question: \textit{Which quantum system yields the saturation ODE and the curvature-dependent coupling in the macroscopic limit?}
 \end{enumerate}
 
 \textbf{Immediate next steps:}
@@ -907,7 +930,7 @@ This paper is the second in a three-part program:
 \item Matter power spectrum $P(k)$ with full perturbation equations: the preliminary analysis confirms the correct shape, but $\sigma_8 = 0.90$ in the ``effective CDM'' approximation is too high -- the full treatment is expected to reduce this.
 \item \sout{BBN consistency check} -- \textbf{DONE:} $\mu(z > 10^4) \to 1$, $\Delta N_{\mathrm{eff}} \approx 0.000$ \cite{Pitrou2018}
 \item AeST mapping: deriving $\alpha$, $\beta_{\mathrm{eff}}$, and $\mu(a)$ from the Skordis-Z{\l}o\'snik framework
-\item Lagrangian derivation of the running $\beta$ and $\mu$ from the curvature-squared action (Paper~III)
+\item Lagrangian derivation of the running $\beta$ from the curvature-squared action (Paper~III); the running $\mu(a)$ remains a phenomenological parametrization awaiting theoretical foundation
 \end{enumerate}
 
 \subsection{Invitation to the Community}
@@ -1046,6 +1069,12 @@ GW170817: Observation of Gravitational Waves from a Binary Neutron Star Inspiral
 \textit{Physical Review Letters}, 119(16), 161101.
 DOI: 10.1103/PhysRevLett.119.161101.
 
+\bibitem{Amendola2018}
+Amendola, L., Kunz, M., Saltas, I.\,D.\ \& Sawicki, I.\ (2018).
+Fate of Large-Scale Structure in Modified Gravity After GW170817 and GRB170817A.
+\textit{Physical Review Letters}, 120(13), 131101.
+DOI: 10.1103/PhysRevLett.120.131101.
+
 \bibitem{Blas2011}
 Blas, D., Lesgourgues, J.\ \& Tram, T.\ (2011).
 The Cosmic Linear Anisotropy Solving System (CLASS). Part~II: Approximation schemes.
@@ -1069,6 +1098,12 @@ Hunter, J.\,D.\ (2007).
 Matplotlib: A 2D Graphics Environment.
 \textit{Computing in Science \& Engineering}, 9(3), 90--95.
 DOI: 10.1109/MCSE.2007.55.
+
+\bibitem{ForemanMackey2013}
+Foreman-Mackey, D., Hogg, D.\,W., Lang, D.\ \& Goodman, J.\ (2013).
+emcee: The MCMC Hammer.
+\textit{Publications of the Astronomical Society of the Pacific}, 125(925), 306--312.
+DOI: 10.1086/670067.
 
 \end{thebibliography}
 

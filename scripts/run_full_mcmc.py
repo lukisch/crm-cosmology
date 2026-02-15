@@ -301,12 +301,18 @@ for i, name in enumerate(PARAM_NAMES):
         print(f" {corr[i,j]:>10.3f}", end='')
     print()
 
-# Save chain
-np.savez('/tmp/cfm_fR_mcmc_results.npz',
-         chain=chain, log_prob=log_prob,
-         param_names=PARAM_NAMES,
-         best_params=best_params, best_chi2=best_chi2)
-print(f"\nChain saved to /tmp/cfm_fR_mcmc_results.npz")
+# Save chain -- BOTH to project directory (persistent) and /tmp/ (backward compat)
+import os
+_script_dir = os.path.dirname(os.path.abspath(__file__))
+_project_dir = os.path.dirname(_script_dir)
+_save_args = dict(chain=chain, log_prob=log_prob,
+                  param_names=PARAM_NAMES,
+                  best_params=best_params, best_chi2=best_chi2)
+_persistent_path = os.path.join(_project_dir, 'results', 'cfm_fR_mcmc_chain.npz')
+np.savez(_persistent_path, **_save_args)
+np.savez('/tmp/cfm_fR_mcmc_results.npz', **_save_args)
+print(f"\nChain saved to: {_persistent_path}")
+print(f"Chain also saved to: /tmp/cfm_fR_mcmc_results.npz (backward compat)")
 
 # Also save human-readable summary
 with open('/tmp/cfm_fR_mcmc_summary.txt', 'w') as f:

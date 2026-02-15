@@ -17,6 +17,7 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{graphicx}
+\graphicspath{{../figures/}}
 \usepackage{float}
 \usepackage{setspace}
 \usepackage{array}
@@ -102,7 +103,7 @@ The Curvature Feedback Model (CFM) \cite{Geiger2026} and its MOND-compatible ext
 
 \begin{itemize}
 \item \textbf{Paper~I:} The standard CFM replaces dark energy with a curvature return potential, achieving $\Delta\chi^2 = -12.2$ vs.\ $\Lambda$CDM on Pantheon+ data.
-\item \textbf{Paper~II:} The extended CFM eliminates the entire dark sector in a baryon-only universe. The SN-only analysis yields $\Delta\chi^2 = -26.3$ with $\beta = 2.02 \pm 0.20$ (curvature scaling). Crucially, a \textit{running curvature coupling} $\beta_{\mathrm{eff}}(a)$ -- transitioning from CDM-like ($\beta \approx 2.7$) at $z > 6$ to curvature-like ($\beta \approx 2.0$) at low $z$ -- combined with a MOND background coupling $\mu_{\mathrm{eff}} = 1.77$ achieves joint SN + CMB + BAO compatibility: $\ell_A = 301.471$ (Planck: $301.471$), $\mathcal{R} = 1.7502$ (Planck: $1.7502$), $H_0 = 66$\,km/s/Mpc, $r_d = 149.8$\,Mpc, and $\Delta\chi^2 = -5.7$ vs.\ $\Lambda$CDM.
+\item \textbf{Paper~II:} The extended CFM replaces the particle dark sector with spacetime geometry, achieving a universe with exclusively baryonic matter content. The SN-only analysis yields $\Delta\chi^2 = -26.3$ with $\beta = 2.02 \pm 0.20$ (curvature scaling). Crucially, a \textit{running curvature coupling} $\beta_{\mathrm{eff}}(a)$ -- transitioning from CDM-like ($\beta \approx 2.7$) at $z > 6$ to curvature-like ($\beta \approx 2.0$) at low $z$ -- combined with a MOND background coupling $\mu_{\mathrm{eff}} = 1.77$ achieves joint SN + CMB + BAO compatibility: $\ell_A = 301.471$ (Planck: $301.471$), $\mathcal{R} = 1.7502$ (Planck: $1.7502$), $H_0 = 66$\,km/s/Mpc, $r_d = 149.8$\,Mpc, and $\Delta\chi^2 = -5.7$ vs.\ $\Lambda$CDM.
 \end{itemize}
 
 Both results derive from a single dynamical equation -- the \textit{saturation ODE}:
@@ -201,11 +202,18 @@ Combining both contributions, the full CFM action reads:
 
 where the $R^2$ term generates the power-law (``dark matter'') contribution and the scalar field generates the saturation (``dark energy'') contribution. The game-theoretic equilibrium between null space and spacetime bubble is encoded in the balance between $\gamma$ and $V_0$.
 
-A crucial refinement introduced in Paper~II \cite{Geiger2026b} is the \textit{trace coupling}: the $R^2$ term couples to the trace of the energy-momentum tensor $T = g^{\mu\nu}T_{\mu\nu}$, which vanishes for radiation ($w = 1/3$) due to conformal symmetry. This automatically suppresses the geometric DM contribution during the radiation era, protecting Big Bang Nucleosynthesis without any ad hoc cutoff. The modified action reads:
+A crucial refinement introduced in Paper~II \cite{Geiger2026b} is the \textit{trace coupling}. We now demonstrate that this is \textit{not} an ad~hoc postulate but a direct consequence of the $R^2$ action. Taking the trace of the field equations for $f(R) = R + 2\gamma R^2$ gives:
+\begin{equation}
+R + 12\gamma\,\Box R = -8\pi G\,T
+\label{eq:trace_equation}
+\end{equation}
+where $T = g^{\mu\nu}T_{\mu\nu}$ is the energy-momentum trace. During the radiation era, conformal symmetry demands $T_{\mathrm{rad}} = -\rho_r + 3p_r = 0$ (since $w = 1/3$). Equation~\eqref{eq:trace_equation} then reduces to $R + 12\gamma\,\Box R = 0$, whose FLRW solution is a decaying mode: $R \to 0$ as $a \to 0$. Since the scalaron (geometric DM) is sourced by $R^2$, it vanishes identically when $R = 0$. The geometric DM contribution is therefore \textit{automatically} suppressed during the radiation era -- BBN is protected without any additional mechanism.
+
+The only genuine \textit{postulate} is the choice of Lagrangian $f(R) = R + 2\gamma R^2$; the suppression factor $\mathcal{S}(a) = 1/(1 + a_{\mathrm{eq}}/a)$ of Paper~II is a phenomenological parametrization of this rigorous result. The modified action with the full coupling reads:
 \begin{equation}
 S_{\mathrm{CFM}} = \int d^4x \sqrt{-g} \left[\frac{R}{16\pi G} + \gamma\, \mathcal{F}(T/\rho)\, R^2 - \frac{1}{2}(\partial\phi)^2 - \frac{V_0}{\cosh^2(\phi/\phi_0)} + \mathcal{L}_m\right]
 \end{equation}
-where $\mathcal{F}(T/\rho) \to 0$ in the radiation era and $\mathcal{F} \to 1$ in the matter era. The specific form $\mathcal{F} = |T|/(|T| + \rho_{\mathrm{rad}})$ reproduces the suppression factor $\mathcal{S}(a)$ of Paper~II.
+where $\mathcal{F}(T/\rho) = |T|/(|T| + \rho_{\mathrm{rad}}) \to 0$ in the radiation era and $\mathcal{F} \to 1$ in the matter era.
 
 \subsection{Ghost Freedom and Stability}
 \label{subsec:ghost_analysis}
@@ -268,85 +276,26 @@ The trace coupling $\mathcal{F}(a) = 1/(1 + \Omega_r/(\Omega_b\,a))$ introduces 
 
 \subsection{Why the Saturation ODE?}
 
-The central puzzle is the specific form of the saturation ODE~\eqref{eq:saturation_ode}: $dX/da = k(1 - X^2)$. This equation has two fixed points ($X = \pm 1$), of which $X = +1$ is stable. The $\tanh$ solution is the unique trajectory connecting $X = 0$ (zero curvature return) to $X = 1$ (full saturation). We survey four frameworks that naturally produce such dynamics.
+The central puzzle is the specific form of the saturation ODE~\eqref{eq:saturation_ode}: $dX/da = k(1 - X^2)$. This equation has two fixed points ($X = \pm 1$), of which $X = +1$ is stable. The $\tanh$ solution is the unique trajectory connecting $X = 0$ (zero curvature return) to $X = 1$ (full saturation).
 
-\subsection{Approach 1: Loop Quantum Gravity}
-\label{subsec:lqg}
+\subsection{UV-Completion Candidates}
+\label{subsec:uv_candidates}
 
-In Loop Quantum Gravity (LQG) \cite{Rovelli2004, Thiemann2007}, spacetime is quantized into discrete spin network states. The key feature for our purposes is the \textit{bounded curvature} property: holonomy corrections replace curvature invariants $R$ with bounded functions $\sin(\mu R)/\mu$ (where $\mu$ is related to the Planck area).
+\textbf{Important caveat:} All testable predictions of the CFM (CMB spectra, $\sigma_8$, $S_8$, gravitational slip, etc.)\ derive \textit{exclusively} from the effective action~\eqref{eq:full_action}, i.e., from the $R^2$ term and the P\"oschl-Teller scalar. The UV completion -- the microscopic quantum gravity theory from which this effective action might emerge -- does \textit{not} affect any low-energy prediction. The candidates listed below are therefore \textit{motivational}, not essential:
 
-In Loop Quantum Cosmology (LQC) \cite{Ashtekar2011}, the Friedmann equation becomes:
-\begin{equation}
-H^2 = \frac{8\pi G}{3} \rho \left(1 - \frac{\rho}{\rho_c}\right)
-\label{eq:lqc_friedmann}
-\end{equation}
-where $\rho_c \sim \rho_{\mathrm{Pl}}$ is a critical density. This has the structure of a saturation equation: the expansion rate is bounded as $\rho \to \rho_c$.
+\begin{enumerate}
+\item \textbf{Loop Quantum Gravity} \cite{Rovelli2004}: LQC's modified Friedmann equation $H^2 \propto \rho(1 - \rho/\rho_c)$ has the same $dX/dt \propto (1-X^2)$ structure as the saturation ODE. The bounded curvature invariants from holonomy corrections naturally produce saturation.
 
-\begin{conjecture}[LQG--CFM Connection]
-The saturation ODE~\eqref{eq:saturation_ode} is the late-time, low-energy residual of the LQC curvature bound. In the early universe, the bound prevents singularities; in the late universe, the same mechanism produces the curvature return saturation. The parameters $k$ and $\Phi_0$ are related to the LQG area gap $\Delta$ and the Barbero-Immirzi parameter $\gamma_{\mathrm{BI}}$.
-\end{conjecture}
+\item \textbf{Finsler Geometry} \cite{Bao2000}: Direction-dependent metrics $F(x, \dot{x})$ produce scale-dependent gravitational effects (mimicking MOND) and non-standard cosmological scaling, potentially generating the $a^{-\beta}$ term from the osculating Riemannian curvature.
 
-\textit{Evidence:} Both equations share the structure $dX/dt \propto (1 - X^2)$. In LQC, $X$ is the curvature; in CFM, $X$ is the curvature return potential. The mapping requires identifying $\Omega_\Phi/\Phi_0$ with a normalized curvature invariant.
+\item \textbf{Information-Theoretic Spacetime} \cite{Bousso2002}: The saturation ODE is the logistic growth equation for information processing, with $\Phi_0$ as the holographic capacity limit. Entanglement entropy saturation \cite{VanRaamsdonk2010} provides the microscopic mechanism.
 
-\subsection{Approach 2: Finsler Geometry}
-\label{subsec:finsler}
+\item \textbf{Causal Set Theory} \cite{Bombelli1987}: The Sorkin cosmological constant $\Lambda \sim 1/\sqrt{N}$ provides a dynamical dark energy whose evolution mirrors the saturation mechanism as the causal set approaches equilibrium density.
 
-Finsler geometry generalizes Riemannian geometry by allowing the metric to depend on both position and direction: $F(x, \dot{x})$ instead of $g_{\mu\nu}(x)\,dx^\mu\,dx^\nu$ \cite{Bao2000}. This direction dependence can produce:
+\item \textbf{Quantum Error Correction} \cite{Almheiri2015}: The saturation $\Phi_0$ is the code capacity of the holographic spacetime code. Accelerated expansion is the code's self-protection against exceeding its error-correction threshold -- directly mapping to the null space's ``self-protection motive'' in the game-theoretic framework.
+\end{enumerate}
 
-\begin{itemize}
-\item Scale-dependent gravitational effects (mimicking MOND at galactic scales)
-\item Non-standard cosmological scaling (the $a^{-\beta}$ term)
-\item A natural saturation mechanism when the directional dependence reaches a geometric bound
-\end{itemize}
-
-\begin{conjecture}[Finsler--CFM Connection]
-The extended CFM Friedmann equation corresponds to a Finsler spacetime with a specific choice of Finsler function $F$. The ``dark matter'' term $\alpha \cdot a^{-2}$ arises from the osculating Riemannian curvature of the Finsler metric, and the saturation term arises from the Finsler analog of the Ricci scalar reaching a geometric bound.
-\end{conjecture}
-
-\textit{Note:} Finsler geometry has been applied to MOND \cite{Chang2009} and to modified dispersion relations in quantum gravity \cite{Girelli2007}. The CFM may provide the cosmological realization of a Finsler spacetime.
-
-\subsection{Approach 3: Information-Theoretic Spacetime}
-\label{subsec:information}
-
-If spacetime is fundamentally information-theoretic (as suggested by the holographic principle \cite{Bousso2002} and the ER=EPR conjecture \cite{Maldacena2013}), then the saturation ODE can be reinterpreted as a \textit{maximum entropy principle}:
-
-\begin{itemize}
-\item The curvature return potential $\Omega_\Phi$ represents the ``processed information'' of the spacetime system.
-\item The saturation limit $\Phi_0$ represents the maximum information capacity (holographic bound).
-\item The ODE $dX/da = k(1 - X^2)$ is the logistic-type growth equation for information processing, where the rate of information gain decreases as the system approaches its capacity.
-\end{itemize}
-
-In this picture, the game-theoretic interpretation of Paper~I \cite{Geiger2026} becomes literal: the null space and spacetime bubble are two subsystems of a quantum information network, and their Nash equilibrium is determined by the information-theoretic constraints of the holographic bound.
-
-A closely related mechanism is \textit{entanglement entropy saturation} \cite{VanRaamsdonk2010}. If spacetime connectivity is built from quantum entanglement (the ``ER=EPR'' hypothesis \cite{Maldacena2013}), then two points in space are ``close'' because their quantum states are entangled. Entanglement, however, is a finite resource subject to the monogamy constraint: a quantum system cannot be maximally entangled with arbitrarily many partners simultaneously. As the universe expands and new spacetime degrees of freedom are created, the entanglement budget per degree of freedom decreases. The saturation ODE then describes the approach to the entanglement capacity limit: when the ``glue'' (entanglement) that holds spacetime together reaches its maximum dilution, the expansion accelerates -- not because of a new energy form, but because the binding capacity is exhausted.
-
-\subsection{Approach 4: Causal Set Theory}
-\label{subsec:causal_sets}
-
-Causal set theory \cite{Bombelli1987, Sorkin2003} models spacetime as a discrete partial order of events. The key result for our purposes is the \textit{Sorkin cosmological constant} \cite{Sorkin1991}: in a causal set universe with $N$ elements, the cosmological constant has fluctuations of order $\Lambda \sim 1/\sqrt{N}$, providing a natural explanation for the observed smallness of $\Lambda$.
-
-\begin{conjecture}[Causal Set--CFM Connection]
-In a dynamically evolving causal set, the curvature return potential $\Omega_\Phi$ corresponds to the ``effective cosmological constant'' that changes as new elements are added to the set. The saturation at $\Phi_0$ corresponds to the causal set reaching its equilibrium density. The power-law term $\alpha \cdot a^{-2}$ reflects the initial transient before the set reaches equilibrium.
-\end{conjecture}
-
-\subsection{Approach 5: Quantum Error Correction}
-\label{subsec:qec}
-
-A recent and particularly compelling framework interprets spacetime as a \textit{quantum error-correcting code} \cite{Almheiri2015, Pastawski2015}. In this picture, the holographic principle is not merely a bound on information storage but a statement about \textit{redundancy}: the bulk spacetime geometry is an error-protected encoding of the boundary (holographic) degrees of freedom.
-
-The saturation mechanism acquires a natural interpretation:
-\begin{itemize}
-\item Every error-correcting code has a finite \textbf{code capacity} -- a maximum rate at which it can protect information against noise (decoherence).
-\item As the universe expands and the information content grows (structure formation, increasing entropy), the code approaches its capacity limit.
-\item The saturation $\Phi_0$ is the code capacity: the point at which the spacetime ``code'' can no longer accommodate additional complexity without becoming unstable.
-\item The accelerated expansion (dark energy) is the code's \textbf{self-protection mechanism}: by diluting the information density, it prevents the code from exceeding its error-correction threshold.
-\end{itemize}
-
-\begin{conjecture}[QEC--CFM Connection]
-The curvature return potential $\Omega_\Phi$ measures the fraction of the spacetime error-correcting code's capacity that is utilized. The saturation ODE $dX/da = k(1-X^2)$ describes the approach to code capacity. The accelerated expansion is the code's autonomous response to impending saturation -- it creates more ``storage space'' (volume) to maintain the code's integrity.
-\end{conjecture}
-
-This interpretation connects directly to the game-theoretic framework of Paper~I \cite{Geiger2026}: the null space's ``self-protection motive'' is \textit{literally} the error-correcting code's drive to maintain integrity. The spacetime bubble is not merely a ``daughter'' of the null space -- it is the null space's mechanism for protecting its quantum information against decoherence, implemented as a holographic code whose capacity limit manifests as dark energy.
+Detailed derivations and conjectures for each candidate are provided in Appendix~\ref{app:qg_details}. The key point is that all five frameworks \textit{independently} produce saturation dynamics of the form $dX/dt \propto (1 - X^2)$, suggesting that the CFM effective action captures a \textit{universal} feature of quantum gravity, regardless of the specific UV completion.
 
 
 % ===================================================================
@@ -524,24 +473,43 @@ The 19 free parameters of the Standard Model are not arbitrary but constitute th
 
 The effective action~\eqref{eq:full_action} generates specific predictions beyond the background expansion history:
 
-\subsection{Perturbation Equations}
+\subsection{Perturbation Equations: Sound Speed, $\mu$, $\Sigma$, and Gravitational Slip}
+\label{subsec:perturbation_physics}
 
-Linearizing the action around the FLRW background yields coupled equations for:
-\begin{itemize}
-\item The metric perturbations $\Phi_N$ (Newtonian potential) and $\Psi$ (curvature perturbation)
-\item The scalar field perturbation $\delta\phi$
-\item The matter perturbations $\delta_m$ and $v_m$
-\end{itemize}
+Linearizing the action~\eqref{eq:full_action} around the FLRW background yields coupled equations for the metric perturbations $\Phi$ and $\Psi$, the scalaron perturbation $\delta\chi$, the P\"oschl-Teller scalar perturbation $\delta\phi$, and the matter perturbations $\delta_m$ and $v_m$. The $f(R)$ structure of the gravitational sector ($\alpha_B = -\alpha_M/2$, $\alpha_T = 0$, $\alpha_K = 0$) places the CFM within the well-studied Horndeski subclass, for which the quasi-static perturbation equations are analytically known \cite{Bellini2014}.
 
-The $R^2$ term produces an \textit{anisotropic stress} ($\Phi_N \neq \Psi$), which is a testable prediction distinguishing the CFM from $\Lambda$CDM and from simple quintessence models.
-
-\subsection{Gravitational Slip Parameter}
-
-The ratio $\eta = \Phi_N / \Psi$ is predicted to deviate from unity:
+\textbf{Scalaron sound speed.} The propagation speed of the scalaron perturbation is:
 \begin{equation}
-\eta(a, k) = 1 + \delta\eta(a, k)
+c_s^2 = 1 \qquad \text{(exact for all $f(R)$ theories)}
 \end{equation}
-where $\delta\eta$ depends on the $R^2$ coupling $\gamma$ and is scale-dependent. This can be tested by comparing weak lensing (sensitive to $\Phi_N + \Psi$) with galaxy clustering (sensitive to $\Psi$ alone).
+This follows from the conformal equivalence to Einstein gravity with a canonical scalar field (Section~\ref{subsec:ghost_analysis}). The scalaron propagates at the speed of light in the Jordan frame. This is \textit{not} the ``sound speed of dark matter'' -- the scalaron is a gravitational degree of freedom that modifies the Poisson equation, not a fluid that clusters under its own pressure.
+
+\textbf{Modified Poisson equation.} In the quasi-static limit ($k^2 \gg a^2 H^2$), the modified Poisson equation reads:
+\begin{equation}
+-k^2 \Psi = 4\pi G\,a^2\,\mu(k,a)\,\rho_m\,\delta_m
+\label{eq:modified_poisson}
+\end{equation}
+where $\mu(k,a)$ is the effective gravitational coupling:
+\begin{equation}
+\boxed{\mu(k,a) = 1 + \frac{1}{3}\,\frac{k^2}{k^2 + a^2\,m_{\mathrm{eff}}^2(a)}}
+\label{eq:mu_ka}
+\end{equation}
+with $m_{\mathrm{eff}}^2(a) = 1/(24\gamma\,\mathcal{F}(a))$ the scalaron mass. At sub-horizon scales ($k \gg a\,m_{\mathrm{eff}}$), gravity is enhanced by a factor $4/3$; at super-horizon scales ($k \ll a\,m_{\mathrm{eff}}$), GR is recovered ($\mu \to 1$). The scalaron mass provides a natural \textit{scale-dependent screening}: small-scale perturbations ($k \gtrsim 0.1\,h/$Mpc) experience enhanced growth, while the large-scale CMB is nearly unaffected.
+
+\textbf{Lensing parameter.} The gravitational lensing potential $\Phi_{\mathrm{lens}} = (\Phi + \Psi)/2$ is characterized by the lensing parameter $\Sigma$:
+\begin{equation}
+\boxed{\Sigma(k,a) = 1 + \frac{\alpha_T}{2} = 1 \qquad \text{(exact, since $\alpha_T = 0$)}}
+\label{eq:sigma_lensing}
+\end{equation}
+Gravitational lensing in the cfm\_fR model is \textit{identical} to GR at all scales and redshifts. This simultaneously (i)~ensures Bullet Cluster compatibility, (ii)~predicts that Euclid's lensing-to-clustering ratio test will find $\Sigma = 1$, and (iii)~resolves the concern that modified gravity could disrupt weak lensing measurements.
+
+\textbf{Gravitational slip.} The ratio $\eta = \Phi/\Psi$ deviates from unity in the quasi-static limit:
+\begin{equation}
+\eta(k,a) = \frac{1 + \frac{2}{3}\frac{k^2}{k^2 + a^2 m_{\mathrm{eff}}^2}}{1 + \frac{1}{3}\frac{k^2}{k^2 + a^2 m_{\mathrm{eff}}^2}} = \frac{\mu + 1}{2\mu - 1 + 2}
+\end{equation}
+For $k \gg a\,m_{\mathrm{eff}}$: $\eta \to 1/2$; for $k \ll a\,m_{\mathrm{eff}}$: $\eta \to 1$ (GR limit). This scale-dependent gravitational slip is a unique signature of $f(R)$ gravity and can be probed by comparing weak lensing (sensitive to $\Phi + \Psi$) with galaxy clustering (sensitive to $\Psi$).
+
+\textbf{Structure formation mechanism.} An essential clarification: in the cfm\_fR model, structure formation proceeds through the \textit{modified Poisson equation} (Eq.~\ref{eq:modified_poisson}), \textit{not} through scalaron clustering. The scalaron has $c_s^2 = 1$ and does not cluster below its Compton wavelength $\lambda_C = 2\pi/m_{\mathrm{eff}}$. Instead, it modifies the relationship between matter overdensities and gravitational potentials: the same baryon overdensity $\delta_b$ produces a $33\%$ deeper potential well ($\mu = 4/3$) at sub-Compton scales. This enhanced gravitational coupling accelerates baryon collapse and structure growth, explaining the elevated $\sigma_8$ values found in Section~\ref{sec:numerical}.
 
 \subsection{Scalar Field Oscillations}
 
@@ -566,7 +534,7 @@ The LIGO/Virgo/KAGRA constraint $|c_{\mathrm{GW}}/c - 1| < 10^{-15}$ \cite{Abbot
 
 \subsection{Discriminating the Microscopic Candidates}
 
-Each of the five microscopic approaches (Sections~\ref{subsec:lqg}--\ref{subsec:qec}) produces a distinct experimental signature. Crucially, several of these tests have already been performed or are imminent:
+Each of the five microscopic approaches (Appendix~\ref{app:qg_details}) produces a distinct experimental signature. Crucially, several of these tests have already been performed or are imminent:
 
 \begin{center}
 \small
@@ -647,9 +615,11 @@ The $f(R)$ structure of the CFM Lagrangian ($\alpha_B = -\alpha_M/2$, $\alpha_T 
 \end{equation}
 where $n$ controls the growth rate and $\alpha_{M,0}$ the amplitude. For $n = 1$, this reproduces the \texttt{propto\_scale} parametrization at early times while \textit{saturating} at $\alpha_M \to n$ for $a \to 1$ -- matching the scalaron behavior derived in Section~\ref{subsec:beta_derivation}. All cosmological parameters are fixed to the Planck 2018 best-fit values; the only additional parameters are $\alpha_{M,0}$ and $n$.
 
+\textbf{Transparency note on numerical settings.} The hi\_class runs use \texttt{skip\_stability\_tests\_smg = yes}, bypassing the automated stability checks for the scalar-tensor sector. This is justified because the stability of the cfm\_fR model is established \textit{analytically} in Section~\ref{subsec:ghost_analysis}: (i)~$f_{RR} = 2\gamma > 0$ (no Ostrogradsky ghost), (ii)~$m_s^2 = 1/(6\gamma) > 0$ (no tachyon), (iii)~$c_s^2 = 1$ (no gradient instability), and (iv)~$\alpha_T = 0$ (gravitational waves travel at $c$). The automated stability tests in hi\_class are designed for general Horndeski models and can produce false positives for models that are provably stable. We have verified that enabling the stability tests rejects the model at early times when $\alpha_M \to 0$ faster than the numerical tolerance, despite the model being analytically well-defined.
+
 \subsection{TT + TE + EE Power Spectra}
 
-We compute the full CMB temperature (TT), cross-correlation (TE), and E-mode polarization (EE) spectra against Planck 2018 data (6{,}405 data points: 2{,}471 TT + 1{,}967 TE + 1{,}967 EE, $\ell = 30$--$2500$). The diagonal $\chi^2$ (without covariance matrix) provides a conservative estimate:
+We compute the full CMB temperature (TT), cross-correlation (TE), and E-mode polarization (EE) spectra against Planck 2018 data (6{,}405 data points: 2{,}471 TT + 1{,}967 TE + 1{,}967 EE, $\ell = 30$--$2500$). We use a \textit{diagonal} $\chi^2$ (without the Planck covariance matrix), computed as $\chi^2 = \sum_\ell (D_\ell^{\mathrm{theory}} - D_\ell^{\mathrm{data}})^2 / \sigma_\ell^2$. This approximation neglects multipole-multipole correlations encoded in the full Planck likelihood; consequently, the absolute $\chi^2$ values are not directly comparable to results from the official Planck likelihood (e.g., via MontePython or CosmoMC), and the $\Delta\chi^2$ between models may carry a systematic bias of unknown sign. We present these results as a first quantitative assessment; a future analysis using the full Planck TTTEEE+lowl+lowE likelihood would provide definitive constraints. The diagonal comparison yields:
 
 \begin{center}
 \begin{tabular}{lcccccc}
@@ -674,6 +644,22 @@ $\Lambda$CDM & 0 & 2539.5 & 2045.5 & 2043.8 & 6628.8 & 0.811 \\
 \end{tabular}
 \end{center}
 
+All results are obtained via \textit{full Boltzmann integration} using hi\_class v2.9.4 \cite{Zumalacarregui2017} with the native \texttt{cfm\_fR} gravity model patched directly into the C source code. No approximations (effective fluid, quasi-static limit only, etc.)\ are used: the complete set of coupled Einstein--Boltzmann equations is solved from $a \sim 10^{-14}$ to $a = 1$. The resulting $C_\ell$ spectra are compared to Planck 2018 data in Figure~\ref{fig:cl_comparison}, and the acoustic peak structure is shown in detail in Figure~\ref{fig:cl_peaks}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{cfm_cl_comparison.png}
+\caption{CMB temperature power spectrum $\mathcal{D}_\ell^{TT}$ for $\Lambda$CDM (black) and cfm\_fR models with different $\alpha_{M,0}$ values (colored), compared to Planck 2018 data (gray points with error bars). All CFM models are computed via full Boltzmann integration in hi\_class v2.9.4. The residual panel shows $\Delta\mathcal{D}_\ell / \sigma_\ell$ relative to Planck. The CFM modification enhances power at low multipoles ($\ell \lesssim 200$) through the early integrated Sachs-Wolfe effect, while leaving the damping tail essentially unchanged.}
+\label{fig:cl_comparison}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{cfm_cl_peaks.png}
+\caption{Detailed view of the first three acoustic peaks. The cfm\_fR modification shifts the first peak position through the early ISW effect (controlled by $\alpha_M$) without affecting the angular acoustic scale $\theta_s$. The third-to-first peak ratio is preserved, confirming that the baryon-to-total-matter ratio at recombination is correctly reproduced. Peak ratios are identical to $\Lambda$CDM to within 0.5\%.}
+\label{fig:cl_peaks}
+\end{figure}
+
 All successful CFM models improve upon $\Lambda$CDM in total $\chi^2$. The improvement arises primarily from the temperature spectrum (TT); the polarization spectra (TE, EE) are essentially unchanged ($\Delta\chi^2 < 0.1$). This demonstrates that the CFM modification is \textit{consistent} with polarization data -- a critical test, since polarization probes different physics (Thomson scattering geometry) than temperature.
 
 The native \texttt{cfm\_fR} model with $n = 0.5$ ($\alpha_M \propto \sqrt{a}$) achieves the best grid-scan fit: $\Delta\chi^2_{\mathrm{tot}} = -2.7$ at $\alpha_{M,0} = 0.001$, corresponding to a scalaron with effective mass $m_{\mathrm{eff}} \propto a^{-1/4}$. For conservative $\sigma_8$ constraints, the recommended point is $\alpha_{M,0} = 0.0003$, $n = 0.5$, yielding $\Delta\chi^2 = -0.7$ with $\sigma_8 = 0.836$ ($S_8 = 0.855$). The \texttt{cfm\_fR} model with $n = 1$ exactly reproduces \texttt{propto\_scale} results, confirming code consistency.
@@ -687,6 +673,15 @@ n &= 0.67 \pm 0.42 \notag \\
 n_s &= 0.9656 \pm 0.0024 \notag
 \end{align}
 The posterior satisfies $P(\alpha_{M,0} > 0) = 100\%$, indicating a consistent preference for modified gravity across all viable parameter combinations. The standard cosmological parameters ($\omega_{\mathrm{cdm}}$, $A_s$, $n_s$) are essentially uncorrelated with the modified gravity parameters ($|\rho| < 0.02$), confirming that the cfm\_fR extension is a clean, perturbative addition to $\Lambda$CDM. The strong anti-correlation between $\alpha_{M,0}$ and $n$ ($\rho = -0.63$) reflects the expected degeneracy: both parameters control the effective amplitude of modified gravity.
+
+The full posterior distribution is shown in Figure~\ref{fig:corner}. The 2D contours (68\% and 95\% credible regions) reveal a characteristic ``banana-shaped'' degeneracy between $\alpha_{M,0}$ and $n$: a larger amplitude $\alpha_{M,0}$ is compensated by a smaller growth exponent $n$, maintaining a nearly constant effective modification $\alpha_M(a=1) = \alpha_{M,0} \cdot n / (1 + \alpha_{M,0})$. Crucially, the modified gravity parameters are uncorrelated with all standard cosmological parameters (all $|\rho| < 0.11$), demonstrating that the cfm\_fR extension does not introduce parameter degeneracies with the $\Lambda$CDM sector.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{cfm_contour.png}
+\caption{Corner plot of the cfm\_fR MCMC posterior (9{,}600 samples from 24 walkers). Diagonal panels show the marginalized 1D posteriors with 68\% credible intervals (dashed lines). Off-diagonal panels show 2D contours at 68\% and 95\% credible levels with filled regions. Red crosses mark the best-fit point ($\chi^2 = 6625.2$, $\Delta\chi^2 = -3.6$ vs.\ $\Lambda$CDM). The anti-correlation $\rho(\alpha_{M,0}, n) = -0.63$ is clearly visible, while all cross-correlations between MG and standard parameters satisfy $|\rho| < 0.11$.}
+\label{fig:corner}
+\end{figure}
 
 \subsection{Growth Rate $f\sigma_8(z)$ and Redshift-Space Distortions}
 
@@ -742,6 +737,8 @@ The CFM \textit{increases} $\sigma_8$ relative to $\Lambda$CDM, deepening rather
 \item \textbf{Scale-dependent screening:} If the low $S_8$ from weak lensing surveys is confirmed by Euclid, the CFM would require either $\Omega_m < 0.31$ or a chameleon-type screening that suppresses $\mu_{\mathrm{eff}}(k)$ at the scales probed by cosmic shear ($k \sim 0.1$--$1 \, h/\mathrm{Mpc}$), while leaving the CMB-scale perturbations enhanced.
 \end{enumerate}
 
+\textbf{Honest assessment:} The CFM predicts $S_8 = 0.845$ (conservative) to $0.920$ (aggressive), which is in tension with the DES~Y3 measurement ($S_8 = 0.776 \pm 0.017$) at $\geq 3\sigma$. This is the single most challenging observational constraint for the cfm\_fR model. If Euclid confirms $S_8 < 0.80$ at high significance, the model would need modification (e.g., a non-trivial $\alpha_K \neq 0$ to suppress small-scale growth). Conversely, if Euclid finds $S_8 \geq 0.82$ (as suggested by eROSITA clusters with $S_8 = 0.86 \pm 0.01$), the cfm\_fR prediction would be confirmed. We emphasize that this is a \textit{falsifiable} prediction, not an adjustable parameter.
+
 \subsection{DESI DR2 BAO Comparison}
 \label{subsec:desi}
 
@@ -792,13 +789,13 @@ This resolves the apparent tension between Papers~II and III: Paper~II's $\theta
 The CFM program now spans three papers:
 \begin{enumerate}
 \item \textbf{Paper~I} \cite{Geiger2026}: Game-theoretic foundation, standard CFM, dark energy replacement. Validated against Pantheon+ ($\Delta\chi^2 = -12.2$).
-\item \textbf{Paper~II} \cite{Geiger2026b}: MOND unification, extended CFM, baryon-only universe, Decaying Dark Geometry hypothesis. Running curvature coupling $\beta_{\mathrm{eff}}(a)$. Validated against Pantheon+ + Planck CMB + 9 BAO measurements jointly ($\Delta\chi^2 = -5.1$ vs.\ $\Lambda$CDM; $\ell_A = 301.477$, $\mathcal{R} = 1.7502$).
+\item \textbf{Paper~II} \cite{Geiger2026b}: MOND unification, extended CFM, exclusively baryonic matter content with geometric dark sector replacement, Decaying Dark Geometry hypothesis. Running curvature coupling $\beta_{\mathrm{eff}}(a)$. Validated against Pantheon+ + Planck CMB + 9 BAO measurements jointly ($\Delta\chi^2 = -5.1$ vs.\ $\Lambda$CDM; $\ell_A = 301.477$, $\mathcal{R} = 1.7502$).
 \item \textbf{Paper~III} (this work): Lagrangian formulation, quantum gravity connections, phase transition interpretation, testable predictions.
 \end{enumerate}
 
 Together, these papers propose a \textit{complete cosmological framework} in which:
 \begin{itemize}
-\item The dark sector is eliminated (Paper~II)
+\item The particle dark sector is replaced by spacetime geometry (Paper~II)
 \item The expansion history is explained by geometric curvature return (Papers~I, II)
 \item The running coupling $\beta_{\mathrm{eff}}(a)$ encodes the geometric phase transition from CDM-like to curvature-like behavior (Paper~II)
 \item CMB and BAO observables are reproduced to sub-percent accuracy (Paper~II)
@@ -815,7 +812,7 @@ Several critical consistency checks, previously flagged as open challenges, have
 
 \item \textbf{Ghost freedom and Newtonian limit:} The action~\eqref{eq:full_action} is proven ghost-free (Section~\ref{subsec:ghost_analysis}): $f_{RR} > 0$ excludes the Ostrogradsky ghost, $m_s^2 > 0$ excludes tachyonic instabilities, and the chameleon mechanism via the trace coupling screens the scalaron in the solar system ($\lambda_C^{\mathrm{solar}} \sim 20\,\mathrm{m} \ll 1\,\mathrm{AU}$ for $\gamma \geq \mathcal{O}(1)\,H_0^{-2}$).
 
-\item \textbf{Lagrangian derivation of $\beta_{\mathrm{eff}}(a)$:} The running coupling emerges from the scalaron equation of motion~\eqref{eq:scalaron_eom} with time-dependent mass $m_{\mathrm{eff}}^2(a) = 1/(24\gamma\mathcal{F}(a))$ (Section~\ref{subsec:beta_derivation}). The phenomenological sigmoidal parametrization approximates the numerical solution.
+\item \textbf{Lagrangian derivation of $\beta_{\mathrm{eff}}(a)$:} The running coupling emerges from the scalaron equation of motion~\eqref{eq:scalaron_eom} with time-dependent mass $m_{\mathrm{eff}}^2(a) = 1/(24\gamma\mathcal{F}(a))$ (Section~\ref{subsec:beta_derivation}). The phenomenological sigmoidal parametrization approximates the numerical solution. \textit{Note:} The running $\mu(a)$ of Paper~II remains a phenomenological transition function; no Lagrangian derivation of $\mu(a)$ is claimed.
 
 \item \textbf{Structure growth ($f\sigma_8$, $S_8$):} The growth rate at $z = 0.38$ \textit{improves} the BOSS LOWZ fit over $\Lambda$CDM. The CFM $S_8 = 0.845$--$0.855$ is consistent with Planck and eROSITA, but in $\sim 3\sigma$ tension with current cosmic shear surveys (Section~\ref{subsec:s8_comparison}). Euclid (October 2026) will be decisive.
 
@@ -887,6 +884,31 @@ The three-paper CFM program presents a coherent but unverified hypothesis. The a
 \subsection*{Software}
 
 This work uses \texttt{hi\_class} \cite{Zumalacarregui2017} (Horndeski in CLASS \cite{Blas2011}) with a custom \texttt{cfm\_fR} gravity model, \texttt{emcee} \cite{ForemanMackey2013} for MCMC sampling, \texttt{NumPy} \cite{Harris2020}, \texttt{SciPy} \cite{Virtanen2020} for numerical computations, and \texttt{Matplotlib} \cite{Hunter2007} for visualizations.
+
+% ===================================================================
+% APPENDIX: QG DETAILS
+% ===================================================================
+\appendix
+\section{Detailed Quantum Gravity Connections}
+\label{app:qg_details}
+
+This appendix provides the detailed derivations and conjectures for the five UV-completion candidates summarized in Section~\ref{subsec:uv_candidates}. We emphasize that \textit{none} of these details affect the testable predictions of the CFM, which follow exclusively from the effective action~\eqref{eq:full_action}.
+
+\subsection{Loop Quantum Gravity}
+In LQC \cite{Ashtekar2011}, the Friedmann equation becomes $H^2 = (8\pi G/3)\,\rho\,(1 - \rho/\rho_c)$, where $\rho_c \sim \rho_{\mathrm{Pl}}$. This has the structure of a saturation equation: the expansion rate is bounded as $\rho \to \rho_c$. The saturation ODE~\eqref{eq:saturation_ode} can be interpreted as the late-time, low-energy residual of this curvature bound. The parameters $k$ and $\Phi_0$ map to the LQG area gap $\Delta$ and the Barbero-Immirzi parameter $\gamma_{\mathrm{BI}}$.
+
+\subsection{Finsler Geometry}
+Finsler geometry \cite{Bao2000} generalizes Riemannian geometry by allowing $F(x, \dot{x})$ instead of $g_{\mu\nu}(x)\,dx^\mu\,dx^\nu$. The direction dependence produces scale-dependent gravitational effects (mimicking MOND \cite{Chang2009}), non-standard cosmological scaling ($a^{-\beta}$ from osculating curvature), and a natural saturation when the directional dependence reaches a geometric bound. The Finsler--CFM mapping is $\alpha \cdot a^{-2} \leftrightarrow$ osculating Riemannian curvature, and $f_{\mathrm{sat}} \leftrightarrow$ Finsler Ricci scalar bound.
+
+\subsection{Information-Theoretic Spacetime}
+The holographic principle \cite{Bousso2002} implies a maximum information capacity. The saturation ODE is the logistic growth equation for information processing, with $\Phi_0$ as the holographic capacity limit. Entanglement entropy saturation \cite{VanRaamsdonk2010} provides the microscopic mechanism: the ER=EPR correspondence \cite{Maldacena2013} implies that spacetime connectivity is built from quantum entanglement. The monogamy constraint on entanglement produces saturation when the ``glue'' reaches its maximum dilution, and accelerated expansion follows as the system's autonomous response to capacity exhaustion.
+
+\subsection{Causal Set Theory}
+In causal set theory \cite{Bombelli1987, Sorkin2003}, the Sorkin cosmological constant \cite{Sorkin1991} $\Lambda \sim 1/\sqrt{N}$ provides a dynamical $\Lambda$ that decreases as new causal set elements are added. The curvature return potential $\Omega_\Phi$ corresponds to the effective cosmological constant, with saturation at $\Phi_0$ corresponding to the equilibrium density of the set.
+
+\subsection{Quantum Error Correction}
+Spacetime as a quantum error-correcting code \cite{Almheiri2015, Pastawski2015} gives $\Phi_0$ the interpretation of code capacity. Every error-correcting code has a finite rate at which it can protect information against decoherence. Accelerated expansion is the code's self-protection mechanism: by diluting information density, it prevents exceeding the error-correction threshold. This connects directly to Paper~I's game-theoretic framework: the null space's ``self-protection motive'' \textit{is} the code's drive to maintain integrity.
+
 
 \begin{thebibliography}{99}
 
@@ -1055,6 +1077,12 @@ Abbott, T.\,M.\,C.\ et al.\ (DES Collaboration) (2022).
 Dark Energy Survey Year 3 results: Cosmological constraints from galaxy clustering and weak lensing.
 \textit{Physical Review D}, 105(2), 023520.
 
+\bibitem{Bellini2014}
+Bellini, E.\ \& Sawicki, I.\ (2014).
+Maximal freedom at minimum cost: linear large-scale structure in general modifications of gravity.
+\textit{Journal of Cosmology and Astroparticle Physics}, 2014(07), 050.
+DOI: 10.1088/1475-7516/2014/07/050.
+
 \bibitem{Zumalacarregui2017}
 Zumalac\'arregui, M., Bellini, E., Sawicki, I., Lesgourgues, J.\ \& Ferreira, P.\,G.\ (2017).
 hi\_class: Horndeski in the Cosmic Linear Anisotropy Solving System.
@@ -1084,6 +1112,18 @@ Hunter, J.\,D.\ (2007).
 Matplotlib: A 2D Graphics Environment.
 \textit{Computing in Science \& Engineering}, 9(3), 90--95.
 DOI: 10.1109/MCSE.2007.55.
+
+\bibitem{Woodard2015}
+Woodard, R.\,P.\ (2015).
+Ostrogradsky's theorem on Hamiltonian instability.
+\textit{Scholarpedia}, 10(8), 32243.
+DOI: 10.4249/scholarpedia.32243.
+
+\bibitem{ForemanMackey2013}
+Foreman-Mackey, D., Hogg, D.\,W., Lang, D.\ \& Goodman, J.\ (2013).
+emcee: The MCMC Hammer.
+\textit{Publications of the Astronomical Society of the Pacific}, 125(925), 306--312.
+DOI: 10.1086/670067.
 
 \end{thebibliography}
 

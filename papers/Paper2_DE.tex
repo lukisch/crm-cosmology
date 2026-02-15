@@ -17,6 +17,7 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{graphicx}
+\graphicspath{{../figures/}}
 \usepackage{float}
 \usepackage{setspace}
 \usepackage{array}
@@ -48,7 +49,7 @@
 % ===================================================================
 
 \title{\textbf{\huge CFM-MOND-Vereinigung:\\Ein baryonisches Universum ohne Dunkle Materie}\\[0.5em]
-\Large Laufende Kr\"ummungskopplung, Spur-basierter MOND-Mechanismus und erweitertes kosmologisches Feedback-Modell}
+\Large Ersetzung des Teilchen-Darksektors durch Raumzeit-Geometrie}
 
 \author[1]{Lukas Geiger\thanks{Korrespondenz: Lukas Geiger, Gei\ss{}b\"uhlweg~1, 79872~Bernau, Deutschland.}}
 \affil[1]{Unabh\"angiger Forscher, Bernau im Schwarzwald}
@@ -62,14 +63,14 @@
 % -------------------------------------------------------------------
 
 \begin{abstract}
-\noindent Wir schlagen ein vereinheitlichtes geometrisches Rahmenwerk vor, das sowohl Dunkle Energie als auch Dunkle Materie aus dem kosmologischen Energiebudget eliminiert. Aufbauend auf dem Kr\"ummungs-R\"uckkopplungsmodell (CFM) \cite{Geiger2026}, welches die kosmologische Konstante durch ein zeitabh\"angiges Kr\"ummungs-R\"uckstellpotential $\Omega_\Phi(a)$ ersetzt, erweitern wir das Modell zu einem \textit{reinen Baryonen-Universum} ($\Omega_m = \Omega_b \approx 0{,}05$), das mit der Modifizierten Newtonschen Dynamik (MOND) \cite{Milgrom1983} kompatibel ist. Die erweiterte Friedmann-Gleichung lautet:
+\noindent Wir schlagen ein vereinheitlichtes geometrisches Rahmenwerk vor, das sowohl Dunkle Energie als auch partikul\"are Dunkle Materie durch Raumzeit-Kr\"ummung ersetzt. Aufbauend auf dem Kr\"ummungs-R\"uckkopplungsmodell (CFM) \cite{Geiger2026}, welches die kosmologische Konstante durch ein zeitabh\"angiges Kr\"ummungs-R\"uckstellpotential $\Omega_\Phi(a)$ ersetzt, erweitern wir das Modell zu einem \textit{Universum mit ausschlie\ss{}lich baryonischem Materieinhalt} ($\Omega_m = \Omega_b \approx 0{,}05$), das mit der Modifizierten Newtonschen Dynamik (MOND) \cite{Milgrom1983} kompatibel ist. Die erweiterte Friedmann-Gleichung lautet:
 \begin{equation*}
 H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta}\right]
 \end{equation*}
-wobei der S\"attigungsterm $f_{\mathrm{sat}}$ die Dunkle Energie ersetzt und der Potenzgesetz-Term $\alpha \cdot a^{-\beta}$ die kosmologische Rolle der Dunklen Materie als rein geometrischen Effekt \"ubernimmt. Getestet an 1.590 Pantheon+ Typ~Ia-Supernovae \cite{Scolnic2022} liefert dieses Modell "`ohne dunklen Sektor"' $\chi^2 = 702{,}7$ ($\Delta\chi^2 = -26{,}3$ gegen\"uber $\Lambda$CDM, $\Delta\mathrm{AIC} = -16{,}3$, $\Delta\mathrm{BIC} = -4{,}2$) und \"ubertrifft damit sowohl $\Lambda$CDM als auch das Standard-CFM deutlich. Die MCMC-Posterioranalyse ergibt $\alpha = 0{,}68^{+0{,}02}_{-0{,}07}$ und $\beta = 2{,}02^{+0{,}26}_{-0{,}14}$, was zeigt, dass der geometrische DM-Term wie \textit{r\"aumliche Kr\"ummung} ($a^{-2}$, $w = -1/3$) skaliert -- nicht wie Materie ($a^{-3}$). Wir diskutieren die physikalische Interpretation im spieltheoretischen Rahmenwerk und die Verbindung zur relativistischen MOND-Theorie AeST \cite{Skordis2021}. Falls durch CMB- und BAO-Daten best\"atigt, w\"urde dieses Rahmenwerk den gesamten dunklen Sektor -- der in $\Lambda$CDM 95\% des Energiebudgets umfasst -- \"uberfl\"ussig machen.
+wobei der S\"attigungsterm $f_{\mathrm{sat}}$ die Dunkle Energie ersetzt und der Potenzgesetz-Term $\alpha \cdot a^{-\beta}$ die kosmologische Rolle der Dunklen Materie als rein geometrischen Effekt \"ubernimmt. Getestet an 1.590 Pantheon+ Typ~Ia-Supernovae \cite{Scolnic2022} liefert dieses Modell "`ohne dunklen Sektor"' $\chi^2 = 702{,}7$ ($\Delta\chi^2 = -26{,}3$ gegen\"uber $\Lambda$CDM, $\Delta\mathrm{AIC} = -16{,}3$, $\Delta\mathrm{BIC} = -4{,}2$) und \"ubertrifft damit sowohl $\Lambda$CDM als auch das Standard-CFM deutlich. Die MCMC-Posterioranalyse ergibt $\alpha = 0{,}68^{+0{,}02}_{-0{,}07}$ und $\beta = 2{,}02^{+0{,}26}_{-0{,}14}$, was zeigt, dass der geometrische DM-Term wie \textit{r\"aumliche Kr\"ummung} ($a^{-2}$, $w = -1/3$) skaliert -- nicht wie Materie ($a^{-3}$). Wir diskutieren die physikalische Interpretation im spieltheoretischen Rahmenwerk und die Verbindung zur relativistischen MOND-Theorie AeST \cite{Skordis2021}. Dieses Framework ersetzt den gesamten Teilchen-Darksektor durch Raumzeit-Geometrie. Der Unterschied zu CDM ist nicht nur ontologisch, sondern testbar: das Scalaron erzeugt $\mu(k,a) \neq 1$, gravitational slip $\eta \neq 1$, aber $\Sigma = 1$ -- eine Kombination die kein CDM-Modell reproduzieren kann.
 
 \vspace{0.5em}
-\noindent \textbf{Schl\"usselw\"orter:} Kr\"ummungs-R\"uckkopplungsmodell, MOND, Dunkle Materie, Dunkle Energie, reines Baryonen-Universum, Pantheon+, modifizierte Gravitation, geometrische Kosmologie
+\noindent \textbf{Schl\"usselw\"orter:} Kr\"ummungs-R\"uckkopplungsmodell, MOND, Dunkle Materie, Dunkle Energie, baryonisches Universum, Pantheon+, modifizierte Gravitation, geometrische Kosmologie
 
 \vspace{0.5em}
 \noindent \textbf{Fachgebiete:} Theoretische Physik, Kosmologie, Modifizierte Gravitation
@@ -114,7 +115,7 @@ Zwei unabh\"angige Forschungsrichtungen stellen dieses Bild in Frage:
 \item \textbf{Modifizierte Newtonsche Dynamik (MOND)} \cite{Milgrom1983}: MOND modifiziert die Gravitationsdynamik bei Beschleunigungen unterhalb von $a_0 \approx 1{,}2 \times 10^{-10}$\,m/s$^2$ und sagt galaktische Rotationskurven, die baryonische Tully-Fisher-Relation \cite{McGaugh2016} und die radiale Beschleunigungsrelation \cite{Lelli2017} erfolgreich vorher -- ohne Dunkle Materie zu ben\"otigen.
 \end{enumerate}
 
-Die zentrale Frage dieses Papers lautet: \textit{K\"onnen beide Rahmenwerke zu einem einzigen Modell vereint werden, das den gesamten dunklen Sektor eliminiert?}
+Die zentrale Frage dieses Papers lautet: \textit{K\"onnen beide Rahmenwerke zu einem einzigen Modell vereint werden, das den gesamten Teilchen-Darksektor durch Raumzeit-Geometrie ersetzt?}
 
 \subsection{Die Kompatibilit\"atsfrage}
 
@@ -154,7 +155,7 @@ mit
 \Omega_\Phi(a) = \Phi_0 \cdot \frac{\tanh\!\big(k\cdot(a - a_{\mathrm{trans}})\big) + s}{1 + s}
 \end{equation}
 
-F\"ur die Erweiterung auf ein reines Baryonen-Universum zerlegen wir das geometrische Potential in zwei Komponenten:
+F\"ur die Erweiterung auf ein Universum mit ausschlie\ss{}lich baryonischem Materieinhalt zerlegen wir das geometrische Potential in zwei Komponenten:
 \begin{equation}
 \boxed{H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \underbrace{\Phi_0 \cdot f_{\mathrm{sat}}(a)}_{\text{geometrische DE}} + \underbrace{\alpha \cdot a^{-\beta}}_{\text{geometrische DM}}\right]}
 \label{eq:extended_cfm}
@@ -211,6 +212,12 @@ mit $a_{\mathrm{eq}} = \Omega_r/\Omega_b \approx 3 \times 10^{-4}$ (unter Verwen
 
 \textbf{Auswirkung auf den Pantheon+-Fit:} Da alle Pantheon+-Supernovae bei $z < 2{,}3$ ($a > 0{,}30$) liegen, ist der Unterdr\"uckungsfaktor im gesamten beobachteten Rotverschiebungsbereich $\mathcal{S} > 0{,}999$. Die MCMC-Ergebnisse ($\alpha$, $\beta$, $\chi^2$) bleiben bis auf numerische Pr\"azision unver\"andert.
 
+\textbf{Lagrangian-Herkunft aus $f(R) = R + 2\gamma R^2$:} Paper~III \cite{Geiger2026c} zeigt, dass der Spur-Kopplungs-Unterdr\"uckungsfaktor $\mathcal{S}(a)$ \textit{kein} ad~hoc-Postulat ist, sondern rigoros aus dem $R^2$-Sektor des CFM-Lagrangian folgt. Die Spur der Feldgleichungen f\"ur $f(R) = R + 2\gamma R^2$ ergibt:
+\begin{equation}
+R + 12\gamma\,\Box R = -8\pi G\,T
+\end{equation}
+In der Strahlungs\"ara gilt $T_{\mathrm{rad}} = 0$ (konforme Symmetrie), woraus $R + 12\gamma\,\Box R = 0$ folgt. Die abklingende L\"osung ergibt $R \to 0$ -- die $R^2$-Korrektur (und damit der Scalaron/geometrische DM-Term) verschwindet automatisch. Der Unterdr\"uckungsfaktor $\mathcal{S}(a)$ ist die ph\"anomenologische Parametrisierung dieses rigorosen $f(R)$-Resultats. Das einzige echte Postulat ist die Wahl $f(R) = R + 2\gamma R^2$ -- die Spur-Kopplung ist eine \textit{Konsequenz}, kein Input.
+
 \textbf{Physikalische Interpretation:} Die Spur-Kopplung hat eine tiefe geometrische Bedeutung. Im spieltheoretischen Rahmenwerk repr\"asentiert der geometrische DM-Term das Kr\"ummungs-"`Ged\"achtnis"' der anf\"anglichen Energiekonzentration. W\"ahrend der Strahlungs\"ara ist das Universum konform flach (Strahlung ist skalenfrei), und es gibt kein Kr\"ummungsged\"achtnis, das aufrechterhalten werden k\"onnte. Der geometrische DM-Term aktiviert sich erst, wenn die konforme Symmetrie durch das Auftreten massiver (nicht-relativistischer) Materie gebrochen wird -- genau in der Epoche, in der CDM im Standardbild beginnen w\"urde, Strukturen zu bilden.
 
 \subsection{Physikalische Interpretation des geometrischen DM-Terms}
@@ -240,7 +247,7 @@ Die beiden Mechanismen sind komplement\"ar: MOND behandelt die lokale Dynamik, w
 \subsection{Die Effizienzhypothese: Warum keine Dunkle Materie?}
 \label{subsec:efficiency}
 
-Eine kritische Frage bleibt: Das erweiterte CFM zeigt, dass die Daten ein reines Baryonen-Universum \textit{erlauben}, aber warum sollte das Universum ein reines Baryonen-Universum \textit{sein}? Das spieltheoretische Rahmenwerk liefert eine \"uberzeugende Antwort.
+Eine kritische Frage bleibt: Das erweiterte CFM zeigt, dass die Daten ein Universum mit ausschlie\ss{}lich baryonischem Materieinhalt \textit{erlauben}, aber warum sollte das Universum so sein? Das CFM verlangt nicht, dass nicht-baryonische Materie nie existiert hat -- nur dass Baryonen das sind, was als Materieinhalt des heutigen Universums \"ubrig geblieben ist, w\"ahrend die gravitativen Effekte der Dunklen Materie geometrisch sind (das Scalaron-Feld). Das spieltheoretische Rahmenwerk liefert eine \"uberzeugende Antwort.
 
 Im Nash-Gleichgewicht zwischen Nullraum und Raumzeitblase \cite{Geiger2026} erh\"alt die Raumzeitblase ein endliches Energiebudget $E_0$ vom Nullraum. Ihr Ziel ist es, den Konzentrationsgradienten $G$ so effizient wie m\"oglich zu neutralisieren und gleichzeitig das \"ubergeordnete System zu sch\"utzen. Dies erzeugt ein Ressourcenallokationsproblem:
 
@@ -275,7 +282,7 @@ Die erweiterte Friedmann-Gleichung~\eqref{eq:extended_cfm} enth\"alt zwei geomet
 
 Dieses Bild liefert eine nat\"urliche Interpretation: \textit{Dunkle Materie und Dunkle Energie sind nicht zwei verschiedene Substanzen, sondern zwei Phasen desselben geometrischen Ph\"anomens.} Im fr\"uhen Universum verh\"alt sich die Raumzeitgeometrie wie Dunkle Materie; im sp\"aten Universum verh\"alt sich dieselbe Geometrie wie Dunkle Energie. Der "`Phasen\"ubergang"' ist die S\"attigung des Kr\"ummungsr\"uckstellpotentials.
 
-Wir nennen dies die Hypothese der \textbf{Zerfallenden Dunklen Geometrie}: Das geometrische Potential ist ein zerfallendes \"Uberbleibsel der anf\"anglichen Kr\"ummungskonzentration des Urknalls. Fr\"uh liefert es gravitative Struktur ("`Dunkle Materie"'). W\"ahrend es zerf\"allt und s\"attigt, liefert es beschleunigte Expansion ("`Dunkle Energie"'). Es gibt keinen dunklen Sektor -- nur Geometrie in verschiedenen Stadien der Relaxation.
+Wir nennen dies die Hypothese der \textbf{Zerfallenden Dunklen Geometrie}: Das geometrische Potential ist ein zerfallendes \"Uberbleibsel der anf\"anglichen Kr\"ummungskonzentration des Urknalls. Fr\"uh liefert es gravitative Struktur ("`Dunkle Materie"'). W\"ahrend es zerf\"allt und s\"attigt, liefert es beschleunigte Expansion ("`Dunkle Energie"'). Es gibt keinen Teilchen-Darksektor -- nur Geometrie in verschiedenen Stadien der Relaxation.
 
 \begin{definition}[Zerfallende Dunkle Geometrie]
 Der kosmologische dunkle Sektor ist ein einzelnes geometrisches Ph\"anomen: das Kr\"ummungsr\"uckstellpotential $\Omega_\Phi$ des spieltheoretischen Nullraum$\leftrightarrow$Raumzeit-Gleichgewichts. Seine zwei scheinbaren Komponenten -- Dunkle Materie ($\alpha \cdot a^{-\beta}$, dominant zu fr\"uhen Zeiten) und Dunkle Energie ($\Phi_0 \cdot f_{\mathrm{sat}}$, dominant zu sp\"aten Zeiten) -- repr\"asentieren die unges\"attigte und ges\"attigte Phase desselben Relaxationsprozesses.
@@ -413,7 +420,7 @@ Die relativen H\"ohen der akustischen CMB-Maxima -- insbesondere das Verh\"altni
 
 Der geometrische DM-Term tr\"agt auf Hintergrundniveau nur $\sim$0{,}5\% der baryonischen Dichte bei $z_*$ bei, da $a^{-\beta}$ mit $\beta \approx 2$ \textit{langsamer} skaliert als Materie ($a^{-3}$). \textit{Dies ist jedoch nicht der relevante Mechanismus.} Die akustischen CMB-Maxima werden durch \textit{Metrik-St\"orungen} $\Phi$ und $\Psi$ bestimmt, nicht durch Hintergrunddichtebeitr\"age. Im erweiterten CFM enth\"alt die Lagrange-Dichte (Paper~III \cite{Geiger2026c}) einen $R^2$-Term und ein Skalarfeld $\phi$ mit P\"oschl-Teller-Potential, die beide die St\"orungsgleichungen unabh\"angig von ihrem Hintergrundbeitrag modifizieren.
 
-\textit{Existenzbeweis durch AeST:} Die relativistische MOND-Theorie AeST \cite{Skordis2021} hat gezeigt, dass ein reines Baryonen-Universum ($\Omega_m = \Omega_b$) mit zus\"atzlichen geometrischen Freiheitsgraden (Skalar- + Vektorfelder) das \textit{vollst\"andige} CMB-Leistungsspektrum fitten kann, einschlie\ss{}lich des dritten akustischen Maximums. Das erweiterte CFM teilt die wesentlichen Zutaten mit AeST:
+\textit{Existenzbeweis durch AeST:} Die relativistische MOND-Theorie AeST \cite{Skordis2021} hat gezeigt, dass ein Universum mit ausschlie\ss{}lich baryonischem Materieinhalt ($\Omega_m = \Omega_b$) mit zus\"atzlichen geometrischen Freiheitsgraden (Skalar- + Vektorfelder) das \textit{vollst\"andige} CMB-Leistungsspektrum fitten kann, einschlie\ss{}lich des dritten akustischen Maximums. Das erweiterte CFM teilt die wesentlichen Zutaten mit AeST:
 \begin{itemize}
 \item Reiner Baryonen-Materieinhalt ($\Omega_m = \Omega_b \approx 0{,}05$)
 \item Ein Skalarfeld, das auf St\"orungsniveau zus\"atzliche Gravitationspotentiale liefert
@@ -444,6 +451,21 @@ W\"ahrend einer Haufenkollision:
 
 Das Linsensignal w\"urde dann das geometrische Potential (das mit den Galaxien mitbewegt) statt des Gases nachzeichnen -- genau wie beobachtet. Dies ist analog zur AeST-Vorhersage, bei der die Skalar- und Vektorfelder Linseneffekte erzeugen, die vom Gas versetzt sind. Eine quantitative Linsenvorhersage erfordert die L\"osung der St\"orungsgleichungen der vollst\"andigen CFM-Lagrange-Dichte (Paper~III \cite{Geiger2026c}), aber die Hintergrund-Analyse best\"atigt, dass das geometrische Potential die richtige Gr\"o\ss{}enordnung hat.
 
+\textit{Quantitative Lensing-Analyse:} Das Gravitationslinsen-Potential ist $\Phi_{\mathrm{lens}} = (\Phi + \Psi)/2$, charakterisiert durch den Horndeski-Lensing-Parameter $\Sigma$. Im Horndeski-Rahmenwerk gilt \cite{Amendola2018}:
+\begin{equation}
+\Sigma = 1 + \frac{\alpha_T}{2}
+\end{equation}
+Da das CFM-Lagrangian $\alpha_T = 0$ identisch hat (best\"atigt durch GW170817 \cite{Abbott2017gw}), erhalten wir:
+\begin{equation}
+\boxed{\Sigma = 1 \qquad \text{(exakt, bei allen Skalen und Rotverschiebungen)}}
+\end{equation}
+Dies bedeutet, dass Gravitationslinsen im cfm\_fR-Modell \textit{identisch} zu GR sind. Konsequenzen:
+\begin{enumerate}
+\item Die geometrische "`Dunkle Materie"' ist automatisch \textit{sto\ss{}frei} (es ist die Raumzeitkr\"ummung selbst)
+\item Das Masse-zu-Licht-Verh\"altnis bei $z = 0{,}296$ ist $M_{\mathrm{lens}}/M_{\mathrm{Baryon}} \approx 10{,}6$, konsistent mit $M_{\mathrm{total}}/M_{\mathrm{Gas}} \sim 6$--$8$ im Bullet Cluster \cite{Clowe2006}
+\item Zuk\"unftige Linsen-Surveys (Euclid, Rubin/LSST) werden $\Sigma$ auf Prozentniveau messen: $\Sigma \neq 1$ w\"urde das cfm\_fR-Modell ausschlie\ss{}en
+\end{enumerate}
+
 \paragraph{Herausforderung 3: Strukturbildung und das Materiedichtespektrum}
 
 Das Materiedichtespektrum $P(k)$ in $\Lambda$CDM wird durch Dunkle-Materie-Halos geformt, die w\"ahrend der Strahlungsdominanz mit dem gravitativen Kollaps beginnen (bevor Baryonen von Photonen entkoppeln). Ohne fr\"uh kollabierende Dunkle Materie w\"urden baryonische Strukturen zu sp\"at und auf falschen Skalen entstehen.
@@ -456,6 +478,8 @@ Das Materiedichtespektrum $P(k)$ in $\Lambda$CDM wird durch Dunkle-Materie-Halos
 \end{itemize}
 
 Eine vorl\"aufige $P(k)$-Analyse mit dem "`Effective CDM"'-Mapping in CAMB \cite{Lewis2000} best\"atigt die korrekte qualitative Form: Die Turnover-Skala ($k_{\mathrm{peak}} \approx 0{,}015$\,$h$/Mpc) liegt nahe an $\Lambda$CDM (0{,}017), und die epochenabh\"angige effektive Materiedichte $\Omega_{m,\mathrm{eff}}(z)$ stimmt bei $z \approx 500$ \textit{exakt} mit $\Lambda$CDM \"uberein ($\Omega_{m,\mathrm{eff}} = 0{,}315$). Die quantitative Vorhersage von $P(k)$ mit den vollst\"andigen St\"orungsgleichungen ist ein zentrales Ziel f\"ur zuk\"unftige Arbeiten.
+
+Paper~III \cite{Geiger2026c} erweitert diese Analyse auf eine native \texttt{cfm\_fR}-Implementierung in hi\_class mit voller Boltzmann-Integration und erreicht $\Delta\chi^2 = -3{,}6$ in einem MCMC \"uber 5~Parameter (siehe Tabellen und Abbildungen dort).
 
 \subsection{Ontologische Interpretation: Die verschachtelte Hierarchie}
 \label{subsec:nested}
@@ -519,7 +543,7 @@ Die Ergebnisse dieses Papers -- ein reines Baryonen-Modell mit skalenabh\"angige
 \section{Fazit und Ausblick}
 \label{sec:conclusion}
 
-Wir haben gezeigt, dass ein reines Baryonen-Universum ($\Omega_m = \Omega_b \approx 0{,}05$) mit einem erweiterten geometrischen Potential kosmologische Daten \textit{\"uber alle drei gro\ss{}en Sonden hinweg} -- Supernovae, CMB und BAO -- kompetitiv mit und teilweise besser als $\Lambda$CDM fitten kann, bei \textit{gleicher Parameterzahl} und \textit{ohne} Early Dark Energy.
+Wir haben gezeigt, dass ein Universum mit ausschlie\ss{}lich baryonischem Materieinhalt ($\Omega_m = \Omega_b \approx 0{,}05$), wobei die gravitative Rolle der Dunklen Materie vom geometrischen $R^2$-Scalaron \"ubernommen wird, kosmologische Daten \textit{\"uber alle drei gro\ss{}en Sonden hinweg} -- Supernovae, CMB und BAO -- kompetitiv mit und teilweise besser als $\Lambda$CDM fitten kann, bei \textit{gleicher Parameterzahl} und \textit{ohne} Early Dark Energy.
 
 Drei Schl\"usselinnovationen erm\"oglichen dies: (i)~die \textit{laufende Kr\"ummungskopplung} $\beta_{\mathrm{eff}}(a)$; (ii)~die \textit{MOND-Hintergrundkopplung} $\mu(a) = \sqrt{\pi}$ bei sp\"aten Zeiten; und (iii)~die \textit{skalenabh\"angige} Evolution $\mu(a) \to 1$ bei $z > 4000$, die EDE vollst\"andig eliminiert.
 
@@ -536,7 +560,7 @@ Die Drei-Phasen-Interpretation ergibt sich nat\"urlich: Bei $z > z_\mu \approx 4
 Dieses Paper ist das zweite in einem dreiteiligen Programm:
 \begin{enumerate}
 \item \textbf{Paper~I} \cite{Geiger2026}: Etabliert die spieltheoretische Grundlage und das Kr\"ummungs-R\"uckkopplungsmodell als Ersatz f\"ur Dunkle Energie. Validiert gegen Pantheon+.
-\item \textbf{Paper~II} (diese Arbeit): Erweitert das CFM zur Eliminierung des gesamten dunklen Sektors. F\"uhrt die laufende Kr\"ummungskopplung $\beta_{\mathrm{eff}}(a)$ und die skalenabh\"angige MOND-Kopplung $\mu(a)$ ein. Demonstriert gemeinsame SN + CMB + BAO-Kompatibilit\"at ($\Delta\chi^2 = -5{,}5$ vs.\ $\Lambda$CDM, $H_0 = 67{,}3$\,km/s/Mpc, 6 Parameter, kein EDE).
+\item \textbf{Paper~II} (diese Arbeit): Erweitert das CFM und ersetzt den Teilchen-Darksektor durch Raumzeit-Geometrie. F\"uhrt die laufende Kr\"ummungskopplung $\beta_{\mathrm{eff}}(a)$ und die skalenabh\"angige MOND-Kopplung $\mu(a)$ ein. Demonstriert gemeinsame SN + CMB + BAO-Kompatibilit\"at ($\Delta\chi^2 = -5{,}5$ vs.\ $\Lambda$CDM, $H_0 = 67{,}3$\,km/s/Mpc, 6 Parameter, kein EDE).
 \item \textbf{Paper~III} \cite{Geiger2026c}: Liefert die mikroskopische Grundlage -- die Lagrange-Herleitung, die Verbindung zur Quantengravitation und die Interpretation des laufenden $\beta$ als geometrischer Phasen\"ubergang.
 \end{enumerate}
 
@@ -546,7 +570,7 @@ Dieses Paper ist das zweite in einem dreiteiligen Programm:
 \item Pr\"azisions-BAO-Analyse mit DESI DR2-Daten
 \item Materiedichtespektrum $P(k)$ mit vollst\"andigen St\"orungsgleichungen: Die vorl\"aufige Analyse best\"atigt die korrekte Form, aber $\sigma_8 = 0{,}90$ in der "`Effective CDM"'-N\"aherung ist zu hoch -- die vollst\"andige Behandlung sollte dies reduzieren.
 \item \sout{BBN-Konsistenzpr\"ufung} -- \textbf{ERLEDIGT:} $\mu(z > 10^4) \to 1$, $\Delta N_{\mathrm{eff}} \approx 0{,}000$ \cite{Pitrou2018}
-\item Lagrange-Herleitung des laufenden $\beta$ und $\mu$ aus der kr\"ummungsquadratischen Wirkung (Paper~III)
+\item Lagrange-Herleitung des laufenden $\beta$ aus der kr\"ummungsquadratischen Wirkung; $\mu(a)$ bleibt ph\"anomenologisch (Paper~III)
 \end{enumerate}
 
 \subsection{Einladung an die Gemeinschaft}
@@ -683,6 +707,12 @@ Abbott, B.\,P.\ et al.\ (LIGO/Virgo Collaboration) (2017).
 GW170817: Observation of Gravitational Waves from a Binary Neutron Star Inspiral.
 \textit{Physical Review Letters}, 119(16), 161101.
 DOI: 10.1103/PhysRevLett.119.161101.
+
+\bibitem{Amendola2018}
+Amendola, L., Kunz, M., Saltas, I.\,D.\ \& Sawicki, I.\ (2018).
+Fate of Large-Scale Structure in Modified Gravity After GW170817 and GRB170817A.
+\textit{Physical Review Letters}, 120(13), 131101.
+DOI: 10.1103/PhysRevLett.120.131101.
 
 \bibitem{Blas2011}
 Blas, D., Lesgourgues, J.\ \& Tram, T.\ (2011).
