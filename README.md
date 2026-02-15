@@ -8,7 +8,7 @@
 
 The Curvature Feedback Model (CFM) replaces dark energy with a geometric curvature return potential and embeds modified gravity within the Horndeski/f(R) framework. The model is validated against Planck 2018 CMB data (TT+TE+EE, 6,405 data points) using [hi_class](https://github.com/miguelzuma/hi_class_public) with a custom `cfm_fR` gravity model.
 
-**Key result:** The native `cfm_fR` model achieves **Delta chi2 = -2.7** vs. LCDM on Planck CMB data, with sigma8 = 0.899 and 100*theta_s = 1.04173 (identical to LCDM).
+**Key result:** The native `cfm_fR` model achieves **Delta chi2 = -3.6** vs. LCDM on Planck CMB data (MCMC best-fit), with alpha_M_0 = 0.0013 +/- 0.0007 (1.78 sigma detection, P(alpha_M_0 > 0) = 100%) and 100*theta_s = 1.04173 (identical to LCDM).
 
 ## Papers
 
@@ -24,8 +24,9 @@ The Curvature Feedback Model (CFM) replaces dark energy with a geometric curvatu
 |-------|----------------:|----------:|-------:|------------:|
 | LCDM | 6628.8 | --- | 0.811 | 1.04173 |
 | propto_omega cM=0.0002 | 6628.6 | -0.2 | 0.826 | 1.04173 |
-| **cfm_fR n=0.5, aM0=0.001** | **6626.1** | **-2.7** | 0.899 | 1.04173 |
+| cfm_fR n=0.5, aM0=0.001 | 6626.1 | -2.7 | 0.899 | 1.04173 |
 | cfm_fR n=1.0, aM0=0.0005 | 6627.1 | -1.6 | 0.879 | 1.04173 |
+| **cfm_fR MCMC best-fit** | **6625.2** | **-3.6** | --- | 1.04173 |
 
 The cfm_fR model implements:
 ```
