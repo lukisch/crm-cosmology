@@ -661,6 +661,20 @@ Die physikalische Interpretation ist wie folgt. In der $R^2$-Lagrange-Dichte~\eq
 
 Dies l\"ost die scheinbare Spannung zwischen Paper~II und III: Der $\theta_s$-Offset von Paper~II war ein Artefakt der ph\"anomenologischen Parametrisierung ($w \approx -0{,}06$), die die Abweichung von druckloser Materie \"ubersch\"atzte. Der Lagrange-Ansatz, mit einer korrekten Skalaron-Zustandsgleichung $w \ll 0{,}01$, eliminiert diesen Offset vollst\"andig.
 
+\subsection{Parameterbr\"ucke: Ph\"anomenologische vs.\ Lagrange-Formulierung}
+\label{subsec:parameter_bridge}
+
+Paper~II verwendet eine ph\"anomenologische Parametrisierung der erweiterten Friedmann-Gleichung mit vier geometrischen Parametern: die DM-artige Amplitude $\alpha = 0{,}68^{+0{,}02}_{-0{,}07}$, den Potenzgesetz-Exponenten $\beta = 2{,}02^{+0{,}26}_{-0{,}14}$, die S\"attigungsamplitude $\Phi_0 = 0{,}43^{+0{,}14}_{-0{,}08}$ und die S\"attigungsrate $k = 9{,}8^{+6{,}7}_{-3{,}8}$, gefittet an 1.590 Pantheon+-Supernovae. Das vorliegende Paper verwendet stattdessen zwei Lagrange-Parameter: $\alpha_{M,0} = 0{,}0013 \pm 0{,}0007$ und $n = 0{,}28$ (MCMC-Best-Fit), bestimmt durch 6.405 Planck-TT+TE+EE-Datenpunkte.
+
+Dies sind \textit{keine} konkurrierenden Parametrisierungen, sondern \textit{komplement\"are Beschreibungen auf verschiedenen Ebenen}:
+\begin{itemize}
+\item Paper~IIs $\alpha \cdot a^{-\beta}$ beschreibt die \textit{Hintergrund}-Energiedichte der geometrischen Dunkle-Materie-Komponente. Das Lagrange-\"Aquivalent ist $\omega_{\mathrm{cdm}}$ in \texttt{hi\_class}, das die Hintergrund-Energiedichte des Skalarons repr\"asentiert. Da das Skalaron sich als drucklose Materie ($w \approx 0$) verh\"alt, \"ubernimmt $\omega_{\mathrm{cdm}} = 0{,}1200$ (Planck 2018) die Rolle von Paper~IIs $\alpha$.
+\item Die Parameter $\alpha_{M,0}$ und $n$ von Paper~III beschreiben die \textit{Abweichung von der ART auf St\"orungsniveau} -- die St\"arke der f\"unften Kraft, die vom Skalaron vermittelt wird. Diese Parameter haben kein direktes Analogon im Hintergrund-Fit von Paper~II.
+\item Paper~IIs laufende Kopplung $\beta_{\mathrm{eff}}(a)$ wird in Abschnitt~\ref{subsec:beta_derivation} aus der Skalaron-Bewegungsgleichung abgeleitet: Der \"Ubergang von $\beta_{\mathrm{early}} \approx 2{,}8$ zu $\beta_{\mathrm{late}} \approx 2{,}0$ entspricht der Skalaron-Massenevolution $m_{\mathrm{eff}}^2(a)$, wobei $a_t = 0{,}098$ ($z_t = 9{,}2$) durch die Spurkopplungsskala festgelegt wird.
+\end{itemize}
+
+Die Konsistenzpr\"ufung ist dreifach: (i)~die akustische Winkelskala $\theta_s$ ist in beiden Rahmenwerken identisch (Tabelle~\ref{tab:theta_s}); (ii)~die Wachstumsrate $f\sigma_8$ aus der Lagrange-St\"orungsanalyse verbessert den BOSS-Fit gegen\"uber $\Lambda$CDM, konsistent mit der verst\"arkten Strukturbildung von Paper~II; und (iii)~die CMB-Entfernungspriors ($\ell_A$, $\mathcal{R}$) stimmen auf besser als $0{,}01\%$ \"uberein.
+
 
 % ===================================================================
 % 9. DISKUSSION UND AUSBLICK

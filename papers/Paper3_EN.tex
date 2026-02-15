@@ -714,6 +714,20 @@ The physical interpretation is as follows. In the $R^2$ Lagrangian~\eqref{eq:ful
 
 This resolves the apparent tension between Papers~II and III: Paper~II's $\theta_s$ offset was an artifact of the phenomenological parametrization ($w \approx -0.06$), which overestimated the deviation from pressureless matter. The Lagrangian approach, with a proper scalaron equation of state $w \ll 0.01$, eliminates this offset entirely.
 
+\subsection{Parameter Bridge: Phenomenological vs.\ Lagrangian Formulation}
+\label{subsec:parameter_bridge}
+
+Paper~II employs a phenomenological parametrization of the extended Friedmann equation with four geometric parameters: the DM-like amplitude $\alpha = 0.68^{+0.02}_{-0.07}$, the power-law exponent $\beta = 2.02^{+0.26}_{-0.14}$, the saturation amplitude $\Phi_0 = 0.43^{+0.14}_{-0.08}$, and the saturation rate $k = 9.8^{+6.7}_{-3.8}$, fitted to 1{,}590 Pantheon+ supernovae. The present paper instead uses two Lagrangian parameters: $\alpha_{M,0} = 0.0013 \pm 0.0007$ and $n = 0.28$ (MCMC best-fit), constrained by 6{,}405 Planck TT+TE+EE data points.
+
+These are \textit{not} competing parametrizations but \textit{complementary descriptions at different levels}:
+\begin{itemize}
+\item Paper~II's $\alpha \cdot a^{-\beta}$ describes the \textit{background} energy density of the geometric dark matter component. The Lagrangian equivalent is $\omega_{\mathrm{cdm}}$ in \texttt{hi\_class}, which represents the scalaron's background energy density. Since the scalaron evolves as pressureless matter ($w \approx 0$), $\omega_{\mathrm{cdm}} = 0.1200$ (Planck 2018) plays the role of Paper~II's $\alpha$.
+\item Paper~III's $\alpha_{M,0}$ and $n$ describe the \textit{perturbation-level} deviation from GR -- the strength of the fifth force mediated by the scalaron. These parameters have no direct analogue in Paper~II's background-level fit.
+\item Paper~II's running coupling $\beta_{\mathrm{eff}}(a)$ is derived in Section~\ref{subsec:beta_derivation} from the scalaron equation of motion: the transition from $\beta_{\mathrm{early}} \approx 2.8$ to $\beta_{\mathrm{late}} \approx 2.0$ corresponds to the scalaron mass evolution $m_{\mathrm{eff}}^2(a)$, with $a_t = 0.098$ ($z_t = 9.2$) set by the trace coupling scale.
+\end{itemize}
+
+The consistency check is threefold: (i)~the angular acoustic scale $\theta_s$ is identical in both frameworks (Table~\ref{tab:theta_s}); (ii)~the growth rate $f\sigma_8$ from the Lagrangian perturbation analysis improves the BOSS fit over $\Lambda$CDM, consistent with Paper~II's enhanced structure formation; and (iii)~the CMB distance priors ($\ell_A$, $\mathcal{R}$) agree to better than $0.01\%$.
+
 
 % ===================================================================
 % 9. DISKUSSION UND AUSBLICK
