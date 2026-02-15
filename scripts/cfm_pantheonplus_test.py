@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-=============================================================================
 CFM vs LCDM: Test gegen Pantheon+ Realdaten
+CFM vs LCDM: Test against Pantheon+ real data
 =============================================================================
 
 Zweck:
@@ -9,6 +9,11 @@ Zweck:
     "Spieltheoretische Kosmologie und das Kruemmungs-Rueckgabepotential-Modell"
     (Geiger, 2026) gegen den Pantheon+ Datensatz -- den groessten oeffentlich
     verfuegbaren Katalog von Typ-Ia-Supernovae.
+Purpose:
+    Tests the Curvature Feedback Model (CFM) from the article
+    "Game-Theoretic Cosmology and the Curvature-Feedback-Potential Model"
+    (Geiger, 2026) against the Pantheon+ dataset -- the largest publicly
+    available catalog of Type Ia supernovae.
 
 Datensatz:
     Pantheon+ (Scolnic et al. 2022, ApJ 938, 113)
@@ -16,6 +21,12 @@ Datensatz:
     - Rotverschiebungsbereich z = 0.001 bis z = 2.26
     - Wir nutzen z > 0.01 (1590 SNe) um Pekuliargeschwindigkeits-Dominanz
       bei sehr niedrigem z zu vermeiden.
+Dataset:
+    Pantheon+ (Scolnic et al. 2022, ApJ 938, 113)
+    - 1701 light curves from 1550 spectroscopically confirmed SNe Ia
+    - Redshift range z = 0.001 to z = 2.26
+    - We use z > 0.01 (1590 SNe) to avoid peculiar velocity dominance 
+      at very low z.
 
 Modelle:
     1. LCDM:  H^2(a) = H0^2 [Omega_m * a^-3 + Omega_Lambda]
@@ -43,20 +54,35 @@ Methodik:
     - Modellvergleich: chi2, AIC, BIC, 5-Fold Kreuzvalidierung
     - Integration: Schnelle kumulative Trapezregel auf feinem z-Gitter
       (N=2000 Stuetzstellen, Fehler < 10^-5)
+Methodology:
+    - Observable: m_b_corr (bias-corrected apparent B-band magnitude)
+    - Errors: m_b_corr_err_DIAG (diagonal errors; full covariance matrix 
+      would include systematic correlations, not used here -- affects both 
+      models equally)
+    - Nuisance parameter M (absolute magnitude + Hubble constant) is 
+      analytically marginalized
+    - Optimization: Differential Evolution (global optimizer)
+    - Model comparison: chi2, AIC, BIC, 5-Fold Cross-Validation
+    - Integration: Fast cumulative trapezoidal rule on a fine z-grid 
+      (N=2000 points, error < 10^-5)
 
 Adressiert Gemini-Review-Kritik:
     1. "Simulierte Daten" -> Test mit 1590 REALEN Supernovae
     2. "Overfitting (4 vs 2 Parameter)" -> AIC/BIC + Kreuzvalidierung
     3. Flachheitsbedingung reduziert CFM auf 3 kosmologische Parameter
+Addresses Gemini Review Criticism:
+    1. "Simulated data" -> Test with 1590 REAL supernovae
+    2. "Overfitting (4 vs 2 parameters)" -> AIC/BIC + Cross-Validation
+    3. Flatness condition reduces CFM to 3 cosmological parameters
 
-Ausgaben:
-    - CFM_Pantheon_Plus_Ergebnis.png  (6-Panel Visualisierung)
-    - CFM_Pantheon_Plus_Ergebnis.txt  (Detaillierter Ergebnisbericht)
+Ausgaben / Outputs:
+    - CFM_Pantheon_Plus_Result.png  (6-Panel Visualisierung / visualization)
+    - CFM_Pantheon_Plus_Result.txt  (Detaillierter Ergebnisbericht / detailed results report)
 
-Abhaengigkeiten:
+Abhaengigkeiten / Dependencies:
     numpy, pandas, scipy, matplotlib, requests
 
-Autor: Lukas Geiger (mit Claude Opus 4.6)
+Autor/Author: LG (mit Claude Opus 4.6)
 Datum: Februar 2026
 Lizenz: CC BY 4.0
 =============================================================================
@@ -101,6 +127,8 @@ def download_data():
     """
     Laedt den Pantheon+ Datensatz herunter, falls nicht lokal vorhanden.
     Quelle: GitHub PantheonPlusSH0ES/DataRelease
+    Downloads the Pantheon+ dataset if not locally present.
+    Source: GitHub PantheonPlusSH0ES/DataRelease
     """
     if os.path.exists(DATA_FILE):
         print(f"  Daten vorhanden: {os.path.basename(DATA_FILE)}")
@@ -153,20 +181,29 @@ def load_data():
 
 # ==========================================================================
 # 2. INTEGRATION: SCHNELLE VEKTORISIERTE LEUCHTKRAFTENTFERNUNG
+# 2. INTEGRATION: FAST VECTORIZED LUMINOSITY DISTANCE
 # ==========================================================================
 #
 # Statt scipy.integrate.quad fuer jede einzelne SN (langsam bei 1590 SNe)
 # wird eine kumulative Trapezregel auf einem feinen z-Gitter berechnet
 # und dann auf die Daten-Rotverschiebungen interpoliert.
+# Instead of scipy.integrate.quad for each SN (slow for 1590 SNe),
+# a cumulative trapezoidal rule is calculated on a fine z-grid
+# and then interpolated onto the data redshifts.
 #
 # d_L(z) = (1+z) * integral_0^z dz' / E(z')
 #
 # wobei E(z) = H(z)/H0.  Das Ergebnis ist dimensionslos (d_L in Einheiten
 # von c/H0); die Konstante wird im Nuisance-Parameter M absorbiert.
+# where E(z) = H(z)/H0. The result is dimensionless (d_L in units of c/H0);
+# the constant is absorbed in the nuisance parameter M.
 # ==========================================================================
 
 def _z_grid(z_max):
-    """Feines z-Gitter von 0 bis leicht ueber z_max."""
+    """
+    Feines z-Gitter von 0 bis leicht ueber z_max.
+    Fine z-grid from 0 to slightly above z_max.
+    """
     return np.linspace(0, z_max * 1.05, N_GRID)
 
 
@@ -174,11 +211,15 @@ def _cumulative_integral(z_grid, E_inverse):
     """
     Kumulative Trapezregel: integral_0^z_i dz' * f(z')
     fuer ein aequidistantes Gitter.
+    Cumulative trapezoidal rule: integral_0^z_i dz' * f(z')
+    for an equidistant grid.
     """
     dz = z_grid[1] - z_grid[0]
     # Trapezmethode: (f[0]/2 + f[1] + f[2] + ... + f[n-1] + f[n]/2) * dz
     # Fuer kumulative Summe verwenden wir die einfache Rechtecksumme,
     # korrigiert durch dz. Der Fehler bei N_GRID=2000 ist < 10^-5.
+    # For cumulative sum we use the simple rectangular sum, corrected by dz.
+    # The error at N_GRID=2000 is < 10^-5.
     cum = np.cumsum(E_inverse) * dz
     cum[0] = 0.0  # integral(0, 0) = 0
     return cum
@@ -223,25 +264,32 @@ def distance_modulus_cfm(z_data, Omega_m, Phi0, k, a_trans):
 
 # ==========================================================================
 # 3. CHI-QUADRAT MIT ANALYTISCHER M-MARGINALISIERUNG
+# 3. CHI-SQUARE WITH ANALYTICAL M-MARGINALIZATION
 # ==========================================================================
 #
 # Die Beobachtungsgroesse ist m_b_corr.  Die Modellvorhersage ist:
 #     m_model = mu_theory(z; params) + M
 # wobei M = M_B + 5*log10(c/H0) + 25 ein Nuisance-Parameter ist,
 # der die absolute Helligkeit und die Hubble-Konstante absorbiert.
+# The observable is m_b_corr. The model prediction is:
+#     m_model = mu_theory(z; params) + M
+# where M = M_B + 5*log10(c/H0) + 25 is a nuisance parameter that
+# absorbs absolute magnitude and the Hubble constant.
 #
 # M wird analytisch marginalisiert:
 #     M_best = sum(w_i * (m_obs_i - mu_i)) / sum(w_i)
 #     chi2   = sum( ((m_obs_i - mu_i - M_best) / sigma_i)^2 )
+# M is analytically marginalized: (...)
 # ==========================================================================
 
 def chi2_marginalized(mu_theory, m_obs, m_err):
     """
     Berechnet chi2 nach analytischer Marginalisierung ueber M.
+    Calculates chi2 after analytical marginalization over M.
 
     Returns:
-        chi2   - Chi-Quadrat-Wert
-        M_best - Bester Nuisance-Parameter
+        chi2   - Chi-Quadrat-Wert / Chi-square value
+        M_best - Bester Nuisance-Parameter / Best nuisance parameter
     """
     w = 1.0 / m_err**2
     delta = m_obs - mu_theory
@@ -257,6 +305,8 @@ def chi2_marginalized(mu_theory, m_obs, m_err):
 def phi0_from_flatness(Omega_m, k, a_trans):
     """
     Berechnet Phi0 aus der Flachheitsbedingung:
+        Omega_m + Omega_Phi(a=1) = 1
+    Calculates Phi0 from the flatness condition:
         Omega_m + Omega_Phi(a=1) = 1
     =>  Omega_Phi(a=1) = 1 - Omega_m
     =>  Phi0 * [tanh(k*(1-a_trans)) + s] / (1+s) = 1 - Omega_m
@@ -326,13 +376,15 @@ def fit_lcdm(z, m_obs, m_err):
 def fit_cfm_flat(z, m_obs, m_err):
     """
     Fittet CFM MIT Flachheitsbedingung an die Daten.
+    Fits CFM WITH flatness condition to data.
 
-    Flachheit: Omega_m + Omega_Phi(a=1) = 1
+    Flachheit / Flatness: Omega_m + Omega_Phi(a=1) = 1
     => Phi0 wird aus (Omega_m, k, a_trans) abgeleitet.
+    => Phi0 is derived from (Omega_m, k, a_trans).
 
-    Freie Parameter: Omega_m, k, a_trans (+ M analytisch)
-    Gesamt: k = 4 effektive Parameter
-    (Nur 2 mehr als LCDM -- fairer BIC-Vergleich!)
+    Freie Parameter / Free parameters: Omega_m, k, a_trans (+ M analytisch / analytically)
+    Gesamt / Total: k = 4 effektive Parameter / effective parameters
+    (Nur 2 mehr als LCDM -- fairer BIC-Vergleich! / Only 2 more than LCDM -- fair BIC comparison!)
     """
     print("\n" + "="*65)
     print("  MODELL 2: CFM (flach, Omega_m + Omega_Phi = 1)")
@@ -410,8 +462,9 @@ def fit_cfm_flat(z, m_obs, m_err):
 def fit_cfm_free(z, m_obs, m_err):
     """
     Fittet CFM OHNE Flachheitsbedingung (zum Vergleich).
+    Fits CFM WITHOUT flatness condition (for comparison).
 
-    Freie Parameter: Omega_m, Phi0, k, a_trans (+ M analytisch)
+    Freie Parameter / Free parameters: Omega_m, Phi0, k, a_trans (+ M analytisch / analytically)
     Gesamt: k = 5 effektive Parameter
     """
     print("\n" + "="*65)
@@ -588,20 +641,20 @@ def cross_validate(z, m_obs, m_err, n_folds=5):
 
         print(f"  L={results['lcdm'][-1]:.4f}  Cf={results['cfm_flat'][-1]:.4f}  Cfr={results['cfm_free'][-1]:.4f}")
 
-    # Zusammenfassung
+    # Zusammenfassung / Summary
     summary = {}
     for key in results:
         arr = np.array(results[key])
         summary[key] = {'mean': arr.mean(), 'std': arr.std(), 'folds': arr.tolist()}
 
     dt = time.time() - t0
-    print(f"\n  Ergebnis ({dt:.0f}s):")
+    print(f"\n  Ergebnis / Result ({dt:.0f}s):")
     for key in ['lcdm', 'cfm_flat', 'cfm_free']:
         s = summary[key]
         print(f"    {key:10s}: <chi2/n> = {s['mean']:.4f} +/- {s['std']:.4f}")
 
     best = min(summary, key=lambda x: summary[x]['mean'])
-    print(f"    => Beste Generalisierung: {best}")
+    print(f"    => Beste Generalisierung / Best generalization: {best}")
     return summary
 
 
@@ -610,7 +663,10 @@ def cross_validate(z, m_obs, m_err, n_folds=5):
 # ==========================================================================
 
 def create_plots(z, m_obs, m_err, lcdm, cfm_flat, cfm_free, cv):
-    """Erstellt 6-Panel Ergebnis-Plot."""
+    """
+    Erstellt 6-Panel Ergebnis-Plot.
+    Creates 6-panel results plot.
+    """
 
     fig = plt.figure(figsize=(18, 24))
     gs = gridspec.GridSpec(4, 2, hspace=0.35, wspace=0.30,
@@ -640,9 +696,9 @@ def create_plots(z, m_obs, m_err, lcdm, cfm_flat, cfm_free, cv):
             mu = distance_modulus_lcdm(z_model, p['Omega_m'])
         ax1.plot(z_model, mu + p['M'], ls, color=color, linewidth=2.5, label=label)
 
-    ax1.set_xlabel('Rotverschiebung z', fontsize=13)
+    ax1.set_xlabel('Redshift z', fontsize=13)
     ax1.set_ylabel('$m_B$ [mag]', fontsize=13)
-    ax1.set_title('Hubble-Diagramm: Pantheon+ Realdaten', fontsize=15, fontweight='bold')
+    ax1.set_title('Hubble diagram: Pantheon+ real data', fontsize=15, fontweight='bold')
     ax1.legend(fontsize=10, loc='lower right')
 
     # ---- Panel 2+3: Residuen LCDM vs CFM_flat ----
@@ -663,7 +719,7 @@ def create_plots(z, m_obs, m_err, lcdm, cfm_flat, cfm_free, cv):
 
     for ax, model, color, name in [
         (fig.add_subplot(gs[1, 0]), lcdm, C_L, '$\\Lambda$CDM'),
-        (fig.add_subplot(gs[1, 1]), cfm_flat, C_F, 'CFM (flach)'),
+        (fig.add_subplot(gs[1, 1]), cfm_flat, C_F, 'CFM (flat)'),
     ]:
         res = m_obs - model['mu_theory']
         br, be = binned(res)
@@ -671,10 +727,10 @@ def create_plots(z, m_obs, m_err, lcdm, cfm_flat, cfm_free, cv):
                      markersize=1, elinewidth=0.3)
         ax.axhline(0, color='black', linewidth=0.8)
         ax.errorbar(z_cen, br, yerr=be, fmt='s', color=color, markersize=5,
-                     capsize=3, linewidth=1.5, label='Gebinnte Residuen')
+                     capsize=3, linewidth=1.5, label='Binned residuals')
         ax.set_xlabel('z', fontsize=11)
         ax.set_ylabel('$\\Delta m_B$ [mag]', fontsize=11)
-        ax.set_title(f"Residuen {name} ($\\chi^2$={model['chi2']:.1f})", fontsize=12)
+        ax.set_title(f"Residuals {name} ($\\chi^2$={model['chi2']:.1f})", fontsize=12)
         ax.set_ylim(-0.8, 0.8)
         ax.legend(fontsize=9)
 
@@ -690,7 +746,7 @@ def create_plots(z, m_obs, m_err, lcdm, cfm_flat, cfm_free, cv):
     ax4.axhline(0, color='black', linewidth=0.8, linestyle='--')
     ax4.set_xlabel('z', fontsize=11)
     ax4.set_ylabel('$\\Delta m^{CFM}_{B} - \\Delta m^{\\Lambda CDM}_{B}$ [mag]', fontsize=11)
-    ax4.set_title('Residuen-Differenz (CFM_flach - LCDM)', fontsize=12)
+    ax4.set_title('Residual difference (CFM_flat - LCDM)', fontsize=12)
 
     # ---- Panel 5: w(z) ----
     ax5 = fig.add_subplot(gs[2, 1])
@@ -708,12 +764,12 @@ def create_plots(z, m_obs, m_err, lcdm, cfm_flat, cfm_free, cv):
                      label='Euclid $\\sigma(w)$')
     ax5.set_xlabel('z', fontsize=11)
     ax5.set_ylabel('$w_{eff}(z)$', fontsize=11)
-    ax5.set_title('Zustandsgleichungsparameter', fontsize=12)
+    ax5.set_title('Equation of state parameter', fontsize=12)
     ax5.set_ylim(-2.5, 0.0)
     ax5.set_xlim(0, 2.5)
     ax5.legend(fontsize=9, loc='lower left')
 
-    # ---- Panel 6: Ergebnis-Tabelle ----
+    # ---- Panel 6: Ergebnis-Tabelle / Results table ----
     ax6 = fig.add_subplot(gs[3, :])
     ax6.axis('off')
 
@@ -729,7 +785,7 @@ def create_plots(z, m_obs, m_err, lcdm, cfm_flat, cfm_free, cv):
         if dbic < 10: return "Stark fuer LCDM"
         return "Sehr stark fuer LCDM"
 
-    txt = f"MODELLVERGLEICH: PANTHEON+ REALDATEN ({len(z)} SNe Ia)\n"
+    txt = f"MODEL COMPARISON: PANTHEON+ REAL DATA ({len(z)} SNe Ia)\n"
     txt += "="*72 + "\n"
     txt += f"{'Metrik':<18} {'LCDM':>12} {'CFM_flat':>12} {'CFM_free':>12}\n"
     txt += "-"*72 + "\n"
@@ -753,11 +809,11 @@ def create_plots(z, m_obs, m_err, lcdm, cfm_flat, cfm_free, cv):
              bbox=dict(boxstyle='round,pad=0.8', facecolor='lightyellow',
                        edgecolor='gray', alpha=0.9))
 
-    fig.suptitle('CFM vs. $\\Lambda$CDM: Test gegen Pantheon+ Realdaten\n'
-                 'Lukas Geiger (2026) -- Curvature Feedback Model',
+    fig.suptitle('CFM vs. $\\Lambda$CDM: Test against Pantheon+ real data\n'
+                 'LG (2026) -- Curvature Feedback Model',
                  fontsize=16, fontweight='bold', y=0.97)
 
-    outpath = os.path.join(OUTPUT_DIR, 'CFM_Pantheon_Plus_Ergebnis.png')
+    outpath = os.path.join(OUTPUT_DIR, 'CFM_Pantheon_Plus_Result.png')
     fig.savefig(outpath, dpi=200, bbox_inches='tight')
     print(f"  Plot: {outpath}")
     plt.close()
@@ -836,7 +892,7 @@ def write_report(z, lcdm, cfm_flat, cfm_free, cv):
     L.append(f"  BIC            = {cfm_free['bic']:.2f}")
     L.append("")
 
-    # -- Vergleich --
+    # -- Vergleich / Comparison --
     d_chi2_f = cfm_flat['chi2'] - lcdm['chi2']
     d_aic_f = cfm_flat['aic'] - lcdm['aic']
     d_bic_f = cfm_flat['bic'] - lcdm['bic']
@@ -942,7 +998,7 @@ def write_report(z, lcdm, cfm_flat, cfm_free, cv):
     L.append("")
 
     report = '\n'.join(L)
-    outpath = os.path.join(OUTPUT_DIR, 'CFM_Pantheon_Plus_Ergebnis.txt')
+    outpath = os.path.join(OUTPUT_DIR, 'CFM_Pantheon_Plus_Result.txt')
     with open(outpath, 'w', encoding='utf-8') as f:
         f.write(report)
     print(f"  Bericht: {outpath}")

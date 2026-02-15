@@ -167,10 +167,11 @@ for cM in [0.0001, 0.0003, 0.0005]:
 # SUMMARY
 # ================================================================
 print(f"\n{'='*70}")
-print("ZUSAMMENFASSUNG TT+TE+EE")
+print("ZUSAMMENFASSUNG / SUMMARY TT+TE+EE")
 print(f"{'='*70}")
 if lcdm:
     print(f"LCDM: TT={lcdm[0]:.1f}, TE={lcdm[1]:.1f}, EE={lcdm[2]:.1f}, TOT={lcdm[3]:.1f}, s8={lcdm[4]:.4f}")
 print("Alle Modelle verwenden Planck 2018 best-fit Parameter")
-print("Chi2 = sum((model-data)/error)^2, keine Kovarianzmatrix")
+print("All models use Planck 2018 best-fit parameters")
+print("Chi2 = sum((model-data)/error)^2, keine Kovarianzmatrix / no covariance matrix")
 sys.stdout.flush()

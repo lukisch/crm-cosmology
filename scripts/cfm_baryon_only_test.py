@@ -1,19 +1,25 @@
 #!/usr/bin/env python3
 """
-=============================================================================
 CFM "Baryon-Only" Test: Vereinigung mit MOND
+CFM "Baryon-Only" Test: Unification with MOND
 =============================================================================
 Hypothese: Wenn MOND gilt, gibt es keine Dunkle Materie.
-=> Omega_m = Omega_b ~ 0.05 (nur Baryonen)
+Hypothesis: If MOND holds, there is no Dark Matter.
+=> Omega_m = Omega_b ~ 0.05 (nur Baryonen / baryons only)
 => Kann CFM die Pantheon+ Daten trotzdem fitten?
+   Can CFM still fit the Pantheon+ data?
 
-Drei Szenarien:
+Drei Szenarien / Three scenarios:
   A) Omega_m = 0.05 fest, CFM-Parameter frei
+     Omega_m = 0.05 fixed, CFM parameters free
   B) Omega_m in [0.03, 0.07] (Baryonen-Band), CFM-Parameter frei
+     Omega_m in [0.03, 0.07] (baryon band), CFM parameters free
   C) Erweitertes CFM: Omega_Phi(a) mit zusätzlichem Materieterm
+     Extended CFM: Omega_Phi(a) with additional matter term
      (geometrischer Effekt kompensiert fehlende DM)
+     (geometric effect compensates for missing DM)
 
-Autor: Lukas Geiger (mit Claude Opus 4.6)
+Autor/Author: LG (mit Claude Opus 4.6)
 Datum: Februar 2026
 =============================================================================
 """
@@ -88,6 +94,7 @@ def omega_phi_tanh(a, Phi0, k, a_trans):
 def omega_phi_extended(a, Phi0, k, a_trans, alpha, beta):
     """
     Erweitertes CFM: Geometrischer Effekt mit Materiekompensation.
+    Extended CFM: Geometric effect with matter compensation.
 
     Omega_Phi(a) = Phi0 * [tanh(k*(a-at)) + s]/(1+s) + alpha * a^(-beta)
 
@@ -95,10 +102,14 @@ def omega_phi_extended(a, Phi0, k, a_trans, alpha, beta):
     "Materie-ähnlichen" Beitrag, der bei kleinen a dominiert und für
     grosse a verschwindet. In einem MOND-Universum könnte dieser Term
     die Rolle der Dunklen Materie auf kosmologischen Skalen übernehmen.
+    The second term (alpha * a^(-beta)) simulates a geometric "matter-like"
+    contribution that dominates at small a and vanishes for large a.
+    In a MOND universe, this term could play the role of Dark Matter 
+    on cosmological scales.
     """
     s = np.tanh(k * a_trans)
     phi_de = Phi0 * (np.tanh(k * (a - a_trans)) + s) / (1.0 + s)
-    phi_dm = alpha * a**(-beta)  # "geometrische Dunkle Materie"
+    phi_dm = alpha * a**(-beta)  # "geometrische Dunkle Materie" / "geometric DM"
     return phi_de + phi_dm
 
 
@@ -315,8 +326,9 @@ def test_C_extended_cfm(z, m_obs, m_err, Om_fixed=0.05):
         except:
             return 1e10
 
-    # alpha: Amplitude des DM-Ersatzterms
-    # beta: Skalierung (beta~3 = materieähnlich, beta~2 = Strahlung)
+    # alpha: Amplitude des DM-Ersatzterms / amplitude of DM replacement term
+    # beta: Skalierung (beta~3 = materieaehnlich, beta~2 = Strahlung)
+    # beta: scaling (beta~3 = matter-like, beta~2 = radiation)
     bounds = [(0.1, 100.0), (0.05, 0.95), (0.01, 0.50), (0.5, 4.0)]
     res = differential_evolution(objective, bounds, seed=42, maxiter=500,
                                  tol=1e-8, popsize=30, mutation=(0.5, 1.5),
@@ -478,7 +490,7 @@ def plot_results(z, m_obs, m_err, lcdm, cfm_std, testA, testB, testC):
     mu_lcdm = distance_modulus_lcdm(z, lcdm['Omega_m'])
     residuals_lcdm = m_obs - mu_lcdm - lcdm['M']
 
-    ax.scatter(z, residuals_lcdm, s=1, alpha=0.3, c='gray', label='Daten (LCDM-Residuen)')
+    ax.scatter(z, residuals_lcdm, s=1, alpha=0.3, c='gray', label='Data (LCDM residuals)')
 
     # CFM Standard
     P0 = cfm_std['Phi0']
@@ -496,7 +508,7 @@ def plot_results(z, m_obs, m_err, lcdm, cfm_std, testA, testB, testC):
                                  omega_phi_extended, extra_params=(testC['alpha'], testC['beta']))
     res_C = m_obs - mu_C - testC['M']
 
-    # Binned residuals
+    # Binned residuals / Gebinnte Residuen
     zbins = np.logspace(np.log10(z.min()), np.log10(z.max()), 25)
     for label, res, color, ls in [
         ('LCDM', residuals_lcdm, 'black', '-'),
@@ -515,13 +527,13 @@ def plot_results(z, m_obs, m_err, lcdm, cfm_std, testA, testB, testC):
 
     ax.axhline(0, color='gray', ls=':', lw=0.5)
     ax.set_xlabel('Redshift z')
-    ax.set_ylabel('Residuen (mag)')
-    ax.set_title('Hubble-Residuen vs. LCDM')
+    ax.set_ylabel('Residuals (mag)')
+    ax.set_title('Hubble residuals vs. LCDM')
     ax.legend(fontsize=8)
     ax.set_xscale('log')
     ax.set_ylim(-0.3, 0.3)
 
-    # --- Panel 2: Omega_Phi(a) Vergleich ---
+    # --- Panel 2: Omega_Phi(a) Vergleich / Comparison ---
     ax = axes[0, 1]
     a = np.linspace(0.01, 1.5, 500)
 
@@ -543,14 +555,14 @@ def plot_results(z, m_obs, m_err, lcdm, cfm_std, testA, testB, testC):
 
     ax.axhline(0.75, color='gray', ls=':', lw=1, alpha=0.5, label='$\\Omega_\\Lambda$ (LCDM)')
     ax.axvline(1.0, color='black', ls=':', lw=0.5, alpha=0.3)
-    ax.set_xlabel('Skalenfaktor $a$')
+    ax.set_xlabel('Scale factor $a$')
     ax.set_ylabel('$\\Omega_\\Phi(a)$')
-    ax.set_title('Geometrisches Potential: Standard vs. Baryon-Only')
+    ax.set_title('Geometric Potential: Standard vs. Baryon-Only')
     ax.legend(fontsize=8)
     ax.set_xlim(0, 1.5)
     ax.set_ylim(-0.2, 2.5)
 
-    # --- Panel 3: Chi2 Vergleich ---
+    # --- Panel 3: Chi2 Vergleich / Comparison ---
     ax = axes[1, 0]
     models = ['LCDM', 'CFM\nStandard', 'Baryon\nFixed', 'Baryon\nBand', 'Extended\nCFM+MOND']
     chi2s = [lcdm['chi2'], cfm_std['chi2'], testA['chi2'], testB['chi2'], testC['chi2']]
@@ -568,18 +580,18 @@ def plot_results(z, m_obs, m_err, lcdm, cfm_std, testA, testB, testC):
     ax.set_xticks(x_pos)
     ax.set_xticklabels(models, fontsize=9)
     ax.set_ylabel('$\\chi^2$ / AIC')
-    ax.set_title('Modellvergleich: $\\chi^2$ und AIC')
+    ax.set_title('Model comparison: $\\chi^2$ and AIC')
     ax.legend()
 
-    # --- Panel 4: Zusammenfassung ---
+    # --- Panel 4: Zusammenfassung / Summary ---
     ax = axes[1, 1]
     ax.axis('off')
 
     summary = []
-    summary.append("ERGEBNIS: Baryon-Only CFM + MOND Test")
+    summary.append("RESULT / ERGEBNIS: Baryon-Only CFM + MOND Test")
     summary.append("=" * 48)
     summary.append("")
-    summary.append(f"{'Modell':<22} {'chi2':>8} {'AIC':>8} {'BIC':>8} {'Params':>6}")
+    summary.append(f"{'Model / Modell':<22} {'chi2':>8} {'AIC':>8} {'BIC':>8} {'Params':>6}")
     summary.append("-" * 56)
 
     for name, r in [('LCDM', lcdm), ('CFM Standard', cfm_std),
@@ -598,7 +610,8 @@ def plot_results(z, m_obs, m_err, lcdm, cfm_std, testA, testB, testC):
             fontfamily='monospace', verticalalignment='top',
             bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.8))
 
-    fig.suptitle('CFM + MOND: Baryon-Only Universe Test gegen Pantheon+',
+    fig.suptitle('CFM + MOND: Baryon-Only Universe Test against Pantheon+\n'
+                 'LG (2026) -- Curvature Feedback Model',
                  fontsize=15, fontweight='bold')
     plt.tight_layout()
 
@@ -619,13 +632,14 @@ def write_report(lcdm, cfm_std, testA, testB, testC):
     lines.append("=" * 72)
     lines.append("CFM + MOND: BARYON-ONLY UNIVERSE TEST")
     lines.append("=" * 72)
-    lines.append(f"Datum: Februar 2026")
-    lines.append(f"Datensatz: Pantheon+ (Scolnic et al. 2022)")
-    lines.append(f"Hypothese: Wenn MOND gilt, ist Omega_m = Omega_b ~ 0.05")
+    lines.append(f"Date / Datum: February 2026")
+    lines.append(f"Dataset / Datensatz: Pantheon+ (Scolnic et al. 2022)")
+    lines.append(f"Hypothesis / Hypothese: Wenn MOND gilt, ist Omega_m = Omega_b ~ 0.05")
+    lines.append("                        If MOND holds, then Omega_m = Omega_b ~ 0.05")
     lines.append("")
 
     lines.append("-" * 72)
-    lines.append("REFERENZ: LCDM")
+    lines.append("REFERENCE / REFERENZ: LCDM")
     lines.append("-" * 72)
     lines.append(f"  Omega_m = {lcdm['Omega_m']:.4f}")
     lines.append(f"  chi2    = {lcdm['chi2']:.2f}")
@@ -697,7 +711,7 @@ def write_report(lcdm, cfm_std, testA, testB, testC):
 
     lines.append("")
     lines.append("=" * 72)
-    lines.append("ZUSAMMENFASSUNG")
+    lines.append("SUMMARY / ZUSAMMENFASSUNG")
     lines.append("=" * 72)
     lines.append("")
     lines.append(f"{'Modell':<25} {'chi2':>8} {'AIC':>8} {'BIC':>8} {'dchi2':>8} {'dAIC':>8}")
@@ -711,7 +725,7 @@ def write_report(lcdm, cfm_std, testA, testB, testC):
 
     lines.append("")
     lines.append("=" * 72)
-    lines.append("BEWERTUNG")
+    lines.append("EVALUATION / BEWERTUNG")
     lines.append("=" * 72)
 
     # Automatische Bewertung
@@ -738,13 +752,19 @@ def write_report(lcdm, cfm_std, testA, testB, testC):
         lines.append("  Das erweiterte CFM (Test C) mit geometrischem DM-Ersatz")
         lines.append(f"  fittet BESSER als LCDM (Delta chi2 = {dchi2_C:+.1f})!")
         lines.append("  => Die Vereinigung von CFM + MOND ist prinzipiell MOEGLICH.")
+        lines.append("  The extended CFM (Test C) with geometric DM compensation fits")
+        lines.append(f"  BETTER than LCDM (Delta chi2 = {dchi2_C:+.1f})!")
+        lines.append("  => The unification of CFM + MOND is conceptually POSSIBLE.")
     elif dchi2_C < 20:
         lines.append("  Das erweiterte CFM (Test C) mit geometrischem DM-Ersatz")
         lines.append(f"  zeigt nur moderate Degradation (Delta chi2 = {dchi2_C:+.1f}).")
         lines.append("  => Die Vereinigung verdient weitere Untersuchung.")
+        lines.append("  The extended CFM (Test C) shows only moderate degradation.")
+        lines.append("  => The unification warrants further investigation.")
     else:
         lines.append("  Das erweiterte CFM (Test C) mit geometrischem DM-Ersatz")
         lines.append(f"  degradiert erheblich (Delta chi2 = {dchi2_C:+.1f}).")
+        lines.append("  The extended CFM (Test C) degrades significantly.")
 
     lines.append("")
 
@@ -786,8 +806,8 @@ if __name__ == "__main__":
     print("\n[6/7] Test C: Erweitertes CFM + geom. DM-Ersatz...")
     testC = test_C_extended_cfm(z, m_obs, m_err, Om_fixed=0.05)
 
-    # Ergebnisse
-    print("\n[7/7] Erstelle Visualisierung und Report...")
+    # Ergebnisse / Results
+    print("\n[7/7] Erstelle Visualisierung und Report / Creating visualization and report...")
     plot_results(z, m_obs, m_err, lcdm, cfm_std, testA, testB, testC)
     report = write_report(lcdm, cfm_std, testA, testB, testC)
 

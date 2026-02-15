@@ -31,6 +31,9 @@ _data/
 _results/
 _scripts/
 
+# Gemini / Antigravity workspace
+_partners/
+
 # Temporary / private files
 Beispiel_Template_LaTex.tex
 CFM_CODE_REVIEW_BUNDLE.txt

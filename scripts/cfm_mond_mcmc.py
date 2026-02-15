@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-=============================================================================
 MCMC-Analyse für das erweiterte CFM+MOND Modell (Baryon-Only)
+MCMC Analysis for the extended CFM+MOND Model (Baryon-Only)
 =============================================================================
 Bestimmt Posterior-Verteilungen für alle 4 Parameter:
+Determines posterior distributions for all 4 parameters:
   k, a_trans, alpha, beta  (Omega_m = 0.05 fest, Phi0 abgeleitet)
+                           (Omega_m = 0.05 fixed, Phi0 derived)
 
-Autor: Lukas Geiger (mit Claude Opus 4.6)
+Autor/Author: LG (mit Claude Opus 4.6)
 Datum: Februar 2026
 =============================================================================
 """
@@ -58,7 +60,10 @@ def omega_phi_extended(a, Phi0, k, a_trans, alpha, beta):
 
 
 def phi0_from_flatness_extended(k, a_trans, alpha):
-    """Phi0 so dass Omega_total(a=1) = 1."""
+    """
+    Phi0 so dass Omega_total(a=1) = 1.
+    Phi0 such that Omega_total(a=1) = 1.
+    """
     s = np.tanh(k * a_trans)
     f_at_1 = (np.tanh(k * (1.0 - a_trans)) + s) / (1.0 + s)
     if abs(f_at_1) < 1e-15:
@@ -196,7 +201,7 @@ def run_mcmc(z, m_obs, m_err, best_params, nwalkers=48, nsteps=5000, burnin=1000
     dt = time.time() - t0
     print(f"    Laufzeit: {dt:.1f} s")
 
-    # Ergebnisse
+    # Ergebnisse / Results
     chain = sampler.get_chain(flat=True)
     labels = ['k', 'a_trans', 'alpha', 'beta']
 
@@ -270,7 +275,7 @@ def plot_posteriors(chain, results, best_chi2):
     ax.axhline(4.0, color='orange', ls=':', lw=1, alpha=0.5, label='Radiation ($a^{-4}$)')
     ax.legend(fontsize=8)
 
-    # Panel 6: Zusammenfassung
+    # Panel 6: Zusammenfassung / Summary
     ax = axes[1, 2]
     ax.axis('off')
     beta_med = results['beta']['median']
@@ -312,9 +317,9 @@ def write_mcmc_report(results, best_params, best_chi2):
     outpath = os.path.join(OUTPUT_DIR, 'CFM_MOND_MCMC_Results.txt')
     lines = []
     lines.append("=" * 60)
-    lines.append("MCMC ERGEBNISSE: Extended CFM+MOND (Baryon-Only)")
+    lines.append("MCMC RESULTS / ERGEBNISSE: Extended CFM+MOND (Baryon-Only)")
     lines.append("=" * 60)
-    lines.append(f"Omega_b = {OMEGA_B:.4f} (fest, nur Baryonen)")
+    lines.append(f"Omega_b = {OMEGA_B:.4f} (fixed / fest, baryons only)")
     lines.append(f"Best-fit chi2 = {best_chi2:.2f}")
     lines.append(f"Delta chi2 vs LCDM = {best_chi2 - 729.0:+.2f}")
     lines.append("")
@@ -331,8 +336,11 @@ def write_mcmc_report(results, best_params, best_chi2):
     lines.append("")
     lines.append("INTERPRETATION:")
     lines.append(f"  beta = {beta_med:.2f} liegt zwischen Materie (3.0) und Kruemmung (2.0)")
+    lines.append("  (lies between matter and curvature)")
     lines.append(f"  => Geometrischer Effekt mit materie-aehnlicher Skalierung")
+    lines.append("     (Geometric effect with matter-like scaling)")
     lines.append(f"  => Konsistent mit MOND-inspiriertem geometrischen DM-Ersatz")
+    lines.append("     (Consistent with MOND-inspired geometric DM replacement)")
 
     with open(outpath, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines))

@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
 Plot: chi2-sigma8 Tradeoff und alpha_M-Konvergenz.
+Plot: chi2-sigma8 tradeoff and alpha_M convergence.
 Zwei Subplots: Links chi2 vs sigma8, Rechts alpha_M scan.
+Two subplots: Left chi2 vs sigma8, Right alpha_M scan.
 """
 import matplotlib
 matplotlib.use('Agg')
@@ -84,7 +86,7 @@ ax1.legend(fontsize=10, loc='upper left')
 ax1.set_xlim(0.80, 1.00)
 ax1.set_ylim(-4, 5)
 ax1.grid(True, alpha=0.3)
-ax1.text(0.85, -3.5, r'$\Delta\chi^2 < 0$: besser als LCDM', fontsize=9, color='green')
+ax1.text(0.85, -3.5, r'$\Delta\chi^2 < 0$: better than LCDM', fontsize=9, color='green')
 ax1.text(0.815, 4, r'Planck $\sigma_8 \pm 5\%$', fontsize=8, color='blue', alpha=0.7)
 
 # ================================================================
@@ -117,12 +119,12 @@ ax2.annotate('Optimum\naM=1e-4\ndchi2=-0.29', (1e-4, -0.29), fontsize=8,
 
 ax2.set_xlabel(r'$\alpha_M$ (constant_alphas)', fontsize=14)
 ax2.set_ylabel(r'$\Delta\chi^2$ vs LCDM', fontsize=14)
-ax2.set_title(r'$\alpha_M \to 0$ Konvergenz', fontsize=14)
+ax2.set_title(r'$\alpha_M \to 0$ Convergence', fontsize=14)
 ax2.legend(fontsize=10)
 ax2.set_xlim(1e-16, 1e-3)
 ax2.set_ylim(-1, 8)
 ax2.grid(True, alpha=0.3)
-ax2.text(1e-13, 6, r'$\alpha_M < 10^{-6}$:' + '\nnumerisch = LCDM', fontsize=9, color='gray')
+ax2.text(1e-13, 6, r'$\alpha_M < 10^{-6}$:' + '\nnumerically = LCDM', fontsize=9, color='gray')
 
 plt.tight_layout()
 plt.savefig('/tmp/cfm_tradeoff_convergence.png', dpi=150, bbox_inches='tight')
