@@ -1,0 +1,22 @@
+Loading Planck 2018 data...
+Data: TT=2471, TE=1967, EE=1967, total=6405
+Loading checkpoint: /home/cfm-cosmology/results/cfm_fR_mcmc_chain_checkpoint_500.npz
+Checkpoint: Step 500, 24000 samples, acceptance=0.483
+Resuming from 48 walker positions:
+     alpha_M_0: 0.001022 +/- 0.000720
+         n_exp: 0.725894 +/- 0.468020
+     omega_cdm: 0.119968 +/- 0.000273
+         logAs: 3.044707 +/- 0.002226
+           n_s: 0.965367 +/- 0.002795
+
+================================================================================
+MCMC RESUME: cfm_fR (continuing from step 500)
+  Remaining steps: 4500
+  Walkers: 48, Cores: 6
+  maxtasksperchild: 50 (Worker-Recycling gegen Memory Leak)
+  Checkpoint every 250 steps
+  Save path: /home/cfm-cosmology/results/cfm_fR_mcmc_chain.npz
+================================================================================
+
+[20:50:25] Starting production (steps 501-5000)...
+  [22:22:38] Step 600/5000, accept=0.472, best_logL=-3312.6, time=92.2min, RAM=1.5/30.6GB (free=28.8GB)
