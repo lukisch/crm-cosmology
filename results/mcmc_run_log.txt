@@ -26,3 +26,5 @@ Burn-in statistics:
   [08:36:13] Step 200/5000, accept=0.483, best_logL=-3312.6, time=385.3min
   [10:09:08] Step 300/5000, accept=0.481, best_logL=-3312.6, time=478.2min
   [11:39:10] Step 400/5000, accept=0.480, best_logL=-3312.6, time=568.2min
+  [13:13:38] Step 500/5000, accept=0.483, best_logL=-3312.6, time=662.7min
+    -> Checkpoint saved (500 steps, 24000 samples)
