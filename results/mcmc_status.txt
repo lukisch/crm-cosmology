@@ -1,2 +1,6 @@
-MCMC run started: Mon Feb 16 02:46:11 AM UTC 2026
-Server: CCX33 (8 cores), 48 walkers, 5000 steps
+Status update: Mon Feb 16 05:46:42 AM UTC 2026
+     omega_cdm: 0.120078 +/- 0.001004
+         logAs: 3.045212 +/- 0.007458
+           n_s: 0.964868 +/- 0.002534
+
+[05:26:21] Starting production (5000 steps)...

@@ -1,0 +1,24 @@
+Downloading Planck 2018 data...
+Data: TT=2471, TE=1967, EE=1967, total=6405
+
+================================================================================
+FULL MCMC: cfm_fR with 5 parameters (EXTENDED RUN)
+  Walkers: 48, Burn-in: 200, Production: 5000
+  Cores: 8, Checkpoint every 500 steps
+  Parameters: ['alpha_M_0', 'n_exp', 'omega_cdm', 'logAs', 'n_s']
+  Starting at: aM0=0.0005, n=0.75, ocdm=0.1200, logAs=3.045, ns=0.9649
+  Save path: /home/cfm-cosmology/results/cfm_fR_mcmc_chain.npz
+================================================================================
+
+[02:10:56] Starting burn-in (200 steps)...
+[05:26:21] Burn-in complete. Acceptance: 0.486
+  Time: 195.4 min
+
+Burn-in statistics:
+     alpha_M_0: 0.000757 +/- 0.000536
+         n_exp: 0.710766 +/- 0.361173
+     omega_cdm: 0.120078 +/- 0.001004
+         logAs: 3.045212 +/- 0.007458
+           n_s: 0.964868 +/- 0.002534
+
+[05:26:21] Starting production (5000 steps)...
