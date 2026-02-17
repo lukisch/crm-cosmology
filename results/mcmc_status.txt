@@ -1,6 +1,6 @@
-Status update: Tue Feb 17 05:50:42 AM UTC 2026
-  [23:54:20] Step 700/5000, accept=0.468, best_logL=-3312.6, time=183.9min, RAM=1.4/30.6GB (free=28.8GB)
-  [01:26:44] Step 800/5000, accept=0.467, best_logL=-3312.6, time=276.3min, RAM=1.4/30.6GB (free=28.8GB)
+Status update: Tue Feb 17 08:50:45 AM UTC 2026
   [03:00:14] Step 900/5000, accept=0.468, best_logL=-3312.6, time=369.8min, RAM=1.5/30.6GB (free=28.8GB)
   [04:34:53] Step 1000/5000, accept=0.470, best_logL=-3312.6, time=464.5min, RAM=1.5/30.6GB (free=28.8GB)
     -> Checkpoint saved (step 1000, 48000 total samples)
+  [06:11:08] Step 1100/5000, accept=0.473, best_logL=-3312.6, time=560.7min, RAM=1.6/30.6GB (free=28.6GB)
+  [07:45:29] Step 1200/5000, accept=0.473, best_logL=-3312.6, time=655.1min, RAM=1.5/30.6GB (free=28.7GB)
