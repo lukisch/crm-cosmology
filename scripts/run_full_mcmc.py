@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-FULL MCMC RUN: Native cfm_fR model
-5 parameters: alpha_M_0, n_exp, omega_cdm, ln(10^10 A_s), n_s
+MCMC RESUME from checkpoint.
 
-Uses TT+TE+EE chi2 against Planck 2018 binned data.
-emcee EnsembleSampler with 24 walkers.
-
-Estimated runtime: ~4-8 hours (serial, ~6000 likelihood evaluations)
+Fixes vs. original run_full_mcmc_extended.py:
+  1. maxtasksperchild=50  -- Worker-Prozesse werden nach 50 Evaluationen recycelt
+     -> Verhindert Memory Leak durch hi_class C-Bibliothek
+  2. 6 statt 8 Kerne      -- Laesst ~6 GB RAM frei fuer OS + Puffer
+  3. Checkpoint alle 250   -- Haeufigere Sicherung
+  4. Laedt Checkpoint und setzt ab dort fort
 """
 import sys
 sys.path.insert(0, '/home/hi_class/python/build/lib.linux-x86_64-cpython-312')
@@ -15,6 +16,21 @@ import numpy as np
 import emcee
 import time
 import os
+import multiprocessing
+import resource
+import gc
+
+# ================================================================
+# 0. MEMORY LIMIT PER WORKER (Safety Net)
+# ================================================================
+def limit_memory():
+    """Setze Soft-Limit auf 4.5 GB pro Worker-Prozess."""
+    soft, hard = resource.getrlimit(resource.RLIMIT_AS)
+    resource.setrlimit(resource.RLIMIT_AS, (4_500_000_000, hard))
+
+def worker_init():
+    """Initializer fuer jeden neuen Worker-Prozess."""
+    limit_memory()
 
 # ================================================================
 # 1. LOAD PLANCK DATA
@@ -22,6 +38,8 @@ import os
 import urllib.request
 
 def download_planck(file_id, outpath):
+    if os.path.exists(outpath) and os.path.getsize(outpath) > 100:
+        return sum(1 for _ in open(outpath))
     url = f'https://pla.esac.esa.int/pla/aio/product-action?COSMOLOGY.FILE_ID={file_id}'
     try:
         data = urllib.request.urlopen(url, timeout=30).read().decode()
@@ -40,7 +58,7 @@ def load_planck(path, ell_min=30, ell_max=2500):
     mask = (ell >= ell_min) & (ell <= ell_max) & (err > 0)
     return ell[mask], Dl[mask], err[mask]
 
-print("Downloading Planck 2018 data...")
+print("Loading Planck 2018 data...")
 download_planck('COM_PowerSpect_CMB-TT-full_R3.01.txt', '/tmp/planck_tt.txt')
 download_planck('COM_PowerSpect_CMB-TE-full_R3.01.txt', '/tmp/planck_te.txt')
 download_planck('COM_PowerSpect_CMB-EE-full_R3.01.txt', '/tmp/planck_ee.txt')
@@ -58,10 +76,6 @@ N_EVAL = 0
 T_START = time.time()
 
 def log_likelihood(theta):
-    """
-    Compute log-likelihood for cfm_fR model.
-    theta = [alpha_M_0, n_exp, omega_cdm, logAs, n_s]
-    """
     global N_EVAL
     N_EVAL += 1
 
@@ -98,9 +112,11 @@ def log_likelihood(theta):
 
     try:
         cosmo.compute()
-    except:
+    except Exception:
         try: cosmo.struct_cleanup(); cosmo.empty()
         except: pass
+        del cosmo
+        gc.collect()
         return -1e30
 
     try:
@@ -116,22 +132,25 @@ def log_likelihood(theta):
         chi2_te = np.sum(((np.interp(te_ell, ell, Dl_te) - te_Dl) / te_err)**2)
         chi2_ee = np.sum(((np.interp(ee_ell, ell, Dl_ee) - ee_Dl) / ee_err)**2)
 
-        cosmo.struct_cleanup(); cosmo.empty()
+        cosmo.struct_cleanup()
+        cosmo.empty()
+        del cosmo
+        gc.collect()
         return -0.5 * (chi2_tt + chi2_te + chi2_ee)
-    except:
+    except Exception:
         try: cosmo.struct_cleanup(); cosmo.empty()
         except: pass
+        del cosmo
+        gc.collect()
         return -1e30
 
 # ================================================================
 # 3. PRIOR
 # ================================================================
-# Parameters: alpha_M_0, n_exp, omega_cdm, logAs, n_s
 PARAM_NAMES = ['alpha_M_0', 'n_exp', 'omega_cdm', 'logAs', 'n_s']
 PARAM_LABELS = [r'$\alpha_{M,0}$', r'$n$', r'$\omega_{cdm}$',
                 r'$\ln(10^{10}A_s)$', r'$n_s$']
 
-# Flat priors (generous but physical)
 PRIOR_LO = np.array([0.0,    0.1,  0.10,  2.5,  0.90])
 PRIOR_HI = np.array([0.003,  2.0,  0.14,  3.5,  1.02])
 
@@ -150,107 +169,206 @@ def log_probability(theta):
     return lp + ll
 
 # ================================================================
-# 4. MCMC SETUP
+# 4. LOAD CHECKPOINT
 # ================================================================
-ndim = 5
-nwalkers = 24  # 4-5x ndim
+_script_dir = os.path.dirname(os.path.abspath(__file__))
+_project_dir = os.path.dirname(_script_dir)
+_results_dir = os.path.join(_project_dir, 'results')
+os.makedirs(_results_dir, exist_ok=True)
+_persistent_path = os.path.join(_results_dir, 'cfm_fR_mcmc_chain.npz')
 
-# Starting point: around known best-fit
-# Best cfm_fR: aM0=0.0005, n=0.5-1.0, rest = Planck best-fit
-p0_center = np.array([
-    0.0005,                          # alpha_M_0
-    0.75,                            # n_exp (between 0.5 and 1.0)
-    0.1200,                          # omega_cdm
-    np.log(2.1e-9 * 1e10),          # logAs = 3.044
-    0.9649,                          # n_s
+# Suche den neuesten Checkpoint
+checkpoint_files = sorted([
+    f for f in os.listdir(_results_dir)
+    if f.startswith('cfm_fR_mcmc_chain_checkpoint_') and f.endswith('.npz')
 ])
 
-# Initial ball around center
-p0 = np.zeros((nwalkers, ndim))
-for i in range(nwalkers):
-    while True:
-        proposal = p0_center + np.array([
-            np.random.normal(0, 0.0002),   # aM0
-            np.random.normal(0, 0.2),      # n_exp
-            np.random.normal(0, 0.005),    # omega_cdm
-            np.random.normal(0, 0.05),     # logAs
-            np.random.normal(0, 0.005),    # n_s
-        ])
-        if np.all(proposal >= PRIOR_LO) and np.all(proposal <= PRIOR_HI):
-            p0[i] = proposal
-            break
+if not checkpoint_files:
+    print("FEHLER: Kein Checkpoint gefunden!")
+    sys.exit(1)
 
-# ================================================================
-# 5. RUN MCMC
-# ================================================================
-print("\n" + "="*80)
-print("FULL MCMC: cfm_fR with 5 parameters")
-print(f"  Walkers: {nwalkers}, Burn-in: 80, Production: 400")
-print(f"  Parameters: {PARAM_NAMES}")
-print(f"  Starting at: aM0={p0_center[0]:.4f}, n={p0_center[1]:.2f}, "
-      f"ocdm={p0_center[2]:.4f}, logAs={p0_center[3]:.3f}, ns={p0_center[4]:.4f}")
-print("="*80)
-sys.stdout.flush()
+latest_ckpt = os.path.join(_results_dir, checkpoint_files[-1])
+print(f"Loading checkpoint: {latest_ckpt}")
 
-sampler = emcee.EnsembleSampler(nwalkers, ndim, log_probability)
+ckpt = np.load(latest_ckpt, allow_pickle=True)
+chain_prev = ckpt['chain']       # flat chain: (nwalkers*steps, ndim)
+log_prob_prev = ckpt['log_prob'] # flat log_prob: (nwalkers*steps,)
+start_step = int(ckpt['step'])
+prev_acceptance = float(ckpt['acceptance'])
 
-# Burn-in
-print(f"\n[{time.strftime('%H:%M:%S')}] Starting burn-in (80 steps)...")
-sys.stdout.flush()
-state = sampler.run_mcmc(p0, 80, progress=False)
-print(f"[{time.strftime('%H:%M:%S')}] Burn-in complete. "
-      f"Acceptance: {np.mean(sampler.acceptance_fraction):.3f}")
-print(f"  Evaluations so far: {N_EVAL}, "
-      f"Time: {(time.time()-T_START)/60:.1f} min")
-sys.stdout.flush()
+ndim = 5
+nwalkers = 48
 
-# Check burn-in results
-chain_burnin = sampler.get_chain(flat=True)
-print(f"\nBurn-in statistics:")
+print(f"Checkpoint: Step {start_step}, {len(chain_prev)} samples, acceptance={prev_acceptance:.3f}")
+
+# Letzte Walker-Positionen extrahieren (letzte 48 Eintraege der flat chain)
+last_positions = chain_prev[-nwalkers:]  # shape: (48, 5)
+last_log_probs = log_prob_prev[-nwalkers:]
+
+print(f"Resuming from {nwalkers} walker positions:")
 for i, name in enumerate(PARAM_NAMES):
-    vals = chain_burnin[:, i]
+    vals = last_positions[:, i]
     print(f"  {name:>12s}: {np.mean(vals):.6f} +/- {np.std(vals):.6f}")
+
+# ================================================================
+# 5. RESUME MCMC
+# ================================================================
+n_production_total = 5000
+n_remaining = n_production_total - start_step
+chunk_size = 100
+checkpoint_interval = 250  # Haeufiger als vorher (war 500)
+N_CORES = 6  # Reduziert von 8 -> laesst ~6 GB RAM frei
+
+print(f"\n{'='*80}")
+print(f"MCMC RESUME: cfm_fR (continuing from step {start_step})")
+print(f"  Remaining steps: {n_remaining}")
+print(f"  Walkers: {nwalkers}, Cores: {N_CORES}")
+print(f"  maxtasksperchild: 50 (Worker-Recycling gegen Memory Leak)")
+print(f"  Checkpoint every {checkpoint_interval} steps")
+print(f"  Save path: {_persistent_path}")
+print(f"{'='*80}")
 sys.stdout.flush()
 
-sampler.reset()
+# FIX 1: maxtasksperchild recycelt Worker nach 50 Evaluationen
+#         -> verhindert unbegrenztes RAM-Wachstum durch hi_class C-Leak
+# FIX 2: worker_init setzt Memory-Limit pro Prozess (4.5 GB)
+pool = multiprocessing.Pool(
+    processes=N_CORES,
+    maxtasksperchild=50,
+    initializer=worker_init,
+)
+sampler = emcee.EnsembleSampler(nwalkers, ndim, log_probability, pool=pool)
 
-# Production
-print(f"\n[{time.strftime('%H:%M:%S')}] Starting production (400 steps)...")
+# Initiale State aus Checkpoint-Positionen
+from emcee.state import State
+state = State(last_positions, log_prob=last_log_probs)
+
+print(f"\n[{time.strftime('%H:%M:%S')}] Starting production (steps {start_step+1}-{n_production_total})...")
 sys.stdout.flush()
 
-# Run in chunks to report progress
-n_production = 400
-chunk_size = 50
-for chunk in range(n_production // chunk_size):
+# Sammle vorherige Chain fuer den finalen Output
+all_chain_parts = [chain_prev]
+all_logprob_parts = [log_prob_prev]
+
+for chunk in range(n_remaining // chunk_size):
     state = sampler.run_mcmc(state, chunk_size, progress=False)
-    step = (chunk + 1) * chunk_size
+    step = start_step + (chunk + 1) * chunk_size
     elapsed = (time.time() - T_START) / 60
     accept = np.mean(sampler.acceptance_fraction)
-    best_ll = np.max(sampler.get_log_prob(flat=True))
-    print(f"  [{time.strftime('%H:%M:%S')}] Step {step}/{n_production}, "
+    best_ll_new = np.max(sampler.get_log_prob(flat=True))
+    best_ll_prev = np.max(log_prob_prev)
+    best_ll = max(best_ll_new, best_ll_prev)
+
+    # Memory-Status
+    import psutil
+    mem = psutil.virtual_memory()
+    mem_used_gb = mem.used / (1024**3)
+    mem_avail_gb = mem.available / (1024**3)
+
+    print(f"  [{time.strftime('%H:%M:%S')}] Step {step}/{n_production_total}, "
           f"accept={accept:.3f}, best_logL={best_ll:.1f}, "
-          f"evals={N_EVAL}, time={elapsed:.1f}min")
+          f"time={elapsed:.1f}min, "
+          f"RAM={mem_used_gb:.1f}/{mem.total/(1024**3):.1f}GB (free={mem_avail_gb:.1f}GB)")
     sys.stdout.flush()
 
-# ================================================================
-# 6. RESULTS
-# ================================================================
-print("\n" + "="*80)
-print("MCMC RESULTS")
-print("="*80)
+    # Checkpoint
+    if (chunk + 1) * chunk_size % checkpoint_interval == 0:
+        new_chain = sampler.get_chain(flat=True)
+        new_logprob = sampler.get_log_prob(flat=True)
 
-chain = sampler.get_chain(flat=True)
-log_prob = sampler.get_log_prob(flat=True)
+        # Kombiniere alte + neue Chain
+        combined_chain = np.vstack([chain_prev, new_chain])
+        combined_logprob = np.concatenate([log_prob_prev, new_logprob])
 
-print(f"\nChain shape: {chain.shape}")
-print(f"Total evaluations: {N_EVAL}")
-print(f"Total time: {(time.time()-T_START)/60:.1f} min")
-print(f"Acceptance fraction: {np.mean(sampler.acceptance_fraction):.3f}")
+        _ckpt = dict(
+            chain=combined_chain,
+            log_prob=combined_logprob,
+            param_names=PARAM_NAMES,
+            step=step,
+            acceptance=accept,
+        )
+        ckpt_file = _persistent_path.replace('.npz', f'_checkpoint_{step}.npz')
+        np.savez(ckpt_file, **_ckpt)
+        np.savez(_persistent_path, **_ckpt)
+        np.savez('/tmp/cfm_fR_mcmc_results.npz', **_ckpt)
+        print(f"    -> Checkpoint saved (step {step}, {len(combined_chain)} total samples)")
+        sys.stdout.flush()
+
+pool.close()
+pool.join()
+
+# ================================================================
+# 5b. CONVERGENCE DIAGNOSTICS
+# ================================================================
+print(f"\n{'='*80}")
+print("CONVERGENCE DIAGNOSTICS")
+print(f"{'='*80}")
+
+# Neue Chain aus Resume-Lauf
+new_chain_3d = sampler.get_chain()  # (n_steps, nwalkers, ndim)
+n_steps_new = new_chain_3d.shape[0]
+
+try:
+    tau = sampler.get_autocorr_time(quiet=True)
+    print(f"\nAutocorrelation times (resume segment only, {n_steps_new} steps):")
+    for i, name in enumerate(PARAM_NAMES):
+        print(f"  {name:>12s}: tau = {tau[i]:.1f}")
+    print(f"\nMean autocorrelation time: {np.mean(tau):.1f}")
+    print(f"Chain length / tau: {n_steps_new / np.mean(tau):.1f} (should be >> 50)")
+except Exception as e:
+    tau = None
+    print(f"WARNING: Autocorrelation time estimation failed: {e}")
+
+if tau is not None:
+    ess = n_steps_new * nwalkers / np.mean(tau)
+    print(f"Effective Sample Size (ESS): {ess:.0f}")
+
+# Gelman-Rubin R-hat
+print(f"\nGelman-Rubin R-hat (split-chain, resume segment):")
+for i, name in enumerate(PARAM_NAMES):
+    half = n_steps_new // 2
+    chains_split = []
+    for w in range(nwalkers):
+        chains_split.append(new_chain_3d[:half, w, i])
+        chains_split.append(new_chain_3d[half:, w, i])
+    chains_split = np.array(chains_split)
+
+    M = len(chains_split)
+    N = len(chains_split[0])
+    chain_means = np.mean(chains_split, axis=1)
+    grand_mean = np.mean(chain_means)
+    B = N / (M - 1) * np.sum((chain_means - grand_mean)**2)
+    W = np.mean(np.var(chains_split, axis=1, ddof=1))
+    var_hat = (N - 1) / N * W + B / N
+    R_hat = np.sqrt(var_hat / W) if W > 0 else float('inf')
+    status = "OK" if R_hat < 1.01 else "WARNING"
+    print(f"  {name:>12s}: R-hat = {R_hat:.4f}  [{status}]")
+
+# ================================================================
+# 6. FINAL RESULTS
+# ================================================================
+print(f"\n{'='*80}")
+print("MCMC RESULTS (combined: checkpoint + resume)")
+print(f"{'='*80}")
+
+new_chain_flat = sampler.get_chain(flat=True)
+new_logprob_flat = sampler.get_log_prob(flat=True)
+
+# Kombiniere alles
+chain = np.vstack([chain_prev, new_chain_flat])
+log_prob_all = np.concatenate([log_prob_prev, new_logprob_flat])
+
+print(f"\nCombined chain shape: {chain.shape}")
+print(f"  Previous (checkpoint): {chain_prev.shape[0]} samples")
+print(f"  New (resume): {new_chain_flat.shape[0]} samples")
+print(f"Total evaluations (this run): {N_EVAL}")
+print(f"Total time (this run): {(time.time()-T_START)/60:.1f} min")
+print(f"Acceptance fraction (resume): {np.mean(sampler.acceptance_fraction):.3f}")
 
 # Best-fit
-best_idx = np.argmax(log_prob)
+best_idx = np.argmax(log_prob_all)
 best_params = chain[best_idx]
-best_chi2 = -2 * log_prob[best_idx]
+best_chi2 = -2 * log_prob_all[best_idx]
 
 print(f"\nBest-fit (lowest chi2 = {best_chi2:.1f}, dchi2 = {best_chi2 - 6628.8:.1f}):")
 for i, name in enumerate(PARAM_NAMES):
@@ -266,7 +384,7 @@ for i, name in enumerate(PARAM_NAMES):
     print(f"  {name:>12s} {np.mean(vals):>12.6f} {np.std(vals):>10.6f} "
           f"{q50:>12.6f} {q16:>10.6f} {q84:>10.6f}")
 
-# Derived parameters
+# Derived
 print(f"\nDerived parameters at best-fit:")
 As_best = np.exp(best_params[3]) * 1e-10
 aM_today = best_params[0] * best_params[1] / (1 + best_params[0])
@@ -276,12 +394,11 @@ print(f"  A_s = {As_best:.4e}")
 print(f"  alpha_M(a=1) = {aM_today:.6f}")
 print(f"  Omega_m = {Omega_m:.4f}")
 
-# Significance of alpha_M_0 > 0
+# Significance
 aM0_chain = chain[:, 0]
 frac_above_zero = np.mean(aM0_chain > 1e-6)
 print(f"\n  P(alpha_M_0 > 0) = {frac_above_zero:.4f}")
 if frac_above_zero > 0.5:
-    # Compute how many sigma alpha_M_0 is above 0
     mean_aM0 = np.mean(aM0_chain)
     std_aM0 = np.std(aM0_chain)
     if std_aM0 > 0:
@@ -301,27 +418,26 @@ for i, name in enumerate(PARAM_NAMES):
         print(f" {corr[i,j]:>10.3f}", end='')
     print()
 
-# Save chain -- BOTH to project directory (persistent) and /tmp/ (backward compat)
-import os
-_script_dir = os.path.dirname(os.path.abspath(__file__))
-_project_dir = os.path.dirname(_script_dir)
-_save_args = dict(chain=chain, log_prob=log_prob,
+# Save
+_save_args = dict(chain=chain, log_prob=log_prob_all,
                   param_names=PARAM_NAMES,
-                  best_params=best_params, best_chi2=best_chi2)
-_persistent_path = os.path.join(_project_dir, 'results', 'cfm_fR_mcmc_chain.npz')
+                  best_params=best_params, best_chi2=best_chi2,
+                  nwalkers=nwalkers, n_production=n_production_total,
+                  acceptance=np.mean(sampler.acceptance_fraction),
+                  resumed_from_step=start_step)
 np.savez(_persistent_path, **_save_args)
 np.savez('/tmp/cfm_fR_mcmc_results.npz', **_save_args)
 print(f"\nChain saved to: {_persistent_path}")
-print(f"Chain also saved to: /tmp/cfm_fR_mcmc_results.npz (backward compat)")
+print(f"Chain also saved to: /tmp/cfm_fR_mcmc_results.npz")
 
-# Also save human-readable summary
 with open('/tmp/cfm_fR_mcmc_summary.txt', 'w') as f:
-    f.write("CFM_FR FULL MCMC RESULTS\n")
+    f.write("CFM_FR FULL MCMC RESULTS (RESUMED)\n")
     f.write(f"Date: {time.strftime('%Y-%m-%d %H:%M')}\n")
-    f.write(f"Walkers: {nwalkers}, Steps: {n_production}\n")
+    f.write(f"Walkers: {nwalkers}, Total Steps: {n_production_total}\n")
+    f.write(f"Resumed from step: {start_step}\n")
     f.write(f"Total samples: {chain.shape[0]}\n")
-    f.write(f"Total evaluations: {N_EVAL}\n")
-    f.write(f"Runtime: {(time.time()-T_START)/60:.1f} min\n")
+    f.write(f"Total evaluations (resume): {N_EVAL}\n")
+    f.write(f"Runtime (resume): {(time.time()-T_START)/60:.1f} min\n")
     f.write(f"Acceptance: {np.mean(sampler.acceptance_fraction):.3f}\n\n")
     f.write(f"Best chi2: {best_chi2:.1f} (dchi2 = {best_chi2-6628.8:.1f})\n")
     for i, name in enumerate(PARAM_NAMES):
