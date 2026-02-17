@@ -1,6 +1,6 @@
-Status update: Mon Feb 16 11:50:38 PM UTC 2026
-  Save path: /home/cfm-cosmology/results/cfm_fR_mcmc_chain.npz
-================================================================================
+Status update: Tue Feb 17 02:50:40 AM UTC 2026
 
 [20:50:25] Starting production (steps 501-5000)...
   [22:22:38] Step 600/5000, accept=0.472, best_logL=-3312.6, time=92.2min, RAM=1.5/30.6GB (free=28.8GB)
+  [23:54:20] Step 700/5000, accept=0.468, best_logL=-3312.6, time=183.9min, RAM=1.4/30.6GB (free=28.8GB)
+  [01:26:44] Step 800/5000, accept=0.467, best_logL=-3312.6, time=276.3min, RAM=1.4/30.6GB (free=28.8GB)
