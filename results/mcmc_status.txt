@@ -1,4 +1,4 @@
-Status update: Thu Feb 19 08:51:41 PM UTC 2026
+Status update: Thu Feb 19 11:51:45 PM UTC 2026
 Chain also saved to: /tmp/cfm_fR_mcmc_results.npz
 
 ================================================================================
