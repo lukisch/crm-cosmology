@@ -71,3 +71,77 @@ MCMC RESUME: cfm_fR (continuing from step 500)
   [14:03:11] Step 4700/5000, accept=0.465, best_logL=-3312.6, time=3912.8min, RAM=1.6/30.6GB (free=28.6GB)
   [15:37:10] Step 4800/5000, accept=0.465, best_logL=-3312.6, time=4006.7min, RAM=1.5/30.6GB (free=28.8GB)
   [17:12:42] Step 4900/5000, accept=0.465, best_logL=-3312.6, time=4102.3min, RAM=1.5/30.6GB (free=28.8GB)
+  [18:44:11] Step 5000/5000, accept=0.465, best_logL=-3312.6, time=4193.8min, RAM=1.5/30.6GB (free=28.7GB)
+    -> Checkpoint saved (step 5000, 240000 total samples)
+
+================================================================================
+CONVERGENCE DIAGNOSTICS
+================================================================================
+
+Autocorrelation times (resume segment only, 4500 steps):
+     alpha_M_0: tau = 75.6
+         n_exp: tau = 83.4
+     omega_cdm: tau = 59.2
+         logAs: tau = 62.3
+           n_s: tau = 58.8
+
+Mean autocorrelation time: 67.9
+Chain length / tau: 66.3 (should be >> 50)
+Effective Sample Size (ESS): 3182
+
+Gelman-Rubin R-hat (split-chain, resume segment):
+     alpha_M_0: R-hat = 1.0155  [WARNING]
+         n_exp: R-hat = 1.0176  [WARNING]
+     omega_cdm: R-hat = 1.0143  [WARNING]
+         logAs: R-hat = 1.0174  [WARNING]
+           n_s: R-hat = 1.0130  [WARNING]
+
+================================================================================
+MCMC RESULTS (combined: checkpoint + resume)
+================================================================================
+
+Combined chain shape: (240000, 5)
+  Previous (checkpoint): 24000 samples
+  New (resume): 216000 samples
+Total evaluations (this run): 0
+Total time (this run): 4193.8 min
+Acceptance fraction (resume): 0.465
+
+Best-fit (lowest chi2 = 6625.1, dchi2 = -3.7):
+     alpha_M_0 = 0.002338
+         n_exp = 0.273327
+     omega_cdm = 0.120022
+         logAs = 3.044268
+           n_s = 0.965962
+
+Marginalized 1D constraints (mean +/- std):
+   Parameter         Mean        Std       Median        16%        84%
+----------------------------------------------------------------------
+     alpha_M_0     0.001273   0.000725     0.001147   0.000550   0.002098
+         n_exp     0.655309   0.402987     0.550646   0.256918   1.128392
+     omega_cdm     0.120013   0.000300     0.120015   0.119717   0.120309
+         logAs     3.044365   0.001941     3.044356   3.042432   3.046294
+           n_s     0.965631   0.002414     0.965607   0.963236   0.968021
+
+Derived parameters at best-fit:
+  A_s = 2.0995e-09
+  alpha_M(a=1) = 0.000637
+  Omega_m = 0.3142
+
+  P(alpha_M_0 > 0) = 0.9999
+  alpha_M_0 detection significance: 1.76 sigma
+
+Correlation matrix:
+              alpha_M_0      n_exp  omega_cdm      logAs        n_s
+     alpha_M_0      1.000     -0.612     -0.043     -0.078      0.083
+         n_exp     -0.612      1.000      0.032      0.030     -0.020
+     omega_cdm     -0.043      0.032      1.000      0.543     -0.049
+         logAs     -0.078      0.030      0.543      1.000     -0.544
+           n_s      0.083     -0.020     -0.049     -0.544      1.000
+
+Chain saved to: /home/cfm-cosmology/results/cfm_fR_mcmc_chain.npz
+Chain also saved to: /tmp/cfm_fR_mcmc_results.npz
+
+================================================================================
+MCMC COMPLETE
+================================================================================
