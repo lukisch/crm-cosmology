@@ -1,35 +1,15 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[ngerman]{babel}
-\usepackage{geometry}
-\geometry{a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
-\usepackage{mathptmx}
-\usepackage{helvet}
-\usepackage{amsmath}
-\usepackage{amssymb}
+\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
 \usepackage{amsthm}
-\usepackage{titlesec}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{xcolor}
-\usepackage{authblk}
-\usepackage{hyperref}
-\usepackage{enumitem}
-\usepackage{graphicx}
 \graphicspath{{../figures/}}
-\usepackage{float}
-\usepackage{setspace}
 \usepackage{array}
-\usepackage[normalem]{ulem}
+\usepackage{float}
 
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 \newtheorem{conjecture}{Vermutung}
-
-\titleformat{\section}{\Large\bfseries\sffamily\color{black}}{\thesection}{1em}{}
-\titleformat{\subsection}{\large\bfseries\sffamily\color{darkgray}}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\normalsize\bfseries\sffamily\color{darkgray}}{\thesubsubsection}{1em}{}
 
 \hypersetup{
     pdftitle={CFM-MOND-Vereinigung: Ein baryonisches Universum ohne Dunkle Materie},
@@ -40,52 +20,38 @@
     citecolor=black
 }
 
-\onehalfspacing
-
 \begin{document}
 
 % ===================================================================
 % TITELSEITE
 % ===================================================================
 
-\title{\textbf{\huge CFM-MOND-Vereinigung:\\Ein baryonisches Universum ohne Dunkle Materie}\\[0.5em]
-\Large Ersetzung des Teilchen-Darksektors durch Raumzeit-Geometrie}
+\title{CFM-MOND-Vereinigung: Ein baryonisches Universum ohne Dunkle Materie --- Ersetzung des Teilchen-Darksektors durch Raumzeit-Geometrie}
 
-\author[1]{Lukas Geiger\thanks{Korrespondenz: Lukas Geiger, Gei\ss{}b\"uhlweg~1, 79872~Bernau, Deutschland.}}
-\affil[1]{Unabh\"angiger Forscher, Bernau im Schwarzwald}
+\author{Lukas Geiger}
+\email{Correspondence: Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany}
+\affiliation{Independent Researcher, Bernau im Schwarzwald, Germany}
 
-\date{Februar 2026 \\ \vspace{0.5em} \small \textit{Paper~II der CFM-Serie -- Begleitpaper zu \cite{Geiger2026}}}
+\date{\today}
 
-\maketitle
-
-% -------------------------------------------------------------------
-% ZUSAMMENFASSUNG
-% -------------------------------------------------------------------
 
 \begin{abstract}
-\noindent Wir schlagen ein vereinheitlichtes geometrisches Rahmenwerk vor, das sowohl Dunkle Energie als auch partikul\"are Dunkle Materie durch Raumzeit-Kr\"ummung ersetzt. Aufbauend auf dem Kr\"ummungs-R\"uckkopplungsmodell (CFM) \cite{Geiger2026}, welches die kosmologische Konstante durch ein zeitabh\"angiges Kr\"ummungs-R\"uckstellpotential $\Omega_\Phi(a)$ ersetzt, erweitern wir das Modell zu einem \textit{Universum mit ausschlie\ss{}lich baryonischem Materieinhalt} ($\Omega_m = \Omega_b \approx 0{,}05$), das mit der Modifizierten Newtonschen Dynamik (MOND) \cite{Milgrom1983} kompatibel ist. Die erweiterte Friedmann-Gleichung lautet:
+Wir schlagen ein vereinheitlichtes geometrisches Rahmenwerk vor, das sowohl Dunkle Energie als auch partikul\"are Dunkle Materie durch Raumzeit-Kr\"ummung ersetzt. Aufbauend auf dem Kr\"ummungs-R\"uckkopplungsmodell (CFM) \cite{Geiger2026}, welches die kosmologische Konstante durch ein zeitabh\"angiges Kr\"ummungs-R\"uckstellpotential $\Omega_\Phi(a)$ ersetzt, erweitern wir das Modell zu einem \textit{Universum mit ausschlie\ss{}lich baryonischem Materieinhalt} ($\Omega_m = \Omega_b \approx 0{,}05$), das mit der Modifizierten Newtonschen Dynamik (MOND) \cite{Milgrom1983} kompatibel ist. Die erweiterte Friedmann-Gleichung lautet:
 \begin{equation*}
 H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta}\right]
 \end{equation*}
 wobei der S\"attigungsterm $f_{\mathrm{sat}}$ die Dunkle Energie ersetzt und der Potenzgesetz-Term $\alpha \cdot a^{-\beta}$ die kosmologische Rolle der Dunklen Materie als rein geometrischen Effekt \"ubernimmt. Getestet an 1.590 Pantheon+ Typ~Ia-Supernovae \cite{Scolnic2022} liefert dieses Modell "`ohne dunklen Sektor"' $\chi^2 = 702{,}7$ ($\Delta\chi^2 = -26{,}3$ gegen\"uber $\Lambda$CDM, $\Delta\mathrm{AIC} = -16{,}3$, $\Delta\mathrm{BIC} = -4{,}2$) und \"ubertrifft damit sowohl $\Lambda$CDM als auch das Standard-CFM deutlich. Die MCMC-Posterioranalyse ergibt $\alpha = 0{,}68^{+0{,}02}_{-0{,}07}$ und $\beta = 2{,}02^{+0{,}26}_{-0{,}14}$, was zeigt, dass der geometrische DM-Term wie \textit{r\"aumliche Kr\"ummung} ($a^{-2}$, $w = -1/3$) skaliert -- nicht wie Materie ($a^{-3}$). Wir diskutieren die physikalische Interpretation und die Verbindung zur relativistischen MOND-Theorie AeST \cite{Skordis2021}. Dieses Framework ersetzt den gesamten Teilchen-Darksektor durch Raumzeit-Geometrie. Der Unterschied zu CDM ist nicht nur ontologisch, sondern testbar: das Scalaron erzeugt $\mu(k,a) \neq 1$, gravitational slip $\eta \neq 1$, aber $\Sigma = 1$ -- eine Kombination die kein CDM-Modell reproduzieren kann.
 
-\vspace{0.5em}
-\noindent \textbf{Schl\"usselw\"orter:} Kr\"ummungs-R\"uckkopplungsmodell, MOND, Dunkle Materie, Dunkle Energie, baryonisches Universum, Pantheon+, modifizierte Gravitation, geometrische Kosmologie
-
-\vspace{0.5em}
-\noindent \textbf{Fachgebiete:} Theoretische Physik, Kosmologie, Modifizierte Gravitation
 \end{abstract}
 
-\newpage
-\tableofcontents
-\newpage
+\keywords{Kr\"ummungs-R\"uckkopplungsmodell, MOND, Dunkle Materie, Dunkle Energie, baryonisches Universum, Pantheon+, modifizierte Gravitation, geometrische Kosmologie}
 
-% -------------------------------------------------------------------
-% KI-OFFENLEGUNG
-% -------------------------------------------------------------------
-\footnotetext{Bei der Erstellung dieses Manuskripts wurden KI-gest\"utzte Werkzeuge (Claude, Anthropic; Gemini, Google DeepMind) f\"ur mathematische Formalisierung, Code-Entwicklung und Textgenerierung eingesetzt. Alle physikalischen Hypothesen, wissenschaftliche Interpretation und Verantwortung f\"ur den Inhalt liegen ausschlie\ss{}lich beim Autor. Der Analysecode ist verf\"ugbar unter \url{https://github.com/lukisch/cfm-cosmology}.}
+\maketitle
 
-\newpage
+\thanks{KI-Werkzeuge (Claude, Anthropic; Gemini, Google DeepMind) wurden fuer mathematische Formalisierung, Code-Entwicklung und Texterstellung verwendet. Alle physikalischen Hypothesen, wissenschaftliche Interpretation und Verantwortung fuer die Inhalte liegen vollstaendig bei dem Autor. Der Analysecode ist verfuegbar unter \url{https://github.com/lukisch/cfm-cosmology}.}
+
+\thanks{Arbeit~II in der CFM-Serie.}
+
 
 % -------------------------------------------------------------------
 % 1. EINLEITUNG
@@ -377,7 +343,7 @@ Dieses Ergebnis hat tiefgreifende Implikationen: Die Komponente, die traditionel
 
 \subsection{Beziehung zu AeST und relativistischer MOND}
 
-Die relativistische MOND-Theorie AeST (Aether-Skalar-Tensor) \cite{Skordis2021} liefert das einzige bekannte Rahmenwerk, das gleichzeitig:
+Die relativistische MOND-Theorie AeST (Aether-Skalar-Tensor) \cite{Skordis2021}, die die fr\"uhere TeVeS-Theorie von Bekenstein \cite{Bekenstein2004} abl\"ost, indem sie Kompatibilit\"at mit Gravitationswellengeschwindigkeits-Constraints und dem CMB erreicht, liefert das einzige bekannte Rahmenwerk, das gleichzeitig:
 \begin{enumerate}
 \item MOND-Dynamik auf galaktischen Skalen reproduziert
 \item Das CMB-Leistungsspektrum fittet (einschlie\ss{}lich des dritten akustischen Maximums)
@@ -463,7 +429,7 @@ Das Materiedichtespektrum $P(k)$ in $\Lambda$CDM wird durch Dunkle-Materie-Halos
 
 Eine vorl\"aufige $P(k)$-Analyse mit dem "`Effective CDM"'-Mapping in CAMB \cite{Lewis2000} best\"atigt die korrekte qualitative Form: Die Turnover-Skala ($k_{\mathrm{peak}} \approx 0{,}015$\,$h$/Mpc) liegt nahe an $\Lambda$CDM (0{,}017), und die epochenabh\"angige effektive Materiedichte $\Omega_{m,\mathrm{eff}}(z)$ stimmt bei $z \approx 500$ \textit{exakt} mit $\Lambda$CDM \"uberein ($\Omega_{m,\mathrm{eff}} = 0{,}315$). Die quantitative Vorhersage von $P(k)$ mit den vollst\"andigen St\"orungsgleichungen ist ein zentrales Ziel f\"ur zuk\"unftige Arbeiten.
 
-Paper~III \cite{Geiger2026c} erweitert diese Analyse auf eine native \texttt{cfm\_fR}-Implementierung in hi\_class mit voller Boltzmann-Integration und erreicht $\Delta\chi^2 = -3{,}6$ in einem MCMC \"uber 5~Parameter (siehe Tabellen und Abbildungen dort).
+Paper~III \cite{Geiger2026c} erweitert diese Analyse auf eine native \texttt{cfm\_fR}-Implementierung in hi\_class mit voller Boltzmann-Integration und erreicht $\Delta\chi^2 = -3{,}6$ in einem MCMC \"uber 5~Parameter (siehe Tabellen und Abbildungen dort). Dabei verwendet die Analyse die \texttt{propto\_omega}-Parametrisierung -- dieselbe Parametrisierung, die die Planck-Kollaboration in ihrer Modified-Gravity-Analyse verwendet \cite{PlanckMG2016} und die $\alpha_{M,0} < 0{,}052$ (95\% CL) constrainiert. Der CFM-Best-Fit von $\alpha_{M,0} = 0{,}0013$ liegt etwa $40\times$ unter dieser Obergrenze.
 
 \subsection{Ontologische Interpretation: Die verschachtelte Hierarchie}
 \label{subsec:nested}
@@ -502,7 +468,7 @@ Die Ergebnisse dieses Papers -- ein reines Baryonen-Modell mit skalenabh\"angige
 
 \item \textbf{Die $\beta = 2$-Koinzidenz:} W\"ahrend wir $\beta \approx 2$ als Hinweis auf einen Kr\"ummungsursprung interpretieren, existieren alternative Erkl\"arungen. Die $a^{-2}$-Skalierung k\"onnte ein Zufall oder ein Artefakt der Parametrisierung sein.
 
-\item \textbf{St\"orungstheorie:} Die Hintergrund-Observablen sind vollst\"andig reproduziert. Die "`Effective CDM"'-Analyse mit CLASS/hi\_class \cite{Lewis2000, Zumalacarregui2017} ergibt $\mathcal{P}_3/\mathcal{P}_1 = 0{,}4212$ (98{,}1\% von Planck); mit minimaler $\beta_{\mathrm{early}}$-Anpassung ($2{,}82 \to 2{,}829$, nur 0{,}32\%) erreichen wir $\mathcal{P}_3/\mathcal{P}_1 = 0{,}4295$ (\textbf{exakter Planck-Match}). BBN ist konsistent ($\Delta N_{\mathrm{eff}} \approx 0$). Die zentrale verbleibende Herausforderung ist der $\theta_s$-Offset ($1{,}025$ vs.\ Planck $1{,}041$), verursacht durch die effektive Zustandsgleichung des geometrischen Terms ($w = -0{,}06$ bei Rekombination $\to$ 2{,}5\% gr\"o\ss{}erer Schalchorizont).
+\item \textbf{St\"orungstheorie:} Die Hintergrund-Observablen sind vollst\"andig reproduziert. Die "`Effective CDM"'-Analyse mit CLASS/hi\_class \cite{Lewis2000, Zumalacarregui2017} ergibt $\mathcal{P}_3/\mathcal{P}_1 = 0{,}4212$ (98{,}1\% von Planck); mit minimaler $\beta_{\mathrm{early}}$-Anpassung ($2{,}82 \to 2{,}829$, nur 0{,}32\%) erreichen wir $\mathcal{P}_3/\mathcal{P}_1 = 0{,}4295$ (\textbf{innerhalb der Planck-Unsicherheiten}). BBN ist konsistent ($\Delta N_{\mathrm{eff}} \approx 0$). Die zentrale verbleibende Herausforderung ist der $\theta_s$-Offset ($1{,}025$ vs.\ Planck $1{,}041$), verursacht durch die effektive Zustandsgleichung des geometrischen Terms ($w = -0{,}06$ bei Rekombination $\to$ 2{,}5\% gr\"o\ss{}erer Schalchorizont).
 \end{enumerate}
 
 \textbf{Ehrliche Bewertung:} Das skalenabh\"angige $\mu(a)$ l\"ost alle zuvor kritischen Probleme: $H_0$ ($60 \to 67{,}3$\,km/s/Mpc), Schallhorizont ($165 \to 146{,}9$\,Mpc), EDE ($52\% \to 0\%$), Parameterzahl ($\sim$9 $\to$ 6), BBN-Konsistenz ($\Delta N_{\mathrm{eff}} \approx 0$). Die St\"orungsanalyse mit CLASS/hi\_class ergibt $\mathcal{P}_3/\mathcal{P}_1 = 0{,}4295$ (100\% Planck) bei optimiertem $\beta_{\mathrm{early}} = 2{,}829$. Die zentrale Herausforderung ist der $\theta_s$-Offset ($1{,}025$ vs.\ $1{,}041$), dessen Ursprung die effektive Zustandsgleichung $w = -0{,}06$ des geometrischen Terms bei Rekombination ist. Vollst\"andige modifizierte Boltzmann-Gleichungen und die Lagrange-Herleitung bleiben als Aufgaben bestehen.
@@ -539,7 +505,7 @@ Die quantitativen Ergebnisse umfassen zwei Analyseebenen:
 \item \textbf{Gemeinsam SN + CMB + BAO (laufendes $\beta$ + $\mu(a)$, kein EDE):} $\Delta\chi^2 = -5{,}5$, mit $\ell_A = 301{,}471$, $\mathcal{R} = 1{,}7502$, $H_0 = 67{,}3$\,km/s/Mpc, $r_d = 146{,}9$\,Mpc und 6 freien Parametern. Die skalenabh\"angige MOND-Kopplung $\mu(a)$ l\"ost alle bisherigen Probleme: $H_0$, Schallhorizont und EDE.
 \end{enumerate}
 
-Die Drei-Phasen-Interpretation ergibt sich nat\"urlich: Bei $z > z_\mu \approx 4000$ gilt Standardgravitation ($\mu \to 1$); bei $z_\mu > z > z_t$ aktiviert sich die MOND-Verst\"arkung ($\mu \to \sqrt{\pi}$); bei $z < z_t \approx 9$ treibt der S\"attigungsterm kosmische Beschleunigung an. Die St\"orungsanalyse mit CLASS/hi\_class \cite{Lewis2000, Zumalacarregui2017} ergibt $\mathcal{P}_3/\mathcal{P}_1 = 0{,}4295$ (\textbf{exakter Planck-Match}) bei optimiertem $\beta_{\mathrm{early}} = 2{,}829$ (0{,}32\% Anpassung). BBN ist vollst\"andig konsistent ($\Delta N_{\mathrm{eff}} \approx 0$), $P(k)$-Form qualitativ korrekt. Die zentrale verbleibende Herausforderung ist der $\theta_s$-Offset ($1{,}025$ vs.\ $1{,}041$) aus der effektiven Zustandsgleichung $w = -0{,}06$ des geometrischen Terms. Weitere Aufgaben: Lagrange-Herleitung von $\mu(a)$ und $\beta(a)$, vollst\"andige $C_\ell$-Berechnung mit modifizierten Boltzmann-Gleichungen.
+Die Drei-Phasen-Interpretation ergibt sich nat\"urlich: Bei $z > z_\mu \approx 4000$ gilt Standardgravitation ($\mu \to 1$); bei $z_\mu > z > z_t$ aktiviert sich die MOND-Verst\"arkung ($\mu \to \sqrt{\pi}$); bei $z < z_t \approx 9$ treibt der S\"attigungsterm kosmische Beschleunigung an. Die St\"orungsanalyse mit CLASS/hi\_class \cite{Lewis2000, Zumalacarregui2017} ergibt $\mathcal{P}_3/\mathcal{P}_1 = 0{,}4295$ (\textbf{innerhalb der Planck-Unsicherheiten}) bei optimiertem $\beta_{\mathrm{early}} = 2{,}829$ (0{,}32\% Anpassung). BBN ist vollst\"andig konsistent ($\Delta N_{\mathrm{eff}} \approx 0$), $P(k)$-Form qualitativ korrekt. Die zentrale verbleibende Herausforderung ist der $\theta_s$-Offset ($1{,}025$ vs.\ $1{,}041$) aus der effektiven Zustandsgleichung $w = -0{,}06$ des geometrischen Terms. Weitere Aufgaben: Lagrange-Herleitung von $\mu(a)$ und $\beta(a)$, vollst\"andige $C_\ell$-Berechnung mit modifizierten Boltzmann-Gleichungen.
 
 \subsection{Das Drei-Paper-Programm}
 
@@ -555,7 +521,7 @@ Dieses Paper ist das zweite in einem dreiteiligen Programm:
 \item Vollst\"andiges CMB-Leistungsspektrum $C_\ell$ mit modifizierten St\"orungsgleichungen (Poisson-Gleichung, anisotroper Stress) mittels hi\_class \cite{Zumalacarregui2017} oder EFTCAMB \cite{Hu2014}. Die vorl\"aufige "`Effective CDM"'-Analyse ($\mathcal{P}_3/\mathcal{P}_1 = 0{,}421$, 97{,}9\% von Planck) liefert eine starke Ausgangsbasis.
 \item Pr\"azisions-BAO-Analyse mit DESI DR2-Daten
 \item Materiedichtespektrum $P(k)$ mit vollst\"andigen St\"orungsgleichungen: Die vorl\"aufige Analyse best\"atigt die korrekte Form, aber $\sigma_8 = 0{,}90$ in der "`Effective CDM"'-N\"aherung ist zu hoch -- die vollst\"andige Behandlung sollte dies reduzieren.
-\item \sout{BBN-Konsistenzpr\"ufung} -- \textbf{ERLEDIGT:} $\mu(z > 10^4) \to 1$, $\Delta N_{\mathrm{eff}} \approx 0{,}000$ \cite{Pitrou2018}
+\item \textbf{BBN-Konsistenzpr\"ufung -- ABGESCHLOSSEN:} $\mu(z > 10^4) \to 1$, $\Delta N_{\mathrm{eff}} \approx 0{,}000$ \cite{Pitrou2018}
 \item Lagrange-Herleitung des laufenden $\beta$ aus der kr\"ummungsquadratischen Wirkung; $\mu(a)$ bleibt ph\"anomenologisch (Paper~III)
 \end{enumerate}
 
@@ -571,7 +537,6 @@ Diese Arbeit pr\"asentiert eine vielversprechende Hypothese, keine gesicherte Sc
 \begin{quote}
 \textit{"`Wenn Dunkle Energie eine relaxierende Randbedingung ist und Dunkle Materie ein geometrischer Schatten, dann k\"onnten 95\% des Universums die ganze Zeit sichtbar gewesen sein -- als die Geometrie der Raumzeit selbst."'}
 \end{quote}
-
 
 % ===================================================================
 % LITERATUR
@@ -723,6 +688,24 @@ Hunter, J.\,D.\ (2007).
 Matplotlib: A 2D Graphics Environment.
 \textit{Computing in Science \& Engineering}, 9(3), 90--95.
 DOI: 10.1109/MCSE.2007.55.
+
+\bibitem{Bekenstein2004}
+Bekenstein, J.\,D.\ (2004).
+Relativistic gravitation theory for the modified Newtonian dynamics paradigm.
+\textit{Physical Review D}, 70(8), 083509.
+DOI: 10.1103/PhysRevD.70.083509.
+
+\bibitem{HuSawicki2007}
+Hu, W.\ \& Sawicki, I.\ (2007).
+Models of $f(R)$ Cosmic Acceleration that Evade Solar-System Tests.
+\textit{Physical Review D}, 76(6), 064004.
+DOI: 10.1103/PhysRevD.76.064004.
+
+\bibitem{PlanckMG2016}
+Planck Collaboration (2016).
+Planck 2015 results. XIV. Dark energy and modified gravity.
+\textit{Astronomy \& Astrophysics}, 594, A14.
+DOI: 10.1051/0004-6361/201525814.
 
 \end{thebibliography}
 

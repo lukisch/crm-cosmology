@@ -1,35 +1,18 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[english]{babel}
-\usepackage{geometry}
-\geometry{a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
-\usepackage{mathptmx}
-\usepackage{helvet}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{titlesec}
+\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+
+% REVTeX 4.2 loads amsmath, amssymb, graphicx, and hyperref automatically
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{xcolor}
-\usepackage{authblk}
-\usepackage{hyperref}
-\usepackage{enumitem}
-\usepackage{graphicx}
-\graphicspath{{../figures/}}
-\usepackage{float}
-\usepackage{setspace}
+\usepackage{amsthm}
 \usepackage{array}
-\usepackage[normalem]{ulem}
+\usepackage{float}
+\graphicspath{{../figures/}}
 
+% Theorem environments (REVTeX compatible)
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 \newtheorem{conjecture}{Conjecture}
-
-\titleformat{\section}{\Large\bfseries\sffamily\color{black}}{\thesection}{1em}{}
-\titleformat{\subsection}{\large\bfseries\sffamily\color{darkgray}}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\normalsize\bfseries\sffamily\color{darkgray}}{\thesubsubsection}{1em}{}
 
 \hypersetup{
     pdftitle={Eliminating the Dark Sector: Unifying the Curvature Feedback Model with MOND},
@@ -40,49 +23,35 @@
     citecolor=black
 }
 
-\onehalfspacing
-
 \begin{document}
 
 % ===================================================================
-% TITELSEITE
+% TITLE PAGE
 % ===================================================================
 
-\title{\textbf{\huge Eliminating the Dark Sector:\\Unifying the Curvature Feedback Model with MOND}\\[0.5em]
-\Large Replacing the Particle Dark Sector with Spacetime Geometry\\[0.3em]
-\large Preliminary Analysis with Pantheon+ Type~Ia Supernovae}
+\title{Eliminating the Dark Sector: Unifying the Curvature Feedback Model with MOND --- Replacing the Particle Dark Sector with Spacetime Geometry}
 
-\author[1]{Lukas Geiger\thanks{Correspondence: Lukas Geiger, Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany.}}
-\affil[1]{Independent Researcher, Bernau im Schwarzwald}
+\author{Lukas Geiger}
+\email{Correspondence: Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany}
+\affiliation{Independent Researcher, Bernau im Schwarzwald, Germany}
 
-\date{February 2026 \\ \vspace{0.5em} \small \textit{Paper~II in the CFM series -- Companion to \cite{Geiger2026}}}
-
-\maketitle
+\date{\today}
 
 \begin{abstract}
-\noindent We propose a unified geometric framework that replaces both dark energy and particulate dark matter with spacetime curvature. Building on the Curvature Feedback Model (CFM) \cite{Geiger2026}, which replaces the cosmological constant with a time-dependent curvature return potential $\Omega_\Phi(a)$, we extend the model so that the \textit{matter content} of the universe is exclusively baryonic ($\Omega_m^{\mathrm{particles}} = \Omega_b \approx 0.05$), while the gravitational effects attributed to dark matter arise from a geometric degree of freedom -- the scalaron of $R + 2\gamma R^2$ gravity -- compatible with Modified Newtonian Dynamics (MOND) \cite{Milgrom1983}. The extended Friedmann equation reads:
+We propose a unified geometric framework that replaces both dark energy and particulate dark matter with spacetime curvature. Building on the Curvature Feedback Model (CFM) \cite{Geiger2026}, which replaces the cosmological constant with a time-dependent curvature return potential $\Omega_\Phi(a)$, we extend the model so that the \textit{matter content} of the universe is exclusively baryonic ($\Omega_m^{\mathrm{particles}} = \Omega_b \approx 0.05$), while the gravitational effects attributed to dark matter arise from a geometric degree of freedom -- the scalaron of $R + 2\gamma R^2$ gravity -- compatible with Modified Newtonian Dynamics (MOND) \cite{Milgrom1983}. The extended Friedmann equation reads:
 \begin{equation*}
 H^2(a) = H_0^2 \left[\mu(a)\,\Omega_b\,a^{-3} + \Omega_r\,a^{-4} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta_{\mathrm{eff}}(a)}\right]
 \end{equation*}
 where $\mu(a)$ is a \textit{scale-dependent} MOND gravitational enhancement factor applied at the background level, the saturation term $f_{\mathrm{sat}}$ replaces dark energy, and the power-law term $\alpha \cdot a^{-\beta_{\mathrm{eff}}}$ assumes the cosmological role of dark matter as a purely geometric effect. Three key innovations are: (i)~the \textit{running curvature coupling} $\beta_{\mathrm{eff}}(a)$, which transitions from $\beta_{\mathrm{early}} \approx 2.8$ (CDM-like) to $\beta_{\mathrm{late}} \approx 2.0$ (curvature-like), analogous to the MOND interpolation function; (ii)~the \textit{MOND background coupling} $\mu(a)$, which modifies both the Friedmann equation and the sound horizon calculation ($R_b = 3\mu(a)\Omega_b / 4\Omega_\gamma$), resolving the Hubble constant problem; and (iii)~the \textit{scale-dependent} evolution $\mu(a) = \sqrt{\pi}$ at late times transitioning to $\mu \to 1$ at $z > 4000$, which \textbf{completely eliminates} the need for Early Dark Energy ($f_{\mathrm{EDE}} = 0$). Tested against 1,590 Pantheon+ Type~Ia supernovae, Planck CMB compressed observables ($\ell_A$, $\mathcal{R}$), and 9 BAO distance measurements jointly, the preferred CFM+MOND variant with scale-dependent $\mu(a)$ achieves $\chi^2_{\mathrm{total}} = 704.8$ ($\Delta\chi^2 = -5.5$ vs.\ $\Lambda$CDM) at $H_0 = 67.3$\,km/s/Mpc with \textbf{zero} EDE, yielding $\ell_A = 301.471$ and $\mathcal{R} = 1.7502$ -- an exact match to Planck. The sound horizon $r_d = 146.9$\,Mpc is essentially identical to $\Lambda$CDM ($147.2$\,Mpc), and the model uses only 6 free parameters -- the same count as $\Lambda$CDM. The SN-only analysis with constant $\beta$ yields $\Delta\chi^2 = -26.3$ ($\Delta\mathrm{AIC} = -16.3$, $\Delta\mathrm{BIC} = -4.2$), with MCMC posteriors $\alpha = 0.68^{+0.02}_{-0.07}$ and $\beta = 2.02^{+0.26}_{-0.14}$, confirming curvature scaling ($a^{-2}$, $w = -1/3$). This framework replaces the entire particle dark sector -- comprising 95\% of the energy budget in $\Lambda$CDM -- with spacetime geometry. The distinction from CDM is not merely ontological but \textit{testable}: the scalaron produces $\mu(k,a) \neq 1$ (enhanced gravitational coupling at sub-Compton scales), gravitational slip $\eta \neq 1$, yet $\Sigma = 1$ (lensing identical to GR) -- a combination that no CDM model with modified perturbations can reproduce.
-
-\vspace{0.5em}
-\noindent \textbf{Keywords:} Curvature Feedback Model, MOND, dark matter, dark energy, baryon-only universe, Pantheon+, modified gravity, geometric cosmology
-
-\vspace{0.5em}
-\noindent \textbf{Subject areas:} Theoretical Physics, Cosmology, Modified Gravity
 \end{abstract}
 
-\newpage
-\tableofcontents
-\newpage
+\keywords{Curvature Feedback Model, MOND, dark matter, dark energy, baryon-only universe, Pantheon+, modified gravity, geometric cosmology}
 
-% ===================================================================
-% KI-NUTZUNG
-% ===================================================================
-\footnotetext{AI tools (Claude, Anthropic; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/lukisch/cfm-cosmology}.}
+\maketitle
 
-\newpage
+\thanks{AI tools (Claude, Anthropic; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/lukisch/cfm-cosmology}.}
+
+\thanks{Paper~II in the CFM series -- Companion to \cite{Geiger2026}.}
 
 
 % ===================================================================
@@ -688,7 +657,7 @@ This result has profound implications: the component traditionally identified as
 
 \subsection{Relation to AeST and Relativistic MOND}
 
-The relativistic MOND theory AeST (Aether Scalar Tensor) \cite{Skordis2021} provides the only known framework that simultaneously:
+The relativistic MOND theory AeST (Aether Scalar Tensor) \cite{Skordis2021}, which supersedes Bekenstein's earlier TeVeS theory \cite{Bekenstein2004} by achieving compatibility with gravitational wave speed constraints and the CMB, provides the only known framework that simultaneously:
 \begin{enumerate}
 \item Reproduces MOND dynamics on galactic scales
 \item Fits the CMB power spectrum (including the third acoustic peak)
@@ -733,17 +702,17 @@ The AeST precedent establishes that the \textit{principle} of CMB compatibility 
 
 \textit{Optimized solution:} A minimal adjustment of $\beta_{\mathrm{early}} = 2.82 \to 2.829$ (\textbf{0.32\%} change) increases $\omega_{c,\mathrm{eff}}$ from 0.1066 to 0.1125, yielding:
 \begin{itemize}
-\item $\mathcal{P}_3/\mathcal{P}_1 = 0.4295$ -- \textbf{exact Planck match} (100.0\%)
+\item $\mathcal{P}_3/\mathcal{P}_1 = 0.4295$ -- \textbf{matches Planck within uncertainties}
 \item $\ell_1 = 222$ (improved from 223, remaining offset $\Delta\ell = 2$)
 \item $\chi^2$ improvement: $4578 \to 1555$ (66\% reduction)
 \end{itemize}
 
-\textit{Modified gravity perturbation breakthrough:} Using the \texttt{constant\_alphas} parametrization in hi\_class \cite{Zumalacarregui2017} with an $f(R)$-type relation ($\alpha_B = -\alpha_M/2$, $\alpha_T = 0$), we find that $\alpha_M = 0.0008$ shifts $\ell_1$ from 223 to \textbf{220 (exact Planck)} through the early ISW effect -- \textit{without changing $\theta_s$}. This is a purely perturbative effect: the Horndeski $\alpha_M$ (Planck mass running rate) modifies the gravitational potentials $\Phi$ and $\Psi$ during the matter-to-DE transition, producing a net ISW contribution that shifts the apparent peak positions. The background quantities ($\theta_s$, $r_s$, $D_A$) remain unchanged. A systematic scan over 14 parameter combinations confirms that $\omega_{c,\mathrm{eff}}$ controls $r_{31}$ while $\alpha_M$ controls $\ell_1$, with the two effects nearly decoupled.
+\textit{Modified gravity perturbation breakthrough:} Using the \texttt{constant\_alphas} parametrization in hi\_class \cite{Zumalacarregui2017} with an $f(R)$-type relation ($\alpha_B = -\alpha_M/2$, $\alpha_T = 0$), we find that $\alpha_M = 0.0008$ shifts $\ell_1$ from 223 to \textbf{220 (matches Planck)} through the early ISW effect -- \textit{without changing $\theta_s$}. This is a purely perturbative effect: the Horndeski $\alpha_M$ (Planck mass running rate) modifies the gravitational potentials $\Phi$ and $\Psi$ during the matter-to-DE transition, producing a net ISW contribution that shifts the apparent peak positions. The background quantities ($\theta_s$, $r_s$, $D_A$) remain unchanged. A systematic scan over 14 parameter combinations confirms that $\omega_{c,\mathrm{eff}}$ controls $r_{31}$ while $\alpha_M$ controls $\ell_1$, with the two effects nearly decoupled.
 
 \textit{Combined optimal model (directly verified):} With $\omega_{c,\mathrm{eff}} = 0.1143$ ($\beta_{\mathrm{early}} = 2.834$, 0.49\% adjustment) and $\alpha_M = 0.0007$ ($f(R)$ relation):
 \begin{itemize}
-\item $\ell_1 = 220$ -- \textbf{exact Planck match}
-\item $\mathcal{P}_3/\mathcal{P}_1 = 0.4295$ -- \textbf{exact Planck match}
+\item $\ell_1 = 220$ -- \textbf{matches Planck measurement}
+\item $\mathcal{P}_3/\mathcal{P}_1 = 0.4295$ -- \textbf{matches Planck measurement}
 \item $100\,\theta_s = 1.034$ (offset reduced from 1.55\% to \textbf{0.69\%})
 \end{itemize}
 The $f(R)$ relation ($\alpha_B = -\alpha_M/2$) follows naturally from the $R^2$ structure of the CFM Lagrangian, and $\alpha_T = 0$ ensures $c_{\mathrm{gw}} = c$, consistent with LIGO/Virgo GW170817 \cite{Abbott2017gw}. The physical interpretation is that the CFM's curvature feedback modifies $G_{\mathrm{eff}}$ by $\sim$0.08\% per e-fold of expansion.
@@ -800,7 +769,7 @@ A preliminary $P(k)$ analysis using the ``effective CDM'' mapping in CAMB \cite{
 \subsubsection{Extended Numerical Validation: TT+TE+EE, $f\sigma_8$, and $S_8$}
 \label{subsubsec:extended_validation}
 
-Beyond the CMB peak positions, the \texttt{propto\_omega} parametrization in hi\_class \cite{Zumalacarregui2017} -- where $\alpha_i(a) = c_i \cdot \Omega_{\mathrm{DE}}(a)$, ensuring $\alpha_i \to 0$ at recombination -- enables a comprehensive analysis against full Planck 2018 power spectra and large-scale structure data. All cosmological parameters are fixed to Planck 2018 best-fit; the only additional parameter is $c_M$.
+Beyond the CMB peak positions, the \texttt{propto\_omega} parametrization in hi\_class \cite{Zumalacarregui2017} -- where $\alpha_i(a) = c_i \cdot \Omega_{\mathrm{DE}}(a)$, ensuring $\alpha_i \to 0$ at recombination -- enables a comprehensive analysis against full Planck 2018 power spectra and large-scale structure data. This is the same parametrization used by the Planck Collaboration in their modified gravity analysis \cite{PlanckMG2016}, which constrains $\alpha_{M,0} < 0.052$ (95\% CL) using the full likelihood. All cosmological parameters are fixed to Planck 2018 best-fit; the only additional parameter is $c_M$.
 
 \textit{TT + TE + EE power spectra.} Using 6{,}405 Planck data points ($\ell = 30$--$2500$: 2{,}471 TT + 1{,}967 TE + 1{,}967 EE), the CFM with $c_M = 0.0002$ achieves $\Delta\chi^2_{\mathrm{tot}} = -0.2$ against $\Lambda$CDM. Larger $c_M$ values improve further ($\Delta\chi^2 = -1.7$ for \texttt{propto\_scale} $c_M = 0.0005$). Crucially, the improvement arises primarily from TT; the polarization spectra TE and EE are essentially unchanged ($\Delta\chi^2 < 0.1$), demonstrating full consistency with polarization data. Paper~III \cite{Geiger2026c} extends this analysis to a native \texttt{cfm\_fR} implementation in hi\_class with full Boltzmann integration, achieving $\Delta\chi^2 = -3.6$ in an MCMC over 5~parameters (see Figures and tables therein).
 
@@ -914,7 +883,7 @@ This paper is the second in a three-part program:
 \item Native CFM gravity model in hi\_class with time-dependent $\alpha_M(a)$ from the curvature feedback physics. The current analysis using \texttt{constant\_alphas} achieves $\ell_1 = 220$ and $\mathcal{P}_3/\mathcal{P}_1 = 0.4295$ (both exact Planck), but the constant parametrization encounters numerical instabilities at high $\omega_c$. A time-dependent implementation (\texttt{eft\_alphas\_power\_law} or custom model) would resolve this and close the remaining $\theta_s$ offset (1.035 vs.\ 1.041, 0.63\%).
 \item Precision BAO analysis with DESI DR2 data and the CFM distance ladder
 \item Matter power spectrum $P(k)$ with full perturbation equations: the preliminary analysis confirms the correct shape, but $\sigma_8 = 0.90$ in the ``effective CDM'' approximation is too high -- the full treatment is expected to reduce this.
-\item \sout{BBN consistency check} -- \textbf{DONE:} $\mu(z > 10^4) \to 1$, $\Delta N_{\mathrm{eff}} \approx 0.000$ \cite{Pitrou2018}
+\item BBN consistency check (\textbf{completed}): $\mu(z > 10^4) \to 1$, $\Delta N_{\mathrm{eff}} \approx 0.000$ \cite{Pitrou2018}
 \item AeST mapping: deriving $\alpha$, $\beta_{\mathrm{eff}}$, and $\mu(a)$ from the Skordis-Z{\l}o\'snik framework
 \item Lagrangian derivation of the running $\beta$ from the curvature-squared action (Paper~III); the running $\mu(a)$ remains a phenomenological parametrization awaiting theoretical foundation
 \end{enumerate}
@@ -971,6 +940,24 @@ Skordis, C.\ \& Z{\l}o\'snik, T.\ (2021).
 New Relativistic Theory for Modified Newtonian Dynamics.
 \textit{Physical Review Letters}, 127(16), 161302.
 DOI: 10.1103/PhysRevLett.127.161302.
+
+\bibitem{Bekenstein2004}
+Bekenstein, J.\,D.\ (2004).
+Relativistic gravitation theory for the modified Newtonian dynamics paradigm.
+\textit{Physical Review D}, 70(8), 083509.
+DOI: 10.1103/PhysRevD.70.083509.
+
+\bibitem{HuSawicki2007}
+Hu, W.\ \& Sawicki, I.\ (2007).
+Models of $f(R)$ Cosmic Acceleration that Evade Solar-System Tests.
+\textit{Physical Review D}, 76(6), 064004.
+DOI: 10.1103/PhysRevD.76.064004.
+
+\bibitem{PlanckMG2016}
+Planck Collaboration (2016).
+Planck 2015 results. XIV. Dark energy and modified gravity.
+\textit{Astronomy \& Astrophysics}, 594, A14.
+DOI: 10.1051/0004-6361/201525814.
 
 \bibitem{McGaugh2016}
 McGaugh, S.\,S., Lelli, F.\ \& Schombert, J.\,M.\ (2016).

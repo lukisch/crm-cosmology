@@ -1,34 +1,18 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[english]{babel}
-\usepackage{geometry}
-\geometry{a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
-\usepackage{mathptmx}
-\usepackage{helvet}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{titlesec}
+\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+
+% REVTeX 4.2 loads amsmath, amssymb, graphicx, and hyperref automatically
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{xcolor}
-\usepackage{authblk}
-\usepackage{hyperref}
-\usepackage{enumitem}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{array}
 \usepackage{longtable}
 \usepackage{multirow}
-\usepackage{array}
+\graphicspath{{../figures/}}
 
+% Theorem environments (REVTeX compatible)
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
-
-\titleformat{\section}{\Large\bfseries\sffamily\color{black}}{\thesection}{1em}{}
-\titleformat{\subsection}{\large\bfseries\sffamily\color{darkgray}}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\normalsize\bfseries\sffamily\color{darkgray}}{\thesubsubsection}{1em}{}
 
 \hypersetup{
     pdftitle={Game-Theoretic Cosmology and the Curvature Feedback Model},
@@ -39,43 +23,32 @@
     citecolor=black
 }
 
-\onehalfspacing
-
 \begin{document}
 
 % ===================================================================
 % TITLE PAGE
 % ===================================================================
 
-\title{\textbf{\huge Game-Theoretic Cosmology and the Curvature Feedback Model}\\[0.5em]
-\Large Nash Equilibria Between Null Space and Spacetime Bubble\\as an Explanatory Framework for Accelerated Expansion\\[0.3em]
-\large An Integrative Theoretical Approach}
+\title{Game-Theoretic Cosmology and the Curvature Feedback Model: Nash Equilibria Between Null Space and Spacetime Bubble as an Explanatory Framework for Accelerated Expansion}
 
-\author[1]{Lukas Geiger\thanks{Correspondence: Lukas Geiger, Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany.}}
-\affil[1]{Independent Researcher, Bernau im Schwarzwald, Germany}
+\author{Lukas Geiger}
+\email{Correspondence: Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany}
+\affiliation{Independent Researcher, Bernau im Schwarzwald, Germany}
 
-\date{February 2026 \\ \vspace{0.5em} \small \textit{Paper~I in the CFM series}}
+\date{\today}
+
+\begin{abstract}
+This paper develops a game-theoretic framework for cosmology in which the emergence and evolution of spacetime is modeled as a Nash equilibrium between two agents: a metastable quantum vacuum (null space) and a spacetime bubble arising from it. The central result is the \textit{Curvature Feedback Model} (CFM), which explains the observed accelerated expansion of the universe not through a new form of energy (dark energy) but through a diminishing curvature return potential~$\Phi(a)$ -- a geometric ``memory'' of the initial energy concentration at the Big Bang. The modified Friedmann equation $H^2(a) = H_0^2\,[\Omega_m\,a^{-3} + \Omega_\Phi(a)]$ with $\Omega_\Phi(a) = \Phi_0 \cdot \tanh(k\cdot(a - a_{\mathrm{trans}}))$ is tested against 1,590 Type~Ia supernovae ($z > 0.01$) from the Pantheon+ catalog \cite{Scolnic2022} -- both with diagonal errors and with the full statistical-systematic covariance matrix. Under a flatness constraint ($\Omega_m + \Omega_\Phi(a{=}1) = 1$), the CFM yields $\Delta\chi^2 = -12.2$ ($-11.2$ with full covariance) and $\Delta\mathrm{AIC} = -8.2$ ($-7.2$) relative to $\Lambda$CDM; 5-fold cross-validation confirms better generalization. MCMC posterior analysis yields $\Omega_m = 0.368 \pm 0.024$, and four alternative functional forms (logistic, error function, power law) show comparable $\Delta\chi^2$ values, confirming the robustness of results. A phantom stability analysis shows: no Big Rip (saturation of $\Omega_\Phi$), asymptotically de~Sitter end state. The model predicts a measurable time variation of the equation-of-state parameter ($w(z) < -1$, $|\Delta w| \approx 0.4$) and an earlier acceleration transition ($z_{\mathrm{acc}} = 0.52$ vs.\ $0.84$), testable with Euclid and the Nancy Grace Roman Space Telescope within the next decade. It is shown that the CFM exhibits conceptual connections to both Finsler gravity (Pfeifer et al., 2025) and the recently proposed \textit{Cosmological Teleodynamics} (Trivedi \& Venkatasubramanian, 2025), which likewise describes cosmic expansion as convergence toward a Nash equilibrium. Analysis code and data are publicly available.\footnote{\url{https://github.com/lukisch/cfm-cosmology}} In particular, the rigorous analysis identifies with $z_{\mathrm{acc}} \approx 0.52$ a later onset of cosmic acceleration than $\Lambda$CDM ($z_{\mathrm{acc}} = 0.84$), implying an extended matter-dominated growth phase. This prediction offers a natural explanation for the JWST ``Universe Breakers'' -- unexpectedly massive galaxies at $z > 7$ \cite{Labbe2023, BoylanKolchin2023} -- as well as for statistically improbable massive galaxy clusters such as El~Gordo at $z \approx 0.87$ \cite{Asencio2023}, which place the $\Lambda$CDM standard model under significant tension. The game-theoretic axioms are shown to possess an exact thermodynamic equivalence: Nash equilibrium maps to thermodynamic equilibrium, and the saturation dynamics corresponds to maximum entropy production under finite-capacity constraints, connecting the CFM to the Jacobson tradition of gravity as a thermodynamic equation of state \cite{Jacobson1995}. The game-theoretic perspective opens a paradigm shift: from ``What drives the acceleration?'' to ``Why did the expansion brake earlier?''
+\end{abstract}
+
+\keywords{game theory, Nash equilibrium, cosmology, dark energy, curvature return potential, Curvature Feedback Model, Friedmann equation, Finsler gravity, accelerated expansion, equation of state}
 
 \maketitle
 
-\begin{abstract}
-\noindent
-This paper develops a game-theoretic framework for cosmology in which the emergence and evolution of spacetime is modeled as a Nash equilibrium between two agents: a metastable quantum vacuum (null space) and a spacetime bubble arising from it. The central result is the \textit{Curvature Feedback Model} (CFM), which explains the observed accelerated expansion of the universe not through a new form of energy (dark energy) but through a diminishing curvature return potential~$\Phi(a)$ -- a geometric ``memory'' of the initial energy concentration at the Big Bang. The modified Friedmann equation $H^2(a) = H_0^2\,[\Omega_m\,a^{-3} + \Omega_\Phi(a)]$ with $\Omega_\Phi(a) = \Phi_0 \cdot \tanh(k\cdot(a - a_{\mathrm{trans}}))$ is tested against 1,590 Type~Ia supernovae ($z > 0.01$) from the Pantheon+ catalog \cite{Scolnic2022} -- both with diagonal errors and with the full statistical-systematic covariance matrix. Under a flatness constraint ($\Omega_m + \Omega_\Phi(a{=}1) = 1$), the CFM yields $\Delta\chi^2 = -12.2$ ($-11.2$ with full covariance) and $\Delta\mathrm{AIC} = -8.2$ ($-7.2$) relative to $\Lambda$CDM; 5-fold cross-validation confirms better generalization. MCMC posterior analysis yields $\Omega_m = 0.368 \pm 0.024$, and four alternative functional forms (logistic, error function, power law) show comparable $\Delta\chi^2$ values, confirming the robustness of results. A phantom stability analysis shows: no Big Rip (saturation of $\Omega_\Phi$), asymptotically de~Sitter end state. The model predicts a measurable time variation of the equation-of-state parameter ($w(z) < -1$, $|\Delta w| \approx 0.4$) and an earlier acceleration transition ($z_{\mathrm{acc}} = 0.52$ vs.\ $0.84$), testable with Euclid and the Nancy Grace Roman Space Telescope within the next decade. It is shown that the CFM exhibits conceptual connections to both Finsler gravity (Pfeifer et al., 2025) and the recently proposed \textit{Cosmological Teleodynamics} (Trivedi \& Venkatasubramanian, 2025), which likewise describes cosmic expansion as convergence toward a Nash equilibrium. Analysis code and data are publicly available.\footnote{\url{https://github.com/lukisch/cfm-cosmology}} In particular, the rigorous analysis identifies with $z_{\mathrm{acc}} \approx 0.52$ a later onset of cosmic acceleration than $\Lambda$CDM ($z_{\mathrm{acc}} = 0.84$), implying an extended matter-dominated growth phase. This prediction offers a natural explanation for the JWST ``Universe Breakers'' -- unexpectedly massive galaxies at $z > 7$ \cite{Labbe2023, BoylanKolchin2023} -- as well as for statistically improbable massive galaxy clusters such as El~Gordo at $z \approx 0.87$ \cite{Asencio2023}, which place the $\Lambda$CDM standard model under significant tension. The game-theoretic perspective opens a paradigm shift: from ``What drives the acceleration?'' to ``Why did the expansion brake earlier?''
+\thanks{AI tools (Claude, Anthropic; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/lukisch/cfm-cosmology}.}
 
-\vspace{0.5em}
-\noindent\textbf{Keywords:} game theory, Nash equilibrium, cosmology, dark energy, curvature return potential, Curvature Feedback Model, Friedmann equation, Finsler gravity, accelerated expansion, equation of state
+\thanks{Paper~I in the CFM series.}
 
-\vspace{0.5em}
-\noindent\textbf{Disciplines:} theoretical physics, cosmology, game theory, mathematical physics
-\end{abstract}
-
-\newpage
-\tableofcontents
-\newpage
-
-\footnotetext{AI tools (Claude, Anthropic; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/lukisch/cfm-cosmology}.}
-
-\newpage
 
 % ===================================================================
 % 1. INTRODUCTION
@@ -164,6 +137,23 @@ From the game-theoretic equilibrium condition, physical regularities emerge:
 \end{enumerate}
 
 The last property is particularly significant for cosmology: it implies that the expansion of the universe never reverses but proceeds asymptotically -- consistent with observational data.
+
+
+\subsection{Thermodynamic Equivalence}
+\label{subsec:thermodynamic}
+
+The game-theoretic framework of the preceding sections has a precise equivalence in the language of thermodynamics and variational physics. This connection reflects a deep mathematical isomorphism between game theory and statistical mechanics \cite{Wolpert2006}:
+
+\begin{itemize}
+\item \textbf{Nash equilibrium} $\leftrightarrow$ \textbf{Thermodynamic equilibrium:} The state from which no subsystem can improve its objective unilaterally corresponds to the state of maximum entropy under constraints.
+\item \textbf{Potential function~$\Phi$} $\leftrightarrow$ \textbf{Entropy functional:} The global quantity extremized by the equilibrium strategies is the entropy of the coupled system.
+\item \textbf{Optimal strategy selection} $\leftrightarrow$ \textbf{Principle of least action:} Each agent's strategy corresponds to field equations arising from $\delta S = 0$.
+\item \textbf{Gradient reduction rate} $\leftrightarrow$ \textbf{Maximum Entropy Production Principle (MEPP):} Among all paths consistent with the boundary conditions, the system evolves along the one that maximizes entropy production \cite{Dewar2003}.
+\end{itemize}
+
+This equivalence is grounded in a foundational result: Jacobson \cite{Jacobson1995} showed that the Einstein field equations can be derived from the proportionality of entropy and horizon area together with the Clausius relation $\delta Q = T\,dS$, establishing that general relativity itself is a thermodynamic equation of state. If standard gravity follows from thermodynamics, it is natural to expect that \textit{modified} gravity -- here, the curvature feedback mechanism -- follows from modified thermodynamic boundary conditions, namely the constraint that the parent vacuum (null space) remains structurally stable while entropy production in the daughter system is maximized.
+
+The saturation mechanism of Section~\ref{subsec:saturation} is thus directly interpretable as an approach to thermodynamic equilibrium: the $\tanh$ dynamics describes the entropy production rate of a system with finite capacity that evolves under the joint constraint of the second law and parent-system stability.
 
 
 % ===================================================================
@@ -257,7 +247,7 @@ w_{\mathrm{eff}}(a) = -1 - \frac{1}{3}\,\frac{d\ln\Omega_\Phi}{d\ln a}
 
 Its time evolution is presented in Table~\ref{tab:weff}.
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Time evolution of the effective equation-of-state parameter $w_{\mathrm{eff}}(z)$: $\Lambda$CDM vs.\ CFM. The $1\sigma$ uncertainties are from the MCMC posterior analysis (Section~\ref{subsec:mcmc}).}
 \label{tab:weff}
@@ -326,7 +316,7 @@ M_{\mathrm{best}} = \frac{\sum_i w_i (m_i^{\mathrm{obs}} - \mu_i^{\mathrm{th}})}
 
 Three models are fitted: flat $\Lambda$CDM (2~parameters), CFM with flatness constraint (4~parameters), and CFM without constraint (5~parameters).
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Fitted parameters and goodness of fit: $\Lambda$CDM vs.\ CFM against Pantheon+ (1,590~SNe~Ia). For CFM~(flat), $1\sigma$ MCMC uncertainties are given.}
 \label{tab:results}
@@ -359,7 +349,7 @@ The CFM with flatness constraint yields $\Omega_m = 0.368 \pm 0.024$ (MCMC) -- p
 \subsection{Model Selection}
 \label{subsec:modelselection}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Model comparison: CFM vs.\ $\Lambda$CDM. Negative values favor the CFM.}
 \label{tab:comparison}
@@ -393,7 +383,7 @@ Parameter uncertainties are determined using \textit{emcee} \cite{ForemanMackey2
 
 To verify whether the results depend on the specific choice of the $\tanh$ form, four different saturation functions are tested under identical conditions:
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Comparison of alternative functional forms for $\Omega_\Phi(a)$. All models use the flatness constraint and have $k=4$ parameters.}
 \label{tab:funcforms}
@@ -445,7 +435,7 @@ The fitted equation-of-state parameter $w < -1$ (phantom regime) raises the legi
 
 The CFM offers a natural explanation for all three observations: since the acceleration only begins at $z_{\mathrm{acc}} = 0.52$ (instead of $z_{\mathrm{acc}} = 0.84$), gravitationally bound structures had more cosmic time for undisturbed growth. The CFM prediction is directly testable through galaxy cluster counts and weak gravitational lensing surveys (Euclid, Vera C.\ Rubin Observatory).
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Deceleration parameter $q(z)$: $\Lambda$CDM vs.\ CFM.}
 \label{tab:qz}
@@ -480,7 +470,7 @@ Quintessence models \cite{Caldwell1998} postulate a dynamic scalar field~$\phi$ 
 
 \subsection{Modified Gravity: $f(R)$ Theories}
 
-$f(R)$ gravity theories \cite{Starobinsky1980, Sotiriou2010} replace the Ricci scalar~$R$ in the Einstein--Hilbert action with a more general function. They offer a geometric explanation without dark energy but are mathematically complex and partly inconsistent with observations (gravitational lensing, CMB).
+$f(R)$ gravity theories \cite{Starobinsky1980, Sotiriou2010} replace the Ricci scalar~$R$ in the Einstein--Hilbert action with a more general function. They offer a geometric explanation without dark energy but are mathematically complex and partly inconsistent with observations (gravitational lensing, CMB). The most widely studied late-time $f(R)$ model, Hu-Sawicki \cite{HuSawicki2007}, satisfies solar system constraints through the chameleon mechanism while producing viable cosmic acceleration; it serves as an important benchmark for the Lagrangian analysis in Paper~III \cite{Geiger2026c}.
 
 \subsection{Emergent Gravity (Verlinde)}
 
@@ -503,11 +493,11 @@ Trivedi and Venkatasubramanian \cite{Trivedi2025} formulate a game-theoretic cos
 \subsection{Synoptic Comparison}
 \label{subsec:synopse}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Synoptic comparison of cosmological models without dark energy.}
 \label{tab:synopse}
-\begin{tabularx}{\textwidth}{lXXX}
+\begin{tabularx}{\columnwidth}{lXXX}
 \toprule
 \textbf{Property} & \textbf{CFM} & \textbf{Finsler} & \textbf{Teleodynamics} \\
 \midrule
@@ -575,11 +565,11 @@ where the left arrow describes the effective averaging over the velocity-depende
 
 \subsection{Future Missions}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Relevant observational missions for the CFM test.}
 \label{tab:missions}
-\begin{tabularx}{\textwidth}{lccX}
+\begin{tabularx}{\columnwidth}{lccX}
 \toprule
 \textbf{Mission} & \textbf{Launch} & $\sigma(w)$ & \textbf{Relevance for CFM} \\
 \midrule
@@ -593,7 +583,7 @@ DESI & 2021-- & $\approx 0.04$ & Millions of galaxy spectra; BAO and structure g
 
 \subsection{Model Distinguishability}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Comparison of predictions: $\Lambda$CDM vs.\ CFM (Pantheon+ fit). The $1\sigma$ uncertainties are from the MCMC analysis.}
 \label{tab:predictions}
@@ -656,6 +646,28 @@ If the CFM (or a related model) is confirmed, this would have profound consequen
 
 This would be comparable to the transition from ``What drives the planets?'' (Ptolemy: spheres) to ``How do planets move in the geometry of space?'' (Kepler, Newton, Einstein).
 
+\subsection{Deductive Structure of the Model}
+\label{subsec:deductive}
+
+A distinguishing feature of the CFM is that its Lagrangian is not assembled \textit{ad hoc} from independent phenomenological terms, but follows from a deductive chain that begins with two assumptions and terminates at testable predictions:
+
+\begin{enumerate}
+\item \textbf{Axiom~1 (Initial condition):} A metastable quantum vacuum (null space) admits a large fluctuation that creates a concentration gradient -- the nascent spacetime.
+\item \textbf{Axiom~2 (Evolution principle):} The system evolves along the path that maximizes entropy production while preserving the structural integrity of the null space (equivalently: the principle of least action under the boundary condition of parent-system stability; see Section~\ref{subsec:thermodynamic}).
+\end{enumerate}
+
+From these two assumptions, the following chain of deductions -- presented here in retrospect; its rigorous derivation is the subject of Paper~III -- leads to the CFM action (Paper~III, Eq.~(8)):
+\begin{itemize}
+\item Axiom~2 requires a \textit{controlled, time-extended} neutralization of the gradient $\to$ Einstein--Hilbert term $R/(16\pi G)$ (conservative field equations as necessary condition).
+\item The gradient has finite magnitude but the return must not destabilize the vacuum $\to$ \textit{saturation} of the return rate $\to$ P\"oschl-Teller scalar field with $\tanh$-dynamics.
+\item Minimality (ghost-freedom + renormalizability at one loop) uniquely selects $R^2$ as the leading gravitational correction $\to$ Starobinsky term $\gamma R^2$.
+\item The scalaron ($R^2$ degree of freedom) produces an $a^{-\beta}$ power-law term that replaces particle dark matter at the cosmological level; trace coupling to $T_{\mu\nu}$ automatically suppresses this term during the radiation era (BBN protection).
+\item On galactic scales, the same $R^2$ scalaron enhances gravity by $\mu \to 4/3$ at sub-Compton scales (Paper~III), coinciding with the MOND phase-space factor $V_3/V_2 = 4/3$ (Paper~II).
+\item Chameleon screening ensures solar system compatibility without additional parameters.
+\end{itemize}
+
+The resulting Lagrangian $\mathcal{L} = R/(16\pi G) + \gamma R^2 + \frac{1}{2}(\partial\phi)^2 - V_{\mathrm{PT}}(\phi)$ has its \textit{form} fully determined by the two axioms; only the \textit{numerical values} of $\gamma$, $V_0$, and $\phi_0$ are fixed by data. This deductive closure -- from assumptions to a unique Lagrangian to falsifiable predictions -- is what elevates the CFM from a phenomenological fit to a theoretical framework.
+
 
 % ===================================================================
 % 9. CONCLUSION AND OUTLOOK
@@ -666,7 +678,7 @@ This would be comparable to the transition from ``What drives the planets?'' (Pt
 This paper has shown:
 
 \begin{enumerate}
-\item A game-theoretic framework for cosmology -- the Nash equilibrium between null space and spacetime bubble -- naturally leads to a model in which physical laws appear as emergent equilibrium conditions.
+\item A game-theoretic framework for cosmology -- the Nash equilibrium between null space and spacetime bubble -- naturally leads to a model in which physical laws appear as emergent equilibrium conditions. The game-theoretic axioms possess an exact thermodynamic equivalence (Nash equilibrium $\leftrightarrow$ thermodynamic equilibrium, $\tanh$ saturation $\leftrightarrow$ MEPP dynamics), grounding the framework in the Jacobson tradition of gravity as a thermodynamic equation of state \cite{Jacobson1995}.
 \item The resulting \textit{Curvature Feedback Model} (CFM) explains accelerated expansion without dark energy and passes the test against 1,590 real Type~Ia supernovae from the Pantheon+ catalog \cite{Scolnic2022}: $\Delta\chi^2 = -12.2$ (diagonal) / $-11.2$ (full covariance matrix), $\Delta\mathrm{AIC} = -8.2$ / $-7.2$, and better cross-validation.
 \item The robust model selection (AIC, BIC, 5-fold cross-validation) shows that the better fit of the CFM is not attributable to overfitting. This is confirmed by four alternative functional forms, all yielding $\Delta\chi^2 \approx -9$ to $-12$.
 \item MCMC-based parameter uncertainties ($\Omega_m = 0.368 \pm 0.024$) and the phantom stability analysis (no Big Rip, asymptotically de~Sitter) support the physical consistency.
@@ -676,7 +688,7 @@ This paper has shown:
 
 \textbf{Next steps} include: (a)~testing against Planck CMB and DESI BAO data (the full Pantheon+ covariance matrix has already been taken into account), (b)~computation of CMB power spectrum and structure growth predictions ($f\sigma_8$), (c)~exploration of the connection between CFM and Finsler geometry, (d)~development of a covariant formulation of $\Phi(a)$ from the Ricci scalar~$R$, (e)~investigation of quantum mechanical foundations of the curvature return potential, and (f)~combination with local distance ladder data for direct $H_0$ determination.
 
-\textbf{Outlook: Unification with MOND -- A universe without a dark sector?} A particularly fascinating perspective opens up through the combination of the CFM with \textit{Modified Newtonian Dynamics} (MOND) \cite{Milgrom1983}. While the CFM eliminates dark energy as a geometric effect, MOND replaces dark matter through modified gravitational dynamics on galactic scales. Both frameworks converge on the prediction that structures form earlier and more efficiently than in $\Lambda$CDM -- the CFM through an extended matter-dominated era ($z_{\mathrm{acc}} = 0.52$), MOND through effectively stronger gravity at low accelerations \cite{Asencio2023}. A preliminary analysis with a purely baryonic universe ($\Omega_m = \Omega_b \approx 0.05$) and an extended geometric potential $\Omega_\Phi(a) = \Phi_0 \cdot f_{\mathrm{tanh}}(a) + \alpha \cdot a^{-\beta}$ yields $\Delta\chi^2 = -26.3$ and $\Delta\mathrm{AIC} = -16.3$ relative to $\Lambda$CDM -- \textit{dramatically outperforming both the standard CFM and $\Lambda$CDM}. The MCMC posterior analysis yields $\beta = 2.02 \pm 0.20$, which corresponds exactly to the scaling of spatial curvature ($a^{-2}$). ``Dark matter'' would thus be a dynamic curvature effect, not a particle. This result requires a full relativistic treatment (e.g., within the AeST framework \cite{Skordis2021}) and will be analyzed in detail in a companion paper.
+\textbf{Outlook: Unification with MOND -- A universe without a dark sector?} A particularly fascinating perspective opens up through the combination of the CFM with \textit{Modified Newtonian Dynamics} (MOND) \cite{Milgrom1983}. While the CFM eliminates dark energy as a geometric effect, MOND replaces dark matter through modified gravitational dynamics on galactic scales. Both frameworks converge on the prediction that structures form earlier and more efficiently than in $\Lambda$CDM -- the CFM through an extended matter-dominated era ($z_{\mathrm{acc}} = 0.52$), MOND through effectively stronger gravity at low accelerations \cite{Asencio2023}. A preliminary analysis with a purely baryonic universe ($\Omega_m = \Omega_b \approx 0.05$) and an extended geometric potential $\Omega_\Phi(a) = \Phi_0 \cdot f_{\mathrm{tanh}}(a) + \alpha \cdot a^{-\beta}$ yields $\Delta\chi^2 = -26.3$ and $\Delta\mathrm{AIC} = -16.3$ relative to $\Lambda$CDM -- \textit{substantially outperforming both the standard CFM and $\Lambda$CDM}. The MCMC posterior analysis yields $\beta = 2.02 \pm 0.20$, which corresponds exactly to the scaling of spatial curvature ($a^{-2}$). ``Dark matter'' would thus be a dynamic curvature effect, not a particle. This result requires a full relativistic treatment (e.g., within the AeST framework \cite{Skordis2021}) and will be analyzed in detail in a companion paper.
 
 \begin{quote}
 \textit{``Sometimes the most elegant explanation is not a new force, but a relaxing constraint.''}
@@ -848,6 +860,36 @@ Skordis, C.\ \& Z{\l}o\'snik, T.\ (2021).
 New Relativistic Theory for Modified Newtonian Dynamics.
 \textit{Physical Review Letters}, 127(16), 161302.
 DOI: 10.1103/PhysRevLett.127.161302.
+
+\bibitem{Bekenstein2004}
+Bekenstein, J.\,D.\ (2004).
+Relativistic gravitation theory for the modified Newtonian dynamics paradigm.
+\textit{Physical Review D}, 70(8), 083509.
+DOI: 10.1103/PhysRevD.70.083509.
+
+\bibitem{HuSawicki2007}
+Hu, W.\ \& Sawicki, I.\ (2007).
+Models of $f(R)$ Cosmic Acceleration that Evade Solar-System Tests.
+\textit{Physical Review D}, 76(6), 064004.
+DOI: 10.1103/PhysRevD.76.064004.
+
+\bibitem{Jacobson1995}
+Jacobson, T.\ (1995).
+Thermodynamics of Spacetime: The Einstein Equation of State.
+\textit{Physical Review Letters}, 75(7), 1260--1263.
+DOI: 10.1103/PhysRevLett.75.1260.
+
+\bibitem{Dewar2003}
+Dewar, R.\ (2003).
+Information theory explanation of the fluctuation theorem, maximum entropy production and self-organized criticality in non-equilibrium stationary states.
+\textit{Journal of Physics A: Mathematical and General}, 36(3), 631--641.
+DOI: 10.1088/0305-4470/36/3/303.
+
+\bibitem{Wolpert2006}
+Wolpert, D.\,H.\ (2006).
+Information Theory -- The Bridge Connecting Bounded Rational Game Theory and Statistical Physics.
+In: \textit{Complex Engineered Systems}, Springer, 262--290.
+DOI: 10.1007/3-540-32834-3\_12.
 
 \bibitem{Harris2020}
 Harris, C.\,R.\ et al.\ (2020).

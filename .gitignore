@@ -46,3 +46,33 @@ Pantheon+SH0ES.dat
 Pantheon+SH0ES_STAT+SYS.cov
 data/Pantheon+SH0ES.dat
 data/Pantheon+SH0ES_STAT+SYS.cov
+
+# Large binary results (MCMC chains)
+results/cfm_fR_mcmc_chain.npz
+results_server/
+
+# Backup directories
+backup_renumber_*/
+
+# Temporary utility scripts
+renumber_papers.py
+count_abstract.py
+papers/convert_to_revtex.py
+papers/fix_abstracts.py
+papers/check_integrity.py
+papers/find_cite_diff.py
+papers/_fix_de_structure.py
+
+# Translation temp files
+papers/Paper*_part*.txt
+
+# LaTeX Notes files (auto-generated)
+papers/*Notes.bib
+
+# Working documents (not for publication)
+CORE.txt
+Core2.txt
+MASTER_LAGRANGIAN.tex
+
+# Contains credentials (SSH keys, API tokens)
+MCMC_SERVER_BRIEFING.md

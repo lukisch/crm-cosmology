@@ -1,6 +1,6 @@
 # Curvature Feedback Model (CFM)
 
-**A Three-Paper Program for Geometric Cosmology Without Dark Energy**
+**A Four-Paper Program for Geometric Cosmology Without the Dark Sector**
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 
@@ -17,6 +17,7 @@ The Curvature Feedback Model (CFM) replaces dark energy with a geometric curvatu
 | I | `papers/Paper1_EN.tex` | `papers/Paper1_DE.tex` | Game-theoretic foundation, CFM, Pantheon+ validation |
 | II | `papers/Paper2_EN.tex` | `papers/Paper2_DE.tex` | MOND unification, baryon-only universe, running coupling |
 | III | `papers/Paper3_EN.tex` | `papers/Paper3_DE.tex` | Lagrangian (R + gamma R^2), scalaron dynamics, predictions |
+| IV | `papers/Paper4_EN.tex` | `papers/Paper4_DE.tex` | Galactic MOND from curvature saturation (DRAFT) |
 
 ## Key Results
 
@@ -179,6 +180,14 @@ This work uses the following open-source software:
              and Testable Predictions},
   year    = {2026},
   note    = {Paper III of the CFM program}
+}
+
+@article{Geiger2026CFMMOND2,
+  author  = {Geiger, Lukas},
+  title   = {The Galactic-Cosmological Nexus: Deriving MOND Dynamics
+             from Curvature Saturation},
+  year    = {2026},
+  note    = {Paper IV of the CFM program (draft)}
 }
 ```
 

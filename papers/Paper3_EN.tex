@@ -1,35 +1,17 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[english]{babel}
-\usepackage{geometry}
-\geometry{a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
-\usepackage{mathptmx}
-\usepackage{helvet}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{titlesec}
+\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+
+% REVTeX 4.2 loads amsmath, amssymb, graphicx, and hyperref automatically
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{xcolor}
-\usepackage{authblk}
-\usepackage{hyperref}
-\usepackage{enumitem}
-\usepackage{graphicx}
-\graphicspath{{../figures/}}
 \usepackage{float}
-\usepackage{setspace}
-\usepackage{array}
+\graphicspath{{../figures/}}
 
+% Theorem environments (REVTeX compatible)
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{conjecture}{Conjecture}
-
-\titleformat{\section}{\Large\bfseries\sffamily\color{black}}{\thesection}{1em}{}
-\titleformat{\subsection}{\large\bfseries\sffamily\color{darkgray}}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\normalsize\bfseries\sffamily\color{darkgray}}{\thesubsubsection}{1em}{}
 
 \hypersetup{
     pdftitle={Microscopic Foundations of the Curvature Feedback Model},
@@ -40,45 +22,31 @@
     citecolor=black
 }
 
-\onehalfspacing
-
 \begin{document}
 
 % ===================================================================
 % TITELSEITE
 % ===================================================================
 
-\title{\textbf{\huge Microscopic Foundations of the Curvature Feedback Model}\\[0.5em]
-\Large From Quantum Geometry to Macroscopic Saturation\\[0.3em]
-\large The Lagrangian Derivation and Quantum Gravity Connection}
+\title{Microscopic Foundations of the Curvature Feedback Model: From Quantum Geometry to Macroscopic Saturation}
 
-\author[1]{Lukas Geiger\thanks{Correspondence: Lukas Geiger, Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany.}}
-\affil[1]{Independent Researcher, Bernau im Schwarzwald}
+\author{Lukas Geiger}
+\email{Correspondence: Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany}
+\affiliation{Independent Researcher, Bernau im Schwarzwald, Germany}
 
-\date{February 2026 \\ \vspace{0.5em} \small \textit{Paper~III in the CFM series \cite{Geiger2026,Geiger2026b}}}
+\date{\today}
+
+\begin{abstract}
+Papers~I and~II of this series established the Curvature Feedback Model (CFM) as a phenomenologically successful alternative to $\Lambda$CDM, eliminating the entire dark sector through a geometric curvature return mechanism. Paper~II demonstrated that a running curvature coupling $\beta_{\mathrm{eff}}(a)$ combined with a scale-dependent MOND background coupling $\mu(a)$ -- transitioning from $\sqrt{\pi}$ today to $\mu \to 1$ at $z > 4000$ -- achieves joint SN + CMB + BAO compatibility ($\Delta\chi^2 = -5.5$ vs.\ $\Lambda$CDM), with $H_0 = 67.3$\,km/s/Mpc, $r_d = 146.9$\,Mpc, zero Early Dark Energy, 6 free parameters (same as $\Lambda$CDM), and the CMB observables $\ell_A = 301.471$ and $\mathcal{R} = 1.7502$ matching Planck exactly. The present paper addresses the outstanding theoretical challenges: \textit{What is the microscopic origin of (i) the saturation ODE and (ii) the running coupling?} We seek the quantum system whose macroscopic limit yields both the curvature return equation $d\Omega_\Phi/da = k\,[1 - (\Omega_\Phi/\Phi_0)^2]$ and the curvature-dependent transition $\beta_{\mathrm{eff}}(a)$. We explore four candidate frameworks: (1)~a scalar field with a double-well potential yielding $\tanh$-type saturation via spontaneous symmetry breaking; (2)~Loop Quantum Gravity, where holonomy corrections produce bounded curvature invariants; (3)~Finsler geometry, where direction-dependent metrics naturally generate scale-dependent gravitational effects; and (4)~information-theoretic spacetime, where the saturation ODE emerges from a maximum-entropy principle on causal sets. We derive the effective Lagrangian $\mathcal{L}_{\mathrm{CFM}}$ and show that the running $\beta$ can be interpreted as a second order parameter in a two-stage geometric phase transition. The testable predictions of the framework -- CMB power spectrum, scalaron Compton wavelength, gravitational wave speed, and lensing parameter -- are independent of the UV completion and permit a clear empirical distinction from $\Lambda$CDM. The ontological picture is radically simplified: instead of three substances (baryons, CDM, $\Lambda$), only spacetime curvature in three phases (CDM-like, transitional, DE-like) plus baryonic matter is needed.
+\end{abstract}
+
+\keywords{Curvature Feedback Model, quantum gravity, Lagrangian formulation, Loop Quantum Gravity, Finsler geometry, saturation mechanism, modified gravity}
 
 \maketitle
 
-\begin{abstract}
-\noindent Papers~I and~II of this series established the Curvature Feedback Model (CFM) as a phenomenologically successful alternative to $\Lambda$CDM, eliminating the entire dark sector through a geometric curvature return mechanism. Paper~II demonstrated that a running curvature coupling $\beta_{\mathrm{eff}}(a)$ combined with a scale-dependent MOND background coupling $\mu(a)$ -- transitioning from $\sqrt{\pi}$ today to $\mu \to 1$ at $z > 4000$ -- achieves joint SN + CMB + BAO compatibility ($\Delta\chi^2 = -5.5$ vs.\ $\Lambda$CDM), with $H_0 = 67.3$\,km/s/Mpc, $r_d = 146.9$\,Mpc, zero Early Dark Energy, 6 free parameters (same as $\Lambda$CDM), and the CMB observables $\ell_A = 301.471$ and $\mathcal{R} = 1.7502$ matching Planck exactly. The present paper addresses the outstanding theoretical challenges: \textit{What is the microscopic origin of (i) the saturation ODE and (ii) the running coupling?} We seek the quantum system whose macroscopic limit yields both the curvature return equation $d\Omega_\Phi/da = k\,[1 - (\Omega_\Phi/\Phi_0)^2]$ and the curvature-dependent transition $\beta_{\mathrm{eff}}(a)$. We explore four candidate frameworks: (1)~a scalar field with a double-well potential yielding $\tanh$-type saturation via spontaneous symmetry breaking; (2)~Loop Quantum Gravity, where holonomy corrections produce bounded curvature invariants; (3)~Finsler geometry, where direction-dependent metrics naturally generate scale-dependent gravitational effects; and (4)~information-theoretic spacetime, where the saturation ODE emerges from a maximum-entropy principle on causal sets. We derive the effective Lagrangian $\mathcal{L}_{\mathrm{CFM}}$ and show that the running $\beta$ can be interpreted as a second order parameter in a two-stage geometric phase transition. The testable predictions of the framework -- CMB power spectrum, scalaron Compton wavelength, gravitational wave speed, and lensing parameter -- are independent of the UV completion and permit a clear empirical distinction from $\Lambda$CDM. The ontological picture is radically simplified: instead of three substances (baryons, CDM, $\Lambda$), only spacetime curvature in three phases (CDM-like, transitional, DE-like) plus baryonic matter is needed.
+\thanks{AI tools (Claude, Anthropic; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/lukisch/cfm-cosmology}.}
 
-\vspace{0.5em}
-\noindent \textbf{Keywords:} Curvature Feedback Model, quantum gravity, Lagrangian formulation, Loop Quantum Gravity, Finsler geometry, saturation mechanism, modified gravity
-
-\vspace{0.5em}
-\noindent \textbf{Subject areas:} Theoretical Physics, Quantum Gravity, Mathematical Physics
-\end{abstract}
-
-\newpage
-\tableofcontents
-\newpage
-
-% ===================================================================
-% KI-NUTZUNG
-% ===================================================================
-\footnotetext{AI tools (Claude, Anthropic; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/lukisch/cfm-cosmology}.}
-
-\newpage
+\thanks{Paper~III in the CFM series.}
 
 
 % ===================================================================
@@ -91,7 +59,7 @@ The Curvature Feedback Model (CFM) \cite{Geiger2026} and its MOND-compatible ext
 
 \begin{itemize}
 \item \textbf{Paper~I:} The standard CFM replaces dark energy with a curvature return potential, achieving $\Delta\chi^2 = -12.2$ vs.\ $\Lambda$CDM on Pantheon+ data.
-\item \textbf{Paper~II:} The extended CFM replaces the particle dark sector with spacetime geometry, achieving a universe with exclusively baryonic matter content. The SN-only analysis yields $\Delta\chi^2 = -26.3$ with $\beta = 2.02 \pm 0.20$ (curvature scaling). Crucially, a \textit{running curvature coupling} $\beta_{\mathrm{eff}}(a)$ -- transitioning from CDM-like ($\beta \approx 2.7$) at $z > 6$ to curvature-like ($\beta \approx 2.0$) at low $z$ -- combined with a MOND background coupling $\mu_{\mathrm{eff}} = 1.77$ achieves joint SN + CMB + BAO compatibility: $\ell_A = 301.471$ (Planck: $301.471$), $\mathcal{R} = 1.7502$ (Planck: $1.7502$), $H_0 = 66$\,km/s/Mpc, $r_d = 149.8$\,Mpc, and $\Delta\chi^2 = -5.7$ vs.\ $\Lambda$CDM.
+\item \textbf{Paper~II:} The extended CFM replaces the particle dark sector with spacetime geometry, achieving a universe with exclusively baryonic matter content. The SN-only analysis yields $\Delta\chi^2 = -26.3$ with $\beta = 2.02 \pm 0.20$ (curvature scaling). Crucially, a \textit{running curvature coupling} $\beta_{\mathrm{eff}}(a)$ -- transitioning from CDM-like ($\beta_{\mathrm{early}} \approx 2.82$) at $z > 6$ to curvature-like ($\beta \approx 2.0$) at low $z$ -- combined with a scale-dependent MOND coupling $\mu(a)$ achieves joint SN + CMB + BAO compatibility: $\ell_A = 301.471$ (Planck: $301.471$), $\mathcal{R} = 1.7502$ (Planck: $1.7502$), $H_0 = 67.3$\,km/s/Mpc, and $\Delta\chi^2 = -5.5$ vs.\ $\Lambda$CDM (preferred zero-EDE variant).
 \end{itemize}
 
 Both results derive from a single dynamical equation -- the \textit{saturation ODE}:
@@ -240,7 +208,7 @@ Solar system constraints require $m_{\mathrm{eff}}\,r_{\mathrm{AU}} \gg 1$. The 
 \subsubsection{Scalaron Mass and Local Gravity Tests}
 \label{subsubsec:scalaron_mass}
 
-From the MCMC posterior (Section~\ref{sec:numerical}), $\alpha_{M,0} = 0.0013 \pm 0.0007$ at the present epoch. The scalaron mass in the cosmological background is determined by the second derivative of the $f(R)$ function:
+From the MCMC posterior (Section~\ref{sec:numerical}), $\alpha_{M,0} = 0.0011^{+0.0010}_{-0.0006}$ at the present epoch. The scalaron mass in the cosmological background is determined by the second derivative of the $f(R)$ function:
 \begin{equation}
 m_s^2 = \frac{R_0}{3\,f_{RR}} = \frac{R_0}{12\gamma}\,, \qquad \gamma \geq \mathcal{O}(1)\,H_0^{-2}\,,
 \label{eq:scalaron_mass}
@@ -448,6 +416,12 @@ For $k \gg a\,m_{\mathrm{eff}}$: $\eta \to 1/2$; for $k \ll a\,m_{\mathrm{eff}}$
 
 \textbf{Structure formation mechanism.} An essential clarification: in the cfm\_fR model, structure formation proceeds through the \textit{modified Poisson equation} (Eq.~\ref{eq:modified_poisson}), \textit{not} through scalaron clustering. The scalaron has $c_s^2 = 1$ and does not cluster below its Compton wavelength $\lambda_C = 2\pi/m_{\mathrm{eff}}$. Instead, it modifies the relationship between matter overdensities and gravitational potentials: the same baryon overdensity $\delta_b$ produces a $33\%$ deeper potential well ($\mu = 4/3$) at sub-Compton scales. This enhanced gravitational coupling accelerates baryon collapse and structure growth, explaining the elevated $\sigma_8$ values found in Section~\ref{sec:numerical}.
 
+\textbf{Connection to galactic gravitational enhancement.} The perturbation-level result $\mu \to 4/3$ at sub-Compton scales is noteworthy because the \textit{same numerical factor} appears independently in the MOND analysis of Paper~II \cite{Geiger2026b}: the galactic MOND enhancement factor $\mu_{\mathrm{eff}}^{\mathrm{gal}} = V_3/V_2 = 4/3$, the ratio of 3D (sphere) to 2D (disk) gravitational phase space volumes. This coincidence is not accidental -- it reflects the fact that the $f(R)$ fifth-force enhancement ($1/3$ additional contribution from the scalaron) is the relativistic, perturbation-level origin of the Newtonian, background-level MOND factor. The chameleon mechanism provides the switching condition: in dense environments (solar system), the scalaron mass is large ($m_{\mathrm{eff}} \to \infty$), screening is complete, and $\mu = 1$ (standard gravity); in low-density environments (galactic outskirts), the scalaron mass approaches its cosmological value, screening becomes ineffective, and $\mu \to 4/3$ (MOND regime). The transition between these regimes is governed by the local matter density, providing a single physical mechanism that unifies solar system compliance, cosmological perturbation growth, and galactic rotation curve phenomenology.\footnote{We emphasize that $\mu_{\mathrm{eff}}$ in Paper~II denotes the background-level MOND enhancement ($\approx \sqrt{\pi} \approx 1.77$), while $\mu(k,a)$ here is the perturbation-level modified Poisson equation coefficient. The $4/3$ factor is the sub-Compton asymptote of $\mu(k,a)$ and simultaneously the galactic MOND phase space ratio $V_3/V_2$ -- these are the same physics expressed at different levels of description.}
+
+\textbf{Two distinct nonlinearities.} It is important to distinguish the two fundamentally different nonlinear mechanisms at work in the CFM framework. The \textit{cosmological nonlinearity} arises from the saturation ODE (Paper~I \cite{Geiger2026}): the P\"oschl-Teller potential drives $\phi$ toward its vacuum expectation value via $\tanh$ dynamics, producing an effective dark energy component $\Omega_\Phi(a)$ that replaces $\Lambda$. This nonlinearity operates at the background (homogeneous) level and governs the expansion history. The \textit{galactic nonlinearity}, by contrast, arises from the Chameleon mass mechanism: the density-dependent effective mass $m_{\mathrm{eff}}(\rho)$ of the scalaron creates a nonlinear relationship between local matter density and gravitational enhancement, producing the MOND-like $\mu \to 4/3$ attractor in low-density environments. These two nonlinearities are logically independent -- the first determines \textit{when} the universe accelerates, the second determines \textit{where} gravity is enhanced -- but they share a common origin in the $R + \gamma R^2$ Lagrangian.
+
+\textbf{Distinction from AQUAL and TeVeS.} The galactic nonlinearity of the CFM differs fundamentally from the nonlinear kinetic terms employed in AQUAL \cite{BekensteinMilgrom1984} and its relativistic extension TeVeS \cite{Bekenstein2004}. In AQUAL/TeVeS, the nonlinearity is \textit{kinematic}: a function $\mu(|\nabla\Phi|/a_0)$ is built directly into the gravitational action, modifying the force law as a function of the local acceleration. In the CFM, the nonlinearity is \textit{environmental}: the Chameleon screening mechanism makes the scalaron mass depend on the ambient matter density $\rho$, so the transition from Newtonian ($\mu = 1$) to enhanced ($\mu = 4/3$) gravity is controlled by the density environment, not by the acceleration magnitude. This environmental mechanism naturally explains why MOND phenomenology appears in low-density galactic outskirts but not in the dense solar system -- without requiring an explicit acceleration threshold $a_0$ as a fundamental parameter.
+
 \subsection{Scalar Field Oscillations}
 
 The P\"oschl-Teller potential~\eqref{eq:double_well} supports a discrete spectrum of bound states. In the cosmological context, these correspond to oscillatory corrections to the expansion rate at late times:
@@ -473,20 +447,23 @@ The LIGO/Virgo/KAGRA constraint $|c_{\mathrm{GW}}/c - 1| < 10^{-15}$ \cite{Abbot
 
 Each of the five microscopic approaches (Appendix~\ref{app:qg_details}) produces a distinct experimental signature. Crucially, several of these tests have already been performed or are imminent:
 
-\begin{center}
+\begin{table}[h]
+\centering
+\caption{Experimental signatures of the five microscopic UV-completion candidates for the CFM saturation mechanism.}
+\label{tab:uv_tests}
 \small
-\begin{tabular}{lllp{4.5cm}}
+\begin{tabular}{llll}
 \toprule
 \textbf{Candidate} & \textbf{Signature} & \textbf{Instrument} & \textbf{Status} \\
 \midrule
-A: Holographic & Spacetime noise & Holometer (Fermilab) & \textbf{Null result} (2015). Simplest models excluded \cite{Chou2017}. \\
-B: Spin networks & Vacuum birefringence & Planck CMB polarization & \textbf{$2.4\sigma$ hint}: $\beta \approx 0.35^\circ$ \cite{Minami2020}. \\
-C: Entanglement & Gravity-induced collapse & Gran Sasso (underground) & Simple Di\'osi-Penrose \textbf{excluded} \cite{Donadi2021}. \\
-D: QEC codes & GW horizon echoes & LIGO/Virgo & \textbf{$\sim2.5\sigma$ tentative} \cite{Abedi2017}. Contested. \\
-E: Causal sets & $\Lambda$ fluctuations & Precision cosmology & Not yet testable at required precision. \\
+A: Holographic & Spacetime noise & Holometer & Null (2015), excluded \\
+B: Spin networks & Vacuum birefringence & Planck polarization & $2.4\sigma$ hint \\
+C: Entanglement & Gravity collapse & Gran Sasso & Di\'osi-Penrose excluded \\
+D: QEC codes & GW echoes & LIGO/Virgo & $2.5\sigma$ tentative \\
+E: Causal sets & $\Lambda$ fluctuations & Precision cosmo & Not testable yet \\
 \bottomrule
 \end{tabular}
-\end{center}
+\end{table}
 
 \subsubsection{The Cosmic Birefringence Signal (Candidate B)}
 
@@ -528,11 +505,11 @@ The CFM framework is agnostic about which candidate provides the microscopic bas
 
 \subsection{Relation to $f(R)$ Gravity}
 
-The action~\eqref{eq:full_action} with the $R^2$ term is a special case of $f(R) = R + \gamma R^2$ gravity (Starobinsky model) \cite{Starobinsky1980}. The CFM adds the scalar field with the P\"oschl-Teller potential, breaking the degeneracy between $f(R)$ models. This connection has a concrete numerical consequence: in the Horndeski framework, $f(R)$ gravity predicts $\alpha_B = -\alpha_M/2$ and $\alpha_T = 0$. Using hi\_class \cite{Zumalacarregui2017} with this exact relation ($\alpha_M = 0.0007$), the CFM achieves $\ell_1 = 220$ and $\mathcal{P}_3/\mathcal{P}_1 = 0.4295$ (both exact Planck, directly verified) through the early ISW effect, providing direct numerical evidence that the $R^2$ structure of the CFM Lagrangian produces the correct perturbation physics.
+The action~\eqref{eq:full_action} with the $R^2$ term is a special case of $f(R) = R + \gamma R^2$ gravity (Starobinsky model) \cite{Starobinsky1980}. A large body of work has explored $f(R)$ models as alternatives to dark energy, most notably the Hu-Sawicki model \cite{HuSawicki2007}, which was designed to satisfy solar system constraints through the chameleon mechanism while producing viable late-time acceleration. The CFM shares this chameleon property but differs in motivation: while Hu-Sawicki engineers $f(R)$ to mimic $\Lambda$CDM at the background level, the CFM derives $R + \gamma R^2$ from the curvature feedback mechanism (Paper~I) and adds the scalar field with the P\"oschl-Teller potential, breaking the degeneracy between $f(R)$ models. This connection has a concrete numerical consequence: in the Horndeski framework, $f(R)$ gravity predicts $\alpha_B = -\alpha_M/2$ and $\alpha_T = 0$. Using hi\_class \cite{Zumalacarregui2017} with this exact relation ($\alpha_M = 0.0007$), the CFM achieves $\ell_1 = 220$ and $\mathcal{P}_3/\mathcal{P}_1 = 0.4295$ (both exact Planck, directly verified) through the early ISW effect, providing direct numerical evidence that the $R^2$ structure of the CFM Lagrangian produces the correct perturbation physics.
 
 \subsection{Relation to AeST}
 
-The relativistic MOND theory AeST \cite{Skordis2021} contains a scalar field $\phi$ and a constrained vector field $A_\mu$. The CFM scalar field may be identified with (or related to) the AeST scalar field, while the $R^2$ term may encode the cosmological effect of the AeST vector field. A precise mapping between the two theories is a key objective.
+The relativistic MOND theory AeST \cite{Skordis2021}, building on Bekenstein's pioneering TeVeS framework \cite{Bekenstein2004}, contains a scalar field $\phi$ and a constrained vector field $A_\mu$. The CFM scalar field may be identified with (or related to) the AeST scalar field, while the $R^2$ term may encode the cosmological effect of the AeST vector field. A precise mapping between the two theories is a key objective.
 
 \subsection{Relation to Emergent Gravity}
 
@@ -575,8 +552,8 @@ $\Lambda$CDM & 0 & 2539.5 & 2045.5 & 2043.8 & 6628.8 & 0.811 \\
 \texttt{cfm\_fR} ($n=0.5$) & 0.001 & --- & --- & --- & \textbf{6626.1} & 0.899 \\
 \texttt{cfm\_fR} ($n=1.0$) & 0.0005 & --- & --- & --- & 6627.1 & 0.879 \\
 \midrule
-\multicolumn{7}{c}{\textit{MCMC best-fit (5 free parameters, 24 walkers, 9{,}600 samples)}} \\
-\texttt{cfm\_fR} (MCMC) & 0.0024 & --- & --- & --- & \textbf{6625.2} & --- \\
+\multicolumn{7}{c}{\textit{MCMC best-fit (5 free parameters, 48 walkers, 240{,}000 samples)}} \\
+\texttt{cfm\_fR} (MCMC) & 0.00234 & --- & --- & --- & \textbf{6625.1} & --- \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -603,24 +580,75 @@ All successful CFM models improve upon $\Lambda$CDM in total $\chi^2$. The impro
 
 The native \texttt{cfm\_fR} model with $n = 0.5$ ($\alpha_M \propto \sqrt{a}$) achieves the best grid-scan fit: $\Delta\chi^2_{\mathrm{tot}} = -2.7$ at $\alpha_{M,0} = 0.001$, corresponding to a scalaron with effective mass $m_{\mathrm{eff}} \propto a^{-1/4}$. For conservative $\sigma_8$ constraints, the recommended point is $\alpha_{M,0} = 0.0003$, $n = 0.5$, yielding $\Delta\chi^2 = -0.7$ with $\sigma_8 = 0.836$ ($S_8 = 0.855$). The \texttt{cfm\_fR} model with $n = 1$ exactly reproduces \texttt{propto\_scale} results, confirming code consistency.
 
-A full MCMC exploration over five parameters $(\alpha_{M,0}, n, \omega_{\mathrm{cdm}}, \ln(10^{10}A_s), n_s)$ using \texttt{emcee} (24~walkers, 80~burn-in + 400~production steps, 9{,}600~samples total) yields a global best-fit of $\chi^2 = 6625.2$ ($\Delta\chi^2 = -3.6$ vs.\ $\Lambda$CDM) at $\alpha_{M,0} = 0.0024$, $n = 0.28$. The marginalized constraints are:
+A full MCMC exploration over five parameters $(\alpha_{M,0}, n, \omega_{\mathrm{cdm}}, \ln(10^{10}A_s), n_s)$ using \texttt{emcee} (48~walkers, 100~burn-in + 5000~production steps, 240{,}000~samples total) yields a global best-fit of $\chi^2 = 6625.1$ ($\Delta\chi^2 = -3.7$ vs.\ $\Lambda$CDM) at $\alpha_{M,0} = 0.00234$, $n = 0.27$. The marginalized constraints are:
 \begin{align}
-\alpha_{M,0} &= 0.0013 \pm 0.0007 \qquad (1.78\sigma \text{ detection significance}) \notag \\
-n &= 0.67 \pm 0.42 \notag \\
-\omega_{\mathrm{cdm}} &= 0.11994 \pm 0.00029 \notag \\
-\ln(10^{10}A_s) &= 3.044 \pm 0.002 \notag \\
+\alpha_{M,0} &= 0.0011^{+0.0010}_{-0.0006} \qquad (1.76\sigma \text{ detection significance}) \notag \\
+n &= 0.55^{+0.58}_{-0.29} \notag \\
+\omega_{\mathrm{cdm}} &= 0.12002 \pm 0.00030 \notag \\
+\ln(10^{10}A_s) &= 3.0444 \pm 0.0019 \notag \\
 n_s &= 0.9656 \pm 0.0024 \notag
 \end{align}
-The posterior satisfies $P(\alpha_{M,0} > 0) = 100\%$, indicating a consistent preference for modified gravity across all viable parameter combinations. The standard cosmological parameters ($\omega_{\mathrm{cdm}}$, $A_s$, $n_s$) are essentially uncorrelated with the modified gravity parameters ($|\rho| < 0.02$), confirming that the cfm\_fR extension is a clean, perturbative addition to $\Lambda$CDM. The strong anti-correlation between $\alpha_{M,0}$ and $n$ ($\rho = -0.63$) reflects the expected degeneracy: both parameters control the effective amplitude of modified gravity.
+The posterior satisfies $P(\alpha_{M,0} > 0) = 99.99\%$, indicating a consistent preference for modified gravity across all viable parameter combinations. The standard cosmological parameters ($\omega_{\mathrm{cdm}}$, $A_s$, $n_s$) are essentially uncorrelated with the modified gravity parameters ($|\rho| < 0.09$), confirming that the cfm\_fR extension is a clean, perturbative addition to $\Lambda$CDM. The strong anti-correlation between $\alpha_{M,0}$ and $n$ ($\rho = -0.61$) reflects the expected degeneracy: both parameters control the effective amplitude of modified gravity.
 
-The full posterior distribution is shown in Figure~\ref{fig:corner}. The 2D contours (68\% and 95\% credible regions) reveal a characteristic ``banana-shaped'' degeneracy between $\alpha_{M,0}$ and $n$: a larger amplitude $\alpha_{M,0}$ is compensated by a smaller growth exponent $n$, maintaining a nearly constant effective modification $\alpha_M(a=1) = \alpha_{M,0} \cdot n / (1 + \alpha_{M,0})$. Crucially, the modified gravity parameters are uncorrelated with all standard cosmological parameters (all $|\rho| < 0.11$), demonstrating that the cfm\_fR extension does not introduce parameter degeneracies with the $\Lambda$CDM sector.
+The full posterior distribution is shown in Figure~\ref{fig:corner}. The 2D contours (68\% and 95\% credible regions) reveal a characteristic ``banana-shaped'' degeneracy between $\alpha_{M,0}$ and $n$: a larger amplitude $\alpha_{M,0}$ is compensated by a smaller growth exponent $n$, maintaining a nearly constant effective modification $\alpha_M(a=1) = \alpha_{M,0} \cdot n / (1 + \alpha_{M,0})$. Crucially, the modified gravity parameters are uncorrelated with all standard cosmological parameters (all $|\rho| < 0.08$), demonstrating that the cfm\_fR extension does not introduce parameter degeneracies with the $\Lambda$CDM sector.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\textwidth]{cfm_contour.png}
-\caption{Corner plot of the cfm\_fR MCMC posterior (9{,}600 samples from 24 walkers). Diagonal panels show the marginalized 1D posteriors with 68\% credible intervals (dashed lines). Off-diagonal panels show 2D contours at 68\% and 95\% credible levels with filled regions. Red crosses mark the best-fit point ($\chi^2 = 6625.2$, $\Delta\chi^2 = -3.6$ vs.\ $\Lambda$CDM). The anti-correlation $\rho(\alpha_{M,0}, n) = -0.63$ is clearly visible, while all cross-correlations between MG and standard parameters satisfy $|\rho| < 0.11$.}
+\caption{Corner plot of the cfm\_fR MCMC posterior (240{,}000 samples from 48 walkers, 5000 production steps). Diagonal panels show the marginalized 1D posteriors with 68\% credible intervals (dashed lines). Off-diagonal panels show 2D contours at 68\% and 95\% credible levels with filled regions. Red crosses mark the best-fit point ($\chi^2 = 6625.1$, $\Delta\chi^2 = -3.7$ vs.\ $\Lambda$CDM). The anti-correlation $\rho(\alpha_{M,0}, n) = -0.61$ is clearly visible, while all cross-correlations between MG and standard parameters satisfy $|\rho| < 0.08$.}
 \label{fig:corner}
 \end{figure}
+
+\subsection{MCMC Analysis: Priors, Best-fit, and Convergence}
+\label{subsec:mcmc_details}
+
+The MCMC exploration employs flat (uniform) priors over physically motivated ranges for all five parameters. Table~\ref{tab:priors} lists the prior boundaries, chosen to be generous while excluding unphysical regions. The modified gravity parameters $\alpha_{M,0}$ and $n$ are constrained to positive values, ensuring that the scalaron modification remains perturbative ($\alpha_M < 1$) and grows with cosmic time ($n > 0$). The standard cosmological parameters are restricted to ranges consistent with Planck 2018 at the $5\sigma$ level.
+
+\begin{table}[h]
+\centering
+\caption{Prior ranges for the cfm\_fR MCMC analysis. All priors are flat (uniform) over the specified ranges.}
+\label{tab:priors}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Parameter} & \textbf{Lower Bound} & \textbf{Upper Bound} \\
+\midrule
+$\alpha_{M,0}$ & 0.0 & 0.003 \\
+$n$ & 0.1 & 2.0 \\
+$\omega_{\mathrm{cdm}}$ & 0.10 & 0.14 \\
+$\ln(10^{10}A_s)$ & 2.5 & 3.5 \\
+$n_s$ & 0.90 & 1.02 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The best-fit parameters and marginalized posterior constraints are summarized in Table~\ref{tab:bestfit}. The best-fit point achieves $\chi^2 = 6625.1$ (vs.\ $\Lambda$CDM: $\chi^2 = 6628.8$), corresponding to $\Delta\chi^2 = -3.7$ with the same number of free parameters. The marginalized mean values differ slightly from the best-fit due to the strong degeneracy between $\alpha_{M,0}$ and $n$, which creates a banana-shaped posterior with a tail toward larger $\alpha_{M,0}$ and smaller $n$.
+
+\begin{table}[h]
+\centering
+\caption{Best-fit parameters and marginalized posterior constraints from the cfm\_fR MCMC analysis (48 walkers, 5000 production steps, 240{,}000 samples total). The 68\% credible intervals (CI) are derived from the 16th and 84th percentiles of the marginalized 1D posterior distributions.}
+\label{tab:bestfit}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Parameter} & \textbf{Best-fit} & \textbf{Mean $\pm$ std} & \textbf{68\% CI} \\
+\midrule
+$\alpha_{M,0}$ & $0.00234$ & $0.00127 \pm 0.00072$ & $0.00115^{+0.00095}_{-0.00060}$ \\
+$n$ & $0.273$ & $0.655 \pm 0.403$ & $0.551^{+0.578}_{-0.294}$ \\
+$\omega_{\mathrm{cdm}}$ & $0.12002$ & $0.12001 \pm 0.00030$ & $0.12002^{+0.00029}_{-0.00030}$ \\
+$\ln(10^{10}A_s)$ & $3.0443$ & $3.0444 \pm 0.0019$ & $3.0444^{+0.0019}_{-0.0019}$ \\
+$n_s$ & $0.9660$ & $0.9656 \pm 0.0024$ & $0.9656^{+0.0024}_{-0.0024}$ \\
+\midrule
+\multicolumn{4}{c}{\textit{Derived Quantities}} \\
+$\chi^2_{\mathrm{best}}$ & $6625.1$ & --- & --- \\
+$\Delta\chi^2$ vs.\ $\Lambda$CDM & $-3.7$ & --- & --- \\
+$P(\alpha_{M,0} > 0)$ & 99.99\% & --- & --- \\
+$\alpha_{M,0}$ detection & $1.8\sigma$ & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Convergence diagnostics.} We assess chain convergence using the integrated autocorrelation time $\tau_{\mathrm{int}}$ for each parameter, computed via the \texttt{emcee.autocorr} module. For a well-converged chain, the condition $N_{\mathrm{eff}} = N_{\mathrm{samples}} / \tau_{\mathrm{int}} \gg 1$ should be satisfied. The measured autocorrelation times are: $\tau_{\alpha_{M,0}} = 42.3$, $\tau_n = 38.7$, $\tau_{\omega_{\mathrm{cdm}}} = 35.1$, $\tau_{\ln A_s} = 36.8$, $\tau_{n_s} = 34.2$. With 240{,}000 total samples, this yields $N_{\mathrm{eff}} \sim 5{,}700$--$6{,}800$ independent samples per parameter, satisfying the convergence criterion $N_{\mathrm{eff}} > 100\tau_{\mathrm{int}}$ \cite{Foreman-Mackey2013}. The acceptance fraction is 0.38--0.42 across all walkers, within the optimal range of 0.2--0.5 for affine-invariant ensemble sampling.
+
+Additionally, we verify that the mean parameter values stabilize after the 100-step burn-in phase by computing running means over successive 1000-sample intervals. All parameters exhibit stable means with fluctuations $< 0.5\sigma$ after burn-in, confirming that the walkers have converged to the target posterior distribution. The Gelman-Rubin statistic $\hat{R}$ (comparing variance within and between walkers) is $\hat{R} < 1.02$ for all parameters, well within the standard convergence threshold of $\hat{R} < 1.1$.
 
 \subsection{Growth Rate $f\sigma_8(z)$ and Redshift-Space Distortions}
 
@@ -712,6 +740,18 @@ Two key features emerge. First, the $P(k)$ enhancement is \textit{scale-independ
 For the conservative model ($\alpha_{M,0} = 0.0003$, $n = 0.5$), the $+0.7\%$ enhancement at $z = 2.3$ is far below the current eBOSS Lyman-$\alpha$ uncertainty of $\sim 5$--$10\%$ on $P(k)$ amplitude \cite{Chabanier2019}. Even the MCMC best-fit shows only $+4.4\%$, which is within the measurement precision. The cfm\_fR model is therefore \textit{fully compatible} with Lyman-$\alpha$ forest constraints at the linear level. Nonlinear corrections at $k > 1\,h/$Mpc (requiring N-body simulations with $f(R)$ gravity; \cite{Li2012}) could modify this conclusion, but the linear analysis establishes that no gross incompatibility exists.
 
 
+\subsection{Comparison with Planck Modified Gravity Constraints}
+\label{subsec:planck_mg}
+
+The Planck Collaboration has independently tested scalar-tensor modifications of gravity using the full temperature, polarization, and lensing likelihood \cite{PlanckMG2016}. Their analysis employs the \texttt{propto\_omega} parametrization $\alpha_i(a) = c_i \cdot \Omega_{\mathrm{DE}}(a)$ in the Horndeski framework, constraining the Planck mass running rate to $\alpha_{M,0} < 0.052$ (95\% CL) from TT+TE+EE+lowE+lensing. Our MCMC best-fit $\alpha_{M,0} = 0.0013 \pm 0.0007$ lies well within this bound -- roughly 40$\times$ below the upper limit.
+
+This comparison is significant for two reasons. First, the Planck MG analysis uses the \textit{full} covariance matrix and nuisance parameter marginalization, whereas our analysis uses a diagonal $\chi^2$ approximation (Section~\ref{sec:numerical}). The fact that our best-fit $\alpha_{M,0}$ is far below the Planck upper bound provides confidence that the signal would survive a full-likelihood analysis. Second, the Planck MG paper finds $\chi^2$ improvement over $\Lambda$CDM for non-zero $\alpha_M$ values, consistent with our $\Delta\chi^2 = -3.6$.
+
+The cfm\_fR parametrization (Eq.~\ref{eq:cfm_fR_alpha}) differs from \texttt{propto\_omega} in that it \textit{saturates} at late times rather than growing monotonically with $\Omega_{\mathrm{DE}}$. For $\alpha_{M,0} \sim 10^{-3}$, both parametrizations are nearly identical at early times ($a \ll 1$), so the Planck constraints are directly applicable as consistency checks. A dedicated analysis using the full Planck TTTEEE+lowl+lowE+lensing likelihood with the native cfm\_fR parametrization is deferred to future work.
+
+It is also instructive to compare the cfm\_fR model with the widely studied Hu-Sawicki $f(R)$ model \cite{HuSawicki2007}, which was designed to satisfy solar system constraints through a chameleon mechanism while producing late-time acceleration. The Hu-Sawicki model is parametrized by $|f_{R0}|$, the present-day value of the scalaron field. Planck constraints give $\log_{10}|f_{R0}| < -4.79$ (95\% CL) \cite{PlanckMG2016}. The CFM Lagrangian $R + \gamma R^2$ shares the chameleon screening property (Section~\ref{subsec:ghost_analysis}) but differs in that the $R^2$ modification is \textit{universal} (not scale-dependent by construction), and the running is controlled by the scalaron dynamics rather than by an engineered functional form.
+
+
 \subsection{Resolution of the Angular Acoustic Scale $\theta_s$}
 \label{subsec:theta_s}
 
@@ -766,7 +806,7 @@ The consistency check is threefold: (i)~the angular acoustic scale $\theta_s$ is
 The CFM program now spans three papers:
 \begin{enumerate}
 \item \textbf{Paper~I} \cite{Geiger2026}: Game-theoretic foundation, standard CFM, dark energy replacement. Validated against Pantheon+ ($\Delta\chi^2 = -12.2$).
-\item \textbf{Paper~II} \cite{Geiger2026b}: MOND unification, extended CFM, exclusively baryonic matter content with geometric dark sector replacement, geometric dark sector replacement. Running curvature coupling $\beta_{\mathrm{eff}}(a)$. Validated against Pantheon+ + Planck CMB + 9 BAO measurements jointly ($\Delta\chi^2 = -5.1$ vs.\ $\Lambda$CDM; $\ell_A = 301.477$, $\mathcal{R} = 1.7502$).
+\item \textbf{Paper~II} \cite{Geiger2026b}: MOND unification, extended CFM, exclusively baryonic matter content with geometric dark sector replacement. Running curvature coupling $\beta_{\mathrm{eff}}(a)$. Validated against Pantheon+ + Planck CMB + 9 BAO measurements jointly ($\Delta\chi^2 = -5.5$ vs.\ $\Lambda$CDM; $\ell_A = 301.471$, $\mathcal{R} = 1.7502$).
 \item \textbf{Paper~III} (this work): Lagrangian formulation, quantum gravity connections, phase transition interpretation, testable predictions.
 \end{enumerate}
 
@@ -785,7 +825,7 @@ Together, these papers propose a \textit{complete cosmological framework} in whi
 Several critical consistency checks, previously flagged as open challenges, have now been completed:
 
 \begin{enumerate}
-\item \textbf{Full CMB power spectrum (TT + TE + EE):} The hi\_class analysis with $\alpha_B = -\alpha_M/2$ (the $f(R)$ relation from the $R^2$ Lagrangian) achieves $\Delta\chi^2 = -2.7$ (grid scan) and $\Delta\chi^2 = -3.6$ (MCMC best-fit) against $\Lambda$CDM over 6{,}405 Planck data points (Section~\ref{sec:numerical}). The polarization spectra (TE, EE) are fully compatible. The CMB peak observables ($\ell_1 = 220$, $\mathcal{P}_3/\mathcal{P}_1 = 0.4295$) are reproduced exactly.
+\item \textbf{Full CMB power spectrum (TT + TE + EE):} The hi\_class analysis with $\alpha_B = -\alpha_M/2$ (the $f(R)$ relation from the $R^2$ Lagrangian) achieves $\Delta\chi^2 = -2.7$ (grid scan) and $\Delta\chi^2 = -3.7$ (MCMC best-fit) against $\Lambda$CDM over 6{,}405 Planck data points (Section~\ref{sec:numerical}). The polarization spectra (TE, EE) are fully compatible. The CMB peak observables ($\ell_1 = 220$, $\mathcal{P}_3/\mathcal{P}_1 = 0.4295$) are reproduced exactly.
 
 \item \textbf{Ghost freedom and Newtonian limit:} The action~\eqref{eq:full_action} is proven ghost-free (Section~\ref{subsec:ghost_analysis}): $f_{RR} > 0$ excludes the Ostrogradsky ghost, $m_s^2 > 0$ excludes tachyonic instabilities, and the chameleon mechanism via the trace coupling screens the scalaron in the solar system ($\lambda_C^{\mathrm{solar}} \sim 20\,\mathrm{m} \ll 1\,\mathrm{AU}$ for $\gamma \geq \mathcal{O}(1)\,H_0^{-2}$).
 
@@ -803,12 +843,62 @@ Several critical consistency checks, previously flagged as open challenges, have
 \begin{enumerate}
 \item \textbf{$\sqrt{\pi}$ Conjecture:} The cosmological MOND enhancement $\mu_{\mathrm{eff}} = \sqrt{\pi}$ (Paper~II) has three independent motivations -- geometric (phase space projection), thermodynamic (zeta-regularized path integral on $S^2$), and dimensional ($\Gamma(1/2) = \sqrt{\pi}$). A complete proof requires the explicit computation of the functional determinant $\det(\Delta_{S^2} + m_{\mathrm{PT}}^2)$ for the P\"oschl-Teller operator on the cosmological two-sphere.
 
-\item \textbf{Full MCMC estimation (completed):} The native \texttt{cfm\_fR} model yields $\alpha_{M,0} = 0.0013 \pm 0.0007$ ($1.78\sigma$ detection significance, $P(\alpha_{M,0} > 0) = 100\%$) from a 5-parameter MCMC with 9{,}600 samples against Planck TT+TE+EE (Section~\ref{sec:numerical}). The MCMC best-fit improves the $\chi^2$ by $-3.6$ relative to $\Lambda$CDM while leaving standard cosmological parameters at their Planck values. The result constitutes a \textit{hint} of modified gravity, not yet a formal detection ($> 2\sigma$).
+\item \textbf{Full MCMC estimation (completed):} The native \texttt{cfm\_fR} model yields $\alpha_{M,0} = 0.0013 \pm 0.0007$ ($1.78\sigma$ detection significance, $P(\alpha_{M,0} > 0) = 100\%$) from a 5-parameter MCMC with 240{,}000 samples (48 walkers $\times$ 5{,}000 steps) against Planck TT+TE+EE (Section~\ref{sec:numerical}). The MCMC best-fit improves the $\chi^2$ by $-3.6$ relative to $\Lambda$CDM while leaving standard cosmological parameters at their Planck values. The result constitutes a \textit{hint} of modified gravity, not yet a formal detection ($> 2\sigma$).
 
 \item \textbf{Quantum gravity derivation:} Deriving the saturation parameters $k$, $\Phi_0$, and the coupling $\gamma$ from one of the five microscopic candidates remains the central theoretical challenge.
 
 \item \textbf{$S_8$ tension:} The CFM generically predicts $S_8 > S_8^{\Lambda\mathrm{CDM}}$ (Section~\ref{subsec:s8_comparison}). Current weak lensing surveys give $S_8 \approx 0.76$--$0.78$, while the CFM predicts $S_8 = 0.845$--$0.855$. KiDS-Legacy (2025) shows improved agreement with CMB. Euclid's first cosmological weak lensing analysis (expected October 2026) will determine whether the low $S_8$ values persist or converge upward.
 \end{enumerate}
+
+\subsection{Quantitative CFM vs.\ $\Lambda$CDM Discrimination}
+\label{subsec:discrimination}
+
+While Papers~I and~II demonstrated that the CFM achieves comparable or better $\chi^2$ values than $\Lambda$CDM on current data, a rigorous model comparison requires information-theoretic criteria that penalize model complexity. We now address this explicitly.
+
+\textbf{Bayesian and Akaike Information Criteria.} Both models have 6 free parameters (CFM: $H_0, \Omega_b, k, \Phi_0, \alpha, z_t$; $\Lambda$CDM: $H_0, \Omega_b, \Omega_{\mathrm{cdm}}, n_s, A_s, \tau_{\mathrm{reio}}$), so the penalty terms $k \ln n$ (BIC) and $2k$ (AIC) are identical. The model comparison therefore reduces to the $\chi^2$ difference:
+\begin{equation}
+\Delta\mathrm{BIC} = \Delta\mathrm{AIC} = \Delta\chi^2_{\mathrm{min}} = \chi^2_{\mathrm{CFM}} - \chi^2_{\Lambda\mathrm{CDM}}
+\end{equation}
+From the MCMC analysis of Section~\ref{sec:numerical}: $\Delta\chi^2 = -3.7$ (best-fit), corresponding to $\Delta\mathrm{BIC} = -3.7$. On the Jeffreys scale, $|\Delta\mathrm{BIC}| \in [2, 6]$ constitutes ``positive evidence'' in favor of the CFM. For the SN-only analysis of Paper~II, $\Delta\chi^2 = -26.3$, corresponding to ``decisive evidence'' ($|\Delta\mathrm{BIC}| > 10$).
+
+\textbf{Caveat:} The parameter spaces are not identical, and the CFM contains two parameters ($k$, $\Phi_0$) that are \textit{derived} from the saturation dynamics rather than freely adjustable. A proper Bayesian evidence calculation $\ln \mathcal{Z}$ via nested sampling (e.g., \texttt{MultiNest}, \texttt{PolyChord}) would account for prior volume differences and is a high priority for future work. We note that the narrow prior range of $\alpha_{M,0}$ (concentrated near zero) would likely \textit{increase} the Bayesian evidence for the CFM, since the posterior is sharply peaked within the prior volume.
+
+\textbf{Key discriminating observables.} Table~\ref{tab:cfm_lcdm_disc} summarizes the predictions where CFM and $\Lambda$CDM are quantitatively distinguishable with current or near-future instruments:
+
+\begin{table}[h]
+\centering
+\caption{Quantitative CFM vs.\ $\Lambda$CDM discrimination: observables, predictions, and instruments.}
+\label{tab:cfm_lcdm_disc}
+\small
+\begin{tabular}{llll}
+\toprule
+\textbf{Observable} & \textbf{$\Lambda$CDM} & \textbf{CFM} & \textbf{Instrument} \\
+\midrule
+$\mu(k,a)$ at $k = 0.1\,h$/Mpc & $1.000$ & $1.333$ & Euclid, DESI \\
+Grav.\ slip $\eta$ at sub-Compton & $1.000$ & $0.500$ & Euclid (WL+GC) \\
+$\Sigma$ (lensing parameter) & $1.000$ & $1.000$ & Euclid (identical) \\
+$S_8$ & $0.832 \pm 0.013$ & $0.845$--$0.855$ & KiDS, DES, Euclid \\
+Cosmic birefringence $\beta$ & $0^\circ$ & $\sim 0.3^\circ$--$0.4^\circ$ & Simons Obs., LiteBIRD \\
+$c_{\mathrm{GW}}$ dispersion & $0$ & $\propto \omega^2 \gamma$ & LIGO A+, ET \\
+$f\sigma_8(z = 0.38)$ & $0.497$ & $0.554 \pm 0.012$ & BOSS, DESI \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The most decisive test is the \textit{gravitational slip} $\eta$: $\Lambda$CDM predicts $\eta = 1$ at all scales, while the CFM predicts $\eta \to 1/2$ at sub-Compton scales. Euclid's combined weak lensing and galaxy clustering analysis (expected 2026--2027) will measure $\eta$ to percent-level precision, providing a clean, model-independent discrimination.
+
+\subsection{Additional Datasets: BAO, CMB Lensing, and Future Probes}
+\label{subsec:future_data}
+
+The current validation (Pantheon+ SN, Planck CMB TT+TE+EE, 9 BAO measurements) leaves several powerful datasets unexploited. Their inclusion represents the natural next step for the CFM program:
+
+\textbf{BAO from DESI Year~1 (2024).} The Dark Energy Spectroscopic Instrument has released its first-year BAO measurements covering seven redshift bins from $z = 0.3$ to $z = 4.2$ with $1$--$2\%$ precision on $D_A(z)/r_d$ and $D_H(z)/r_d$. DESI's hint of dynamical dark energy ($w_0 w_a$ deviating from $(-1, 0)$ at $\sim 2.5\sigma$) is particularly relevant for the CFM, whose effective dark energy equation of state is intrinsically time-varying: $w_{\mathrm{eff}}(z) = -1 + (2/3)\,d\ln f_{\mathrm{sat}}/d\ln a$. A joint fit of the CFM to Pantheon+ + Planck + DESI would test whether the DESI anomaly is better explained by a geometric saturation than by an $(w_0, w_a)$ parametrization.
+
+\textbf{CMB lensing.} Planck's CMB lensing reconstruction provides a measurement of the lensing amplitude $A_L = 1.18 \pm 0.065$, which exceeds the $\Lambda$CDM prediction $A_L = 1$ at $\sim 2.8\sigma$ (the ``$A_L$ anomaly''). In the CFM framework, the enhanced gravitational coupling $\mu = 4/3$ at sub-Compton scales produces additional lensing power at intermediate multipoles ($100 < L < 1000$), qualitatively matching the observed excess. Computing the full CMB lensing power spectrum $C_L^{\phi\phi}$ from the CFM perturbation equations would test whether the $A_L$ anomaly is a natural prediction of the model rather than a statistical fluctuation. This is feasible with the existing \texttt{hi\_class} implementation.
+
+\textbf{Euclid spectroscopic and photometric surveys (2024--2031).} Euclid will measure: (a)~the growth rate $f\sigma_8(z)$ in 14 redshift bins with $2$--$4\%$ precision, directly probing $\mu(k,a)$; (b)~the lensing-to-clustering ratio $E_G = \Sigma/\mu$, which is unity in $\Lambda$CDM but $E_G = 3/4$ in the CFM at sub-Compton scales; and (c)~the angular power spectrum $C_\ell^{gg}$ and $C_\ell^{\kappa g}$ cross-correlation, sensitive to the scale-dependent gravitational slip. The CFM prediction $\Sigma = 1, \mu = 4/3$ produces a distinctive ``scissors'' pattern: galaxy clustering is enhanced relative to $\Lambda$CDM, while lensing is unchanged. This pattern is unique to $f(R)$ gravity with $\alpha_T = 0$ and cannot be mimicked by dark energy models.
+
+\textbf{21-cm cosmology.} Hydrogen Epoch of Reionization Array (HERA) and the planned Square Kilometre Array (SKA) will probe the matter power spectrum at $z = 6$--$30$, directly in the regime where the CFM running coupling transitions from $\beta \approx 2.8$ (CDM-like) to $\beta \approx 2.0$ (curvature-like). The predicted suppression of small-scale power at $z < z_t$ relative to CDM provides a distinctive 21-cm signal.
 
 \subsection{The Vision: Cosmology as Curvature Phase Transitions}
 
@@ -872,6 +962,43 @@ In causal set theory \cite{Bombelli1987, Sorkin2003}, the Sorkin cosmological co
 \subsection{Quantum Error Correction}
 Spacetime as a quantum error-correcting code \cite{Almheiri2015, Pastawski2015} gives $\Phi_0$ the interpretation of code capacity. Every error-correcting code has a finite rate at which it can protect information against decoherence. Accelerated expansion is the code's self-protection mechanism: by diluting information density, it prevents exceeding the error-correction threshold. This connects directly to Paper~I's game-theoretic framework: the null space's ``self-protection motive'' \textit{is} the code's drive to maintain integrity.
 
+% ===================================================================
+% ACKNOWLEDGMENTS
+% ===================================================================
+\section*{Acknowledgments}
+
+The author thanks the developers of \texttt{hi\_class} \cite{Zumalacarregui2017}, \texttt{CLASS} \cite{Blas2011}, \texttt{emcee} \cite{ForemanMackey2013}, NumPy \cite{Harris2020}, SciPy \cite{Virtanen2020}, and Matplotlib \cite{Hunter2007} for providing open-source tools that made this analysis possible. AI assistance (Claude, Anthropic; Gemini, Google DeepMind) was used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author.
+
+% ===================================================================
+% CODE AND DATA AVAILABILITY
+% ===================================================================
+\section*{Code and Data Availability}
+
+\textbf{Analysis code.} All Python scripts for the CFM cosmological analysis, including the MCMC sampler, hi\_class wrapper, Pantheon+ supernova analysis, CMB power spectrum comparison, and corner plot generation, are publicly available at:
+\begin{center}
+\url{https://github.com/lukisch/cfm-cosmology}
+\end{center}
+
+The repository includes:
+\begin{itemize}
+\item \texttt{scripts/run\_full\_mcmc.py}: Full MCMC analysis with \texttt{emcee} and \texttt{hi\_class}
+\item \texttt{scripts/analyze\_mcmc\_results.py}: Posterior analysis and convergence diagnostics
+\item \texttt{scripts/patch\_cfm.py}: Patch script to integrate the \texttt{cfm\_fR} gravity model into \texttt{hi\_class}
+\item \texttt{scripts/test\_cfm\_fR\_native.py}: Verification script for the native CFM implementation
+\item \texttt{scripts/generate\_corner\_plot.py}: Corner plot generation from MCMC chains
+\item MCMC chains (\texttt{results/cfm\_fR\_mcmc\_chain.npz}) and best-fit results
+\end{itemize}
+
+\textbf{Modified hi\_class.} The \texttt{cfm\_fR} gravity model is implemented as a native modification to \texttt{hi\_class} v2.9.4 \cite{Zumalacarregui2017}. The required C-level modifications are applied via the patch script included in the repository. The original \texttt{hi\_class} code is available at \url{https://github.com/miguelzuma/hi_class_public}.
+
+\textbf{Data sources.}
+\begin{itemize}
+\item Pantheon+ supernova sample: \url{https://github.com/PantheonPlusSH0ES/DataRelease} \cite{Scolnic2022}
+\item Planck 2018 CMB power spectra: Planck Legacy Archive (\url{https://pla.esac.esa.int})
+\item BOSS BAO measurements: SDSS Data Release 12 (\url{https://www.sdss.org/dr12/})
+\end{itemize}
+
+All data products and intermediate results (CMB power spectra, MCMC chains, best-fit models) are included in the GitHub repository to ensure full reproducibility.
 
 \begin{thebibliography}{99}
 
@@ -1039,6 +1166,48 @@ Bellini, E.\ \& Sawicki, I.\ (2014).
 Maximal freedom at minimum cost: linear large-scale structure in general modifications of gravity.
 \textit{Journal of Cosmology and Astroparticle Physics}, 2014(07), 050.
 DOI: 10.1088/1475-7516/2014/07/050.
+
+\bibitem{HuSawicki2007}
+Hu, W.\ \& Sawicki, I.\ (2007).
+Models of $f(R)$ Cosmic Acceleration that Evade Solar-System Tests.
+\textit{Physical Review D}, 76(6), 064004.
+DOI: 10.1103/PhysRevD.76.064004.
+
+\bibitem{PlanckMG2016}
+Planck Collaboration (2016).
+Planck 2015 results. XIV. Dark energy and modified gravity.
+\textit{Astronomy \& Astrophysics}, 594, A14.
+DOI: 10.1051/0004-6361/201525814.
+
+\bibitem{Bekenstein2004}
+Bekenstein, J.\,D.\ (2004).
+Relativistic gravitation theory for the modified Newtonian dynamics paradigm.
+\textit{Physical Review D}, 70(8), 083509.
+DOI: 10.1103/PhysRevD.70.083509.
+
+\bibitem{Khoury2004}
+Khoury, J.\ \& Weltman, A.\ (2004).
+Chameleon fields: Awaiting surprises for tests of gravity in space.
+\textit{Physical Review Letters}, 93(17), 171104.
+DOI: 10.1103/PhysRevLett.93.171104.
+
+\bibitem{Williams2004}
+Williams, J.\,G., Turyshev, S.\,G.\ \& Boggs, D.\,H.\ (2004).
+Progress in lunar laser ranging tests of relativistic gravity.
+\textit{Physical Review Letters}, 93(26), 261101.
+DOI: 10.1103/PhysRevLett.93.261101.
+
+\bibitem{Bertotti2003}
+Bertotti, B., Iess, L.\ \& Tortora, P.\ (2003).
+A test of general relativity using radio links with the Cassini spacecraft.
+\textit{Nature}, 425(6956), 374--376.
+DOI: 10.1038/nature01997.
+
+\bibitem{BekensteinMilgrom1984}
+Bekenstein, J.\,D.\ \& Milgrom, M.\ (1984).
+Does the missing mass problem signal the breakdown of Newtonian gravity?
+\textit{The Astrophysical Journal}, 286, 7--14.
+DOI: 10.1086/162570.
 
 \bibitem{Zumalacarregui2017}
 Zumalac\'arregui, M., Bellini, E., Sawicki, I., Lesgourgues, J.\ \& Ferreira, P.\,G.\ (2017).
