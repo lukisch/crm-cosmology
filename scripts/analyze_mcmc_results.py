@@ -5,7 +5,7 @@ Reads MCMC chain from results/ directory (or /tmp/ as fallback) and produces:
   1. Summary statistics (mean, std, 68% CI for each parameter)
   2. Detection significance for alpha_M_0 > 0
   3. Corner plot (via generate_corner_plot.py)
-  4. LaTeX-formatted table for Paper III
+  4. LaTeX-formatted table for Paper I
 """
 import numpy as np
 import sys
@@ -152,7 +152,7 @@ for i, name in enumerate(param_names):
 # 6. LATEX TABLE FOR PAPER III
 # ================================================================
 print(f"\n{'='*80}")
-print("LATEX TABLE (for Paper III)")
+print("LATEX TABLE (for Paper I)")
 print(f"{'='*80}")
 print(r"""
 \begin{table}[h]

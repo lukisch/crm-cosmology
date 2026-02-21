@@ -1,0 +1,15 @@
+CFM_FR FULL MCMC RESULTS (RESUMED)
+Date: 2026-02-19 18:44
+Walkers: 48, Total Steps: 5000
+Resumed from step: 500
+Total samples: 240000
+Total evaluations (resume): 0
+Runtime (resume): 4193.8 min
+Acceptance: 0.465
+
+Best chi2: 6625.1 (dchi2 = -3.7)
+alpha_M_0: 0.001147 +0.000951 -0.000597
+n_exp: 0.550646 +0.577746 -0.293728
+omega_cdm: 0.120015 +0.000294 -0.000298
+logAs: 3.044356 +0.001938 -0.001924
+n_s: 0.965607 +0.002414 -0.002371

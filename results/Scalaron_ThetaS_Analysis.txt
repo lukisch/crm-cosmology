@@ -58,10 +58,10 @@ Alpha_M corrections do NOT compensate.
 
 5. RESOLUTION OF THE THETA_S PROBLEM
 -------------------------------------
-Paper II's theta_s offset (0.69%) arose from the phenomenological
+Paper III's theta_s offset (0.69%) arose from the phenomenological
 parameterization where geometric DM has w = -0.06 (not w = 0).
 
-Paper III's Lagrangian approach RESOLVES this:
+Paper I's Lagrangian approach RESOLVES this:
 - The scalaron (from R^2 term) IS the dark matter at background level
 - Its EoS is w ~ 0 to high precision (massive scalar tracking minimum)
 - omega_cdm in hi_class correctly represents the scalaron energy density
@@ -76,12 +76,12 @@ it IS the correct physical picture of the scalaron model!
 Gemini suggested: "implement time-dependent alpha_M(a) to correct theta_s"
 CORRECTED UNDERSTANDING:
 - alpha_M cannot change theta_s (it's a background quantity)
-- theta_s is ALREADY correct in Paper III's framework
-- The scalaron background IS CDM-like (resolves Paper II's 0.69% offset)
+- theta_s is ALREADY correct in Paper I's framework
+- The scalaron background IS CDM-like (resolves Paper III's 0.69% offset)
 - alpha_M captures only the perturbative corrections beyond CDM
 
-CONCLUSION: The theta_s problem is RESOLVED by Paper III's Lagrangian
-approach, not by tuning alpha_M. Paper III > Paper II for this test.
+CONCLUSION: The theta_s problem is RESOLVED by Paper I's Lagrangian
+approach, not by tuning alpha_M. Paper I > Paper III for this test.
 
 7. POESCHL-TELLER PATH INTEGRAL
 ---------------------------------

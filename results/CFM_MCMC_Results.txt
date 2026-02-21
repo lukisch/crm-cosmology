@@ -1,106 +1,93 @@
+Loaded chain from: C:\Users\User\OneDrive\Forschung\Natur&Technik\Spieltheorie Urknall\results\cfm_fR_mcmc_chain.npz
 ================================================================================
-CFM f(R) MCMC RESULTS -- Planck 2018 TT+TE+EE (6,405 data points)
-================================================================================
-
-Date: 2026-02-15 (run started 2026-02-14 21:10, finished 2026-02-15 06:29)
-Runtime: 559.0 min (9.3 hours)
-Code: hi_class v2.9.4+ with native cfm_fR gravity model
-Sampler: emcee 3.1.6, 24 walkers, 80 burn-in + 400 production steps
-Chain shape: (9600, 5)  [24 walkers x 400 steps]
-Total likelihood evaluations: 9,527
-Acceptance fraction: 0.478
-
-================================================================================
-BEST-FIT (lowest chi2)
+cfm_fR MCMC ANALYSIS
 ================================================================================
 
-chi2     = 6625.2
-dchi2    = -3.6  (vs LCDM chi2 = 6628.8)
-
-alpha_M_0  = 0.002402
-n_exp      = 0.276735
-omega_cdm  = 0.120023
-logAs      = 3.044779  (A_s = 2.1005e-09)
-n_s        = 0.965416
-
-Derived:
-  alpha_M(a=1)  = 0.000663
-  Omega_m       = 0.3142
+Chain shape: (240000, 5) (240000 samples)
+Parameters: [np.str_('alpha_M_0'), np.str_('n_exp'), np.str_('omega_cdm'), np.str_('logAs'), np.str_('n_s')]
 
 ================================================================================
-MARGINALIZED 1D CONSTRAINTS (mean +/- std)
+MARGINALIZED CONSTRAINTS (68% CI)
 ================================================================================
-
    Parameter         Mean        Std       Median        16%        84%
 ----------------------------------------------------------------------
-     alpha_M_0     0.001288   0.000726     0.001142   0.000568   0.002155
-         n_exp     0.669222   0.419876     0.552567   0.260244   1.198737
-     omega_cdm     0.119944   0.000286     0.119946   0.119654   0.120220
-         logAs     3.043965   0.001839     3.044015   3.042144   3.045763
-           n_s     0.965637   0.002437     0.965576   0.963233   0.968078
+     alpha_M_0     0.001273   0.000725     0.001147   0.000550   0.002098
+         n_exp     0.655309   0.402987     0.550646   0.256918   1.128392
+     omega_cdm     0.120013   0.000300     0.120015   0.119717   0.120309
+         logAs     3.044365   0.001941     3.044356   3.042432   3.046294
+           n_s     0.965631   0.002414     0.965607   0.963236   0.968021
+
+================================================================================
+BEST-FIT PARAMETERS
+================================================================================
+Best chi2 = 6625.1 (dchi2 = -3.7 vs LCDM)
+     alpha_M_0 = 0.002338
+         n_exp = 0.273327
+     omega_cdm = 0.120022
+         logAs = 3.044268
+           n_s = 0.965962
 
 ================================================================================
 DETECTION SIGNIFICANCE
 ================================================================================
+P(alpha_M_0 > 0) = 0.9999
+alpha_M_0 detection: 1.76 sigma
+  mean = 0.001273
+  std  = 0.000725
+  95% upper limit: alpha_M_0 < 0.002662
+  99% upper limit: alpha_M_0 < 0.002928
 
-P(alpha_M_0 > 0) = 1.0000  (100% of posterior favors modified gravity)
-alpha_M_0 detection significance: 1.78 sigma
+n_exp constraint: 0.655 +/- 0.403
+  68% CI: [0.257, 1.128]
 
-Note: 1.78 sigma is a "hint" of modified gravity, not a formal detection (>2 sigma).
-The posterior is entirely above zero, indicating a consistent preference for
-alpha_M_0 > 0 across all viable parameter combinations.
+================================================================================
+DERIVED QUANTITIES
+================================================================================
+Omega_m: 0.3142 +/- 0.0007
+A_s (1e-9): 2.0997 +/- 0.0041
+alpha_M(a=1): 0.000655 +/- 0.000333
 
 ================================================================================
 CORRELATION MATRIX
 ================================================================================
-
               alpha_M_0      n_exp  omega_cdm      logAs        n_s
-     alpha_M_0      1.000     -0.633      0.002     -0.105      0.017
-         n_exp     -0.633      1.000     -0.017      0.017      0.021
-     omega_cdm      0.002     -0.017      1.000      0.468     -0.033
-         logAs     -0.105      0.017      0.468      1.000     -0.573
-           n_s      0.017      0.021     -0.033     -0.573      1.000
-
-Key correlations:
-  - alpha_M_0 vs n_exp: -0.633 (strong anti-correlation, expected: both control amplitude)
-  - logAs vs n_s: -0.573 (standard CMB degeneracy)
-  - omega_cdm vs logAs: 0.468 (standard CMB degeneracy)
-  - Modified gravity parameters (alpha_M_0, n_exp) are essentially uncorrelated
-    with standard cosmological parameters (omega_cdm, logAs, n_s)
+     alpha_M_0      1.000     -0.612     -0.043     -0.078      0.083
+         n_exp     -0.612      1.000      0.032      0.030     -0.020
+     omega_cdm     -0.043      0.032      1.000      0.543     -0.049
+         logAs     -0.078      0.030      0.543      1.000     -0.544
+           n_s      0.083     -0.020     -0.049     -0.544      1.000
 
 ================================================================================
-BURN-IN STATISTICS (for reference)
+LATEX TABLE (for Paper I)
 ================================================================================
 
-     alpha_M_0: 0.000668 +/- 0.000427
-         n_exp: 0.665224 +/- 0.200404
-     omega_cdm: 0.119938 +/- 0.002028
-         logAs: 3.043389 +/- 0.016267
-           n_s: 0.967067 +/- 0.002947
+\begin{table}[h]
+\centering
+\caption{Marginalized posterior constraints from the cfm\_fR MCMC analysis
+(24 walkers, 400 production steps, TT+TE+EE against 6{,}405 Planck data points).}
+\label{tab:mcmc_results}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Parameter} & \textbf{Best-fit} & \textbf{Mean $\pm$ std} & \textbf{68\% CI} \\
+\midrule
+$\alpha_{M,0}$ & $0.00234$ & $0.00127 \pm 0.00072$ & $0.00115^{+0.00095}_{-0.00060}$ \\
+$n$ & $0.27333$ & $0.65531 \pm 0.40299$ & $0.55065^{+0.57775}_{-0.29373}$ \\
+$\omega_{\mathrm{cdm}}$ & $0.12002$ & $0.12001 \pm 0.00030$ & $0.12002^{+0.00029}_{-0.00030}$ \\
+$\ln(10^{10}A_s)$ & $3.04427$ & $3.04436 \pm 0.00194$ & $3.04436^{+0.00194}_{-0.00192}$ \\
+$n_s$ & $0.96596$ & $0.96563 \pm 0.00241$ & $0.96561^{+0.00241}_{-0.00237}$ \\
+\midrule
+\multicolumn{4}{c}{\textit{Derived}} \\
+$\chi^2_{\mathrm{best}}$ & $6625.1$ & --- & --- \\
+$\Delta\chi^2$ vs.\ $\Lambda$CDM & $-3.7$ & --- & --- \\
+$\alpha_{M,0} > 0$ significance & $1.8\sigma$ & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-Burn-in acceptance: 0.466
-Burn-in time: 101.7 min (80 steps)
+
+For corner plot, run: python C:\Users\User\OneDrive\Forschung\Natur&Technik\Spieltheorie Urknall\scripts\generate_corner_plot.py
+Output: C:\Users\User\OneDrive\Forschung\Natur&Technik\Spieltheorie Urknall\figures\cfm_contour.png
 
 ================================================================================
-INTERPRETATION
+ANALYSIS COMPLETE
 ================================================================================
-
-1. The cfm_fR model improves the fit to Planck CMB data by dchi2 = -3.6
-   compared to LCDM, with 2 additional parameters (alpha_M_0, n_exp).
-
-2. The best-fit has a low n_exp = 0.28, meaning the scalaron mass evolves
-   slowly: m_eff ~ a^{-n/2} ~ a^{-0.14}. This is consistent with a
-   nearly constant modification at late times.
-
-3. The marginalized mean alpha_M_0 = 0.0013 corresponds to a Planck mass
-   running of ~0.1% -- a tiny but CMB-detectable effect.
-
-4. Standard cosmological parameters are unaffected by the modified gravity
-   extension (correlations < 0.02), confirming that cfm_fR is a clean
-   perturbative extension of LCDM.
-
-5. Using the Akaike Information Criterion (AIC): dAIC = dchi2 + 2*dk = -3.6 + 4 = +0.4
-   This means cfm_fR and LCDM are statistically equivalent by AIC.
-   Using BIC: dBIC = dchi2 + dk*ln(N) = -3.6 + 2*ln(6405) = -3.6 + 17.5 = +13.9
-   BIC penalizes cfm_fR due to the large dataset, but this reflects the
-   conservative nature of BIC rather than a poor fit.

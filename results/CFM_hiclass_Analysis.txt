@@ -890,8 +890,8 @@ FAZIT: Die Polarisationsdaten (TE, EE) sind KOMPATIBEL mit dem CFM.
     beta_eff(a) = 3 + d ln(chi)/d ln(a) + d ln(F)/d ln(a)
 
   Numerisch verifiziert: Die Skalaron-ODE liefert
-    beta(z=7) ~ 2.75  (Paper II: 2.78)
-    beta(z=0) ~ 3.0   (Paper II: 2.02 + lim)
+    beta(z=7) ~ 2.75  (Paper III: 2.78)
+    beta(z=0) ~ 3.0   (Paper III: 2.02 + lim)
 
   mu(a) entsteht aus ZWEI Beitraegen:
     (i)  Skalaron (R^2): maximal 4/3 = 1.333 (Sub-Compton)
@@ -972,7 +972,7 @@ FAZIT: Die Polarisationsdaten (TE, EE) sind KOMPATIBEL mit dem CFM.
   theta_s = r_s / D_A haengt nur vom Materiegehalt ab.
 
   RESOLUTION: Der Skalaron aus dem R^2-Term hat w << 0.01 (nicht w=-0.06 wie
-  in Paper II's phaenomenologischem Modell). omega_cdm in hi_class REPRAESENTIERT
+  in Paper III's phaenomenologischem Modell). omega_cdm in hi_class REPRAESENTIERT
   korrekt die Skalaron-Energiedichte.
 
   Reduziertes omega_cdm Test:

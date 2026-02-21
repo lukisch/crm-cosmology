@@ -6,7 +6,7 @@ Three parts:
 A) Solve the scalaron ODE to derive alpha_M(a) analytically
 B) Compare scalaron alpha_M(a) with propto_omega and propto_scale parametrizations
 C) Run hi_class with propto_scale (best proxy for scalaron) and extract theta_s
-D) Test reduced omega_cdm models to bridge Paper II <-> Paper III
+D) Test reduced omega_cdm models to bridge Paper III <-> Paper I
 
 Key physics:
 - Scalaron: chi = f_R - 1 = 4*gamma*F(a)*R
@@ -376,7 +376,7 @@ if HAS_HICLASS:
     sys.stdout.flush()
 
     # ================================================================
-    # PART D: Reduced omega_cdm - bridging to Paper II baryon-only model
+    # PART D: Reduced omega_cdm - bridging to Paper III baryon-only model
     # ================================================================
     print("\n" + "="*80)
     print("PART D: Reduced omega_cdm (toward baryon-only)")
