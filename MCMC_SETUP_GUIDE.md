@@ -299,9 +299,9 @@ Die Schluesselwerte die aktualisiert werden muessen (falls sie sich aendern):
 - Korrelationsmatrix (besonders rho(alpha_M_0, n))
 
 Diese Werte stehen in:
-- `papers/Paper3_EN.tex` (Sections 6, 7)
-- `papers/Paper3_DE.tex` (analog)
-- `papers/Paper2_EN.tex` (Honest Assessment, Zeile ~872)
+- `papers/Paper1_EN.tex` (Sections 6, 7)
+- `papers/Paper1_DE.tex` (analog)
+- `papers/Paper3_EN.tex` (Honest Assessment, Zeile ~872)
 - `reviews/RESPONSE_TO_REVIEWER.md`
 
 ---

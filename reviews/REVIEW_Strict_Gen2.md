@@ -1,7 +1,7 @@
 # Strict Review: CFM Cosmology Papers II & III (Gen 2)
 
 **Reviewer:** Claude Opus 4.6 (Simulated PRD/JCAP Referee)
-**Papers under review:** CFM Paper II ("Eliminating the Dark Sector: Unifying the Curvature Feedback Model with MOND"), Paper III ("Microscopic Foundations of the Curvature Feedback Model")
+**Papers under review:** CFM Paper III ("Eliminating the Dark Sector: Unifying the Curvature Feedback Model with MOND"), Paper I ("Microscopic Foundations of the Curvature Feedback Model")
 **Review type:** Post-Revision Assessment (following Gen 1 Major Revision)
 **Date:** 15 February 2026
 
@@ -13,7 +13,7 @@
 
 ## Executive Summary
 
-The revision has addressed the most critical concerns of the Gen 1 review with substantial effort and, in several cases, genuine scientific progress. The full Boltzmann integration using a native `cfm_fR` gravity model in hi_class is a major step forward: the CMB TT+TE+EE analysis against 6,405 Planck data points yields Delta_chi2 = -3.6 (MCMC best-fit), the corner plots are now provided, the trace coupling is rigorously derived from the f(R) field equations rather than postulated, and the theta_s offset is resolved. The S8 tension is honestly acknowledged. However, several issues remain that prevent an unconditional accept: (1) the MCMC chain is marginal (9,600 samples, 24 walkers, only 400 production steps) and convergence diagnostics are absent; (2) the diagonal chi2 (no covariance matrix) inflates the claimed improvement; (3) the running beta and running mu transitions remain phenomenological fitting functions without rigorous Lagrangian derivation despite claims to the contrary; (4) the relationship between the SN-only framework (Paper II) and the Boltzmann framework (Paper III) contains an unresolved conceptual tension regarding what omega_cdm represents; and (5) the sqrt(pi) conjecture remains numerologically motivated rather than derived. Overall, the papers present a coherent and testable modified gravity hypothesis that merits publication after the issues below are addressed.
+The revision has addressed the most critical concerns of the Gen 1 review with substantial effort and, in several cases, genuine scientific progress. The full Boltzmann integration using a native `cfm_fR` gravity model in hi_class is a major step forward: the CMB TT+TE+EE analysis against 6,405 Planck data points yields Delta_chi2 = -3.6 (MCMC best-fit), the corner plots are now provided, the trace coupling is rigorously derived from the f(R) field equations rather than postulated, and the theta_s offset is resolved. The S8 tension is honestly acknowledged. However, several issues remain that prevent an unconditional accept: (1) the MCMC chain is marginal (9,600 samples, 24 walkers, only 400 production steps) and convergence diagnostics are absent; (2) the diagonal chi2 (no covariance matrix) inflates the claimed improvement; (3) the running beta and running mu transitions remain phenomenological fitting functions without rigorous Lagrangian derivation despite claims to the contrary; (4) the relationship between the SN-only framework (Paper III) and the Boltzmann framework (Paper I) contains an unresolved conceptual tension regarding what omega_cdm represents; and (5) the sqrt(pi) conjecture remains numerologically motivated rather than derived. Overall, the papers present a coherent and testable modified gravity hypothesis that merits publication after the issues below are addressed.
 
 ---
 
@@ -29,7 +29,7 @@ The Gen 1 reviewer demanded a full C_l computation. This has been provided: hi_c
 ### Point 2: Sound Speed & Anisotropic Stress
 **RESOLVED.**
 
-Paper III Section 6.1 now provides a complete perturbation analysis: c_s^2 = 1 (exact for f(R)), the modified Poisson equation mu(k,a) = 1 + (1/3) k^2/(k^2 + a^2 m_eff^2), the lensing parameter Sigma = 1 (since alpha_T = 0), and the gravitational slip eta(k,a). The clarification that the scalaron does NOT cluster like a fluid but modifies the Poisson equation is correct and important. The structure formation mechanism through enhanced gravitational coupling (mu = 4/3 at sub-Compton scales) is well established in the f(R) literature and is correctly applied here.
+Paper I Section 6.1 now provides a complete perturbation analysis: c_s^2 = 1 (exact for f(R)), the modified Poisson equation mu(k,a) = 1 + (1/3) k^2/(k^2 + a^2 m_eff^2), the lensing parameter Sigma = 1 (since alpha_T = 0), and the gravitational slip eta(k,a). The clarification that the scalaron does NOT cluster like a fluid but modifies the Poisson equation is correct and important. The structure formation mechanism through enhanced gravitational coupling (mu = 4/3 at sub-Compton scales) is well established in the f(R) literature and is correctly applied here.
 
 ### Point 3: Bullet Cluster Lensing
 **RESOLVED.**
@@ -48,9 +48,9 @@ The corner plot (cfm_contour.png) is now provided with filled 68%/95% credible r
 ### Point 5: Kitchen Sink Problem
 **PARTIALLY RESOLVED.**
 
-The QG candidates are now compressed to Section 3.2 (~5 lines each) with the explicit caveat that they are "UV-completion candidates, not derivations" and that "all testable predictions derive exclusively from the effective action." This is a significant improvement. The detailed material is moved to Appendix A. However, Paper III still attempts to cover too much ground: Lagrangian derivation, ghost analysis, perturbation equations, full Boltzmann numerics, MCMC, S8 analysis, DESI comparison, QG candidates, fractal game theory, technological horizons, and metric engineering. For a journal submission, I would strongly recommend splitting: the hard physics (Lagrangian, perturbations, numerics) should be one paper, and the speculative material (fractal game theory, QG connections, technological horizons) should be a separate paper or review article.
+The QG candidates are now compressed to Section 3.2 (~5 lines each) with the explicit caveat that they are "UV-completion candidates, not derivations" and that "all testable predictions derive exclusively from the effective action." This is a significant improvement. The detailed material is moved to Appendix A. However, Paper I still attempts to cover too much ground: Lagrangian derivation, ghost analysis, perturbation equations, full Boltzmann numerics, MCMC, S8 analysis, DESI comparison, QG candidates, fractal game theory, technological horizons, and metric engineering. For a journal submission, I would strongly recommend splitting: the hard physics (Lagrangian, perturbations, numerics) should be one paper, and the speculative material (fractal game theory, QG connections, technological horizons) should be a separate paper or review article.
 
-The "Fractal Game Theory" section (Section 5 of Paper III) is particularly problematic for a PRD submission. The conjectures on quantum-game duality, the Standard Model as Nash-optimal toolkit, and game-theoretic fine-tuning are intellectually stimulating but entirely speculative -- there is no calculation, no derivation, and no testable prediction. A PRD referee would almost certainly request removal of this section. The "Technological Horizons" section (metric engineering, vacuum energy access) is completely inappropriate for a physics journal and should be removed.
+The "Fractal Game Theory" section (Section 5 of Paper I) is particularly problematic for a PRD submission. The conjectures on quantum-game duality, the Standard Model as Nash-optimal toolkit, and game-theoretic fine-tuning are intellectually stimulating but entirely speculative -- there is no calculation, no derivation, and no testable prediction. A PRD referee would almost certainly request removal of this section. The "Technological Horizons" section (metric engineering, vacuum energy access) is completely inappropriate for a physics journal and should be removed.
 
 ### Point 6: Trace Coupling
 **RESOLVED.**
@@ -88,14 +88,14 @@ The chi2 comparison against 6,405 Planck data points uses a *diagonal* chi2 (sum
 
 For a PRD/JCAP submission, a proper likelihood analysis (using MontePython or CosmoMC with the Planck 2018 likelihood) is expected. Alternatively, at minimum the authors should use the Planck compressed likelihood (CMB-only: l_A, R, z_*, omega_b, n_s).
 
-### Issue N3: Conceptual Tension Between Paper II and Paper III Frameworks (IMPORTANT)
+### Issue N3: Conceptual Tension Between Paper III and Paper I Frameworks (IMPORTANT)
 
-Paper II presents a *baryon-only* universe (Omega_m = Omega_b = 0.05) where the geometric term alpha*a^{-beta} replaces dark matter cosmologically. Paper III implements the model in hi_class using the *standard* omega_cdm parameter (best-fit omega_cdm = 0.11994), interpreting it as the scalaron background energy density. These two pictures are presented as consistent, but there is a fundamental tension:
+Paper III presents a *baryon-only* universe (Omega_m = Omega_b = 0.05) where the geometric term alpha*a^{-beta} replaces dark matter cosmologically. Paper I implements the model in hi_class using the *standard* omega_cdm parameter (best-fit omega_cdm = 0.11994), interpreting it as the scalaron background energy density. These two pictures are presented as consistent, but there is a fundamental tension:
 
-- **Paper II claim:** "The dark sector is eliminated. Omega_m = Omega_b = 0.05."
-- **Paper III practice:** omega_cdm = 0.120 is used as a fitting parameter in the MCMC. The scalaron's background energy density is identified with omega_cdm.
+- **Paper III claim:** "The dark sector is eliminated. Omega_m = Omega_b = 0.05."
+- **Paper I practice:** omega_cdm = 0.120 is used as a fitting parameter in the MCMC. The scalaron's background energy density is identified with omega_cdm.
 
-If omega_cdm = 0.120 represents the scalaron field, then the universe is *not* baryon-only in any meaningful sense -- it contains baryons plus a massive scalar field whose energy density behaves like CDM. The ontological claim of Paper II ("eliminating the dark sector") is undermined if the dark matter is simply relabeled from "CDM particle" to "scalaron field." This is not a mere semantic issue: the scalaron has a definite mass, definite perturbation dynamics, and contributes to the energy budget exactly like CDM at the background level. The physical distinction is in the perturbation sector (mu = 4/3 at sub-Compton scales, gravitational slip), not in the background.
+If omega_cdm = 0.120 represents the scalaron field, then the universe is *not* baryon-only in any meaningful sense -- it contains baryons plus a massive scalar field whose energy density behaves like CDM. The ontological claim of Paper III ("eliminating the dark sector") is undermined if the dark matter is simply relabeled from "CDM particle" to "scalaron field." This is not a mere semantic issue: the scalaron has a definite mass, definite perturbation dynamics, and contributes to the energy budget exactly like CDM at the background level. The physical distinction is in the perturbation sector (mu = 4/3 at sub-Compton scales, gravitational slip), not in the background.
 
 **Requirement:** The authors must clearly state that the CFM replaces CDM *particles* with a *scalaron field* whose background energy density is CDM-like. The claim of a "baryon-only universe" should be qualified: it is baryon-only in the sense that no new *particle species* is introduced, but the total energy budget still includes a dark component (the scalaron), which is geometric in origin. The more accurate description is "a universe without dark matter particles," not "a universe without a dark sector."
 
@@ -105,7 +105,7 @@ The scale-dependent MOND background coupling mu(a) is given by:
 
 mu(a) = mu_late + (mu_early - mu_late) / (1 + (a/a_mu)^4)
 
-with mu_late = sqrt(pi), mu_early = 1.00, a_mu = 2.55 x 10^{-4}. This is a phenomenological transition function with three parameters. Despite repeated claims that Paper III "provides the Lagrangian derivation," no such derivation of mu(a) is presented. Paper III derives beta_eff(a) from the scalaron equation of motion (Eq. 36), which is a genuine result, but the running mu(a) has no Lagrangian origin whatsoever. It is an ad-hoc interpolation function introduced to fix the sound horizon problem.
+with mu_late = sqrt(pi), mu_early = 1.00, a_mu = 2.55 x 10^{-4}. This is a phenomenological transition function with three parameters. Despite repeated claims that Paper I "provides the Lagrangian derivation," no such derivation of mu(a) is presented. Paper I derives beta_eff(a) from the scalaron equation of motion (Eq. 36), which is a genuine result, but the running mu(a) has no Lagrangian origin whatsoever. It is an ad-hoc interpolation function introduced to fix the sound horizon problem.
 
 The physical motivation ("at z > 4000, the cosmological acceleration exceeds a_0, so standard gravity applies") is qualitatively reasonable but does not constitute a derivation. In particular:
 1. The transition scale a_mu = 2.55 x 10^{-4} is fitted, not derived.
@@ -116,7 +116,7 @@ The physical motivation ("at z > 4000, the cosmological acceleration exceeds a_0
 
 ### Issue N5: The sqrt(pi) Conjecture -- Numerology vs. Physics (MINOR)
 
-The "sqrt(pi) Conjecture" (Section 2.7 of Paper II) proposes that the MOND enhancement factor at cosmological scales is mu_eff = sqrt(pi) based on:
+The "sqrt(pi) Conjecture" (Section 2.7 of Paper III) proposes that the MOND enhancement factor at cosmological scales is mu_eff = sqrt(pi) based on:
 1. The "projection amplitude" of the 2-sphere onto observational space.
 2. The Gaussian integral Gamma(1/2) = sqrt(pi).
 3. "Thermodynamic normalization of gravitational modes on the cosmological 2-sphere."
@@ -165,9 +165,9 @@ The scalaron field has energy density rho_scalaron ~ omega_cdm * rho_crit, with 
 
 From the MCMC best-fit alpha_M_0 = 0.0013, what is the scalaron mass m_s today? What is the corresponding Compton wavelength lambda_C = 2*pi/m_s? Does this conflict with Lunar Laser Ranging, Cassini, or fifth-force experiments? The authors claim chameleon screening with lambda_C^solar ~ 20 m, but this depends on gamma, which is never numerically specified. Please provide a concrete value of gamma (or equivalently m_s) consistent with the MCMC and demonstrate that local tests are satisfied.
 
-### Q3: The SN-only fit (Paper II, Delta_chi2 = -26.3) uses a completely different framework from the Boltzmann fit (Paper III, Delta_chi2 = -3.6). Which is the CFM?
+### Q3: The SN-only fit (Paper III, Delta_chi2 = -26.3) uses a completely different framework from the Boltzmann fit (Paper I, Delta_chi2 = -3.6). Which is the CFM?
 
-Paper II fits Pantheon+ with a phenomenological extended Friedmann equation using 5 parameters (Phi_0, k, a_trans, alpha, beta). Paper III fits Planck CMB with hi_class using standard Lambda_CDM parameters plus alpha_M_0 and n. These are two different models with different parameter spaces, different physics, and different datasets. The authors present both as "the CFM," but they are not the same model. Can the authors demonstrate, quantitatively, that the Paper II SN fit and the Paper III CMB fit are simultaneously satisfied by a *single* set of Lagrangian parameters (gamma, V_0, phi_0)?
+Paper III fits Pantheon+ with a phenomenological extended Friedmann equation using 5 parameters (Phi_0, k, a_trans, alpha, beta). Paper I fits Planck CMB with hi_class using standard Lambda_CDM parameters plus alpha_M_0 and n. These are two different models with different parameter spaces, different physics, and different datasets. The authors present both as "the CFM," but they are not the same model. Can the authors demonstrate, quantitatively, that the Paper III SN fit and the Paper I CMB fit are simultaneously satisfied by a *single* set of Lagrangian parameters (gamma, V_0, phi_0)?
 
 ### Q4: The running beta transition at z_t ~ 7-10 is coincident with first galaxy formation. Is this a prediction or a retrodiction?
 
@@ -183,13 +183,13 @@ The trace coupling suppresses the scalaron during the radiation era, but "suppre
 
 ### Q7: The claimed "exact Planck match" (l_1 = 220, P_3/P_1 = 0.4295) uses the effective CDM mapping, not the native cfm_fR model. Can you reproduce these numbers with the native model?
 
-Paper II claims l_1 = 220 and P_3/P_1 = 0.4295 using the "effective CDM" mapping (replacing the geometric term with an effective omega_cdm in CAMB/hi_class). Paper III uses the native cfm_fR model but reports only total chi2 values, not individual peak positions and ratios. Do the native cfm_fR results reproduce l_1 = 220 and P_3/P_1 = 0.4295? If so, show the numbers. If not, which result should the reader trust?
+Paper III claims l_1 = 220 and P_3/P_1 = 0.4295 using the "effective CDM" mapping (replacing the geometric term with an effective omega_cdm in CAMB/hi_class). Paper I uses the native cfm_fR model but reports only total chi2 values, not individual peak positions and ratios. Do the native cfm_fR results reproduce l_1 = 220 and P_3/P_1 = 0.4295? If so, show the numbers. If not, which result should the reader trust?
 
 ---
 
 ## Minor Comments
 
-1. **Notation inconsistency:** Paper II uses mu_eff for the MOND background coupling, while the perturbation analysis in Paper III uses mu(k,a) for the effective gravitational coupling. These are different quantities sharing the same symbol. This will confuse readers.
+1. **Notation inconsistency:** Paper III uses mu_eff for the MOND background coupling, while the perturbation analysis in Paper I uses mu(k,a) for the effective gravitational coupling. These are different quantities sharing the same symbol. This will confuse readers.
 
 2. **Equation numbering:** The "boxed" equations are distracting and non-standard for PRD/JCAP. Remove the boxes.
 
@@ -197,15 +197,15 @@ Paper II claims l_1 = 220 and P_3/P_1 = 0.4295 using the "effective CDM" mapping
 
 4. **"Working Paper" label:** If submitting to PRD or JCAP, remove all "Working Paper" designations. These signal that the authors do not consider the work complete, which is incompatible with journal submission.
 
-5. **Game-theoretic language:** Terms like "Nash equilibrium," "gradient reduction game," "null space player," and "Mother-Daughter-Granddaughter ontology" are metaphorical. While the game-theoretic foundation is the subject of Paper I, in Papers II and III these terms should be used sparingly or replaced with standard physics terminology. A PRD referee unfamiliar with Paper I will find this language obscure.
+5. **Game-theoretic language:** Terms like "Nash equilibrium," "gradient reduction game," "null space player," and "Mother-Daughter-Granddaughter ontology" are metaphorical. While the game-theoretic foundation is the subject of Paper II, in Papers II and III these terms should be used sparingly or replaced with standard physics terminology. A PRD referee unfamiliar with Paper II will find this language obscure.
 
-6. **The Efficiency Hypothesis (Paper II, Section 2.5):** The argument that a Nash-optimal universe would not "waste" energy on dark matter because baryons are more "efficient" entropy producers is philosophical, not physical. It assumes an objective function (entropy maximization) that is not derived from the action. This section can be shortened to a paragraph.
+6. **The Efficiency Hypothesis (Paper III, Section 2.5):** The argument that a Nash-optimal universe would not "waste" energy on dark matter because baryons are more "efficient" entropy producers is philosophical, not physical. It assumes an objective function (entropy maximization) that is not derived from the action. This section can be shortened to a paragraph.
 
 7. **"Decaying Dark Geometry" as a brand name:** Introducing named hypotheses ("Decaying Dark Geometry hypothesis," "Geometric Crystallization," "sqrt(pi) Conjecture") is unusual in physics papers and gives the impression of marketing rather than science. Let the physics speak for itself.
 
-8. **Reference [Geiger2026c] is self-referential.** Paper III cites itself as "in preparation." If submitting simultaneously, use "companion paper" with a shared submission note.
+8. **Reference [Geiger2026c] is self-referential.** Paper I cites itself as "in preparation." If submitting simultaneously, use "companion paper" with a shared submission note.
 
-9. **Table formatting:** Tables in Paper II (e.g., Table 5 with 5 model variants) are difficult to parse. Consolidate to the most relevant comparison (preferred CFM vs. Lambda_CDM).
+9. **Table formatting:** Tables in Paper III (e.g., Table 5 with 5 model variants) are difficult to parse. Consolidate to the most relevant comparison (preferred CFM vs. Lambda_CDM).
 
 10. **The 1,590 SN count:** The Pantheon+ catalog contains 1,701 SN (1,550 unique after cuts). The number 1,590 should be clarified -- is this after a specific redshift cut (z > 0.01)? State the cut explicitly.
 
@@ -213,9 +213,9 @@ Paper II claims l_1 = 220 and P_3/P_1 = 0.4295 using the "effective CDM" mapping
 
 ## Strengths
 
-1. **The beta ~ 2.0 result (Paper II)** remains the strongest single finding of the entire program. That a free MCMC parameter independently recovers the curvature scaling exponent is nontrivial and demands explanation, regardless of whether the full CFM framework is correct. This result alone merits publication.
+1. **The beta ~ 2.0 result (Paper III)** remains the strongest single finding of the entire program. That a free MCMC parameter independently recovers the curvature scaling exponent is nontrivial and demands explanation, regardless of whether the full CFM framework is correct. This result alone merits publication.
 
-2. **The native hi_class implementation (Paper III)** is a substantial technical achievement. Patching the C source code of hi_class with a custom gravity model and running full Boltzmann integration is the gold standard for modified gravity cosmology. The Delta_chi2 = -3.6 (MCMC) against Planck is a legitimate, if marginal, result.
+2. **The native hi_class implementation (Paper I)** is a substantial technical achievement. Patching the C source code of hi_class with a custom gravity model and running full Boltzmann integration is the gold standard for modified gravity cosmology. The Delta_chi2 = -3.6 (MCMC) against Planck is a legitimate, if marginal, result.
 
 3. **Rigorous trace coupling derivation.** The demonstration that the trace coupling follows from the f(R) field equations rather than being ad-hoc is the single most important theoretical improvement in this revision. It elevates the model from phenomenology to a well-defined f(R) theory.
 
@@ -223,9 +223,9 @@ Paper II claims l_1 = 220 and P_3/P_1 = 0.4295 using the "effective CDM" mapping
 
 5. **Testable predictions.** The model makes clear, falsifiable predictions: Sigma = 1 (testable by Euclid), S8 = 0.845-0.920 (testable by Euclid), alpha_M_0 = 0.0013 +/- 0.0007 (testable by next-generation CMB), and c_GW = c (already consistent with GW170817). This is a strength relative to many modified gravity proposals that avoid making sharp predictions.
 
-6. **The theta_s resolution (Paper III, Section 7.4):** The demonstration that the scalaron's background energy density is CDM-like (w ~ 0), yielding 100*theta_s = 1.04173 for all alpha_M values, is a clean and convincing resolution of what was a serious problem in Paper II.
+6. **The theta_s resolution (Paper I, Section 7.4):** The demonstration that the scalaron's background energy density is CDM-like (w ~ 0), yielding 100*theta_s = 1.04173 for all alpha_M values, is a clean and convincing resolution of what was a serious problem in Paper III.
 
-7. **Cross-validation (Paper II, Section 3.3):** The 5-fold cross-validation on the SN-only fit is a rigorous and underused technique in cosmology. The result that the extended CFM generalizes better than Lambda_CDM (lower mean predictive chi2/n on held-out data) is compelling evidence against overfitting.
+7. **Cross-validation (Paper III, Section 3.3):** The 5-fold cross-validation on the SN-only fit is a rigorous and underused technique in cosmology. The result that the extended CFM generalizes better than Lambda_CDM (lower mean predictive chi2/n on held-out data) is compelling evidence against overfitting.
 
 ---
 
@@ -249,11 +249,11 @@ However, the following must be addressed before acceptance:
 
 **Recommended changes (non-blocking but strongly advised):**
 
-5. Split Paper III into (a) Lagrangian + numerics and (b) QG connections + speculative material.
+5. Split Paper I into (a) Lagrangian + numerics and (b) QG connections + speculative material.
 6. Remove the "Fractal Game Theory" section and "Technological Horizons" section from a journal submission.
 7. Provide a concrete value of gamma (scalaron mass) and demonstrate consistency with local gravity tests.
 8. Address the Lyman-alpha forest constraint.
-9. Harmonize the SN-only framework (Paper II) and the Boltzmann framework (Paper III) into a single consistent parameter space.
+9. Harmonize the SN-only framework (Paper III) and the Boltzmann framework (Paper I) into a single consistent parameter space.
 
 **Assessment of publication venue:**
 

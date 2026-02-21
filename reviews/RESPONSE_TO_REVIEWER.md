@@ -17,7 +17,7 @@ We thank the reviewer for the thorough and constructive assessment. Below we add
 
 **Reviewer concern:** "Ein *eigener* Plot des C_ℓ-Spektrums (auch wenn vorläufig) ist zwingend erforderlich."
 
-**Resolution:** Paper III now contains:
+**Resolution:** Paper I now contains:
 
 - **Full Boltzmann integration** using hi_class v2.9.4 with a native `cfm_fR` gravity model patched directly into the C source code (no approximations, no effective fluid approach).
 - **Figure: cfm_cl_comparison.png** — Full TT power spectrum for ΛCDM and multiple cfm_fR models compared to Planck 2018 data (6,405 data points: TT+TE+EE).
@@ -34,7 +34,7 @@ We thank the reviewer for the thorough and constructive assessment. Below we add
 
 **Reviewer concern:** "Spezifizieren Sie die Schallgeschwindigkeit und den anisotropen Stress Ihres geometrischen Fluids."
 
-**Resolution:** Paper III Section 6.1 (new) now provides a complete perturbation analysis:
+**Resolution:** Paper I Section 6.1 (new) now provides a complete perturbation analysis:
 
 - **Sound speed:** c_s² = 1 (exact for all f(R) theories, from conformal equivalence to canonical scalar field)
 - **Modified Poisson equation:** μ(k,a) = 1 + (1/3) k²/(k² + a² m_eff²) — gravity enhanced by 4/3 at sub-Compton scales
@@ -49,7 +49,7 @@ We thank the reviewer for the thorough and constructive assessment. Below we add
 
 **Reviewer concern:** "Eine quantitative Abschätzung des Linsenpotentials (Φ + Ψ) beim Bullet Cluster wäre notwendig."
 
-**Resolution:** Paper II Section 5.3.2 (expanded) now provides:
+**Resolution:** Paper III Section 5.3.2 (expanded) now provides:
 
 - **Rigorous derivation:** Σ = 1 + α_T/2 = 1 (exact, since α_T = 0 in cfm_fR)
 - **Consequence:** Gravitational lensing is *identical* to GR at all scales and redshifts
@@ -64,23 +64,23 @@ The geometric "dark matter" is automatically collisionless (it is spacetime curv
 
 **Reviewer concern:** "Korrelationsdreiecke (Corner Plots) fehlen im Text."
 
-**Resolution:** Paper III now contains:
+**Resolution:** Paper I now contains:
 
 - **Figure: cfm_contour.png** — Publication-quality corner plot with filled 68%/95% credible regions and KDE-smoothed 1D marginals
 - **Correlation discussion:** The key anti-correlation α_{M,0} vs n (ρ = −0.633) is discussed in context: both parameters control the effective amplitude of modified gravity. All cross-correlations between MG and standard parameters satisfy |ρ| < 0.11.
 
 ---
 
-## Point 5: Paper III "Kitchen Sink" Problem
+## Point 5: Paper I "Kitchen Sink" Problem
 
 **Reviewer concern:** "Das Paper versucht zu viel. 5 QG-Theorien... wirkt unentschlossen."
 
-**Resolution:** Paper III has been restructured:
+**Resolution:** Paper I has been restructured:
 
 - **Main text:** QG candidates are compressed to a single subsection (Section 3.2) with ~5 lines per candidate, explicitly framed as "UV-completion candidates, not derivations"
 - **Appendix A:** Detailed derivations and conjectures moved to appendix
 - **Explicit statement added:** "All testable predictions of the CFM derive exclusively from the effective action (Eq. 17), not from the UV completion."
-- **R² scalaron as central result:** The R + γR² Lagrangian and its perturbation equations are positioned as the core of Paper III (Sections 2 and 6)
+- **R² scalaron as central result:** The R + γR² Lagrangian and its perturbation equations are positioned as the core of Paper I (Sections 2 and 6)
 
 ---
 
@@ -111,7 +111,7 @@ The geometric "dark matter" is automatically collisionless (it is spacetime curv
 - A standalone `generate_corner_plot.py` can reconstruct corner plots from summary statistics if the chain is lost
 
 ### German Versions
-- All changes are synchronized to Paper2_DE.tex and Paper3_DE.tex
+- All changes are synchronized to Paper3_DE.tex and Paper1_DE.tex
 
 ---
 

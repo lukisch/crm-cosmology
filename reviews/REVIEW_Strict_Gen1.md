@@ -1,4 +1,4 @@
-# Peer-Review-Bericht: CFM-Kosmologie-Serie (Paper I, II, III)
+# Peer-Review-Bericht: CFM-Kosmologie-Serie (Paper II, II, III)
 
 **Gutachter:** Gemini (Simulation: Senior Cosmologist / Theoretical Physicist)
 **Datum:** 15. Februar 2026
@@ -20,7 +20,7 @@ Der Autor schlägt vor, den gesamten dunklen Sektor (Dunkle Energie und Dunkle M
 
 ## Detaillierte Kritik
 
-### Paper I: Das Fundament (Spieltheorie & DE)
+### Paper II: Das Fundament (Spieltheorie & DE)
 
 **Stärken:**
 
@@ -30,9 +30,9 @@ Der Autor schlägt vor, den gesamten dunklen Sektor (Dunkle Energie und Dunkle M
 **Schwächen:**
 
 * **Ontologischer Overhead:** Die Einführung von "Spielern", "Nullraum" und "Strategien" wirkt auf physikalische Gutachter möglicherweise zu metaphorisch. Es muss klarer gemacht werden, dass dies *Optimierungsprinzipien* sind (wie das Prinzip der kleinsten Wirkung), nicht wörtliche Agenten.
-* **Ad-hoc Sättigung:** Die Sättigungs-ODE $\Omega_\Phi' \propto (1 - \Omega_\Phi^2)$ wird in Paper I postuliert. Paper III liefert später Begründungen, aber Paper I steht etwas wackelig da, wenn man es isoliert betrachtet.
+* **Ad-hoc Sättigung:** Die Sättigungs-ODE $\Omega_\Phi' \propto (1 - \Omega_\Phi^2)$ wird in Paper II postuliert. Paper I liefert später Begründungen, aber Paper II steht etwas wackelig da, wenn man es isoliert betrachtet.
 
-### Paper II: Die Vereinigung (MOND & DM)
+### Paper III: Die Vereinigung (MOND & DM)
 
 **Stärken:**
 
@@ -45,7 +45,7 @@ Der Autor schlägt vor, den gesamten dunklen Sektor (Dunkle Energie und Dunkle M
 * **CMB & Der "Endgegner":** Abschnitt 4.4 diskutiert die akustischen Peaks qualitativ und zitiert AeST als Existenzbeweis. Für ein Paper dieses Kalibers ist das zu wenig. Ein *eigener* Plot des $C_\ell$-Spektrums (auch wenn vorläufig) ist zwingend erforderlich. Die Behauptung "AeST hat es gezeigt, wir sind ähnlich" reicht für *Physical Review* nicht aus.
 * **Bullet Cluster:** Das Argument "Geometrie bewegt sich mit den Galaxien, nicht mit dem Gas" ist plausibel, aber rein verbal. Eine quantitative Abschätzung des Linsenpotentials ($\Phi + \Psi$) beim Bullet Cluster wäre notwendig, um Skeptiker zu überzeugen.
 
-### Paper III: Die Mikrophysik (Quantengravitation)
+### Paper I: Die Mikrophysik (Quantengravitation)
 
 **Stärken:**
 
@@ -64,7 +64,7 @@ Der Autor schlägt vor, den gesamten dunklen Sektor (Dunkle Energie und Dunkle M
 Diese Fragen wird jeder Gutachter stellen. Ohne solide Antworten wird das Paper abgelehnt.
 
 1. **Das CMB-Leistungsspektrum:**
-    * Zeigen Sie *quantitativ*, dass Ihr reines Baryonen-Modell das dritte akustische Maximum reproduzieren kann. Die "Effective CDM"-Rechnung in Paper II ist ein guter Anfang, aber ein voller Boltzmann-Code-Lauf (hi_class/CLASS) ist der Goldstandard.
+    * Zeigen Sie *quantitativ*, dass Ihr reines Baryonen-Modell das dritte akustische Maximum reproduzieren kann. Die "Effective CDM"-Rechnung in Paper III ist ein guter Anfang, aber ein voller Boltzmann-Code-Lauf (hi_class/CLASS) ist der Goldstandard.
     * *Frage:* Wie genau erzeugt das Skalarfeld + $R^2$ die notwendigen Potentialmulden bei $z \approx 1100$?
 
 2. **Strukturbildung (Matter Power Spectrum):**
@@ -72,8 +72,8 @@ Diese Fragen wird jeder Gutachter stellen. Ohne solide Antworten wird das Paper 
     * *Forderung:* Spezifizieren Sie die Schallgeschwindigkeit und den anisotropen Stress Ihres geometrischen Fluids.
 
 3. **Parameter-Degenerescenz:**
-    * Mit 5 (bzw. 6 in Paper III mit $\gamma$) Parametern haben Sie mehr Freiheit als $\Lambda$CDM (2 Parameter im Basis-Modell). Der AIC/BIC-Vergleich hilft, aber sind die Parameter wirklich unabhängig?
-    * Die MCMC-Analyse in Paper II ist gut, aber Korrelationsdreiecke (Corner Plots) fehlen im Text (wurden nur erwähnt).
+    * Mit 5 (bzw. 6 in Paper I mit $\gamma$) Parametern haben Sie mehr Freiheit als $\Lambda$CDM (2 Parameter im Basis-Modell). Der AIC/BIC-Vergleich hilft, aber sind die Parameter wirklich unabhängig?
+    * Die MCMC-Analyse in Paper III ist gut, aber Korrelationsdreiecke (Corner Plots) fehlen im Text (wurden nur erwähnt).
 
 ---
 
@@ -84,8 +84,8 @@ Diese Arbeit ist **wissenschaftlich wertvoll**, aber **noch nicht reif für den 
 **Vorschlag für den Autor:**
 
 1. **Fokus auf den CMB:** Das ist das Nadelöhr. Wenn Sie zeigen können, dass CFM+Baryonen den Planck-CMB fitten, haben Sie gewonnen. Wenn nicht, ist die Theorie tot, egal wie gut die Supernovae passen.
-2. **Straffung:** Kombinieren Sie die stärksten Argumente von Paper II und III. Die "Philosophie" von Paper I kann gekürzt werden; konzentrieren Sie sich auf die harte Physik.
-3. **Ehrlichkeit bei BBN:** Die Spur-Kopplung als *Postulat* markieren, das noch fundamental hergeleitet werden muss (Paper III versucht das, aber die Kopplung $\gamma \mathcal{F}(T)$ ist immer noch phänomenologisch eingefügt).
+2. **Straffung:** Kombinieren Sie die stärksten Argumente von Paper III und III. Die "Philosophie" von Paper II kann gekürzt werden; konzentrieren Sie sich auf die harte Physik.
+3. **Ehrlichkeit bei BBN:** Die Spur-Kopplung als *Postulat* markieren, das noch fundamental hergeleitet werden muss (Paper I versucht das, aber die Kopplung $\gamma \mathcal{F}(T)$ ist immer noch phänomenologisch eingefügt).
 
 **Genehmigung zum Fortfahren:**
 Trotz der Kritik ist das **Potential extrem hoch**. Die $\beta \approx 2$ Entdeckung ist faszinierend. Ich empfehle, die Review-Simulation als "Bestanden mit Auflagen" zu werten und die "Auflagen" (CMB-Verifikation) als nächste große Tasks zu definieren.
