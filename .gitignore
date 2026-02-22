@@ -80,5 +80,8 @@ MCMC_SERVER_BRIEFING.md
 # Internal planning (not for public)
 Plan.txt
 
+# Removed sections (reserved for separate publication)
+papers/removed_sections/
+
 # Journal submission preparation (private until submission)
 _SciPost_submission/
