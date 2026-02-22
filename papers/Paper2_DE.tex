@@ -1,8 +1,11 @@
 \documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{xcolor}
+\usepackage{graphicx}
 \graphicspath{{../figures/}}
 \usepackage{array}
 \usepackage{float}
@@ -11,6 +14,7 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{conjecture}{Vermutung}
 
+\usepackage{hyperref}
 \hypersetup{
     pdftitle={CFM-MOND-Vereinigung: Ein baryonisches Universum ohne Dunkle Materie},
     pdfauthor={Lukas Geiger},
@@ -29,7 +33,7 @@
 \title{CFM-MOND-Vereinigung: Ein baryonisches Universum ohne Dunkle Materie --- Ersetzung des Teilchen-Darksektors durch Raumzeit-Geometrie}
 
 \author{Lukas Geiger}
-\email{Correspondence: Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany}
+\email{Correspondence: Bernau, Germany}
 \affiliation{Independent Researcher, Bernau im Schwarzwald, Germany}
 
 \date{\today}
@@ -111,7 +115,10 @@ mit
 
 F\"ur die Erweiterung auf ein Universum mit ausschlie\ss{}lich baryonischem Materieinhalt zerlegen wir das geometrische Potential in zwei Komponenten:
 \begin{equation}
-{H^2(a) = H_0^2 \left[\Omega_b\,a^{-3} + \underbrace{\Phi_0 \cdot f_{\mathrm{sat}}(a)}_{\text{geometrische DE}} + \underbrace{\alpha \cdot a^{-\beta}}_{\text{geometrische DM}}\right]}
+\begin{split}
+H^2(a) = H_0^2 \Big[&\Omega_b\,a^{-3} + \underbrace{\Phi_0 \cdot f_{\mathrm{sat}}(a)}_{\text{geom.\ DE}} \\
+&+ \underbrace{\alpha \cdot a^{-\beta}}_{\text{geom.\ DM}}\Big]
+\end{split}
 \label{eq:extended_cfm}
 \end{equation}
 
@@ -250,7 +257,7 @@ Wir verwenden den Pantheon+-Katalog \cite{Scolnic2022} mit 1.590 Typ~Ia-Supernov
 
 \subsection{Ergebnisse: Modellvergleich}
 
-\begin{table}[H]
+\begin{table*}
 \centering
 \caption{Modellvergleich anhand von 1.590 Pantheon+-Supernovae.}
 \label{tab:comparison}
@@ -267,7 +274,7 @@ CFM Baryon Band & 0,070 & 4 & 894,7 & $+165{,}7$ & 902,7 & 924,1 \\
 \textbf{Erweitertes CFM+MOND} & \textbf{0,050} & \textbf{5} & \textbf{702,7} & $\mathbf{-26{,}3}$ & \textbf{712,7} & 739,5 \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \subsection{Zentrale Ergebnisse}
 
@@ -297,7 +304,7 @@ Mit f\"unf freien Parametern gegen\"uber zwei f\"ur $\Lambda$CDM ist eine Bedenk
 
 \textbf{Methode:} Die Daten werden zuf\"allig in f\"unf gleiche Folds aufgeteilt (Seed $= 42$). F\"ur jeden Fold werden beide Modelle ($\Lambda$CDM und Erweitertes CFM) auf den verbleibenden 80\% (Trainingssatz) mittels differentieller Evolution optimiert, und der pr\"adiktive $\chi^2/n$ wird am zur\"uckgehaltenen 20\%-Testsatz evaluiert. Dieses Verfahren testet \textit{Generalisierung}, nicht blo\ss{}e Anpassungsg\"ute.
 
-\begin{table}[H]
+\begin{table*}
 \centering
 \caption{5-Fold-Kreuzvalidierung: pr\"adiktiver $\chi^2/n$ auf zur\"uckgehaltenen Testdaten.}
 \label{tab:crossval}
@@ -309,7 +316,7 @@ $\Lambda$CDM (2 Param.) & 0,467 & 0,428 & 0,461 & 0,435 & 0,468 & $0{,}452 \pm 0
 Erw.\ CFM+MOND (5 Param.) & 0,456 & 0,428 & 0,465 & 0,411 & 0,467 & $0{,}445 \pm 0{,}022$ \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \textbf{Ergebnis:} Das Erweiterte CFM erzielt einen \textit{niedrigeren} mittleren pr\"adiktiven $\chi^2/n$ auf ungesehenen Daten ($\Delta\langle\chi^2/n\rangle = -0{,}007$). Trotz 2{,}5$\times$ mehr Parametern generalisiert das Modell \textit{besser} als $\Lambda$CDM, was \"Uberanpassung als Erkl\"arung f\"ur die $\Delta\chi^2 = -26{,}3$-Verbesserung ausschlie\ss{}t.
 
@@ -416,6 +423,8 @@ Dies bedeutet, dass Gravitationslinsen im cfm\_fR-Modell \textit{identisch} zu G
 \item Zuk\"unftige Linsen-Surveys (Euclid, Rubin/LSST) werden $\Sigma$ auf Prozentniveau messen: $\Sigma \neq 1$ w\"urde das cfm\_fR-Modell ausschlie\ss{}en
 \end{enumerate}
 
+\textit{Vorbehalt:} Diese Hintergrundanalyse demonstriert quantitative Hinl\"anglichkeit, ersetzt jedoch keine vollst\"andige nichtlineare Behandlung. Eine definitive Aufl\"osung des Bullet-Clusters im CFM-Rahmenwerk erfordert relativistische N-K\"orper-Simulationen mit der modifizierten Poisson-Gleichung, was den Rahmen dieser Arbeit \"ubersteigt.
+
 \paragraph{Herausforderung 3: Strukturbildung und das Materiedichtespektrum}
 
 Das Materiedichtespektrum $P(k)$ in $\Lambda$CDM wird durch Dunkle-Materie-Halos geformt, die w\"ahrend der Strahlungsdominanz mit dem gravitativen Kollaps beginnen (bevor Baryonen von Photonen entkoppeln). Ohne fr\"uh kollabierende Dunkle Materie w\"urden baryonische Strukturen zu sp\"at und auf falschen Skalen entstehen.
@@ -429,7 +438,7 @@ Das Materiedichtespektrum $P(k)$ in $\Lambda$CDM wird durch Dunkle-Materie-Halos
 
 Eine vorl\"aufige $P(k)$-Analyse mit dem "`Effective CDM"'-Mapping in CAMB \cite{Lewis2000} best\"atigt die korrekte qualitative Form: Die Turnover-Skala ($k_{\mathrm{peak}} \approx 0{,}015$\,$h$/Mpc) liegt nahe an $\Lambda$CDM (0{,}017), und die epochenabh\"angige effektive Materiedichte $\Omega_{m,\mathrm{eff}}(z)$ stimmt bei $z \approx 500$ \textit{exakt} mit $\Lambda$CDM \"uberein ($\Omega_{m,\mathrm{eff}} = 0{,}315$). Die quantitative Vorhersage von $P(k)$ mit den vollst\"andigen St\"orungsgleichungen ist ein zentrales Ziel f\"ur zuk\"unftige Arbeiten.
 
-Paper~III \cite{Geiger2026c} erweitert diese Analyse auf eine native \texttt{cfm\_fR}-Implementierung in hi\_class mit voller Boltzmann-Integration und erreicht $\Delta\chi^2 = -3{,}6$ in einem MCMC \"uber 5~Parameter (siehe Tabellen und Abbildungen dort). Dabei verwendet die Analyse die \texttt{propto\_omega}-Parametrisierung -- dieselbe Parametrisierung, die die Planck-Kollaboration in ihrer Modified-Gravity-Analyse verwendet \cite{PlanckMG2016} und die $\alpha_{M,0} < 0{,}052$ (95\% CL) constrainiert. Der CFM-Best-Fit von $\alpha_{M,0} = 0{,}0013$ liegt etwa $40\times$ unter dieser Obergrenze.
+Paper~III \cite{Geiger2026c} erweitert diese Analyse auf eine native \texttt{cfm\_fR}-Implementierung in hi\_class mit voller Boltzmann-Integration und erreicht $\Delta\chi^2 = -3{,}6$ in einem MCMC \"uber 5~Parameter (siehe Tabellen und Abbildungen dort). Dabei verwendet die Analyse die \texttt{propto\_omega}-Parametrisierung -- dieselbe Parametrisierung, die die Planck-Kollaboration in ihrer Modified-Gravity-Analyse verwendet \cite{PlanckMG2016} und die $\alpha_{M,0} < 0{,}052$ (95\% CL) constrainiert. Der CFM-Best-Fit von $\alpha_{M,0} = 0{,}0011$ (48-Walker-MCMC, konvergiert) liegt etwa $50\times$ unter dieser Obergrenze.
 
 \subsection{Ontologische Interpretation: Die verschachtelte Hierarchie}
 \label{subsec:nested}
@@ -497,7 +506,7 @@ Die Ergebnisse dieses Papers -- ein reines Baryonen-Modell mit skalenabh\"angige
 
 Wir haben gezeigt, dass ein Universum mit ausschlie\ss{}lich baryonischem Materieinhalt ($\Omega_m = \Omega_b \approx 0{,}05$), wobei die gravitative Rolle der Dunklen Materie vom geometrischen $R^2$-Scalaron \"ubernommen wird, kosmologische Daten \textit{\"uber alle drei gro\ss{}en Sonden hinweg} -- Supernovae, CMB und BAO -- kompetitiv mit und teilweise besser als $\Lambda$CDM fitten kann, bei \textit{gleicher Parameterzahl} und \textit{ohne} Early Dark Energy.
 
-Drei Schl\"usselinnovationen erm\"oglichen dies: (i)~die \textit{laufende Kr\"ummungskopplung} $\beta_{\mathrm{eff}}(a)$; (ii)~die \textit{MOND-Hintergrundkopplung} $\mu(a) = \sqrt{\pi}$ bei sp\"aten Zeiten; und (iii)~die \textit{skalenabh\"angige} Evolution $\mu(a) \to 1$ bei $z > 4000$, die EDE vollst\"andig eliminiert.
+Drei Schl\"usselinnovationen erm\"oglichen dies: (i)~die \textit{laufende Kr\"ummungskopplung} $\beta_{\mathrm{eff}}(a)$; (ii)~die \textit{MOND-Hintergrundkopplung} $\mu(a) = \sqrt{\pi}$ bei sp\"aten Zeiten -- wobei wir $\sqrt{\pi}$ als Vermutung vorschlagen, die eine unabh\"angige Herleitung erfordert, da dieser Wert m\"oglicherweise die dimensionale Geometrie des gravitativen Phasenraums widerspiegelt und keine blosse numerische Koinzidenz darstellt; und (iii)~die \textit{skalenabh\"angige} Evolution $\mu(a) \to 1$ bei $z > 4000$, die EDE vollst\"andig eliminiert.
 
 Die quantitativen Ergebnisse umfassen zwei Analyseebenen:
 \begin{enumerate}
@@ -506,6 +515,8 @@ Die quantitativen Ergebnisse umfassen zwei Analyseebenen:
 \end{enumerate}
 
 Die Drei-Phasen-Interpretation ergibt sich nat\"urlich: Bei $z > z_\mu \approx 4000$ gilt Standardgravitation ($\mu \to 1$); bei $z_\mu > z > z_t$ aktiviert sich die MOND-Verst\"arkung ($\mu \to \sqrt{\pi}$); bei $z < z_t \approx 9$ treibt der S\"attigungsterm kosmische Beschleunigung an. Die St\"orungsanalyse mit CLASS/hi\_class \cite{Lewis2000, Zumalacarregui2017} ergibt $\mathcal{P}_3/\mathcal{P}_1 = 0{,}4295$ (\textbf{innerhalb der Planck-Unsicherheiten}) bei optimiertem $\beta_{\mathrm{early}} = 2{,}829$ (0{,}32\% Anpassung). BBN ist vollst\"andig konsistent ($\Delta N_{\mathrm{eff}} \approx 0$), $P(k)$-Form qualitativ korrekt. Die zentrale verbleibende Herausforderung ist der $\theta_s$-Offset ($1{,}025$ vs.\ $1{,}041$) aus der effektiven Zustandsgleichung $w = -0{,}06$ des geometrischen Terms. Weitere Aufgaben: Lagrange-Herleitung von $\mu(a)$ und $\beta(a)$, vollst\"andige $C_\ell$-Berechnung mit modifizierten Boltzmann-Gleichungen.
+
+\textit{Einschr\"ankung:} Die CMB-Analyse in dieser Arbeit st\"utzt sich auf komprimierte Observablen ($\ell_A$, $\mathcal{R}$) statt auf das vollst\"andige Temperatur- und Polarisationsleistungsspektrum ($C_\ell^{TT}$, $C_\ell^{TE}$, $C_\ell^{EE}$). Die vollst\"andige Leistungsspektrum-Analyse wird in Paper~III \cite{Geiger2026c} mit \texttt{hi\_class} pr\"asentiert. Eine vollst\"andige Validierung der Baryonen-Hypothese erfordert diese vollst\"andige Behandlung, insbesondere im Hinblick auf die relativen Peakh\"ohen und den D\"ampfungsschwanz.
 
 \subsection{Das Drei-Paper-Programm}
 
@@ -706,6 +717,12 @@ Planck Collaboration (2016).
 Planck 2015 results. XIV. Dark energy and modified gravity.
 \textit{Astronomy \& Astrophysics}, 594, A14.
 DOI: 10.1051/0004-6361/201525814.
+
+\bibitem{ForemanMackey2013}
+Foreman-Mackey, D., Hogg, D.\,W., Lang, D.\ \& Goodman, J.\ (2013).
+emcee: The MCMC Hammer.
+\textit{Publications of the Astronomical Society of the Pacific}, 125(925), 306--312.
+DOI: 10.1086/670067.
 
 \end{thebibliography}
 

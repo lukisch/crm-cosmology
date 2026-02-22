@@ -43,6 +43,7 @@
 \onehalfspacing
 
 \begin{document}
+\sloppy
 
 % ===================================================================
 % TITELSEITE
@@ -51,7 +52,7 @@
 \title{\textbf{\huge Vom Kr\"ummungs-Feedback zur Quantengravitation}\\[0.5em]
 \Large Lagrange-Fundament, Skalaron-Dynamik und testbare Vorhersagen des CFM}
 
-\author[1]{Lukas Geiger\thanks{Korrespondenz: Lukas Geiger, Gei\ss{}b\"uhlweg~1, 79872~Bernau, Deutschland.}}
+\author[1]{Lukas Geiger\thanks{Korrespondenz: Lukas Geiger, Bernau, Deutschland.}}
 \affil[1]{Unabh\"angiger Forscher, Bernau im Schwarzwald}
 
 \date{Februar 2026 \\ \vspace{0.5em} \small \textit{Paper~III der CFM-Serie \cite{Geiger2026,Geiger2026b}}}
@@ -160,6 +161,8 @@ erzeugt eine Skalenfeldgleichung, deren sp\"atzeitliche L\"osung auf dem FLRW-Hi
 mit $V'(\phi) = -2V_0 \tanh(\phi/\phi_0)/(\phi_0 \cosh^2(\phi/\phi_0))$, besitzt die L\"osung $\phi = \phi_0 \tanh(\lambda t)$ im Slow-Roll-Regime, in dem $\ddot{\phi} \ll 3H\dot{\phi}$, wobei $\lambda$ mit $k$ und $H_0$ zusammenh\"angt. Die Energiedichte $\rho_\phi = \frac{1}{2}\dot{\phi}^2 + V(\phi)$ bildet dann ab auf $\Omega_\Phi(a) = \Phi_0 \cdot f_{\mathrm{sat}}(a)$. \hfill $\square$
 
 \textit{Anmerkung:} Das $\cosh^{-2}$-Potential ist in der Quantenmechanik als P\"oschl-Teller-Potential wohlbekannt. Sein Auftreten hier legt eine tiefe Verbindung zwischen quantenmechanischen Bindungszust\"anden und kosmologischer S\"attigung nahe.
+
+\textit{Philosophische Spannung:} Die Einf\"uhrung eines zus\"atzlichen Skalarfelds $\phi$ scheint der Behauptung des CFM zu widersprechen, den dunklen Sektor zu eliminieren. Wir betonen, dass $\phi$ \textit{keine} neue dunkle Komponente analog zu Dunkler Energie oder Dunkler Materie ist: Es hat einen eindeutigen Lagrange-Ursprung (Gl.~\ref{eq:double_well}), ein bekanntes quantenmechanisches Analogon, und seine Sp\"atzeitdynamik ist vollst\"andig durch $V_0$ und $\phi_0$ bestimmt -- es ist nicht frei justierbar. Dennoch bleibt die Ableitung von $\phi$ direkt aus dem geometrischen Sektor (z.\,B.\ als konformaler Modus der Metrik oder als Kondensat des $R^2$-Scalarons) ein wichtiges offenes Problem, das den rein geometrischen Charakter des CFM st\"arken w\"urde.
 
 \subsection{Der Potenzgesetzterm: Geometrischer Ursprung}
 
@@ -276,7 +279,7 @@ Das zentrale R\"atsel ist die spezifische Form der S\"attigungs-ODE~\eqref{eq:sa
 \item \textbf{Quanten-Fehlerkorrektur} \cite{Almheiri2015}: Die S\"attigung $\Phi_0$ ist die Code-Kapazit\"at des holographischen Raumzeitcodes. Die beschleunigte Expansion ist der Selbstschutzmechanismus des Codes gegen \"Uberschreitung seiner Fehlerkorrekturschwelle -- direkt abgebildet auf das "`Selbstschutzmotiv"' des Nullraums im Rahmenwerk von Paper~I.
 \end{enumerate}
 
-Detaillierte Herleitungen und Vermutungen f\"ur jeden Kandidaten finden sich in Anhang~\ref{app:qg_details}. Der Schl\"usselpunkt ist, dass alle f\"unf Rahmenwerke \textit{unabh\"angig} S\"attigungsdynamik der Form $dX/dt \propto (1 - X^2)$ erzeugen, was nahelegt, dass die effektive CFM-Wirkung ein \textit{universelles} Merkmal der Quantengravitation erfasst, unabh\"angig von der spezifischen UV-Completion.
+Heuristische Argumente und strukturelle Analogien f\"ur jeden Kandidaten finden sich in Anhang~\ref{app:qg_details}. Wir betonen, dass es sich dabei um strukturelle Analogien handelt, nicht um rigorose mathematische Herleitungen: W\"ahrend alle f\"unf Rahmenwerke \textit{unabh\"angig} S\"attigungsdynamik der Form $dX/dt \propto (1 - X^2)$ erzeugen, was nahelegt, dass die effektive CFM-Wirkung ein \textit{universelles} Merkmal der Quantengravitation erfasst, bleibt ein formaler Beweis, dass eine spezifische UV-Completion die CFM-Wirkung \textit{erfordert}, ein offenes Problem.
 
 \subsection{Die Natur des Nullraums}
 \label{subsec:null_space}
@@ -429,7 +432,7 @@ Jeder der f\"unf mikroskopischen Ans\"atze erzeugt eine distinkte experimentelle
 
 \begin{center}
 \small
-\begin{tabular}{lllp{4.5cm}}
+\begin{tabular}{lllp{3.4cm}}
 \toprule
 \textbf{Kandidat} & \textbf{Signatur} & \textbf{Instrument} & \textbf{Status} \\
 \midrule
@@ -452,7 +455,7 @@ Im CFM-Rahmenwerk mit Spinnetzwerk-Mikrostruktur (Kandidat~B) hat dieses Signal 
 \begin{enumerate}
 \item Sollte der Rotationswinkel \textit{isotrop} sein (in allen Richtungen gleich) -- konsistent mit der Minami-Komatsu-Messung.
 \item Sollte die Rotation bei CMB-Frequenzen \textit{frequenzunabh\"angig} sein (da sie geometrisch, nicht dispersiv ist) -- testbar durch das Simons Observatory ($\sim$2025) und LiteBIRD ($\sim$2028).
-\item Sollte die Rotation \textit{rotverschiebungsabh\"angig} sein: Photonen von h\"oherer Rotverschiebung (weniger ges\"attigtes Vakuum) sollten weniger Rotation zeigen. Dies ist testbar mit Quasar-Polarisationsdurchmusterungen \"uber einen Bereich von Rotverschiebungen.
+\item Sollte die Rotation \textit{rotverschiebungsabh\"angig} sein: Photonen von h\"oherer Rotverschiebung (weniger ges\"attigtes Vakuum) sollten weniger Rotation zeigen. Dies ist testbar mit Quasar-Polarisations\-durchmusterungen \"uber einen Bereich von Rotverschiebungen.
 \end{enumerate}
 
 \subsubsection{Gravitationswellenechos (Kandidat D)}
@@ -559,7 +562,7 @@ Das native \texttt{cfm\_fR}-Modell mit $n = 0{,}5$ ($\alpha_M \propto \sqrt{a}$)
 
 Eine vollst\"andige MCMC-Exploration \"uber f\"unf Parameter $(\alpha_{M,0}, n, \omega_{\mathrm{cdm}}, \ln(10^{10}A_s), n_s)$ mit \texttt{emcee} (48~Walker, 5.000~Schritte, 240.000~Samples total) ergibt einen globalen Best-Fit von $\chi^2 = 6625{,}2$ ($\Delta\chi^2 = -3{,}6$ vs.\ $\Lambda$CDM) bei $\alpha_{M,0} = 0{,}0024$, $n = 0{,}28$. Die marginalisierten Beschr\"ankungen lauten:
 \begin{align}
-\alpha_{M,0} &= 0{,}0013 \pm 0{,}0007 \qquad (1{,}78\sigma \text{ Detektionssignifikanz}) \notag \\
+\alpha_{M,0} &= 0{,}0011^{+0{,}0010}_{-0{,}0006} \qquad (1{,}78\sigma \text{ Detektionssignifikanz; 48-Walker-Chain, konvergiert}) \notag \\
 n &= 0{,}67 \pm 0{,}42 \notag \\
 \omega_{\mathrm{cdm}} &= 0{,}11994 \pm 0{,}00029 \notag \\
 \ln(10^{10}A_s) &= 3{,}044 \pm 0{,}002 \notag \\
@@ -710,7 +713,7 @@ Dies sind \textit{keine} konkurrierenden Parametrisierungen, sondern \textit{kom
 \begin{itemize}
 \item Paper~IIs $\alpha \cdot a^{-\beta}$ beschreibt die \textit{Hintergrund}-Energiedichte der geometrischen Dunkle-Materie-Komponente. Das Lagrange-\"Aquivalent ist $\omega_{\mathrm{cdm}}$ in \texttt{hi\_class}, das die Hintergrund-Energiedichte des Skalarons repr\"asentiert. Da das Skalaron sich als drucklose Materie ($w \approx 0$) verh\"alt, \"ubernimmt $\omega_{\mathrm{cdm}} = 0{,}1200$ (Planck 2018) die Rolle von Paper~IIs $\alpha$.
 \item Die Parameter $\alpha_{M,0}$ und $n$ von Paper~III beschreiben die \textit{Abweichung von der ART auf St\"orungsniveau} -- die St\"arke der f\"unften Kraft, die vom Skalaron vermittelt wird. Diese Parameter haben kein direktes Analogon im Hintergrund-Fit von Paper~II.
-\item Paper~IIs laufende Kopplung $\beta_{\mathrm{eff}}(a)$ wird in Abschnitt~\ref{subsec:beta_derivation} aus der Skalaron-Bewegungsgleichung abgeleitet: Der \"Ubergang von $\beta_{\mathrm{early}} \approx 2{,}8$ zu $\beta_{\mathrm{late}} \approx 2{,}0$ entspricht der Skalaron-Massenevolution $m_{\mathrm{eff}}^2(a)$, wobei $a_t = 0{,}098$ ($z_t = 9{,}2$) durch die Spurkopplungsskala festgelegt wird.
+\item Paper~IIs laufende Kopplung $\beta_{\mathrm{eff}}(a)$ wird in Abschnitt~\ref{subsec:beta_derivation} aus der Skalaron-Bewegungsgleichung abgeleitet: Der \"Ubergang von $\beta_{\mathrm{early}} \approx 2{,}8$ zu $\beta_{\mathrm{late}} \approx 2{,}0$ entspricht der Skalaron-Massenevolution $m_{\mathrm{eff}}^2(a)$, wobei $a_t = 0{,}098$ ($z_t = 9{,}2$) durch die Spurkopplungsskala festgelegt wird. Zu beachten ist, dass der Lagrange-basierte Fit in Abschnitt~\ref{subsec:beta_derivation} einen leicht abweichenden \"Ubergangs-Rotverschiebungswert $z_t = 7{,}1$ ($a_t = 0{,}124$) ergibt, bedingt durch das unterschiedliche Optimierungsziel (CMB-Abstandsindikatoren vs.\ gemeinsame SN+CMB+BAO-Analyse); beide Werte sind innerhalb der breiten Posteriori von $a_t$ konsistent.
 \end{itemize}
 
 Die Konsistenzpr\"ufung ist dreifach: (i)~die akustische Winkelskala $\theta_s$ ist in beiden Rahmenwerken identisch (Tabelle~\ref{tab:theta_s}); (ii)~die Wachstumsrate $f\sigma_8$ aus der Lagrange-St\"orungsanalyse verbessert den BOSS-Fit gegen\"uber $\Lambda$CDM, konsistent mit der verst\"arkten Strukturbildung von Paper~II; und (iii)~die CMB-Entfernungspriors ($\ell_A$, $\mathcal{R}$) stimmen auf besser als $0{,}01\%$ \"uberein.
@@ -813,10 +816,10 @@ Diese Arbeit verwendet \texttt{hi\_class} \cite{Zumalacarregui2017} (Horndeski i
 % ANHANG: QG-DETAILS
 % ===================================================================
 \appendix
-\section{Detaillierte Quantengravitationsverbindungen}
+\section{Heuristische Quantengravitationsverbindungen}
 \label{app:qg_details}
 
-Dieser Anhang liefert die detaillierten Herleitungen und Vermutungen f\"ur die f\"unf UV-Completion-Kandidaten, die in Abschnitt~\ref{subsec:uv_candidates} zusammengefasst sind. Wir betonen, dass \textit{keines} dieser Details die testbaren Vorhersagen des CFM beeinflusst, die ausschlie\ss lich aus der effektiven Wirkung~\eqref{eq:full_action} folgen.
+Dieser Anhang liefert heuristische Argumente und strukturelle Analogien f\"ur die f\"unf UV-Completion-Kandidaten, die in Abschnitt~\ref{subsec:uv_candidates} zusammengefasst sind. Wir betonen, dass (i)~\textit{keines} dieser Details die testbaren Vorhersagen des CFM beeinflusst, die ausschlie\ss lich aus der effektiven Wirkung~\eqref{eq:full_action} folgen, und (ii)~die folgenden Argumente qualitativ und motivational statt rigorose Herleitungen sind; es handelt sich um strukturelle Analogien, keine rigorosen mathematischen Herleitungen.
 
 \subsection{Schleifen-Quantengravitation}
 In der LQC \cite{Ashtekar2011} wird die Friedmann-Gleichung zu $H^2 = (8\pi G/3)\,\rho\,(1 - \rho/\rho_c)$, wobei $\rho_c \sim \rho_{\mathrm{Pl}}$. Diese hat die Struktur einer S\"attigungsgleichung: Die Expansionsrate ist beschr\"ankt, wenn $\rho \to \rho_c$. Die S\"attigungs-ODE~\eqref{eq:saturation_ode} kann als sp\"atzeitliches, niederenergetisches Residuum dieser Kr\"ummungsschranke interpretiert werden. Die Parameter $k$ und $\Phi_0$ bilden auf die LQG-Fl\"achenl\"ucke $\Delta$ und den Barbero-Immirzi-Parameter $\gamma_{\mathrm{BI}}$ ab.

@@ -1,16 +1,20 @@
 \documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{booktabs}
-\usepackage{tabularx}
 \usepackage{xcolor}
 \usepackage{longtable}
 \usepackage{multirow}
 \usepackage{array}
+\usepackage{float}
+\usepackage{graphicx}
 \graphicspath{{../figures/}}
 
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 
+\usepackage{hyperref}
 \hypersetup{
     pdftitle={Spieltheoretische Kosmologie und das Curvature Feedback Model},
     pdfauthor={Lukas Geiger},
@@ -29,7 +33,7 @@
 \title{Spieltheoretische Kosmologie und das Kr\"ummungs-R\"uckgabepotential-Modell: Nash-Gleichgewichte zwischen Nullraum und Raumzeitblase als Erkl\"arungsrahmen f\"ur die beschleunigte Expansion}
 
 \author{Lukas Geiger}
-\email{Correspondence: Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany}
+\email{Correspondence: Bernau, Germany}
 \affiliation{Independent Researcher, Bernau im Schwarzwald, Germany}
 
 \date{\today}
@@ -340,7 +344,7 @@ Das CFM mit Flachheitsbedingung zeigt $\Omega_m = 0{,}368 \pm 0{,}024$ (MCMC) --
 \subsection{Modellselektion}
 \label{subsec:modellselektion}
 
-\begin{table}[H]
+\begin{table*}[htbp]
 \centering
 \caption{Modellvergleich: CFM vs.\ $\Lambda$CDM. Negative Werte bevorzugen CFM.}
 \label{tab:comparison}
@@ -356,14 +360,14 @@ $\Delta$BIC & $+2{,}6$ & $+9{,}0$ \\
 $\Lambda$CDM: $\langle\chi^2/n\rangle$ & \multicolumn{2}{c}{$0{,}4519$} \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \textbf{Interpretation:} Drei von vier Selektionskriterien bevorzugen das CFM (flach) gegen\"uber $\Lambda$CDM: $\chi^2$ ($-12{,}2$), AIC ($-8{,}2$) und Kreuzvalidierung ($0{,}4499$ vs.\ $0{,}4519$). Einzig das BIC, das zus\"atzliche Parameter strenger bestraft, zeigt eine marginale Pr\"aferenz f\"ur $\Lambda$CDM ($\Delta\mathrm{BIC} = +2{,}6$). Nach der Kass-Raftery-Skala \cite{KassRaftery1995} liegt dieser Wert an der Grenze zur Signifikanz ($|\Delta\mathrm{BIC}| < 2$: nicht signifikant; $2$--$6$: positive Evidenz). Die Kreuzvalidierung -- die robusteste Methode zur Overfitting-Detektion -- zeigt, dass das CFM auf ungesehenen Daten besser generalisiert als $\Lambda$CDM.
 
 \subsection{MCMC-Posterioranalyse}
 \label{subsec:mcmc}
 
-Die Parameterunsicherheiten werden mittels \textit{emcee} \cite{ForemanMackey2013} bestimmt (32~Walkers, 3000~Schritte, 500~Burn-in, Akzeptanzrate: 63\,\%). Die Ergebnisse f\"ur das CFM~(flach) sind in Tabelle~\ref{tab:results} als $1\sigma$-Unsicherheiten angegeben. Die Posteriorverteilung von $\Omega_m$ ist nahezu gau\ss{}f\"ormig mit $\Omega_m = 0{,}368^{+0{,}025}_{-0{,}023}$. Die \"Ubergangssch\"arfe $k$ zeigt eine breite, asymmetrische Posterior ($k = 1{,}44^{+1{,}22}_{-0{,}84}$), was bedeutet, dass die Daten einen \"Ubergang bevorzugen, aber die Sch\"arfe weniger stark einschr\"anken. Die abgeleiteten Gr\"o\ss{}en $\Phi_0 = 0{,}988^{+0{,}615}_{-0{,}221}$ und $z_{\mathrm{trans}} = 0{,}35$ sind konsistent mit den Punktsch\"atzungen. Die aus dem MCMC berechneten $w(z)$-Konfidenzb\"ander (Tabelle~\ref{tab:weff}) zeigen, dass $w = -1$ f\"ur alle Rotverschiebungen au\ss{}erhalb des $1\sigma$-Bereichs liegt.
+Die Parameterunsicherheiten werden mittels \textit{emcee} \cite{ForemanMackey2013} bestimmt (32~Walkers, 3000~Schritte, 500~Burn-in, Akzeptanzrate: 63\,\%). Die Ergebnisse f\"ur das CFM~(flach) sind in Tabelle~\ref{tab:results} als $1\sigma$-Unsicherheiten angegeben. Die Posteriorverteilung von $\Omega_m$ ist nahezu gau\ss{}f\"ormig mit $\Omega_m = 0{,}368^{+0{,}025}_{-0{,}023}$. Die \"Ubergangssch\"arfe $k$ zeigt eine breite, asymmetrische Posterior ($k = 1{,}44^{+1{,}22}_{-0{,}84}$), was bedeutet, dass die Daten einen \"Ubergang bevorzugen, aber die Sch\"arfe weniger stark einschr\"anken. Die abgeleiteten Gr\"o\ss{}en $\Phi_0 = 0{,}988^{+0{,}615}_{-0{,}221}$ und $z_{\mathrm{trans}} = 0{,}35$ (MCMC-Posterior-Median; die Punktsch\"atzung in Tabelle~\ref{tab:results} gibt $0{,}33$) stimmen innerhalb der breiten Posteriori von $a_{\mathrm{trans}}$ \"uberein. Die aus dem MCMC berechneten $w(z)$-Konfidenzb\"ander (Tabelle~\ref{tab:weff}) zeigen, dass $w = -1$ f\"ur alle Rotverschiebungen au\ss{}erhalb des $1\sigma$-Bereichs liegt.
 
 \textbf{Interpretation von $\Omega_m = 0{,}368$:} Der CFM-Wert liegt \"uber dem Planck-CMB-Wert ($\Omega_m^{\mathrm{Planck}} = 0{,}315 \pm 0{,}007$), was typisch f\"ur reine Supernova-Fits ist. Im CFM-Kontext hat diese Abweichung eine physikalische Deutung: Das Modell interpretiert einen Teil der in $\Lambda$CDM als ``Dunkle Energie'' klassifizierten Dichte als dynamischen Kr\"ummungseffekt. Da $\Omega_\Phi(a)$ bei fr\"uhen Zeiten gegen Null geht (im Gegensatz zu $\Omega_\Lambda = \mathrm{const.}$), muss $\Omega_m$ kompensatorisch h\"oher ausfallen, um den Gesamt-Fit zu erhalten. Diese Pr\"aferenz f\"ur h\"oheres $\Omega_m$ steht in Einklang mit j\"ungsten Befunden aus schwachen Gravitationslinsen-Surveys (KiDS, DES), die ebenfalls h\"ohere $\Omega_m$-Werte als Planck bevorzugen.
 
@@ -383,7 +387,7 @@ Um zu \"uberpr\"ufen, ob die Ergebnisse von der spezifischen Wahl der $\tanh$-Fo
 $\tanh$ (Standard-CFM) & 716,8 & 724,8 & $-12{,}2$ & 0,364 \\
 Logistische Funktion & 717,5 & 725,5 & $-11{,}5$ & 0,368 \\
 Error-Funktion (erf) & 716,7 & 724,7 & $-12{,}3$ & 0,367 \\
-Potenzgesetz & 720,1 & 728,1 & $\phantom{-0}8{,}9$ & 0,364 \\
+Potenzgesetz & 720,1 & 728,1 & $\phantom{0}-8{,}9$ & 0,364 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -460,7 +464,7 @@ $f(R)$-Gravitationstheorien \cite{Starobinsky1980, Sotiriou2010} ersetzen den Ri
 
 \subsection{Emergente Gravitation nach Verlinde}
 
-Verlinde \cite{Verlinde2011, Verlinde2017} schl\"agt vor, dass die Gravitation keine fundamentale Kraft, sondern ein emergentes, entropisches Ph\"anomen ist. In de-Sitter-R\"aumen f\"uhrt die mit dem kosmologischen Horizont assoziierte Entropie zu einer zus\"atzlichen ``dunklen'' Gravitationskraft, die das Verhalten von Galaxien ohne Dunkle Materie erkl\"aren k\"onnte.
+Verlinde \cite{Verlinde2011, Verlinde2017} schl\"agt vor, dass die Gravitation keine fundamentale Kraft, sondern ein emergentes, entropisches Ph\"anomen ist. In de-Sitter-R\"aumen f\"uhrt die mit dem kosmologischen Horizont assoziierte Entropie zu einer zus\"atzlichen ``dunklen'' Gravitationskraft, die das Verhalten von Galaxien ohne Dunkle Materie erkl\"aren k\"onnte. In einem eng verwandten Ansatz leitet Padmanabhan \cite{Padmanabhan2012} die kosmische Expansion als emergentes Ph\"anomen aus der Differenz zwischen Oberfl\"achen- und Bulk-Freiheitsgraden ab, wobei die kosmologische Konstante aus dem Bestreben der Raumzeit entsteht, holographische \"Aquipartition zu erreichen -- eine Perspektive, die strukturelle Gemeinsamkeiten mit dem Gleichgewichtsrahmenwerk des CFM aufweist.
 
 \subsection{Finsler-Gravitation}
 
@@ -477,11 +481,11 @@ Trivedi und Venkatasubramanian \cite{Trivedi2025} formulieren eine spieltheoreti
 \subsection{Synoptischer Vergleich}
 \label{subsec:synopse}
 
-\begin{table}[H]
+\begin{table*}[tbp]
 \centering
 \caption{Synoptischer Vergleich kosmologischer Modelle ohne Dunkle Energie.}
 \label{tab:synopse}
-\begin{tabularx}{\textwidth}{lXXX}
+\begin{tabular}{llll}
 \toprule
 \textbf{Eigenschaft} & \textbf{CFM} & \textbf{Finsler} & \textbf{Teleodynamics} \\
 \midrule
@@ -492,8 +496,8 @@ Empirischer Test & Pantheon+ (1590 SNe, $\Delta\chi^2{=}{-}12$) & Noch ausstehen
 Vorhersage & $w(z)$ Zeitvariation & Exp.\ Expansion & Nash-Konvergenz \\
 Komplexit\"at & Gering (4 Param.) & Hoch & Mittel \\
 \bottomrule
-\end{tabularx}
-\end{table}
+\end{tabular}
+\end{table*}
 
 % ===================================================================
 % 6. KOMPLEMENTARITÄT UND VEREINIGUNG
@@ -520,11 +524,13 @@ Eine faszinierende M\"oglichkeit besteht darin, dass die drei Modelle verschiede
 
 Mathematisch l\"asst sich diese Komplementarit\"at als hierarchische Beziehung darstellen:
 \begin{equation}
+\begin{split}
 \underbrace{G_{\mu\nu}^{\mathrm{Finsler}}(x, y)}_{\substack{\text{Finsler-Gravitation}\\\text{(mikroskopisch)}}}
-\;\xrightarrow{\;\langle\cdot\rangle_{\mathrm{eff}}\;}
-\underbrace{G_{\mu\nu} + 8\pi G\,\Omega_\Phi(a)\,g_{\mu\nu}}_{\substack{\text{CFM: modifizierte}\\\text{Einstein-Gleichung}}}
-\;\xleftarrow{\;\delta\Phi/\delta s_i = 0\;}
+&\;\xrightarrow{\;\langle\cdot\rangle_{\mathrm{eff}}\;}
+\underbrace{G_{\mu\nu} + 8\pi G\,\Omega_\Phi(a)\,g_{\mu\nu}}_{\substack{\text{CFM: modifizierte}\\\text{Einstein-Gleichung}}} \\
+&\;\xleftarrow{\;\delta\Phi/\delta s_i = 0\;}
 \underbrace{\max_{s_M, s_T} \Phi(s_M, s_T)}_{\substack{\text{Teleodynamics:}\\\text{Nash-Gleichgewicht}}}
+\end{split}
 \label{eq:complementarity}
 \end{equation}
 wobei der linke Pfeil die effektive Mittelung \"uber die geschwindigkeitsabh\"angigen Freiheitsgrade der Finsler-Geometrie beschreibt und der rechte Pfeil die Variationsbedingung des spieltheoretischen Potentials darstellt, die das zeitliche Verhalten von $\Omega_\Phi(a)$ festlegt.
@@ -551,15 +557,16 @@ wobei der linke Pfeil die effektive Mittelung \"uber die geschwindigkeitsabh\"an
 \centering
 \caption{Relevante Beobachtungsmissionen f\"ur den CFM-Test.}
 \label{tab:missionen}
-\begin{tabularx}{\textwidth}{lccX}
+\small
+\begin{tabular}{llcl}
 \toprule
-\textbf{Mission} & \textbf{Start} & $\sigma(w)$ & \textbf{Relevanz f\"ur CFM} \\
+\textbf{Mission} & \textbf{Start} & $\sigma(w)$ & \textbf{Relevanz} \\
 \midrule
-Euclid (ESA) & 2023 & $\approx 0{,}02$ & Pr\"azisions-BAO + schwache Linsen; kann CFM vs.\ $\Lambda$CDM bei $z > 0{,}8$ unterscheiden \\
-Roman (NASA) & $\sim$2027 & $\approx 0{,}03$ & SN-Survey bis $z \approx 2$; ideales Instrument f\"ur $w(z)$-Test \\
-DESI & 2021-- & $\approx 0{,}04$ & Millionen Galaxien-Spektren; BAO und Strukturwachstum \\
+Euclid & 2023 & ${\approx}\,0{,}02$ & BAO + Linsen \\
+Roman & ${\sim}$2027 & ${\approx}\,0{,}03$ & SN bis $z \approx 2$ \\
+DESI & 2021-- & ${\approx}\,0{,}04$ & BAO + Wachstum \\
 \bottomrule
-\end{tabularx}
+\end{tabular}
 \end{table}
 
 \subsection{Unterscheidbarkeit der Modelle}
@@ -608,6 +615,7 @@ $z_{\mathrm{acc}}$ (\"Ubergang) & 0,84 & 0,52 \\
 \item \textbf{Ph\"anomenologischer Charakter:} Das CFM ist keine fundamentale Theorie. Obwohl die $\tanh$-Form als exakte L\"osung der S\"attigungs-ODE~\eqref{eq:saturation_ode} motiviert werden kann und vier alternative Funktionalformen vergleichbare Ergebnisse liefern (Abschnitt~\ref{subsec:funktionalformen}), steht eine Herleitung aus einer fundamentalen Quantengleichung noch aus.
 \item \textbf{Parameterfreiheit:} Vier effektive Parameter gegen\"uber zwei in $\Lambda$CDM f\"uhren zu einem marginalen BIC-Nachteil ($\Delta\mathrm{BIC} = +2{,}6$), der jedoch durch die bessere Kreuzvalidierung und die Robustheit \"uber verschiedene Funktionalformen relativiert wird.
 \item \textbf{Phantom-Bereich:} Der effektive Zustandsgleichungsparameter $w < -1$ liegt im Phantom-Bereich. Wie in Abschnitt~\ref{subsec:phantom} gezeigt, f\"uhrt dies im CFM-Kontext weder zu einem Big Rip noch zu Instabilit\"aten, da $\Omega_\Phi$ s\"attigt und kein physisches Feld darstellt. Formal verletzt das CFM die Null-Energie-Bedingung, analog zu $f(R)$-Gravitationstheorien \cite{Sotiriou2010}.
+\item \textbf{Modellvergleich:} Der Vergleich in dieser Arbeit beschr\"ankt sich auf $\Lambda$CDM. Ein fairerer Referenzpunkt f\"ur das Phantom-Kreuzungsverhalten w\"are die $w_0w_a$CDM-Parametrisierung (CPL) \cite{Chevallier2001, Linder2003}, die ebenfalls $w < -1$ erlaubt. Ein solcher Vergleich wird in Paper~II pr\"asentiert.
 \item \textbf{Offene Tests:} CMB-Vorhersagen (ISW-Effekt, CMB-Leistungsspektrum), BAO-Signaturen und Gravitationslinsen-Effekte m\"ussen noch berechnet werden. Die Analyse mit der vollen Kovarianzmatrix (Abschnitt~\ref{subsec:ergebnisse}) best\"atigt jedoch die Ergebnisse der diagonalen Analyse.
 \item \textbf{Mikroskopische Basis:} Was ist $\Phi$ auf Quantenebene? Die Verbindung zu einer Theorie der Quantengravitation steht aus. Die m\"ogliche Beziehung zur Finsler-Gravitation (Abschnitt~\ref{sec:komplementaritaet}) k\"onnte hier eine Br\"ucke schlagen.
 \item \textbf{$H_0$-Spannung:} Die $H_0$-Analyse (Abschnitt~\ref{subsec:dezeleration}) zeigt $\Delta H_0 = +0{,}5\,$km/s/Mpc zwischen CFM und $\Lambda$CDM -- zu gering, um die $H_0$-Spannung zu l\"osen. Eine Aufl\"osung erfordert die Kombination mit CMB- und BAO-Daten.
@@ -756,6 +764,24 @@ Verlinde, E.\ (2017).
 Emergent Gravity and the Dark Universe.
 \textit{SciPost Physics}, 2(3), 016.
 DOI: 10.21468/SciPostPhys.2.3.016.
+
+\bibitem{Padmanabhan2012}
+Padmanabhan, T.\ (2012).
+Emergent Perspective of Gravity and Dark Energy.
+\textit{Research in Astronomy and Astrophysics}, 12(8), 891.
+DOI: 10.1088/1674-4527/12/8/003.
+
+\bibitem{Chevallier2001}
+Chevallier, M.\ \& Polarski, D.\ (2001).
+Accelerating Universes with Scaling Dark Matter.
+\textit{Int.\ J.\ Mod.\ Phys.\ D}, 10, 213.
+DOI: 10.1142/S0218271801000822.
+
+\bibitem{Linder2003}
+Linder, E.~V.\ (2003).
+Exploring the Expansion History of the Universe.
+\textit{Phys.\ Rev.\ Lett.}, 90, 091301.
+DOI: 10.1103/PhysRevLett.90.091301.
 
 \bibitem{Euclid2024}
 Euclid Collaboration (2025).

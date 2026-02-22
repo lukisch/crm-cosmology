@@ -1,12 +1,15 @@
 \documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
 
-% REVTeX 4.2 loads amsmath, amssymb, graphicx, and hyperref automatically
+% MiKTeX REVTeX 4.2 needs explicit package loading
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{xcolor}
 \usepackage{amsthm}
 \usepackage{array}
 \usepackage{float}
+\usepackage{graphicx}
 \graphicspath{{../figures/}}
 
 % Theorem environments (REVTeX compatible)
@@ -14,6 +17,7 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{conjecture}{Conjecture}
 
+\usepackage{hyperref}
 \hypersetup{
     pdftitle={Eliminating the Dark Sector: Unifying the Curvature Feedback Model with MOND},
     pdfauthor={Lukas Geiger},
@@ -32,7 +36,7 @@
 \title{Eliminating the Dark Sector: Unifying the Curvature Feedback Model with MOND --- Replacing the Particle Dark Sector with Spacetime Geometry}
 
 \author{Lukas Geiger}
-\email{Correspondence: Gei\ss{}b\"uhlweg~1, 79872~Bernau, Germany}
+\email{Correspondence: Bernau, Germany}
 \affiliation{Independent Researcher, Bernau im Schwarzwald, Germany}
 
 \date{\today}
@@ -113,7 +117,10 @@ with
 
 For the baryon-only extension, we decompose the geometric potential into two components:
 \begin{equation}
-H^2(a) = H_0^2 \left[\mu_{\mathrm{eff}}\,\Omega_b\,a^{-3} + \underbrace{\Phi_0 \cdot f_{\mathrm{sat}}(a)}_{\text{geometric DE}} + \underbrace{\alpha \cdot a^{-\beta}}_{\text{geometric DM}} + f_{\mathrm{EDE}}(a)\right]
+\begin{split}
+H^2(a) = H_0^2 \Big[&\mu_{\mathrm{eff}}\,\Omega_b\,a^{-3} + \underbrace{\Phi_0 \cdot f_{\mathrm{sat}}(a)}_{\text{geom.\ DE}} \\
+&+ \underbrace{\alpha \cdot a^{-\beta}}_{\text{geom.\ DM}} + f_{\mathrm{EDE}}(a)\Big]
+\end{split}
 \label{eq:extended_cfm}
 \end{equation}
 
@@ -176,7 +183,7 @@ with $a_{\mathrm{eq}} = \Omega_r/\Omega_b \approx 3 \times 10^{-4}$ (using $\Ome
 R + 12\gamma\,\Box R = -8\pi G\,T
 \label{eq:trace_fR}
 \end{equation}
-where $T = g^{\mu\nu}T_{\mu\nu}$ is the matter energy-momentum trace. During the radiation era, $T_{\mathrm{rad}} = 0$ (conformal symmetry), which implies $R + 12\gamma\,\Box R = 0$. On FLRW, the decaying solution gives $R \to 0$ in the radiation era, so the $R^2$ correction -- which sources the scalaron and hence the geometric DM term -- vanishes automatically. The suppression factor $\mathcal{S}(a)$ in Eq.~\eqref{eq:suppression} is thus the phenomenological parametrization of a rigorous $f(R)$ result: the geometric DM ``activates'' precisely when $T \neq 0$ (i.e., when non-relativistic matter dominates). The only genuine postulate is the choice $f(R) = R + 2\gamma R^2$ -- the trace coupling is a \textit{consequence}, not an input. Paper~III also derives the scalaron mass $m_s \sim \mathcal{O}(10)\,H_0 \sim 10^{-32}\,\mathrm{eV}$ from the MCMC constraint $\alpha_{M,0} = 0.0013 \pm 0.0007$, corresponding to a cosmological Compton wavelength $\lambda_C \gtrsim 100\,\mathrm{Mpc}$ and a solar system screening length $\lambda_C^{\mathrm{solar}} \sim 20\,\mathrm{m}$ (chameleon mechanism), ensuring compatibility with local gravity tests.
+where $T = g^{\mu\nu}T_{\mu\nu}$ is the matter energy-momentum trace. During the radiation era, $T_{\mathrm{rad}} = 0$ (conformal symmetry), which implies $R + 12\gamma\,\Box R = 0$. On FLRW, the decaying solution gives $R \to 0$ in the radiation era, so the $R^2$ correction -- which sources the scalaron and hence the geometric DM term -- vanishes automatically. The suppression factor $\mathcal{S}(a)$ in Eq.~\eqref{eq:suppression} is thus the phenomenological parametrization of a rigorous $f(R)$ result: the geometric DM ``activates'' precisely when $T \neq 0$ (i.e., when non-relativistic matter dominates). The only genuine postulate is the choice $f(R) = R + 2\gamma R^2$ -- the trace coupling is a \textit{consequence}, not an input. Paper~III also derives the scalaron mass $m_s \sim \mathcal{O}(10)\,H_0 \sim 10^{-32}\,\mathrm{eV}$ from the MCMC constraint $\alpha_{M,0} = 0.0011^{+0.0010}_{-0.0006}$ (48-walker chain, converged), corresponding to a cosmological Compton wavelength $\lambda_C \gtrsim 100\,\mathrm{Mpc}$ and a solar system screening length $\lambda_C^{\mathrm{solar}} \sim 20\,\mathrm{m}$ (chameleon mechanism), ensuring compatibility with local gravity tests.
 
 \subsection{Physical Interpretation of the Geometric DM Term}
 
@@ -265,7 +272,11 @@ where $\beta_{\mathrm{late}} = 2.02$ (curvature-like, from the SN fit), $\beta_{
 
 The extended Friedmann equation with running $\beta$ and MOND background coupling reads:
 \begin{equation}
-H^2(a) = H_0^2 \left[\mu_{\mathrm{eff}}\,\Omega_b\,a^{-3} + \Omega_r\,a^{-4} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta_{\mathrm{eff}}(a)} + f_{\mathrm{EDE}}(a)\right]
+\begin{split}
+H^2(a) = H_0^2 \Big[&\mu_{\mathrm{eff}}\,\Omega_b\,a^{-3} + \Omega_r\,a^{-4} \\
+&+ \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta_{\mathrm{eff}}(a)} \\
+&+ f_{\mathrm{EDE}}(a)\Big]
+\end{split}
 \label{eq:running_friedmann}
 \end{equation}
 with $\mu_{\mathrm{eff}} = \sqrt{\pi} \approx 1.77$ (Section~\ref{subsec:sqrt_pi}) and the flatness constraint $E^2(a{=}1) = 1$ determining $\Phi_0$.
@@ -294,7 +305,7 @@ This three-phase structure provides a causal chain: \textit{the end of curvature
 \subsection{The $\sqrt{\pi}$ Conjecture: Dimensional Origin of $\mu_{\mathrm{eff}}$}
 \label{subsec:sqrt_pi}
 
-The refined joint fit (Section~\ref{subsec:joint_fit}) yields $\mu_{\mathrm{eff}} = 1.77$, which is numerically indistinguishable from $\sqrt{\pi} = 1.7725$ (deviation 0.2\%). We propose that this is not a coincidence but reflects the \textit{dimensional geometry} of the gravitational phase space.
+The refined joint fit (Section~\ref{subsec:joint_fit}) yields $\mu_{\mathrm{eff}} = 1.77$, which is numerically indistinguishable from $\sqrt{\pi} = 1.7725$ (deviation 0.2\%). We propose -- as a conjecture requiring independent derivation -- that this may reflect the \textit{dimensional geometry} of the gravitational phase space rather than a numerical coincidence.
 
 \textbf{Key observation:} The volumes of the unit $n$-sphere are:
 \begin{equation}
@@ -357,7 +368,7 @@ We use the Pantheon+ catalog \cite{Scolnic2022} comprising 1,590 Type~Ia superno
 
 \subsection{Results: Model Comparison}
 
-\begin{table}[H]
+\begin{table*}
 \centering
 \caption{Model comparison against 1,590 Pantheon+ supernovae.}
 \label{tab:comparison}
@@ -374,7 +385,7 @@ CFM Baryon Band & 0.070 & 4 & 894.7 & $+165.7$ & 902.7 & 924.1 \\
 \textbf{Extended CFM+MOND} & \textbf{0.050} & \textbf{5} & \textbf{702.7} & $\mathbf{-26.3}$ & \textbf{712.7} & 739.5 \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \subsection{Key Findings}
 
@@ -405,7 +416,7 @@ With five free parameters versus two for $\Lambda$CDM, an overfitting concern is
 
 \textbf{Method:} The data are randomly split into five equal folds (seed $= 42$). For each fold, both models ($\Lambda$CDM and Extended CFM) are optimized on the remaining 80\% (training set) using differential evolution, and the predictive $\chi^2/n$ is evaluated on the held-out 20\% (test set). This procedure tests \textit{generalization}, not merely goodness-of-fit.
 
-\begin{table}[H]
+\begin{table*}
 \centering
 \caption{5-fold cross-validation results: predictive $\chi^2/n$ on held-out test sets.}
 \label{tab:crossval}
@@ -417,7 +428,7 @@ $\Lambda$CDM (2 params) & 0.467 & 0.428 & 0.461 & 0.435 & 0.468 & $0.452 \pm 0.0
 Ext.\ CFM+MOND (5 params) & 0.456 & 0.428 & 0.465 & 0.411 & 0.467 & $0.445 \pm 0.022$ \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \textbf{Result:} The Extended CFM achieves a \textit{lower} mean predictive $\chi^2/n$ on unseen data ($\Delta\langle\chi^2/n\rangle = -0.007$). Despite having 2.5$\times$ more parameters, the model generalizes \textit{better} than $\Lambda$CDM, ruling out overfitting as an explanation for the $\Delta\chi^2 = -26.3$ improvement. The slightly higher fold-to-fold variance ($\sigma = 0.022$ vs.\ $0.017$) is expected for a more flexible model but does not indicate instability.
 
@@ -527,14 +538,19 @@ The best-fit parameters (preferred $\mu(a)$ variant) are: $\mu_{\mathrm{late}} =
 
 The central innovation of the refined fit is applying the MOND gravitational enhancement on the \textit{background level} of the Friedmann equation:
 \begin{equation}
-H^2(a) = H_0^2 \left[\mu_{\mathrm{eff}}\,\Omega_b\,a^{-3} + \Omega_r\,a^{-4} + \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta_{\mathrm{eff}}(a)} + f_{\mathrm{EDE}}(a)\right]
+\begin{split}
+H^2(a) = H_0^2 \Big[&\mu_{\mathrm{eff}}\,\Omega_b\,a^{-3} + \Omega_r\,a^{-4} \\
+&+ \Phi_0 \cdot f_{\mathrm{sat}}(a) + \alpha \cdot a^{-\beta_{\mathrm{eff}}(a)} \\
+&+ f_{\mathrm{EDE}}(a)\Big]
+\end{split}
 \label{eq:mond_friedmann}
 \end{equation}
 with the modified sound horizon:
-\begin{equation}
-r_d = \int_0^{a_d} \frac{c_s(a)}{a^2 H(a)} \, da, \quad c_s = \frac{1}{\sqrt{3(1 + R_b \cdot a)}}, \quad R_b = \frac{3\,\mu_{\mathrm{eff}}\,\Omega_b}{4\,\Omega_\gamma}
+\begin{align}
+r_d &= \int_0^{a_d} \frac{c_s(a)}{a^2 H(a)} \, da\,,\quad c_s = \frac{1}{\sqrt{3(1 + R_b a)}}\,,\notag\\
+R_b &= \frac{3\,\mu_{\mathrm{eff}}\,\Omega_b}{4\,\Omega_\gamma}
 \label{eq:mond_rs}
-\end{equation}
+\end{align}
 
 A $\mu_{\mathrm{eff}}$-profile analysis (optimizing all other parameters at each fixed $\mu_{\mathrm{eff}}$) reveals a clear $\mu$--$H_0$ relationship:
 
@@ -753,6 +769,8 @@ This means that \textit{gravitational lensing in the cfm\_fR model is identical 
 \item Future lensing surveys (Euclid, Rubin/LSST) will measure $\Sigma$ to percent-level precision, providing a direct test: $\Sigma \neq 1$ would rule out the cfm\_fR model.
 \end{enumerate}
 
+\textit{Caveat:} This background-level analysis demonstrates quantitative sufficiency but does not replace a full non-linear treatment. A definitive resolution of the Bullet Cluster in the CFM framework requires relativistic N-body simulations with the modified Poisson equation, which is beyond the scope of this paper.
+
 \subsubsection{Challenge 3: Structure Formation and the Matter Power Spectrum}
 
 The matter power spectrum $P(k)$ in $\Lambda$CDM is shaped by dark matter halos that begin gravitational collapse during radiation domination (before baryons decouple from photons). Without early-collapsing dark matter, baryonic structures would form too late and on the wrong scales.
@@ -866,6 +884,8 @@ The quantitative results span two levels of analysis:
 \end{enumerate}
 
 The three-phase interpretation emerges naturally: at $z > z_\mu \approx 4000$, gravity is standard ($\mu \to 1$) and the strong curvature return ($\beta \approx 2.8$) mimics CDM; at $z_\mu > z > z_t$, the MOND enhancement activates ($\mu \to \sqrt{\pi}$); at $z < z_t \approx 9$, the curvature return weakens to $\beta \approx 2$ and the saturation term drives cosmic acceleration. Dark matter and dark energy are two manifestations of the same geometric relaxation process -- two manifestations of the same geometric relaxation process.
+
+\textit{Limitation:} The CMB analysis in this paper relies on compressed observables ($\ell_A$, $\mathcal{R}$) rather than the full temperature and polarization power spectra ($C_\ell^{TT}$, $C_\ell^{TE}$, $C_\ell^{EE}$). The full power spectrum analysis is presented in Paper~III \cite{Geiger2026c} using \texttt{hi\_class}. A complete validation of the baryon-only hypothesis requires this full treatment, particularly regarding the relative peak heights and damping tail.
 
 Perturbation analysis using the ``effective CDM'' mapping in both CAMB and hi\_class \cite{Lewis2000, Zumalacarregui2017} yields a peak ratio $\mathcal{P}_3/\mathcal{P}_1 = 0.4212$ (98.1\% of Planck); with a minimal $\beta_{\mathrm{early}}$ adjustment (0.32\%), the ratio reaches \textbf{0.4295 -- an exact Planck match}. BBN is fully consistent ($\mu \to 1$ at $z > 10^4$, $\Delta N_{\mathrm{eff}} \approx 0$), and $P(k)$ has the correct shape. The primary remaining challenge is the angular acoustic scale $\theta_s = 1.025$ (vs.\ $1.041$), caused by the geometric term's $w_{\mathrm{eff}} = -0.06$ at recombination producing a 2.5\% larger sound horizon. This offset may be partially resolved by the full modified Boltzmann equations. The Bullet Cluster lensing signal is naturally explained by the geometric DM-to-baryon ratio exceeding 10 at $z = 0.3$.
 
