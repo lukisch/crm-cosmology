@@ -1,21 +1,21 @@
-# Curvature Feedback Model (CFM)
+# Curvature Relaxation Model (CRM)
 
 **A Four-Paper Program for Geometric Cosmology Without the Dark Sector**
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18728936.svg)](https://doi.org/10.5281/zenodo.18728936)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18728935.svg)](https://doi.org/10.5281/zenodo.18728935)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Overview
 
-The Curvature Feedback Model (CFM) replaces dark energy with a geometric curvature return potential and embeds modified gravity within the Horndeski/f(R) framework. The model is validated against Planck 2018 CMB data (TT+TE+EE, 6,405 data points) using [hi_class](https://github.com/miguelzuma/hi_class_public) with a custom `cfm_fR` gravity model.
+The Curvature Relaxation Model (CRM) replaces dark energy with a geometric curvature return potential and embeds modified gravity within the Horndeski/f(R) framework. The model is validated against Planck 2018 CMB data (TT+TE+EE, 6,405 data points) using [hi_class](https://github.com/miguelzuma/hi_class_public) with a custom `crm_fR` gravity model.
 
-**Key result:** The native `cfm_fR` model achieves **Delta chi2 = -3.6** vs. LCDM on Planck CMB data (MCMC best-fit), with alpha_M_0 = 0.0013 +/- 0.0007 (1.78 sigma detection, P(alpha_M_0 > 0) = 100%) and 100*theta_s = 1.04173 (identical to LCDM).
+**Key result:** The native `crm_fR` model achieves **Delta chi2 = -3.7** vs. LCDM on Planck CMB data (MCMC best-fit), with alpha_M_0 = 0.0011 +/- 0.0007 (1.76 sigma detection, P(alpha_M_0 > 0) = 100%) and 100*theta_s = 1.04173 (identical to LCDM).
 
 ## Papers
 
 | Paper | EN | DE | Topic |
 |-------|----|----|-------|
-| I | `papers/Paper1_EN.tex` | `papers/Paper1_DE.tex` | Game-theoretic foundation, CFM, Pantheon+ validation |
+| I | `papers/Paper1_EN.tex` | `papers/Paper1_DE.tex` | Game-theoretic foundation, CRM, Pantheon+ validation |
 | II | `papers/Paper2_EN.tex` | `papers/Paper2_DE.tex` | MOND unification, baryon-only universe, running coupling |
 | III | `papers/Paper3_EN.tex` | `papers/Paper3_DE.tex` | Lagrangian (R + gamma R^2), scalaron dynamics, predictions |
 | IV | `papers/Paper4_EN.tex` | `papers/Paper4_DE.tex` | Galactic MOND from curvature saturation (DRAFT) |
@@ -26,11 +26,11 @@ The Curvature Feedback Model (CFM) replaces dark energy with a geometric curvatu
 |-------|----------------:|----------:|-------:|------------:|
 | LCDM | 6628.8 | --- | 0.811 | 1.04173 |
 | propto_omega cM=0.0002 | 6628.6 | -0.2 | 0.826 | 1.04173 |
-| cfm_fR n=0.5, aM0=0.001 | 6626.1 | -2.7 | 0.899 | 1.04173 |
-| cfm_fR n=1.0, aM0=0.0005 | 6627.1 | -1.6 | 0.879 | 1.04173 |
-| **cfm_fR MCMC best-fit** | **6625.2** | **-3.6** | --- | 1.04173 |
+| crm_fR n=0.5, aM0=0.001 | 6626.1 | -2.7 | 0.899 | 1.04173 |
+| crm_fR n=1.0, aM0=0.0005 | 6627.1 | -1.6 | 0.879 | 1.04173 |
+| **crm_fR MCMC best-fit** | **6625.1** | **-3.7** | --- | 1.04173 |
 
-The cfm_fR model implements:
+The crm_fR model implements:
 ```
 alpha_M(a) = alpha_M_0 * n * a^n / (1 + alpha_M_0 * a^n)
 alpha_B(a) = -alpha_M(a) / 2     [f(R) relation]
@@ -48,22 +48,22 @@ pip install -r requirements.txt
 
 ### 2. hi_class (Horndeski in CLASS Boltzmann code)
 
-hi_class is required for CMB power spectrum computations and the cfm_fR model.
+hi_class is required for CMB power spectrum computations and the crm_fR model.
 
 ```bash
 # Clone hi_class
 git clone https://github.com/miguelzuma/hi_class_public.git
 cd hi_class_public
 
-# Apply cfm_fR patch (adds the native CFM gravity model)
-python /path/to/cfm-cosmology/scripts/patch_cfm.py
+# Apply crm_fR patch (adds the native CRM gravity model)
+python /path/to/crm-cosmology/scripts/patch_cfm.py
 
 # Build hi_class with Python wrapper
 cd python
 python setup.py build
 ```
 
-The patch modifies `gravity_models_smg.c` to add the `cfm_fR` gravity model. See [Patch Documentation](#cfm_fr-patch-documentation) below for details.
+The patch modifies `gravity_models_smg.c` to add the `crm_fR` gravity model. See [Patch Documentation](#crm_fr-patch-documentation) below for details.
 
 **Tested with:** hi_class v2.9.4+, Python 3.12, Cython 0.29.37, NumPy 1.26.4 on Ubuntu 24.04 (WSL).
 
@@ -87,8 +87,8 @@ python scripts/cfm_mond_mcmc.py            # MOND MCMC analysis
 
 ### Paper III: hi_class CMB Validation
 ```bash
-# Requires hi_class with cfm_fR patch (see Installation above)
-python scripts/test_cfm_fR_native.py       # Systematic cfm_fR parameter scan
+# Requires hi_class with crm_fR patch (see Installation above)
+python scripts/test_cfm_fR_native.py       # Systematic crm_fR parameter scan
 python scripts/compute_TT_TE_EE.py         # Planck TT+TE+EE chi2 computation
 python scripts/scalaron_alphaM_theta_s.py  # theta_s resolution analysis
 python scripts/compute_fsigma8.py          # Growth rate f*sigma8
@@ -113,7 +113,7 @@ python scripts/poeschl_teller_path_integral.py  # sqrt(pi) path integral
 ## Repository Structure
 
 ```
-cfm-cosmology/
+crm-cosmology/
   README.md                  # This file
   LICENSE                    # CC BY 4.0
   requirements.txt           # Python dependencies
@@ -127,21 +127,21 @@ cfm-cosmology/
   data/                      # Pantheon+ analysis outputs
 ```
 
-## cfm_fR Patch Documentation
+## crm_fR Patch Documentation
 
 The file `scripts/patch_cfm.py` applies 4 modifications to `hi_class/gravity_models_smg.c`:
 
 | # | Location | Change |
 |---|----------|--------|
-| 1 | `gravity_models_init()` | Registers `cfm_fR` as a new gravity model |
+| 1 | `gravity_models_init()` | Registers `crm_fR` as a new gravity model |
 | 2 | `gravity_functions_smg()` | Computes alpha_M, alpha_B from parameters `(alpha_M_0, n_exp, M*2_init)` |
-| 3 | `gravity_print_smg()` | Adds print output for cfm_fR parameters |
-| 4 | Error message | Adds cfm_fR to the list of recognized models |
+| 3 | `gravity_print_smg()` | Adds print output for crm_fR parameters |
+| 4 | Error message | Adds crm_fR to the list of recognized models |
 
 **Parameters passed via hi_class:**
 ```python
 cosmo.set({
-    'gravity_model': 'cfm_fR',
+    'gravity_model': 'crm_fR',
     'parameters_smg': f'{alpha_M_0}, {n_exp}, 1.0',
     'expansion_model': 'lcdm',
     'Omega_smg': -1,
@@ -175,52 +175,52 @@ This work uses the following open-source software:
 If you use this work, please cite the Zenodo deposit:
 
 ```bibtex
-@misc{Geiger2026CFM,
+@misc{Geiger2026CRM,
   author    = {Geiger, Lukas},
-  title     = {The Curvature Feedback Model: A Four-Paper Program
+  title     = {The Curvature Relaxation Model: A Four-Paper Program
                for Geometric Cosmology Without the Dark Sector},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.18728936},
-  url       = {https://doi.org/10.5281/zenodo.18728936}
+  doi       = {10.5281/zenodo.18728935},
+  url       = {https://doi.org/10.5281/zenodo.18728935}
 }
 ```
 
 Individual papers:
 
 ```bibtex
-@article{Geiger2026CFM_I,
+@article{Geiger2026CRM_I,
   author  = {Geiger, Lukas},
-  title   = {Game-Theoretic Cosmology and the Curvature Feedback Model},
+  title   = {Game-Theoretic Cosmology and the Curvature Relaxation Model},
   year    = {2026},
-  doi     = {10.5281/zenodo.18728936},
-  note    = {Paper I of the CFM program}
+  doi     = {10.5281/zenodo.18728935},
+  note    = {Paper I of the CRM program}
 }
 
-@article{Geiger2026CFM_II,
+@article{Geiger2026CRM_II,
   author  = {Geiger, Lukas},
-  title   = {CFM-MOND Unification: A Baryonic Universe Without Dark Matter},
+  title   = {CRM-MOND Unification: A Baryonic Universe Without Dark Matter},
   year    = {2026},
-  doi     = {10.5281/zenodo.18728936},
-  note    = {Paper II of the CFM program}
+  doi     = {10.5281/zenodo.18728935},
+  note    = {Paper II of the CRM program}
 }
 
-@article{Geiger2026CFM_III,
+@article{Geiger2026CRM_III,
   author  = {Geiger, Lukas},
-  title   = {From Curvature Feedback to Quantum Gravity: Lagrangian Foundations
+  title   = {From Curvature Relaxation to Quantum Gravity: Lagrangian Foundations
              and Testable Predictions},
   year    = {2026},
-  doi     = {10.5281/zenodo.18728936},
-  note    = {Paper III of the CFM program}
+  doi     = {10.5281/zenodo.18728935},
+  note    = {Paper III of the CRM program}
 }
 
-@article{Geiger2026CFM_IV,
+@article{Geiger2026CRM_IV,
   author  = {Geiger, Lukas},
   title   = {The Galactic-Cosmological Nexus: Deriving MOND Dynamics
              from Curvature Saturation},
   year    = {2026},
-  doi     = {10.5281/zenodo.18728936},
-  note    = {Paper IV of the CFM program (draft)}
+  doi     = {10.5281/zenodo.18728935},
+  note    = {Paper IV of the CRM program (draft)}
 }
 ```
 
