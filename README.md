@@ -2,6 +2,7 @@
 
 **A Four-Paper Program for Geometric Cosmology Without the Dark Sector**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18728936.svg)](https://doi.org/10.5281/zenodo.18728936)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Overview
@@ -116,7 +117,7 @@ cfm-cosmology/
   README.md                  # This file
   LICENSE                    # CC BY 4.0
   requirements.txt           # Python dependencies
-  CHANGES_cfm_fR.md          # Patch documentation
+  reviews/                   # Review history (Gen 1-3, response to reviewer)
   papers/                    # LaTeX sources (4 papers x 2 languages)
   scripts/                   # All analysis scripts
   scripts/paper4/            # Paper IV galactic analysis scripts
@@ -171,34 +172,54 @@ This work uses the following open-source software:
 
 ## Citation
 
+If you use this work, please cite the Zenodo deposit:
+
 ```bibtex
-@article{Geiger2026CFM,
+@misc{Geiger2026CFM,
+  author    = {Geiger, Lukas},
+  title     = {The Curvature Feedback Model: A Four-Paper Program
+               for Geometric Cosmology Without the Dark Sector},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.18728936},
+  url       = {https://doi.org/10.5281/zenodo.18728936}
+}
+```
+
+Individual papers:
+
+```bibtex
+@article{Geiger2026CFM_I,
   author  = {Geiger, Lukas},
   title   = {Game-Theoretic Cosmology and the Curvature Feedback Model},
   year    = {2026},
+  doi     = {10.5281/zenodo.18728936},
   note    = {Paper I of the CFM program}
 }
 
-@article{Geiger2026CFMMOND,
+@article{Geiger2026CFM_II,
   author  = {Geiger, Lukas},
   title   = {CFM-MOND Unification: A Baryonic Universe Without Dark Matter},
   year    = {2026},
+  doi     = {10.5281/zenodo.18728936},
   note    = {Paper II of the CFM program}
 }
 
-@article{Geiger2026CFMQG,
+@article{Geiger2026CFM_III,
   author  = {Geiger, Lukas},
   title   = {From Curvature Feedback to Quantum Gravity: Lagrangian Foundations
              and Testable Predictions},
   year    = {2026},
+  doi     = {10.5281/zenodo.18728936},
   note    = {Paper III of the CFM program}
 }
 
-@article{Geiger2026CFMMOND2,
+@article{Geiger2026CFM_IV,
   author  = {Geiger, Lukas},
   title   = {The Galactic-Cosmological Nexus: Deriving MOND Dynamics
              from Curvature Saturation},
   year    = {2026},
+  doi     = {10.5281/zenodo.18728936},
   note    = {Paper IV of the CFM program (draft)}
 }
 ```
