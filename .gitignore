@@ -1,88 +1,25 @@
-# LaTeX build artifacts
-*.aux
-*.log
-*.out
-*.toc
-*.synctex.gz
-*.fls
-*.fdb_latexmk
-*.bbl
-*.blg
-*.pdf
+# Secrets
+.env
+*.env
 
 # Python
 __pycache__/
 *.pyc
+*.pyo
+.venv/
+venv/
 
-# OS
-Thumbs.db
-.DS_Store
-nul
-_ul
+# Results & data (large files)
+results/
+*.npy
+*.npz
+*.h5
+*.hdf5
 
-# Claude Code / IDE settings
-.claude/
+# Plots (generated)
+*.png
+*.pdf
 
-# Archive (old versions, planning docs, intermediate scripts)
-_archive/
-
-# Old directory stubs (content moved to new structure)
-_data/
-_results/
-_scripts/
-
-# Gemini / Antigravity workspace
-_partners/
-
-# Temporary / private files
-Beispiel_Template_LaTex.tex
-CFM_CODE_REVIEW_BUNDLE.txt
-COMPLETE_PROJECT_CONTEXT.txt
-project_bundler.py
-PUBLICATION_PLAN.md
-
-# Large data (downloaded automatically by scripts)
-Pantheon+SH0ES.dat
-Pantheon+SH0ES_STAT+SYS.cov
-data/Pantheon+SH0ES.dat
-data/Pantheon+SH0ES_STAT+SYS.cov
-
-# Large binary results (MCMC chains)
-results/cfm_fR_mcmc_chain.npz
-results_server/
-
-# Backup directories
-backup_renumber_*/
-
-# Temporary utility scripts
-renumber_papers.py
-count_abstract.py
-papers/convert_to_revtex.py
-papers/fix_abstracts.py
-papers/check_integrity.py
-papers/find_cite_diff.py
-papers/_fix_de_structure.py
-
-# Translation temp files
-papers/Paper*_part*.txt
-
-# LaTeX Notes files (auto-generated)
-papers/*Notes.bib
-
-# Working documents (not for publication)
-CORE.txt
-Core2.txt
-MASTER_LAGRANGIAN.tex
-
-# Contains credentials (SSH keys, API tokens)
-MCMC_SERVER_BRIEFING.md
-
-# Internal planning (not for public)
-Plan.txt
-REVISE.txt
-
-# Removed sections (reserved for separate publication)
-papers/removed_sections/
-
-# Journal submission preparation (private until submission)
-_SciPost_submission/
+# Editor
+.vscode/
+*.swp

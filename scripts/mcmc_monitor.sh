@@ -1,7 +1,7 @@
 #!/bin/bash
 # MCMC Monitor: checks every 30 min, sends Telegram + pushes to GitHub when done
 
-BOT_TOKEN="***TELEGRAM_TOKEN_REMOVED***"
+BOT_TOKEN="${TELEGRAM_BOT_TOKEN:?Error: TELEGRAM_BOT_TOKEN not set}"
 CHAT_ID="595767047"
 LOG="/home/cfm-cosmology/results/mcmc_resume_log.txt"
 GIT_REPO="/home/cfm-cosmology-git"

@@ -50,8 +50,8 @@ RESULTS_DIR = Path("/home/cfm-cosmology/results/paper4/sparc")
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 # Telegram
-TELEGRAM_TOKEN = "***TELEGRAM_TOKEN_REMOVED***"
-TELEGRAM_CHAT = "595767047"
+TELEGRAM_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT = os.environ.get("TELEGRAM_CHAT_ID", "595767047")
 
 
 def send_telegram(msg):

@@ -23,6 +23,7 @@ from pathlib import Path
 import time
 import json
 import subprocess
+import os
 
 # ============================================================
 # Constants
@@ -38,8 +39,8 @@ A0 = c_light * H0 / (2 * np.pi)
 RESULTS_DIR = Path("/home/cfm-cosmology/results/paper4/rotcurves")
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
-TELEGRAM_TOKEN = "***TELEGRAM_TOKEN_REMOVED***"
-TELEGRAM_CHAT = "595767047"
+TELEGRAM_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT = os.environ.get("TELEGRAM_CHAT_ID", "595767047")
 
 
 def send_telegram(msg):
