@@ -95,6 +95,15 @@ python scripts/run_full_mcmc.py            # Full MCMC (5 params, ~8h runtime)
 python scripts/analyze_mcmc_results.py     # MCMC posterior analysis
 ```
 
+### Paper IV: Galactic MOND from Vector Sector
+```bash
+python scripts/paper4/sparc_full_analysis.py         # Full SPARC (171 galaxies) RAR test
+python scripts/paper4/multi_galaxy_bvp.py            # Multi-mass BVP MOND attractor scan
+python scripts/paper4/rotation_curves_bessel.py      # Bessel rotation curves
+python scripts/paper4/a0_discrepancy.py              # a0 = cH0/(2pi) discrepancy analysis
+python scripts/paper4/cfm_deep_mond_derivation.py    # Deep-MOND fixed point + Tully-Fisher
+```
+
 ### Supplementary
 ```bash
 python scripts/poeschl_teller_path_integral.py  # sqrt(pi) path integral
@@ -108,9 +117,11 @@ cfm-cosmology/
   LICENSE                    # CC BY 4.0
   requirements.txt           # Python dependencies
   CHANGES_cfm_fR.md          # Patch documentation
-  papers/                    # LaTeX sources (3 papers x 2 languages)
+  papers/                    # LaTeX sources (4 papers x 2 languages)
   scripts/                   # All analysis scripts
+  scripts/paper4/            # Paper IV galactic analysis scripts
   results/                   # Key numerical results
+  results/paper4/            # Paper IV SPARC, BVP, rotation curve results
   figures/                   # Plots referenced in papers
   data/                      # Pantheon+ analysis outputs
 ```
@@ -156,6 +167,7 @@ This work uses the following open-source software:
 **Observational data:**
 - **Pantheon+**: Scolnic et al. (2022), ApJ 938, 113. [arXiv:2112.03863](https://arxiv.org/abs/2112.03863)
 - **Planck 2018**: Aghanim et al. (2020), A&A 641, A6. [arXiv:1807.06209](https://arxiv.org/abs/1807.06209)
+- **SPARC**: Lelli, McGaugh & Schombert (2016), AJ 152, 157. [arXiv:1606.09251](https://arxiv.org/abs/1606.09251)
 
 ## Citation
 

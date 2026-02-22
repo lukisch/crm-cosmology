@@ -76,3 +76,6 @@ MASTER_LAGRANGIAN.tex
 
 # Contains credentials (SSH keys, API tokens)
 MCMC_SERVER_BRIEFING.md
+
+# Journal submission preparation (private until submission)
+_SciPost_submission/

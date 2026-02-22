@@ -230,14 +230,74 @@ PHASE 6: NACH EINREICHUNG
       (unabhaengige Bestaetigung wertvoller).
 
 ===============================================================================
+PUBLICATION PROTOCOL
+===============================================================================
+
+5.1 Preprint (Zenodo)
+----------------------
+Titel EN: The Curvature Feedback Model: A Four-Paper Program for Geometric Cosmology Without the Dark Sector
+Titel DE: Das Curvature-Feedback-Modell: Ein Vier-Artikel-Programm fuer geometrische Kosmologie ohne den Dunklen Sektor
+Version: 1.0
+Sprache: multilingual
+Lizenz: CC-BY 4.0
+
+Abstract:
+The Curvature Feedback Model (CFM) replaces dark energy with a geometric curvature
+return potential and embeds modified gravity within the Horndeski/f(R) framework.
+This deposit contains four papers presenting a complete theoretical program:
+Paper I establishes the game-theoretic foundation and validates the CFM against
+Pantheon+ supernovae (Delta chi2 = -12.2 vs. LCDM). Paper II extends the framework
+to a baryon-only universe with MOND unification, achieving joint SN+CMB+BAO
+compatibility (Delta chi2 = -5.5). Paper III provides the Lagrangian underpinning
+(R + gamma R2) with full hi_class CMB validation, yielding Delta chi2 = -3.7 vs.
+LCDM on Planck 2018 data (alpha_M0 = 0.0011, 1.76 sigma detection). Paper IV
+introduces the vector sector for galactic MOND dynamics and tests against the
+full SPARC database (171 galaxies), deriving the MOND scale a0 = cH0/(2pi) from
+first principles (13% discrepancy, 0.66 sigma). Analysis code available at
+https://github.com/lukisch/cfm-cosmology.
+
+Keywords: modified gravity, f(R) gravity, dark energy, dark matter, MOND, cosmology, curvature feedback, game theory, Horndeski, CMB, SPARC, rotation curves
+
+Community:
+- zenodo
+
+Upload-Dateien:
+- Paper_I_Game_Theory_EN.pdf
+- Paper_II_MOND_EN.pdf
+- Paper_III_Lagrangian_EN.pdf
+- Paper_IV_Vector_Sector_EN.pdf
+- Paper_I_Game_Theory_DE.pdf
+- Paper_II_MOND_DE.pdf
+- Paper_III_Lagrangian_DE.pdf
+- Paper_IV_Vector_Sector_DE.pdf
+
+[x] Abstract verfasst (EN)
+[x] PDF hochgeladen
+[x] DOI erhalten: 10.5281/zenodo.18728935
+[ ] DOI in Cross-Referenzen eingetragen
+
+5.1b GitHub-Repository
+-----------------------
+Repo-URL: https://github.com/lukisch/cfm-cosmology
+[x] Repo erstellt (PRIVAT)
+[x] GitHub-URL im Paper referenziert
+[ ] Ab DOI: Repo auf OEFFENTLICH gestellt
+
+5.3 Journal-Einreichung
+-------------------------
+Ziel-Journal 1: SciPost Physics
+  APC: [x] Kostenlos (Diamond Open Access)
+  [ ] Vorbereitet (Stub in _SciPost_submission/)
+
+===============================================================================
 DATEIEN-REFERENZ
 ===============================================================================
 
 Papers:
-  papers/Paper2_EN.tex, Paper2_DE.tex  (Paper II: Game Theory + CFM)
-  papers/Paper3_EN.tex, Paper3_DE.tex  (Paper III: MOND + Dark Sector)
-  papers/Paper1_EN.tex, Paper1_DE.tex  (Paper I: Lagrangian + Numerics)
-  papers/Paper4_EN.tex                 (Paper IV: Vector Sector + MOND, DRAFT)
+  papers/Paper1_EN.tex, Paper1_DE.tex  (Paper I: Game Theory + CFM)
+  papers/Paper2_EN.tex, Paper2_DE.tex  (Paper II: MOND + Dark Sector)
+  papers/Paper3_EN.tex, Paper3_DE.tex  (Paper III: Lagrangian + Numerics)
+  papers/Paper4_EN.tex, Paper4_DE.tex  (Paper IV: Vector Sector + MOND, DRAFT)
 
 Scripts:
   scripts/run_full_mcmc.py             (MCMC -- muss auf anderem System laufen)
