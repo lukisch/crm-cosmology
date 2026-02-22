@@ -38,16 +38,16 @@
 \date{\today}
 
 \begin{abstract}
-Papers~I--III of the Curvature Feedback Model (CFM) series demonstrated that a single scalar degree of freedom -- a curvature-coupled scalaron with P\"oschl-Teller saturation dynamics -- reproduces the cosmological dark sector ($\Delta\chi^2 = -5.5$ vs.\ $\Lambda$CDM on Pantheon+ in the preferred zero-EDE variant, CMB peak positions within $0.1\%$, $\alpha_T = 0$ exactly). However, the scalar sector alone cannot produce flat galactic rotation curves: its Yukawa fifth force enhances gravity by at most a factor $4/3$ at sub-Compton scales, insufficient to replace dark matter halos. The present paper closes this gap by introducing a second degree of freedom -- a timelike unit vector field $A_\mu$ -- whose necessity, structure, and coupling are derived from thermodynamic principles (maximum entropy production, hierarchical dissipation). We construct the teleodynamic coupling function $\mathcal{F}(A_\mu, \phi, T) = |T|/\rho_{\mathrm{crit}} \cdot \mathcal{B}(\phi) \cdot \mathcal{V}(A_\mu \partial^\mu \phi)$ with three components: a matter gatekeeper ($|T|/\rho_{\mathrm{crit}}$) ensuring BBN protection, a saturation control ($\mathcal{B} = \mathrm{sech}^2(\phi/\phi_0)$) linking MOND strength to expansion dynamics, and a vector projection ($A_\mu \partial^\mu \phi$) coupling local structure to the cosmological expansion rate. The model predicts $a_0 = cH_0/(2\pi)$ as an equilibrium condition -- not a fitted parameter -- and reproduces the Radial Acceleration Relation (RAR) and flat rotation curves without dark matter particles. We propose a zero-free-parameter test against the SPARC database (175 galaxies) and demonstrate that the $4/3$ convergence factor from $f(R)$ perturbation theory (Paper~III) coincides with the MOND phase-space ratio $V_3/V_2$ (Paper~II), constituting independent evidence for the nested hierarchy. The complete CFM action $S = S_{\mathrm{T1}} + S_{\mathrm{T2}}$ contains 8 terms, of which 5 are uniquely determined by the axioms, 1 is form-determined, 1 is strongly constrained by 6 conditions, and 4 parameters follow from data. No $\Lambda$, no dark matter particles -- only geometry.
+Papers~I--III of the Curvature Relaxation Model (CRM) series demonstrated that a scalar sector ($R + \gamma R^2$ + P\"oschl-Teller saturation) reproduces the cosmological dark sector ($\Delta\chi^2 = -5.5$ vs.\ $\Lambda$CDM, zero EDE, $\alpha_T = 0$). However, the scalar sector alone cannot produce flat rotation curves: the Yukawa fifth force yields at most $\mu \to 4/3$, insufficient to replace dark matter halos. This paper introduces a second degree of freedom -- a timelike unit vector field $A_\mu$ -- derived from thermodynamic necessity (maximum entropy production, hierarchical dissipation). The teleodynamic coupling $\mathcal{F} = |T|/\rho_{\mathrm{crit}} \cdot \mathrm{sech}^2(\phi/\phi_0) \cdot A_\mu\partial^\mu\phi$ ensures BBN protection, links MOND strength to expansion dynamics, and couples local structure to the cosmological expansion rate. The model predicts $a_0 = cH_0/(2\pi)$ as an equilibrium condition -- not a fitted parameter -- and reproduces the Radial Acceleration Relation and flat rotation curves without dark matter particles. The $4/3$ convergence factor from $f(R)$ perturbation theory (Paper~III) coincides with the MOND phase-space ratio $V_3/V_2$ (Paper~II). The complete action contains 8 terms; 5 are uniquely determined by axioms, 4 parameters follow from data. No $\Lambda$, no dark matter particles -- only geometry.
 \end{abstract}
 
-\keywords{MOND, modified gravity, vector-tensor theory, radial acceleration relation, curvature feedback, dark matter alternative, galactic dynamics}
+\keywords{MOND, modified gravity, vector-tensor theory, radial acceleration relation, curvature relaxation, dark matter alternative, galactic dynamics}
 
 \maketitle
 
 \thanks{AI tools (Claude, Anthropic; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/lukisch/cfm-cosmology}.}
 
-\thanks{Paper~IV in the CFM series. Companion papers: \cite{Geiger2026,Geiger2026b,Geiger2026c}.}
+\thanks{Paper~IV in the CRM series. Companion papers: \cite{Geiger2026,Geiger2026b,Geiger2026c}.}
 
 
 % ===================================================================
@@ -58,7 +58,7 @@ Papers~I--III of the Curvature Feedback Model (CFM) series demonstrated that a s
 
 The Modified Newtonian Dynamics (MOND) paradigm \cite{Milgrom1983} has proven remarkably successful at the galactic scale: the Radial Acceleration Relation (RAR) \cite{McGaugh2016} reveals a tight, universal correlation between observed gravitational acceleration $g_{\mathrm{obs}}$ and baryonic gravitational acceleration $g_{\mathrm{bar}}$, with a characteristic scale $a_0 \approx 1.2 \times 10^{-10}$\,m/s$^2$. The near-coincidence $a_0 \sim cH_0$ has been noted since Milgrom's original work but remains unexplained in both $\Lambda$CDM and standard MOND.
 
-The Curvature Feedback Model (CFM) offers a framework that may resolve this coincidence. Papers~I--III \cite{Geiger2026,Geiger2026b,Geiger2026c} established:
+The Curvature Relaxation Model (CRM) offers a framework that may resolve this coincidence. Papers~I--III \cite{Geiger2026,Geiger2026b,Geiger2026c} established:
 \begin{itemize}
 \item \textbf{Paper~I:} A game-theoretic / thermodynamic motivation for modified gravity, with the curvature return as entropy-driven relaxation \cite{Geiger2026}.
 \item \textbf{Paper~II:} Elimination of the particle dark sector through geometric curvature phases, MOND-compatible at the background level ($\mu_{\mathrm{eff}} = \sqrt{\pi}$, $V_3/V_2 = 4/3$) \cite{Geiger2026b}.
@@ -75,7 +75,7 @@ The present paper introduces Daughter~2: a timelike vector field $A_\mu$ that pr
 
 \subsection{Relation to existing vector-tensor theories}
 
-The vector field introduced here shares structural features with Bekenstein's TeVeS \cite{Bekenstein2004} and Skordis \& Z{\l}o\'snik's AeST \cite{Skordis2021}. However, the CFM vector sector differs in three key respects:
+The vector field introduced here shares structural features with Bekenstein's TeVeS \cite{Bekenstein2004} and Skordis \& Z{\l}o\'snik's AeST \cite{Skordis2021}. However, the CRM vector sector differs in three key respects:
 \begin{enumerate}
 \item The vector field is \textit{derived} from thermodynamic necessity (nested hierarchy), not postulated.
 \item The coupling to the scalar sector is \textit{constrained} by the requirement $a_0 \sim cH_0$, reducing it from a free function to a strongly constrained ansatz.
@@ -141,7 +141,7 @@ This predicts that MOND effects should \textit{weaken over cosmic time} as the u
 
 
 % ===================================================================
-% 3. THE COMPLETE CFM ACTION
+% 3. THE COMPLETE CRM ACTION
 % ===================================================================
 \section{The Complete Action}
 \label{sec:action}
@@ -194,7 +194,7 @@ where:
 
 The total action is:
 \begin{equation}
-S_{\mathrm{CFM}} = S_{\mathrm{T1}} + S_{\mathrm{T2}} + S_{\mathrm{matter}}
+S_{\mathrm{CRM}} = S_{\mathrm{T1}} + S_{\mathrm{T2}} + S_{\mathrm{matter}}
 \label{eq:S_total}
 \end{equation}
 
@@ -259,7 +259,7 @@ The coupling $\mathcal{V} = A_\mu\partial^\mu\phi$ is the unique Lorentz scalar 
 Table~\ref{tab:terms} summarizes the status of each term in the complete action.
 
 \begin{table}[b]
-\caption{\label{tab:terms}Status of terms in the CFM action. ``Determined'' means uniquely fixed by the axioms; ``form'' means the functional form is fixed but a parameter is free; ``constrained'' means subject to conditions listed in Sec.~\ref{sec:constraints}.}
+\caption{\label{tab:terms}Status of terms in the CRM action. ``Determined'' means uniquely fixed by the axioms; ``form'' means the functional form is fixed but a parameter is free; ``constrained'' means subject to conditions listed in Sec.~\ref{sec:constraints}.}
 \begin{ruledtabular}
 \begin{tabular}{lll}
 Term & Physical role & Status \\
@@ -371,7 +371,7 @@ a_0 = \frac{cH_0}{2\pi}
 
 The factor $2\pi$ arises from the Fourier relationship between the time-domain scalar dynamics $\dot{\phi}(t)$ and the spatial-domain gravitational potential $\Phi(r)$. Numerically:
 \begin{equation}
-a_0^{\mathrm{CFM}} = \frac{c \cdot 67.36\,\mathrm{km/s/Mpc}}{2\pi} \approx 1.04 \times 10^{-10}\;\mathrm{m/s}^2
+a_0^{\mathrm{CRM}} = \frac{c \cdot 67.36\,\mathrm{km/s/Mpc}}{2\pi} \approx 1.04 \times 10^{-10}\;\mathrm{m/s}^2
 \end{equation}
 compared to the empirical value $a_0^{\mathrm{obs}} = (1.20 \pm 0.24) \times 10^{-10}$\,m/s$^2$ \cite{McGaugh2016}, where the uncertainty includes systematic contributions. The $\sim 13\%$ discrepancy ($0.66\sigma$) lies within the total uncertainty and is \textit{not} a fitted parameter.
 
@@ -379,7 +379,7 @@ compared to the empirical value $a_0^{\mathrm{obs}} = (1.20 \pm 0.24) \times 10^
 \begin{equation}
 a_0 = c \cdot \frac{k_0}{2\pi} = \frac{c\,H_0}{2\pi}
 \end{equation}
-where the factor $2\pi$ converts between angular frequency and ordinary frequency: the scalar dynamics operates at angular frequency $\omega_H = H_0$, but the spatial gravitational response is periodic with wavelength $\lambda = 2\pi/k_0 = 2\pi\,c/H_0$, and the acceleration scale is $c/\lambda = H_0/(2\pi)$ times $c$. This is analogous to the relationship $E = \hbar\omega$ vs.\ $E = h\nu$ in quantum mechanics, where the $2\pi$ appears or not depending on whether one uses $\omega$ or $\nu$. In the CFM, the gravitational potential $\Phi(r)$ responds to $\nu = H_0/(2\pi)$, not to $\omega = H_0$, because the spatial Fourier transform of the static Green's function introduces the $2\pi$ denominator.
+where the factor $2\pi$ converts between angular frequency and ordinary frequency: the scalar dynamics operates at angular frequency $\omega_H = H_0$, but the spatial gravitational response is periodic with wavelength $\lambda = 2\pi/k_0 = 2\pi\,c/H_0$, and the acceleration scale is $c/\lambda = H_0/(2\pi)$ times $c$. This is analogous to the relationship $E = \hbar\omega$ vs.\ $E = h\nu$ in quantum mechanics, where the $2\pi$ appears or not depending on whether one uses $\omega$ or $\nu$. In the CRM, the gravitational potential $\Phi(r)$ responds to $\nu = H_0/(2\pi)$, not to $\omega = H_0$, because the spatial Fourier transform of the static Green's function introduces the $2\pi$ denominator.
 
 A fully rigorous derivation from the coupled field equations is closely related to the numerical BVP solution (Sec.~\ref{sec:bvp_results}) and will be presented in a forthcoming companion analysis. For the SPARC test (Sec.~\ref{sec:mcmc}), we treat $a_0 = cH_0/(2\pi)$ as the model prediction and test whether the data are consistent with this value.
 
@@ -423,7 +423,7 @@ g_{\mathrm{obs}} = \frac{g_{\mathrm{bar}}}{1 - e^{-\sqrt{g_{\mathrm{bar}}/a_0}}}
 \label{eq:rar}
 \end{equation}
 
-We demonstrate consistency of the CFM with this relation in two asymptotic limits:
+We demonstrate consistency of the CRM with this relation in two asymptotic limits:
 
 \textit{Deep-MOND limit} ($g_{\mathrm{bar}} \ll a_0$): In the galactic outskirts, the Chameleon screening of the scalaron is weak and the vector source term~\eqref{eq:source} is unsuppressed. At the level of the linearized static reduction, the vector contribution yields a constant rescaling of the Newtonian field ($g_A \propto g_N$). The MOND $\sqrt{\phantom{x}}$-scaling $g_{\mathrm{obs}} \approx \sqrt{g_{\mathrm{bar}}\,a_0}$ arises through the nonlinear Chameleon-controlled feedback identified in Sec.~\ref{sec:nonlinear_origin} and must be confirmed numerically (Sec.~\ref{sec:numerical_scheme}). If realized, this recovers the asymptotic Tully-Fisher relation.
 
@@ -434,7 +434,7 @@ The smooth transition between these regimes -- i.e., the \textit{exact} interpol
 \subsection{The $4/3$ convergence: independent evidence}
 \label{sec:four_thirds}
 
-A striking feature of the CFM is the convergence of the factor $4/3$ from two independent derivations:
+A striking feature of the CRM is the convergence of the factor $4/3$ from two independent derivations:
 
 \begin{enumerate}
 \item \textbf{From $f(R)$ perturbations} (Paper~III): The gravitational modification function $\mu(k,a) = 1 + \frac{1}{3}\frac{k^2}{k^2 + a^2 m^2}$ yields $\mu \to 4/3$ at sub-Compton scales.
@@ -442,7 +442,7 @@ A striking feature of the CFM is the convergence of the factor $4/3$ from two in
 \item \textbf{From MOND phase space} (Paper~II): The ratio of phase-space volumes $V_3/V_2 = 4/3$ determines the background MOND coupling.
 \end{enumerate}
 
-That the same numerical factor emerges from perturbation theory (microscopic, Lagrangian-derived) and from phase-space geometry (macroscopic, thermodynamic) is non-trivial. It suggests that the $4/3$ factor reflects a deep structural property of the curvature feedback mechanism, not a coincidence.
+That the same numerical factor emerges from perturbation theory (microscopic, Lagrangian-derived) and from phase-space geometry (macroscopic, thermodynamic) is non-trivial. It suggests that the $4/3$ factor reflects a deep structural property of the curvature relaxation mechanism, not a coincidence.
 
 The Chameleon mechanism provides the switching criterion:
 \begin{itemize}
@@ -737,7 +737,7 @@ The linearized result $g_A \propto g_N$ corresponds to a constant enhancement fa
 \subsection{Origin of the nonlinear feedback}
 \label{sec:nonlinear_origin}
 
-The linearized static spherical reduction yields $g_A \propto g_N$ (Sec.~\ref{sec:deep_mond}), i.e.\ a constant rescaling rather than the MOND attractor $g \sim \sqrt{g_N\,a_0}$. The $\sqrt{\phantom{x}}$-scaling cannot follow from linear superposition alone. In the CFM, the required nonlinearity originates in the scalar sector through the density-dependent Chameleon mass $m_{\mathrm{eff}}(\rho)$, which makes the scalar gradient $\varphi'(r)$ a nonlinear functional of the local gravitational environment.
+The linearized static spherical reduction yields $g_A \propto g_N$ (Sec.~\ref{sec:deep_mond}), i.e.\ a constant rescaling rather than the MOND attractor $g \sim \sqrt{g_N\,a_0}$. The $\sqrt{\phantom{x}}$-scaling cannot follow from linear superposition alone. In the CRM, the required nonlinearity originates in the scalar sector through the density-dependent Chameleon mass $m_{\mathrm{eff}}(\rho)$, which makes the scalar gradient $\varphi'(r)$ a nonlinear functional of the local gravitational environment.
 
 \paragraph{Nonlinear scalar equation.}
 The quasi-static scalar equation, including the vector-induced source~\eqref{eq:scalar_source}, takes the schematic form:
@@ -777,7 +777,7 @@ The full transition between Newtonian and deep-MOND regimes can be cast in the s
 \nabla\cdot\!\left[\mu\!\left(\frac{|\nabla\Phi|}{a_0}\right)\nabla\Phi\right] = 4\pi G\,\rho
 \label{eq:mond_form}
 \end{equation}
-where the interpolation function $\mu(x)$ satisfies $\mu(x) \to 1$ for $x \gg 1$ (Newtonian) and $\mu(x) \to x$ for $x \ll 1$ (deep-MOND). In the CFM, $\mu$ is not postulated but emerges from the coupled system~\eqref{eq:combined_vec}--\eqref{eq:mod_poisson} with the Chameleon profile of $\varphi(r)$.
+where the interpolation function $\mu(x)$ satisfies $\mu(x) \to 1$ for $x \gg 1$ (Newtonian) and $\mu(x) \to x$ for $x \ll 1$ (deep-MOND). In the CRM, $\mu$ is not postulated but emerges from the coupled system~\eqref{eq:combined_vec}--\eqref{eq:mod_poisson} with the Chameleon profile of $\varphi(r)$.
 
 Extracting the explicit form of $\mu(x)$ requires solving the coupled scalar-vector-metric system as a nonlinear boundary-value problem for a given $\rho(r)$. This is a numerical computation that we defer to future work. For the SPARC test (Sec.~\ref{sec:mcmc}), we adopt the empirical interpolation~\eqref{eq:rar} with $a_0 = cH_0/(2\pi)$ fixed, which suffices to test the cosmological anchor independent of the exact interpolation form.
 
@@ -864,7 +864,7 @@ To test whether the MOND attractor persists across a range of galaxy masses, we 
 \item $M = 10^{11}\,M_\odot$: slope $= 0.643$, $V_{\mathrm{flat}} = 128.7$\,km/s, enhancement $1.7\times$.
 \item $M = 10^{12}\,M_\odot$: slope $= 0.719$, $V_{\mathrm{flat}} = 280.3$\,km/s, enhancement $1.2\times$.
 \end{itemize}
-The median RAR slope is $0.58$. Low-mass galaxies ($M \lesssim 10^{10.5}\,M_\odot$) are deep in the MOND regime and cluster near slope~$\approx 0.56$, close to the ideal value of $0.5$. More massive systems ($M \gtrsim 10^{11}\,M_\odot$) show steeper slopes ($0.64$--$0.72$) because a larger fraction of their rotation curve lies in the Newtonian regime ($g > a_0$), where the effective slope increases toward unity. This mass dependence is a \textit{prediction} of the CFM: the deep-MOND attractor is cleanest for low-surface-brightness dwarfs and weakens progressively for massive spirals.
+The median RAR slope is $0.58$. Low-mass galaxies ($M \lesssim 10^{10.5}\,M_\odot$) are deep in the MOND regime and cluster near slope~$\approx 0.56$, close to the ideal value of $0.5$. More massive systems ($M \gtrsim 10^{11}\,M_\odot$) show steeper slopes ($0.64$--$0.72$) because a larger fraction of their rotation curve lies in the Newtonian regime ($g > a_0$), where the effective slope increases toward unity. This mass dependence is a \textit{prediction} of the CRM: the deep-MOND attractor is cleanest for low-surface-brightness dwarfs and weakens progressively for massive spirals.
 
 \paragraph{Physical interpretation.}
 The self-regulation mechanism is: when $g_{\mathrm{obs}} < a_0$, the screening weakens ($f_{\mathrm{screen}} \to 0$), reducing $m_{\mathrm{eff}}$ and extending the scalar Compton wavelength. This allows $\varphi'$ to persist at larger radii, increasing $\Xi$ and thereby $g_{\mathrm{obs}}$. The system reaches equilibrium when $g_{\mathrm{obs}} \sim \sqrt{g_N \cdot a_0}$ -- the MOND attractor. Conversely, when $g_{\mathrm{obs}} > a_0$, screening strengthens, shortening the Compton wavelength and reducing $\Xi$, restoring Newtonian gravity. The attractor at slope~$= 0.5$ is thus a structural fixed point of the Chameleon feedback, not an input assumption.
@@ -878,13 +878,13 @@ We propose a definitive test using the SPARC database \cite{Lelli2016} of 175 ga
 \begin{enumerate}
 \item Fix $a_0 = cH_0/(2\pi)$ using the Planck value $H_0 = 67.36 \pm 0.54$\,km/s/Mpc. This is \textit{not} a free parameter.
 \item For each galaxy, the stellar mass-to-light ratio $\Upsilon_*$ is allowed to vary within astrophysical priors ($\pm 0.2$\,dex).
-\item Compute $g_{\mathrm{CFM}}(g_{\mathrm{bar}}, a_0)$ using the RAR formula~\eqref{eq:rar}.
+\item Compute $g_{\mathrm{CRM}}(g_{\mathrm{bar}}, a_0)$ using the RAR formula~\eqref{eq:rar}.
 \item Compare with observed $g_{\mathrm{obs}}$.
 \end{enumerate}
 
 \textbf{Likelihood:}
 \begin{equation}
-\chi^2_{\mathrm{SPARC}} = \sum_{i=1}^{N_{\mathrm{data}}} \frac{\left(g_{\mathrm{obs},i} - g_{\mathrm{CFM}}(g_{\mathrm{bar},i},\, a_0)\right)^2}{\sigma_i^2}
+\chi^2_{\mathrm{SPARC}} = \sum_{i=1}^{N_{\mathrm{data}}} \frac{\left(g_{\mathrm{obs},i} - g_{\mathrm{CRM}}(g_{\mathrm{bar},i},\, a_0)\right)^2}{\sigma_i^2}
 \end{equation}
 
 \textbf{MCMC configuration:}
@@ -906,7 +906,7 @@ We propose a definitive test using the SPARC database \cite{Lelli2016} of 175 ga
 \textbf{Smoking-gun test:} We run two MCMC analyses:
 \begin{itemize}
 \item \textbf{Run~A:} Standard MOND ($a_0$ free). Expected result: $a_0 \approx 1.2 \times 10^{-10}$\,m/s$^2$.
-\item \textbf{Run~B:} CFM-deduction ($a_0 = cH_0/(2\pi)$, fixed). If Run~B achieves comparable or better $\chi^2$ than Run~A, the CFM prediction is confirmed: $a_0$ is \textit{not} a free galactic parameter but a cosmological equilibrium condition.
+\item \textbf{Run~B:} CRM-deduction ($a_0 = cH_0/(2\pi)$, fixed). If Run~B achieves comparable or better $\chi^2$ than Run~A, the CRM prediction is confirmed: $a_0$ is \textit{not} a free galactic parameter but a cosmological equilibrium condition.
 \end{itemize}
 
 \textit{Clarification:} ``Zero-parameter'' refers to the absence of free dark matter or MOND parameters. The per-galaxy $\Upsilon_*$ values are standard astrophysical nuisance parameters present in \textit{any} rotation curve analysis (including $\Lambda$CDM with NFW halos).
@@ -914,31 +914,31 @@ We propose a definitive test using the SPARC database \cite{Lelli2016} of 175 ga
 \subsection{Full SPARC database test}
 \label{sec:sparc_results}
 
-We test the CFM prediction $a_0 = cH_0/(2\pi) = 1.042 \times 10^{-10}$\,m/s$^2$ against the full SPARC database \cite{Lelli2016}, using 171 galaxies with sufficient data quality (of 175 total). For each galaxy, the baryonic acceleration $g_{\mathrm{bar}}$ is computed from the stellar and gas mass profiles using the McGaugh interpolation~\eqref{eq:rar}. We perform three runs as defined in the test protocol (Sec.~\ref{sec:mcmc}).
+We test the CRM prediction $a_0 = cH_0/(2\pi) = 1.042 \times 10^{-10}$\,m/s$^2$ against the full SPARC database \cite{Lelli2016}, using 171 galaxies with sufficient data quality (of 175 total). For each galaxy, the baryonic acceleration $g_{\mathrm{bar}}$ is computed from the stellar and gas mass profiles using the McGaugh interpolation~\eqref{eq:rar}. We perform three runs as defined in the test protocol (Sec.~\ref{sec:mcmc}).
 
 \paragraph{Results.}
 \begin{itemize}
 \item \textbf{Run~A} (free $a_0$ per galaxy): $\chi^2/\mathrm{dof} = 4.88$ ($N_{\mathrm{dof}} = 3033$), median $a_0 = 0.733 \times 10^{-10}$\,m/s$^2$.
-\item \textbf{Run~B} (CFM: $a_0 = cH_0/(2\pi)$ fixed): $\chi^2/\mathrm{dof} = 9.67$ ($N_{\mathrm{dof}} = 3204$).
+\item \textbf{Run~B} (CRM: $a_0 = cH_0/(2\pi)$ fixed): $\chi^2/\mathrm{dof} = 9.67$ ($N_{\mathrm{dof}} = 3204$).
 \item \textbf{Run~C} (best global $a_0$, free): $\chi^2/\mathrm{dof} = 9.30$ ($N_{\mathrm{dof}} = 3204$), best-fit $a_0 = 0.880 \times 10^{-10}$\,m/s$^2$.
 \end{itemize}
 
-The elevated $\chi^2/\mathrm{dof}$ values reflect the fact that we use the empirical McGaugh interpolation~\eqref{eq:rar} rather than the CFM-native interpolation function (which remains to be extracted from the nonlinear BVP). The McGaugh function is known to provide only an approximate description of the full SPARC scatter \cite{Li2018}. Crucially, the \textit{relative} comparison between runs is meaningful: the $\Delta\chi^2$ between Run~B (CFM-fixed) and Run~C (best global) is only $1183$, corresponding to $\Delta\chi^2/N_{\mathrm{gal}} \approx 6.9$ per galaxy -- a modest penalty for fixing $a_0$ to the cosmological prediction.
+The elevated $\chi^2/\mathrm{dof}$ values reflect the fact that we use the empirical McGaugh interpolation~\eqref{eq:rar} rather than the CRM-native interpolation function (which remains to be extracted from the nonlinear BVP). The McGaugh function is known to provide only an approximate description of the full SPARC scatter \cite{Li2018}. Crucially, the \textit{relative} comparison between runs is meaningful: the $\Delta\chi^2$ between Run~B (CRM-fixed) and Run~C (best global) is only $1183$, corresponding to $\Delta\chi^2/N_{\mathrm{gal}} \approx 6.9$ per galaxy -- a modest penalty for fixing $a_0$ to the cosmological prediction.
 
-The best-fit global $a_0 = 0.880 \times 10^{-10}$\,m/s$^2$ lies \textit{between} the CFM prediction ($1.042$) and the per-galaxy median ($0.733$), suggesting that the true transition scale may be shifted by the saturation factor $\mathcal{B}_0$ (see Assessment below).
+The best-fit global $a_0 = 0.880 \times 10^{-10}$\,m/s$^2$ lies \textit{between} the CRM prediction ($1.042$) and the per-galaxy median ($0.733$), suggesting that the true transition scale may be shifted by the saturation factor $\mathcal{B}_0$ (see Assessment below).
 
 \paragraph{Baryonic Tully-Fisher relation.}
-The CFM prediction $V_{\mathrm{flat}}^4 = G\,M\,a_0^{\mathrm{CFM}}$ yields velocities that are $3.5\%$ lower than the standard MOND prediction ($V_{\mathrm{CFM}}/V_{\mathrm{MOND}} = (a_0^{\mathrm{CFM}}/a_0^{\mathrm{obs}})^{1/4} = 0.965$), well within the observational scatter of the BTFR \cite{McGaugh2012}.
+The CRM prediction $V_{\mathrm{flat}}^4 = G\,M\,a_0^{\mathrm{CRM}}$ yields velocities that are $3.5\%$ lower than the standard MOND prediction ($V_{\mathrm{CRM}}/V_{\mathrm{MOND}} = (a_0^{\mathrm{CRM}}/a_0^{\mathrm{obs}})^{1/4} = 0.965$), well within the observational scatter of the BTFR \cite{McGaugh2012}.
 
 \paragraph{Assessment.}
-The $\sim 13\%$ discrepancy between $a_0^{\mathrm{CFM}} = cH_0/(2\pi)$ and the empirical value $a_0^{\mathrm{obs}} = 1.2 \times 10^{-10}$\,m/s$^2$ is only $0.66\sigma$ given the total (statistical + systematic) uncertainty of $\sigma_{\mathrm{tot}} = 0.24 \times 10^{-10}$\,m/s$^2$ \cite{McGaugh2016}. The discrepancy admits several interpretations: (i)~the saturation factor $\mathcal{B}_0 = \mathrm{sech}^2(\bar{\phi}/\phi_0)$ at the present epoch may deviate from unity, with $\mathcal{B}_0 \approx 0.87$ sufficient to close the gap; (ii)~the emergent interpolation function from the nonlinear BVP (Sec.~\ref{sec:bvp_results}) may differ from the McGaugh form~\eqref{eq:rar}, shifting the effective transition scale; (iii)~adopting the SH0ES value $H_0 = 73.04$\,km/s/Mpc \cite{Riess2022} yields $a_0 = 1.13 \times 10^{-10}$\,m/s$^2$, reducing the discrepancy to $6\%$ ($0.3\sigma$). The $a_0$ prediction thus provides a novel connection to the Hubble tension.
+The $\sim 13\%$ discrepancy between $a_0^{\mathrm{CRM}} = cH_0/(2\pi)$ and the empirical value $a_0^{\mathrm{obs}} = 1.2 \times 10^{-10}$\,m/s$^2$ is only $0.66\sigma$ given the total (statistical + systematic) uncertainty of $\sigma_{\mathrm{tot}} = 0.24 \times 10^{-10}$\,m/s$^2$ \cite{McGaugh2016}. The discrepancy admits several interpretations: (i)~the saturation factor $\mathcal{B}_0 = \mathrm{sech}^2(\bar{\phi}/\phi_0)$ at the present epoch may deviate from unity, with $\mathcal{B}_0 \approx 0.87$ sufficient to close the gap; (ii)~the emergent interpolation function from the nonlinear BVP (Sec.~\ref{sec:bvp_results}) may differ from the McGaugh form~\eqref{eq:rar}, shifting the effective transition scale; (iii)~adopting the SH0ES value $H_0 = 73.04$\,km/s/Mpc \cite{Riess2022} yields $a_0 = 1.13 \times 10^{-10}$\,m/s$^2$, reducing the discrepancy to $6\%$ ($0.3\sigma$). The $a_0$ prediction thus provides a novel connection to the Hubble tension.
 
 \subsection{Predictions and falsifiability}
 
 Table~\ref{tab:predictions} lists testable predictions of the vector sector.
 
 \begin{table*}[tbp]
-\caption{\label{tab:predictions}Predictions and consistency checks of the CFM vector sector.}
+\caption{\label{tab:predictions}Predictions and consistency checks of the CRM vector sector.}
 \begin{ruledtabular}
 \begin{tabular}{lll}
 Prediction & Test & Status \\
@@ -967,22 +967,22 @@ The model is \textbf{falsifiable}: if the SPARC MCMC shows that $a_0 = cH_0/(2\p
 
 \subsection{Comparison with AeST}
 
-The Aether Scalar Tensor (AeST) theory of Skordis \& Z{\l}o\'snik \cite{Skordis2021} is the closest existing framework to the CFM vector sector. Both theories employ a timelike unit vector field to generate MOND phenomenology within a relativistic framework. The key differences are:
+The Aether Scalar Tensor (AeST) theory of Skordis \& Z{\l}o\'snik \cite{Skordis2021} is the closest existing framework to the CRM vector sector. Both theories employ a timelike unit vector field to generate MOND phenomenology within a relativistic framework. The key differences are:
 
 \begin{enumerate}
-\item \textbf{Origin:} AeST postulates the vector field; CFM derives it from thermodynamic hierarchy.
-\item \textbf{$a_0$:} In AeST, $a_0$ is a free parameter; in CFM, $a_0 = cH_0/(2\pi)$ is deduced from the scalar-vector coupling.
-\item \textbf{Dark energy:} AeST requires a cosmological constant; CFM replaces $\Lambda$ with the P\"oschl-Teller saturation of the scalaron.
-\item \textbf{CMB compatibility:} AeST was demonstrated to fit the CMB power spectrum \cite{Skordis2021}; CFM has demonstrated CMB compatibility for the scalar sector (Paper~III) but the vector contribution to perturbations remains to be computed.
+\item \textbf{Origin:} AeST postulates the vector field; CRM derives it from thermodynamic hierarchy.
+\item \textbf{$a_0$:} In AeST, $a_0$ is a free parameter; in CRM, $a_0 = cH_0/(2\pi)$ is deduced from the scalar-vector coupling.
+\item \textbf{Dark energy:} AeST requires a cosmological constant; CRM replaces $\Lambda$ with the P\"oschl-Teller saturation of the scalaron.
+\item \textbf{CMB compatibility:} AeST was demonstrated to fit the CMB power spectrum \cite{Skordis2021}; CRM has demonstrated CMB compatibility for the scalar sector (Paper~III) but the vector contribution to perturbations remains to be computed.
 \end{enumerate}
 
-A detailed comparison of the perturbation spectra (CMB $C_\ell$ and matter $P(k)$) between CFM and AeST would be highly informative but lies beyond the scope of this paper.
+A detailed comparison of the perturbation spectra (CMB $C_\ell$ and matter $P(k)$) between CRM and AeST would be highly informative but lies beyond the scope of this paper.
 
 \subsection{The coupling function: derivation vs.\ ansatz}
 
 We emphasize that the coupling function $\mathcal{F}$ in Eq.~\eqref{eq:coupling} is a \textit{minimal-coupling ansatz} consistent with six constraints, not a unique deductive result. The three-factor structure (gatekeeper $\times$ saturation $\times$ projection) is physically motivated and constraint-minimal, but alternative forms satisfying the same constraints may exist.
 
-The deductive chain of the CFM is:
+The deductive chain of the CRM is:
 \begin{itemize}
 \item \textbf{Uniquely derived:} The need for a vector sector, its timelike character, the kinetic structure $F_{\mu\nu}F^{\mu\nu}$, the unit constraint.
 \item \textbf{Strongly constrained:} The coupling function $\mathcal{F}$ (6 conditions, specific functional form proposed but not unique).
@@ -1014,7 +1014,7 @@ This is comparable to the status of the Starobinsky model: the $R^2$ term is the
 \section{Conclusion}
 \label{sec:conclusion}
 
-We have presented the complete Curvature Feedback Model action $S_{\mathrm{CFM}} = S_{\mathrm{T1}} + S_{\mathrm{T2}}$, incorporating both the scalar sector (dark energy, cosmological dark matter effects) and the vector sector (galactic MOND dynamics). The key results are:
+We have presented the complete Curvature Relaxation Model action $S_{\mathrm{CRM}} = S_{\mathrm{T1}} + S_{\mathrm{T2}}$, incorporating both the scalar sector (dark energy, cosmological dark matter effects) and the vector sector (galactic MOND dynamics). The key results are:
 
 \begin{enumerate}
 \item The vector sector is \textit{derived} from thermodynamic principles: MEPP requires stable dissipative structures (galaxies), which the scalar sector alone cannot provide. Its field equations and energy-momentum tensor are explicitly constructed (Sec.~\ref{sec:field_eqs}).
@@ -1027,12 +1027,12 @@ We have presented the complete Curvature Feedback Model action $S_{\mathrm{CFM}}
 
 \item The static spherical limit is derived explicitly (Sec.~\ref{sec:spherical}): the quasi-static decomposition $\phi = \bar{\phi}(t) + \varphi(r)$ reveals that the cosmological drift $\dot{\bar{\phi}} \sim H_0\phi_0$ is the physical bridge connecting expansion to galactic dynamics. The linearized reduction yields $g_A \propto g_N$ (constant rescaling); the numerical BVP (Sec.~\ref{sec:bvp_results}) demonstrates that the full nonlinear Chameleon feedback produces a deep-MOND attractor with RAR slopes $\approx 0.55$--$0.58$ for low-mass galaxies ($M \lesssim 10^{10.5}\,M_\odot$), steepening to $\approx 0.72$ for massive systems ($M \sim 10^{12}\,M_\odot$). The mass-dependent slope is a prediction: dwarf galaxies reside deeper in the MOND regime and approach the ideal slope of $0.5$ more closely. The attractor is realized through the acceleration-dependent effective mass (operator feedback) and is not fine-tuned but forms a continuous family in parameter space.
 
-\item A full test against 171 SPARC galaxies (Sec.~\ref{sec:sparc_results}) shows that $a_0 = cH_0/(2\pi)$ produces a fit with $\chi^2/\mathrm{dof} = 9.67$ (CFM-fixed) vs.\ $4.88$ (free $a_0$ per galaxy). The elevated $\chi^2$ values reflect the use of the empirical McGaugh interpolation rather than the CFM-native form. The $\sim 13\%$ offset from the observed $a_0 = 1.2 \times 10^{-10}$\,m/s$^2$ is only $0.66\sigma$ and may be attributable to the saturation factor $\mathcal{B}_0 \approx 0.87$ or to the Hubble tension (SH0ES $H_0$ reduces the discrepancy to $0.3\sigma$). The baryonic Tully-Fisher relation is reproduced to $3.5\%$ accuracy.
+\item A full test against 171 SPARC galaxies (Sec.~\ref{sec:sparc_results}) shows that $a_0 = cH_0/(2\pi)$ produces a fit with $\chi^2/\mathrm{dof} = 9.67$ (CRM-fixed) vs.\ $4.88$ (free $a_0$ per galaxy). The elevated $\chi^2$ values reflect the use of the empirical McGaugh interpolation rather than the CRM-native form. The $\sim 13\%$ offset from the observed $a_0 = 1.2 \times 10^{-10}$\,m/s$^2$ is only $0.66\sigma$ and may be attributable to the saturation factor $\mathcal{B}_0 \approx 0.87$ or to the Hubble tension (SH0ES $H_0$ reduces the discrepancy to $0.3\sigma$). The baryonic Tully-Fisher relation is reproduced to $3.5\%$ accuracy.
 
 \item The $4/3$ convergence factor from two independent derivations (perturbation theory and phase-space geometry) provides structural evidence for the nested hierarchy.
 \end{enumerate}
 
-The ontological picture is: two axioms (null-space fluctuation + thermodynamic optimization) $\to$ two degrees of freedom (scalar + vector) $\to$ three phenomena (dark energy, cosmological dark matter effects, MOND-compatible galactic dynamics) $\to$ one termination condition (standard physics below galactic scales). No $\Lambda$, no dark matter particles -- only geometry. The numerical confirmation that the Chameleon feedback produces the MOND attractor (median slope~$\approx 0.58$ across six decades of galaxy mass) and the consistency with the full 171-galaxy SPARC database ($a_0$ discrepancy $< 1\sigma$) strengthen this picture. The remaining task is the extraction of the emergent interpolation function $\mu(x)$ from the BVP solution, which will determine whether the CFM-native RAR can improve the $\chi^2/\mathrm{dof}$ beyond the McGaugh approximation used here.
+The ontological picture is: two axioms (null-space fluctuation + thermodynamic optimization) $\to$ two degrees of freedom (scalar + vector) $\to$ three phenomena (dark energy, cosmological dark matter effects, MOND-compatible galactic dynamics) $\to$ one termination condition (standard physics below galactic scales). No $\Lambda$, no dark matter particles -- only geometry. The numerical confirmation that the Chameleon feedback produces the MOND attractor (median slope~$\approx 0.58$ across six decades of galaxy mass) and the consistency with the full 171-galaxy SPARC database ($a_0$ discrepancy $< 1\sigma$) strengthen this picture. The remaining task is the extraction of the emergent interpolation function $\mu(x)$ from the BVP solution, which will determine whether the CRM-native RAR can improve the $\chi^2/\mathrm{dof}$ beyond the McGaugh approximation used here.
 
 
 % ===================================================================
@@ -1050,17 +1050,17 @@ This work was conducted as independent research without institutional funding. T
 
 \bibitem{Geiger2026}
 Geiger, L.\ (2026).
-Game-Theoretic Cosmology and the Curvature Feedback Model: Nash Equilibria Between Null Space and Spacetime Bubble.
+Game-Theoretic Cosmology and the Curvature Relaxation Model: Nash Equilibria Between Null Space and Spacetime Bubble.
 Companion paper. \url{https://github.com/lukisch/cfm-cosmology}.
 
 \bibitem{Geiger2026b}
 Geiger, L.\ (2026).
-Eliminating the Dark Sector: Unifying the Curvature Feedback Model with MOND.
+Eliminating the Dark Sector: Unifying the Curvature Relaxation Model with MOND.
 Companion paper.
 
 \bibitem{Geiger2026c}
 Geiger, L.\ (2026).
-Microscopic Foundations of the Curvature Feedback Model: From Quantum Geometry to Macroscopic Saturation.
+Microscopic Foundations of the Curvature Relaxation Model: From Quantum Geometry to Macroscopic Saturation.
 Companion paper.
 
 \bibitem{Milgrom1983}

@@ -16,7 +16,7 @@
 
 \usepackage{hyperref}
 \hypersetup{
-    pdftitle={Spieltheoretische Kosmologie und das Curvature Feedback Model},
+    pdftitle={Spieltheoretische Kosmologie und das Curvature Relaxation Model},
     pdfauthor={Lukas Geiger},
     colorlinks=true,
     linkcolor=black,
@@ -30,7 +30,7 @@
 % TITELSEITE
 % ===================================================================
 
-\title{Spieltheoretische Kosmologie und das Kr\"ummungs-R\"uckgabepotential-Modell: Nash-Gleichgewichte zwischen Nullraum und Raumzeitblase als Erkl\"arungsrahmen f\"ur die beschleunigte Expansion}
+\title{Spieltheoretische Kosmologie und das Kr\"ummungs-R\"uckgabemodell: Nash-Gleichgewichte zwischen Nullraum und Raumzeitblase als Erkl\"arungsrahmen f\"ur die beschleunigte Expansion}
 
 \author{Lukas Geiger}
 \email{Correspondence: Bernau, Germany}
@@ -40,17 +40,17 @@
 
 
 \begin{abstract}
-Die vorliegende Arbeit entwickelt einen spieltheoretischen Rahmen f\"ur die Kosmologie, in dem die Entstehung und Entwicklung der Raumzeit als Nash-Gleichgewicht zwischen zwei Akteuren modelliert wird: einem metastabilen Quantenvakuum (Nullraum) und einer daraus hervorgehenden Raumzeitblase. Das zentrale Ergebnis ist das \textit{Curvature Feedback Model} (CFM), das die beobachtete beschleunigte Expansion des Universums nicht durch eine neue Energieform (Dunkle Energie) erkl\"art, sondern durch ein nachlassendes Kr\"ummungs-R\"uckgabepotential~$\Phi(a)$ -- ein geometrisches ``Ged\"achtnis'' der anf\"anglichen Energiekonzentration beim Urknall. Die modifizierte Friedmann-Gleichung $H^2(a) = H_0^2\,[\Omega_m\,a^{-3} + \Omega_\Phi(a)]$ mit $\Omega_\Phi(a) = \Phi_0 \cdot \tanh(k\cdot(a - a_{\mathrm{trans}}))$ wird gegen 1590 Typ-Ia-Supernovae ($z > 0{,}01$) des Pantheon+-Katalogs \cite{Scolnic2022} getestet -- sowohl mit diagonalen Fehlern als auch mit der vollen statistisch-systematischen Kovarianzmatrix. Unter einer Flachheitsbedingung ($\Omega_m + \Omega_\Phi(a{=}1) = 1$) liefert das CFM $\Delta\chi^2 = -12{,}2$ ($-11{,}2$ mit voller Kovarianz) und $\Delta\mathrm{AIC} = -8{,}2$ ($-7{,}2$) gegen\"uber $\Lambda$CDM; eine 5-Fold-Kreuzvalidierung best\"atigt die bessere Generalisierung. MCMC-Posterioranalysen liefern $\Omega_m = 0{,}368 \pm 0{,}024$, und vier alternative Funktionalformen (logistisch, Error-Funktion, Potenzgesetz) zeigen vergleichbare $\Delta\chi^2$-Werte, was die Robustheit der Ergebnisse belegt. Eine Phantom-Stabilit\"atsanalyse zeigt: kein Big Rip (S\"attigung von $\Omega_\Phi$), asymptotisch de-Sitter-Endzustand. Das Modell sagt eine messbare Zeitvariation des Zustandsgleichungsparameters voraus ($w(z) < -1$, $|\Delta w| \approx 0{,}4$) sowie einen fr\"uheren Beschleunigungs\"ubergang ($z_{\mathrm{acc}} = 0{,}52$ vs.\ $0{,}84$), die mit Euclid und dem Nancy Grace Roman Space Telescope innerhalb der n\"achsten Dekade testbar sind. Es wird gezeigt, dass das CFM konzeptuelle Verbindungen sowohl zur Finsler-Gravitation (Pfeifer et al., 2025) als auch zur j\"ungst vorgeschlagenen \textit{Cosmological Teleodynamics} (Trivedi \& Venkatasubramanian, 2025) aufweist, welche die kosmische Expansion ebenfalls als Konvergenz zu einem Nash-Gleichgewicht beschreibt. Analysecode und Daten sind \"offentlich verf\"ugbar.\footnote{\url{https://github.com/lukisch/cfm-cosmology}} Insbesondere identifiziert die rigorose Analyse mit $z_{\mathrm{acc}} \approx 0{,}52$ einen sp\"ateren Beginn der kosmischen Beschleunigung als $\Lambda$CDM ($z_{\mathrm{acc}} = 0{,}84$), was eine verl\"angerte materiedominierte Wachstumsphase impliziert. Diese Vorhersage bietet eine nat\"urliche Erkl\"arung f\"ur die von JWST entdeckten ``Universe Breakers'' -- unerwartet massereiche Galaxien bei $z > 7$ \cite{Labbe2023, BoylanKolchin2023} -- sowie f\"ur statistisch un\-wahrscheinliche massive Galaxienhaufen wie El~Gordo bei $z \approx 0{,}87$ \cite{Asencio2023}, die das $\Lambda$CDM-Standardmodell unter erheblichen Druck setzen. Die spieltheoretischen Axiome besitzen eine exakte thermodynamische \"Aquivalenz: Das Nash-Gleichgewicht entspricht dem thermodynamischen Gleichgewicht, und die S\"attigungsdynamik der maximalen Entropieproduktion unter endlichen Kapazit\"atsbedingungen, womit das CFM in die Jacobson-Tradition der Gravitation als thermodynamische Zustandsgleichung \cite{Jacobson1995} gestellt wird. Die spieltheoretische Perspektive er\"offnet einen Paradigmenwechsel: von ``Was treibt die Beschleunigung an?'' zu ``Warum bremste die Expansion fr\"uher?''
+Wir entwickeln einen spieltheoretischen Rahmen f\"ur die Kosmologie, in dem die Raumzeitentwicklung als Nash-Gleichgewicht zwischen einem metastabilen Quantenvakuum (Nullraum) und einer Raumzeitblase modelliert wird. Das zentrale Ergebnis ist das \textit{Curvature Relaxation Model} (KRM), das die beschleunigte Expansion nicht durch Dunkle Energie erkl\"art, sondern durch ein nachlassendes Kr\"ummungs-R\"uckgabepotential $\Omega_\Phi(a) = \Phi_0 \cdot \tanh(k(a - a_{\mathrm{trans}}))$ -- ein geometrisches ``Ged\"achtnis'' der Urknall-Energiekonzentration. Getestet gegen 1.590 Pantheon+ Typ-Ia-Supernovae \cite{Scolnic2022} mit diagonalen und vollen Kovarianzfehlern liefert das KRM $\Delta\chi^2 = -12{,}2$ ($-11{,}2$) und $\Delta\mathrm{AIC} = -8{,}2$ ($-7{,}2$) gegen\"uber $\Lambda$CDM; Kreuzvalidierung best\"atigt die bessere Generalisierung. Die MCMC-Analyse ergibt $\Omega_m = 0{,}368 \pm 0{,}024$; vier alternative S\"attigungsfunktionen liefern vergleichbare Ergebnisse und belegen die Robustheit. Das Modell sagt $w(z) < -1$ mit $|\Delta w| \approx 0{,}4$ und einen sp\"ateren Beschleunigungs\"ubergang ($z_{\mathrm{acc}} = 0{,}52$ vs.\ $0{,}84$) voraus, beides testbar mit Euclid und Roman. Die sp\"atere Beschleunigung impliziert eine verl\"angerte materiedominierte Wachstumsphase, die die JWST ``Universe Breakers'' bei $z > 7$ \cite{Labbe2023} und die El-Gordo-Anomalie \cite{Asencio2023} nat\"urlich erkl\"art. Phantom-Stabilit\"at ist durch S\"attigung garantiert ($\Omega_\Phi \to \Phi_0$, de-Sitter-Endzustand, kein Big Rip). Die spieltheoretischen Axiome besitzen eine exakte thermodynamische \"Aquivalenz in der Jacobson-Tradition \cite{Jacobson1995}. Der Analysecode ist \"offentlich verf\"ugbar.\footnote{\url{https://github.com/lukisch/cfm-cosmology}}
 
 \end{abstract}
 
-\keywords{Spieltheorie, Nash-Gleichgewicht, Kosmologie, Dunkle Energie, Kr\"ummungs-R\"uckgabepotential, Curvature Feedback Model, Friedmann-Gleichung, Finsler-Gravitation, beschleunigte Expansion, Zustandsgleichung}
+\keywords{Spieltheorie, Nash-Gleichgewicht, Kosmologie, Dunkle Energie, Kr\"ummungs-R\"uckgabepotential, Curvature Relaxation Model, Friedmann-Gleichung, Finsler-Gravitation, beschleunigte Expansion, Zustandsgleichung}
 
 \maketitle
 
 \thanks{KI-Werkzeuge (Claude, Anthropic; Gemini, Google DeepMind) wurden fuer mathematische Formalisierung, Code-Entwicklung und Texterstellung verwendet. Alle physikalischen Hypothesen, wissenschaftliche Interpretation und Verantwortung fuer die Inhalte liegen vollstaendig bei dem Autor. Der Analysecode ist verfuegbar unter \url{https://github.com/lukisch/cfm-cosmology}.}
 
-\thanks{Arbeit~I in der CFM-Serie.}
+\thanks{Arbeit~I in der KRM-Serie.}
 
 
 % ===================================================================
@@ -71,7 +71,7 @@ J\"ungste Resultate des \textit{Dark Energy Spectroscopic Instrument} (DESI) ver
 
 Parallel dazu zeigen theoretische Arbeiten, dass die Beschleunigung auch ohne Dunkle Energie erkl\"arbar sein k\"onnte: Pfeifer et al.\ \cite{Pfeifer2025} demonstrieren im Rahmen der Finsler-Gravitation, dass eine verallgemeinerte Raumzeitgeometrie nat\"urlicherweise eine exponentielle Expansion im Vakuum erzeugt. Trivedi und Venkatasubramanian \cite{Trivedi2025} zeigen in ihrer \textit{Cosmological Teleodynamics}, dass das Universum wie ein ``riesiges Potentialspiel'' operiert und sich einem kontinuierlichen Nash-Gleichgewicht ann\"ahert, wobei die kosmische Beschleunigung als emergenter Effekt dynamischen Ged\"achtnisses in einem selbstgravitierenden Medium erscheint.
 
-Die vorliegende Arbeit verkn\"upft diese Entwicklungen mit einem eigenst\"andigen Ansatz: Ausgehend von einer spieltheoretischen Modellierung der Wechselwirkung zwischen Quantenvakuum und Raumzeit wird das \textit{Curvature Feedback Model} (CFM) entwickelt, das die beschleunigte Expansion als ``nachlassende Bremse'' statt als ``neuen Antrieb'' interpretiert.
+Die vorliegende Arbeit verkn\"upft diese Entwicklungen mit einem eigenst\"andigen Ansatz: Ausgehend von einer spieltheoretischen Modellierung der Wechselwirkung zwischen Quantenvakuum und Raumzeit wird das \textit{Curvature Relaxation Model} (KRM) entwickelt, das die beschleunigte Expansion als ``nachlassende Bremse'' statt als ``neuen Antrieb'' interpretiert.
 
 % ===================================================================
 % 2. SPIELTHEORETISCHER RAHMEN
@@ -151,15 +151,15 @@ Der spieltheoretische Rahmen der vorangegangenen Abschnitte besitzt eine pr\"azi
 \item \textbf{Gradientenabbaurate} $\leftrightarrow$ \textbf{Prinzip maximaler Entropieproduktion (MEPP):} Unter allen mit den Randbedingungen vertr\"aglichen Pfaden entwickelt sich das System entlang desjenigen, der die Entropieproduktion maximiert \cite{Dewar2003}.
 \end{itemize}
 
-Diese \"Aquivalenz gr\"undet auf einem fundamentalen Resultat: Jacobson \cite{Jacobson1995} zeigte, dass die Einsteinschen Feldgleichungen aus der Proportionalit\"at von Entropie und Horizontfl\"ache zusammen mit der Clausius-Relation $\delta Q = T\,dS$ abgeleitet werden k\"onnen, was die Allgemeine Relativit\"atstheorie selbst als thermodynamische Zustandsgleichung etabliert. Wenn die Standard-Gravitation aus der Thermodynamik folgt, ist es nat\"urlich zu erwarten, dass \textit{modifizierte} Gravitation -- hier der Kr\"ummungs-R\"uckkopplungsmechanismus -- aus modifizierten thermodynamischen Randbedingungen folgt, n\"amlich der Zwangsbedingung, dass das Muttervakuum (Nullraum) strukturell stabil bleibt, w\"ahrend die Entropieproduktion im Tochtersystem maximiert wird.
+Diese \"Aquivalenz gr\"undet auf einem fundamentalen Resultat: Jacobson \cite{Jacobson1995} zeigte, dass die Einsteinschen Feldgleichungen aus der Proportionalit\"at von Entropie und Horizontfl\"ache zusammen mit der Clausius-Relation $\delta Q = T\,dS$ abgeleitet werden k\"onnen, was die Allgemeine Relativit\"atstheorie selbst als thermodynamische Zustandsgleichung etabliert. Wenn die Standard-Gravitation aus der Thermodynamik folgt, ist es nat\"urlich zu erwarten, dass \textit{modifizierte} Gravitation -- hier der Kr\"ummungs-R\"uckgabemechanismus -- aus modifizierten thermodynamischen Randbedingungen folgt, n\"amlich der Zwangsbedingung, dass das Muttervakuum (Nullraum) strukturell stabil bleibt, w\"ahrend die Entropieproduktion im Tochtersystem maximiert wird.
 
 Der S\"attigungsmechanismus aus Abschnitt~\ref{subsec:tanh_herleitung} ist damit direkt als Ann\"aherung an das thermodynamische Gleichgewicht interpretierbar: Die $\tanh$-Dynamik beschreibt die Entropieproduktionsrate eines Systems mit endlicher Kapazit\"at, das sich unter der gemeinsamen Zwangsbedingung des Zweiten Hauptsatzes und der Muttersystem-Stabilit\"at entwickelt.
 
 % ===================================================================
-% 3. DAS CURVATURE FEEDBACK MODEL
+% 3. DAS CURVATURE RELAXATION MODEL
 % ===================================================================
-\section{Das Curvature Feedback Model (CFM)}
-\label{sec:cfm}
+\section{Das Curvature Relaxation Model (KRM)}
+\label{sec:krm}
 
 \subsection{Physikalische Motivation}
 \label{subsec:motivation}
@@ -181,7 +181,7 @@ H^2(a) = H_0^2 \left[\Omega_m\,a^{-3} + \Omega_\Lambda\right]
 \label{eq:friedmann_lcdm}
 \end{equation}
 
-Im CFM wird die kosmologische Konstante durch ein zeitabh\"angiges Kr\"ummungs-R\"uckgabepotential ersetzt:
+Im KRM wird die kosmologische Konstante durch ein zeitabh\"angiges Kr\"ummungs-R\"uckgabepotential ersetzt:
 \begin{equation}
 H^2(a) = H_0^2 \left[\Omega_m\,a^{-3} + \Omega_\Phi(a)\right]
 \label{eq:friedmann_cfm}
@@ -246,11 +246,11 @@ Seine Zeitentwicklung ist in Tabelle~\ref{tab:weff} dargestellt.
 
 \begin{table}[H]
 \centering
-\caption{Zeitentwicklung des effektiven Zustandsgleichungsparameters $w_{\mathrm{eff}}(z)$ im Vergleich $\Lambda$CDM vs.\ CFM. Die $1\sigma$-Unsicherheiten stammen aus der MCMC-Posterioranalyse (Abschnitt~\ref{subsec:mcmc}).}
+\caption{Zeitentwicklung des effektiven Zustandsgleichungsparameters $w_{\mathrm{eff}}(z)$ im Vergleich $\Lambda$CDM vs.\ KRM. Die $1\sigma$-Unsicherheiten stammen aus der MCMC-Posterioranalyse (Abschnitt~\ref{subsec:mcmc}).}
 \label{tab:weff}
 \begin{tabular}{ccccc}
 \toprule
-$z$ & $w$ ($\Lambda$CDM) & $w$ (CFM) & $1\sigma$-Bereich & $\Delta w$ \\
+$z$ & $w$ ($\Lambda$CDM) & $w$ (KRM) & $1\sigma$-Bereich & $\Delta w$ \\
 \midrule
 0,0 & $-1{,}000$ & $-1{,}355$ & $[-1{,}371;\;-1{,}339]$ & $\mathbf{-0{,}355}$ \\
 0,3 & $-1{,}000$ & $-1{,}433$ & $[-1{,}645;\;-1{,}355]$ & $\mathbf{-0{,}433}$ \\
@@ -263,7 +263,7 @@ $z$ & $w$ ($\Lambda$CDM) & $w$ (CFM) & $1\sigma$-Bereich & $\Delta w$ \\
 \end{tabular}
 \end{table}
 
-Die CFM-Parameter aus dem Pantheon+-Fit ergeben durchgehend $w < -1$ (Phantom-Bereich). Die MCMC-basierten $1\sigma$-Konfidenzintervalle zeigen, dass $w = -1$ f\"ur alle Rotverschiebungen ausgeschlossen ist. Dies unterscheidet sich qualitativ von $\Lambda$CDM ($w \equiv -1$) und ist eine eindeutige, falsifizierbare Vorhersage. Der Effekt ist \"uber den gesamten beobachtbaren Rotverschiebungsbereich pr\"asent ($|\Delta w| \approx 0{,}4$) und damit deutlich innerhalb der erwarteten Messgenauigkeit von Euclid ($\sigma_w \approx 0{,}02$).
+Die KRM-Parameter aus dem Pantheon+-Fit ergeben durchgehend $w < -1$ (Phantom-Bereich). Die MCMC-basierten $1\sigma$-Konfidenzintervalle zeigen, dass $w = -1$ f\"ur alle Rotverschiebungen ausgeschlossen ist. Dies unterscheidet sich qualitativ von $\Lambda$CDM ($w \equiv -1$) und ist eine eindeutige, falsifizierbare Vorhersage. Der Effekt ist \"uber den gesamten beobachtbaren Rotverschiebungsbereich pr\"asent ($|\Delta w| \approx 0{,}4$) und damit deutlich innerhalb der erwarteten Messgenauigkeit von Euclid ($\sigma_w \approx 0{,}02$).
 
 % ===================================================================
 % 4. NUMERISCHE TESTS
@@ -283,7 +283,7 @@ auferlegt. Daraus folgt f\"ur die Amplitude:
 \begin{equation}
 \Phi_0 = \frac{(1 - \Omega_m)(1 + s)}{\tanh\!\big(k\cdot(1 - a_{\mathrm{trans}})\big) + s}
 \end{equation}
-Das CFM hat damit drei kosmologische Freiheitsgrade ($\Omega_m$, $k$, $a_{\mathrm{trans}}$) plus einen Nuisance-Parameter ($M$), also insgesamt vier effektive Parameter -- nur zwei mehr als $\Lambda$CDM.
+Das KRM hat damit drei kosmologische Freiheitsgrade ($\Omega_m$, $k$, $a_{\mathrm{trans}}$) plus einen Nuisance-Parameter ($M$), also insgesamt vier effektive Parameter -- nur zwei mehr als $\Lambda$CDM.
 
 \subsection{Datenbasis: Pantheon+}
 \label{subsec:pantheonplus}
@@ -302,22 +302,22 @@ M_{\mathrm{best}} = \frac{\sum_i w_i (m_i^{\mathrm{obs}} - \mu_i^{\mathrm{th}})}
 
 \textbf{Optimierung:} Parameterbestimmung mittels \textit{Differential Evolution} (globaler evolution\"arer Optimizer) mit anschlie\ss{}ender L-BFGS-B-Verfeinerung (\textit{polish}).
 
-\textbf{MCMC-Unsicherheiten:} F\"ur das CFM (flach) werden Parameterunsicherheiten mittels \textit{emcee} \cite{ForemanMackey2013} bestimmt (32~Walkers, 3000~Schritte, 500~Burn-in). Die Posteriorverteilungen liefern $1\sigma$-Konfidenzintervalle f\"ur alle Parameter einschlie\ss{}lich der abgeleiteten Gr\"o\ss{}en $\Phi_0$ und $z_{\mathrm{trans}}$.
+\textbf{MCMC-Unsicherheiten:} F\"ur das KRM (flach) werden Parameterunsicherheiten mittels \textit{emcee} \cite{ForemanMackey2013} bestimmt (32~Walkers, 3000~Schritte, 500~Burn-in). Die Posteriorverteilungen liefern $1\sigma$-Konfidenzintervalle f\"ur alle Parameter einschlie\ss{}lich der abgeleiteten Gr\"o\ss{}en $\Phi_0$ und $z_{\mathrm{trans}}$.
 
 \textbf{Modellselektion:} Neben $\chi^2$ werden das Akaike-Informationskriterium (AIC~$= \chi^2 + 2k$) und das Bayes-Informationskriterium (BIC~$= \chi^2 + k \ln n$) berechnet, wobei $k$ die Zahl effektiver Parameter und $n$ die Datenpunktanzahl ist. Zur \"Uberpr\"ufung auf Overfitting wird zus\"atzlich eine 5-Fold-Kreuzvalidierung durchgef\"uhrt. Der vollst\"andige Analysecode ist \"offentlich verf\"ugbar.\footnote{\url{https://github.com/lukisch/cfm-cosmology}}
 
 \subsection{Ergebnisse}
 \label{subsec:ergebnisse}
 
-Es werden drei Modelle gefittet: flaches $\Lambda$CDM (2~Parameter), CFM mit Flachheitsbedingung (4~Parameter) und CFM ohne Einschr\"ankung (5~Parameter).
+Es werden drei Modelle gefittet: flaches $\Lambda$CDM (2~Parameter), KRM mit Flachheitsbedingung (4~Parameter) und KRM ohne Einschr\"ankung (5~Parameter).
 
 \begin{table}[H]
 \centering
-\caption{Gefittete Parameter und Anpassungsg\"ute: $\Lambda$CDM vs.\ CFM gegen Pantheon+ (1590~SNe~Ia). F\"ur das CFM~(flach) werden $1\sigma$-MCMC-Unsicherheiten angegeben.}
+\caption{Gefittete Parameter und Anpassungsg\"ute: $\Lambda$CDM vs.\ KRM gegen Pantheon+ (1590~SNe~Ia). F\"ur das KRM~(flach) werden $1\sigma$-MCMC-Unsicherheiten angegeben.}
 \label{tab:results}
 \begin{tabular}{lccc}
 \toprule
- & $\Lambda$CDM & CFM (flach) & CFM (frei) \\
+ & $\Lambda$CDM & KRM (flach) & KRM (frei) \\
 \midrule
 Freie Parameter $k$ & 2 & 4 & 5 \\
 $\Omega_m$ & 0,244 & $0{,}368^{+0{,}025}_{-0{,}023}$ & 0,552 \\
@@ -337,7 +337,7 @@ BIC & 743,7 & 746,3 & 752,8 \\
 \end{tabular}
 \end{table}
 
-Das CFM mit Flachheitsbedingung zeigt $\Omega_m = 0{,}368 \pm 0{,}024$ (MCMC) -- physikalisch plausibel und nahe am Planck-Wert ($0{,}315 \pm 0{,}007$). Die gefittete \"Ubergangsrotverschiebung $z_{\mathrm{trans}} = 0{,}33$ ($a_{\mathrm{trans}} = 0{,}75$) liegt bei sp\"ateren kosmischen Zeiten als theoretisch erwartet. Die \"Ubergangssch\"arfe $k = 1{,}44^{+1{,}22}_{-0{,}84}$ beschreibt einen sanften \"Ubergang mit breiter Posterior -- die Daten pr\"aferieren einen \"Ubergang, lassen aber eine Bandbreite von \"Ubergangssch\"arfen zu.
+Das KRM mit Flachheitsbedingung zeigt $\Omega_m = 0{,}368 \pm 0{,}024$ (MCMC) -- physikalisch plausibel und nahe am Planck-Wert ($0{,}315 \pm 0{,}007$). Die gefittete \"Ubergangsrotverschiebung $z_{\mathrm{trans}} = 0{,}33$ ($a_{\mathrm{trans}} = 0{,}75$) liegt bei sp\"ateren kosmischen Zeiten als theoretisch erwartet. Die \"Ubergangssch\"arfe $k = 1{,}44^{+1{,}22}_{-0{,}84}$ beschreibt einen sanften \"Ubergang mit breiter Posterior -- die Daten pr\"aferieren einen \"Ubergang, lassen aber eine Bandbreite von \"Ubergangssch\"arfen zu.
 
 \textbf{Volle Kovarianzmatrix:} Die Wiederholung der Analyse mit der vollen statistisch-systematischen Kovarianzmatrix best\"atigt die Ergebnisse: $\Delta\chi^2 = -11{,}2$ und $\Delta\mathrm{AIC} = -7{,}2$ (gegen\"uber $-12{,}2$ und $-8{,}2$ bei diagonalen Fehlern). Die leichte Reduktion erkl\"art sich durch die Ber\"ucksichtigung systematischer Korrelationen zwischen benachbarten Supernovae.
 
@@ -346,11 +346,11 @@ Das CFM mit Flachheitsbedingung zeigt $\Omega_m = 0{,}368 \pm 0{,}024$ (MCMC) --
 
 \begin{table*}[htbp]
 \centering
-\caption{Modellvergleich: CFM vs.\ $\Lambda$CDM. Negative Werte bevorzugen CFM.}
+\caption{Modellvergleich: KRM vs.\ $\Lambda$CDM. Negative Werte bevorzugen KRM.}
 \label{tab:comparison}
 \begin{tabular}{lcc}
 \toprule
-\textbf{Kriterium} & CFM (flach) vs.\ $\Lambda$CDM & CFM (frei) vs.\ $\Lambda$CDM \\
+\textbf{Kriterium} & KRM (flach) vs.\ $\Lambda$CDM & KRM (frei) vs.\ $\Lambda$CDM \\
 \midrule
 $\Delta\chi^2$ & $\mathbf{-12{,}2}$ & $-13{,}1$ \\
 $\Delta$AIC & $\mathbf{-8{,}2}$ & $-7{,}1$ \\
@@ -362,14 +362,14 @@ $\Lambda$CDM: $\langle\chi^2/n\rangle$ & \multicolumn{2}{c}{$0{,}4519$} \\
 \end{tabular}
 \end{table*}
 
-\textbf{Interpretation:} Drei von vier Selektionskriterien bevorzugen das CFM (flach) gegen\"uber $\Lambda$CDM: $\chi^2$ ($-12{,}2$), AIC ($-8{,}2$) und Kreuzvalidierung ($0{,}4499$ vs.\ $0{,}4519$). Einzig das BIC, das zus\"atzliche Parameter strenger bestraft, zeigt eine marginale Pr\"aferenz f\"ur $\Lambda$CDM ($\Delta\mathrm{BIC} = +2{,}6$). Nach der Kass-Raftery-Skala \cite{KassRaftery1995} liegt dieser Wert an der Grenze zur Signifikanz ($|\Delta\mathrm{BIC}| < 2$: nicht signifikant; $2$--$6$: positive Evidenz). Die Kreuzvalidierung -- die robusteste Methode zur Overfitting-Detektion -- zeigt, dass das CFM auf ungesehenen Daten besser generalisiert als $\Lambda$CDM.
+\textbf{Interpretation:} Drei von vier Selektionskriterien bevorzugen das KRM (flach) gegen\"uber $\Lambda$CDM: $\chi^2$ ($-12{,}2$), AIC ($-8{,}2$) und Kreuzvalidierung ($0{,}4499$ vs.\ $0{,}4519$). Einzig das BIC, das zus\"atzliche Parameter strenger bestraft, zeigt eine marginale Pr\"aferenz f\"ur $\Lambda$CDM ($\Delta\mathrm{BIC} = +2{,}6$). Nach der Kass-Raftery-Skala \cite{KassRaftery1995} liegt dieser Wert an der Grenze zur Signifikanz ($|\Delta\mathrm{BIC}| < 2$: nicht signifikant; $2$--$6$: positive Evidenz). Die Kreuzvalidierung -- die robusteste Methode zur Overfitting-Detektion -- zeigt, dass das KRM auf ungesehenen Daten besser generalisiert als $\Lambda$CDM.
 
 \subsection{MCMC-Posterioranalyse}
 \label{subsec:mcmc}
 
-Die Parameterunsicherheiten werden mittels \textit{emcee} \cite{ForemanMackey2013} bestimmt (32~Walkers, 3000~Schritte, 500~Burn-in, Akzeptanzrate: 63\,\%). Die Ergebnisse f\"ur das CFM~(flach) sind in Tabelle~\ref{tab:results} als $1\sigma$-Unsicherheiten angegeben. Die Posteriorverteilung von $\Omega_m$ ist nahezu gau\ss{}f\"ormig mit $\Omega_m = 0{,}368^{+0{,}025}_{-0{,}023}$. Die \"Ubergangssch\"arfe $k$ zeigt eine breite, asymmetrische Posterior ($k = 1{,}44^{+1{,}22}_{-0{,}84}$), was bedeutet, dass die Daten einen \"Ubergang bevorzugen, aber die Sch\"arfe weniger stark einschr\"anken. Die abgeleiteten Gr\"o\ss{}en $\Phi_0 = 0{,}988^{+0{,}615}_{-0{,}221}$ und $z_{\mathrm{trans}} = 0{,}35$ (MCMC-Posterior-Median; die Punktsch\"atzung in Tabelle~\ref{tab:results} gibt $0{,}33$) stimmen innerhalb der breiten Posteriori von $a_{\mathrm{trans}}$ \"uberein. Die aus dem MCMC berechneten $w(z)$-Konfidenzb\"ander (Tabelle~\ref{tab:weff}) zeigen, dass $w = -1$ f\"ur alle Rotverschiebungen au\ss{}erhalb des $1\sigma$-Bereichs liegt.
+Die Parameterunsicherheiten werden mittels \textit{emcee} \cite{ForemanMackey2013} bestimmt (32~Walkers, 3000~Schritte, 500~Burn-in, Akzeptanzrate: 63\,\%). Die Ergebnisse f\"ur das KRM~(flach) sind in Tabelle~\ref{tab:results} als $1\sigma$-Unsicherheiten angegeben. Die Posteriorverteilung von $\Omega_m$ ist nahezu gau\ss{}f\"ormig mit $\Omega_m = 0{,}368^{+0{,}025}_{-0{,}023}$. Die \"Ubergangssch\"arfe $k$ zeigt eine breite, asymmetrische Posterior ($k = 1{,}44^{+1{,}22}_{-0{,}84}$), was bedeutet, dass die Daten einen \"Ubergang bevorzugen, aber die Sch\"arfe weniger stark einschr\"anken. Die abgeleiteten Gr\"o\ss{}en $\Phi_0 = 0{,}988^{+0{,}615}_{-0{,}221}$ und $z_{\mathrm{trans}} = 0{,}35$ (MCMC-Posterior-Median; die Punktsch\"atzung in Tabelle~\ref{tab:results} gibt $0{,}33$) stimmen innerhalb der breiten Posteriori von $a_{\mathrm{trans}}$ \"uberein. Die aus dem MCMC berechneten $w(z)$-Konfidenzb\"ander (Tabelle~\ref{tab:weff}) zeigen, dass $w = -1$ f\"ur alle Rotverschiebungen au\ss{}erhalb des $1\sigma$-Bereichs liegt.
 
-\textbf{Interpretation von $\Omega_m = 0{,}368$:} Der CFM-Wert liegt \"uber dem Planck-CMB-Wert ($\Omega_m^{\mathrm{Planck}} = 0{,}315 \pm 0{,}007$), was typisch f\"ur reine Supernova-Fits ist. Im CFM-Kontext hat diese Abweichung eine physikalische Deutung: Das Modell interpretiert einen Teil der in $\Lambda$CDM als ``Dunkle Energie'' klassifizierten Dichte als dynamischen Kr\"ummungseffekt. Da $\Omega_\Phi(a)$ bei fr\"uhen Zeiten gegen Null geht (im Gegensatz zu $\Omega_\Lambda = \mathrm{const.}$), muss $\Omega_m$ kompensatorisch h\"oher ausfallen, um den Gesamt-Fit zu erhalten. Diese Pr\"aferenz f\"ur h\"oheres $\Omega_m$ steht in Einklang mit j\"ungsten Befunden aus schwachen Gravitationslinsen-Surveys (KiDS, DES), die ebenfalls h\"ohere $\Omega_m$-Werte als Planck bevorzugen.
+\textbf{Interpretation von $\Omega_m = 0{,}368$:} Der KRM-Wert liegt \"uber dem Planck-CMB-Wert ($\Omega_m^{\mathrm{Planck}} = 0{,}315 \pm 0{,}007$), was typisch f\"ur reine Supernova-Fits ist. Im KRM-Kontext hat diese Abweichung eine physikalische Deutung: Das Modell interpretiert einen Teil der in $\Lambda$CDM als ``Dunkle Energie'' klassifizierten Dichte als dynamischen Kr\"ummungseffekt. Da $\Omega_\Phi(a)$ bei fr\"uhen Zeiten gegen Null geht (im Gegensatz zu $\Omega_\Lambda = \mathrm{const.}$), muss $\Omega_m$ kompensatorisch h\"oher ausfallen, um den Gesamt-Fit zu erhalten. Diese Pr\"aferenz f\"ur h\"oheres $\Omega_m$ steht in Einklang mit j\"ungsten Befunden aus schwachen Gravitationslinsen-Surveys (KiDS, DES), die ebenfalls h\"ohere $\Omega_m$-Werte als Planck bevorzugen.
 
 \subsection{Robustheit: Alternative Funktionalformen}
 \label{subsec:funktionalformen}
@@ -384,7 +384,7 @@ Um zu \"uberpr\"ufen, ob die Ergebnisse von der spezifischen Wahl der $\tanh$-Fo
 \toprule
 \textbf{Funktionalform} & $\chi^2$ & AIC & $\Delta\chi^2$ vs.\ $\Lambda$CDM & $\Omega_m$ \\
 \midrule
-$\tanh$ (Standard-CFM) & 716,8 & 724,8 & $-12{,}2$ & 0,364 \\
+$\tanh$ (Standard-KRM) & 716,8 & 724,8 & $-12{,}2$ & 0,364 \\
 Logistische Funktion & 717,5 & 725,5 & $-11{,}5$ & 0,368 \\
 Error-Funktion (erf) & 716,7 & 724,7 & $-12{,}3$ & 0,367 \\
 Potenzgesetz & 720,1 & 728,1 & $\phantom{0}-8{,}9$ & 0,364 \\
@@ -392,12 +392,12 @@ Potenzgesetz & 720,1 & 728,1 & $\phantom{0}-8{,}9$ & 0,364 \\
 \end{tabular}
 \end{table}
 
-\textbf{Ergebnis:} Alle vier Funktionalformen liefern $\Delta\chi^2 \approx -9$ bis $-12$ gegen\"uber $\Lambda$CDM. Die $\tanh$-Form ist weder die einzig m\"ogliche noch die ``bestpassende'' -- sie repr\"asentiert eine robuste Klasse von S\"attigungsfunktionen. Dies entkr\"aftet den Einwand, die CFM-Ergebnisse seien von einer spezifischen Funktionswahl abh\"angig. Die $\Omega_m$-Werte konvergieren bei allen Formen auf $\approx 0{,}36$--$0{,}37$, was die physikalische Konsistenz unterstreicht.
+\textbf{Ergebnis:} Alle vier Funktionalformen liefern $\Delta\chi^2 \approx -9$ bis $-12$ gegen\"uber $\Lambda$CDM. Die $\tanh$-Form ist weder die einzig m\"ogliche noch die ``bestpassende'' -- sie repr\"asentiert eine robuste Klasse von S\"attigungsfunktionen. Dies entkr\"aftet den Einwand, die KRM-Ergebnisse seien von einer spezifischen Funktionswahl abh\"angig. Die $\Omega_m$-Werte konvergieren bei allen Formen auf $\approx 0{,}36$--$0{,}37$, was die physikalische Konsistenz unterstreicht.
 
 \subsection{Phantom-Stabilit\"atsanalyse}
 \label{subsec:phantom}
 
-Der gefittete Zustandsgleichungsparameter $w < -1$ (Phantom-Bereich) wirft die berechtigte Frage nach Stabilit\"at auf. In gew\"ohnlichen Phantom-Skalarfeldmodellen f\"uhrt $w < -1$ zu einer wachsenden Energiedichte ($\rho \propto a^{-3(1+w)} \to \infty$ f\"ur $w < -1$, $a \to \infty$), die in endlicher Zeit den ``Big Rip'' erzwingt -- die Zerst\"orung aller gebundenen Strukturen im Universum \cite{Caldwell1998}. \textbf{Das CFM umgeht diese Pathologie grundlegend}, und zwar aus drei Gr\"unden:
+Der gefittete Zustandsgleichungsparameter $w < -1$ (Phantom-Bereich) wirft die berechtigte Frage nach Stabilit\"at auf. In gew\"ohnlichen Phantom-Skalarfeldmodellen f\"uhrt $w < -1$ zu einer wachsenden Energiedichte ($\rho \propto a^{-3(1+w)} \to \infty$ f\"ur $w < -1$, $a \to \infty$), die in endlicher Zeit den ``Big Rip'' erzwingt -- die Zerst\"orung aller gebundenen Strukturen im Universum \cite{Caldwell1998}. \textbf{Das KRM umgeht diese Pathologie grundlegend}, und zwar aus drei Gr\"unden:
 
 \begin{enumerate}
 \item \textbf{S\"attigung statt Divergenz:} Der dynamische S\"attigungsmechanismus (Gl.~\ref{eq:saturation_ode}) garantiert $\Omega_\Phi(a) \to \Phi_0$ f\"ur $a \to \infty$. Die effektive Energiedichte bleibt \textit{f\"ur alle Zeiten endlich und beschr\"ankt}. Dies ist der entscheidende Unterschied zu Phantom-Skalarfeldern: W\"ahrend dort $\rho$ divergiert, s\"attigt $\Omega_\Phi$ bei seinem Maximalwert~$\Phi_0$.
@@ -407,15 +407,15 @@ Der gefittete Zustandsgleichungsparameter $w < -1$ (Phantom-Bereich) wirft die b
 \end{enumerate}
 
 \begin{quote}
-\textit{Zusammengefasst: Das CFM zeigt ``Phantom-Verhalten'' ohne Phantom-Pathologien. Das Universum endet nicht im Riss, sondern im Gleichgewicht.}
+\textit{Zusammengefasst: Das KRM zeigt ``Phantom-Verhalten'' ohne Phantom-Pathologien. Das Universum endet nicht im Riss, sondern im Gleichgewicht.}
 \end{quote}
 
 \subsection{Dezelerationsparameter und $H_0$-Implikationen}
 \label{subsec:dezeleration}
 
-\textbf{Dezelerationsparameter $q(z)$:} Der Dezelerationsparameter liefert eine zus\"atzliche, unabh\"angig testbare Vorhersage. Im CFM tritt der \"Ubergang von gebremster zu beschleunigter Expansion ($q = 0$) bei $z_{\mathrm{acc}} = 0{,}52$ auf -- deutlich sp\"ater in kosmischer Zeit als im $\Lambda$CDM-Modell ($z_{\mathrm{acc}} = 0{,}84$). Zudem sagt das CFM eine st\"arkere heutige Beschleunigung voraus: $q_0^{\mathrm{CFM}} = -0{,}81$ gegen\"uber $q_0^{\Lambda\mathrm{CDM}} = -0{,}63$.
+\textbf{Dezelerationsparameter $q(z)$:} Der Dezelerationsparameter liefert eine zus\"atzliche, unabh\"angig testbare Vorhersage. Im KRM tritt der \"Ubergang von gebremster zu beschleunigter Expansion ($q = 0$) bei $z_{\mathrm{acc}} = 0{,}52$ auf -- deutlich sp\"ater in kosmischer Zeit als im $\Lambda$CDM-Modell ($z_{\mathrm{acc}} = 0{,}84$). Zudem sagt das KRM eine st\"arkere heutige Beschleunigung voraus: $q_0^{\mathrm{KRM}} = -0{,}81$ gegen\"uber $q_0^{\Lambda\mathrm{CDM}} = -0{,}63$.
 
-\textbf{Implikation f\"ur die Strukturbildung:} Ein sp\"aterer Beginn der kosmischen Beschleunigung ($z_{\mathrm{acc}} = 0{,}52$ statt $0{,}84$) bedeutet, dass gravitativ gebundene Strukturen (Galaxienhaufen, gro\ss{}r\"aumige Filamente) \textit{l\"anger ungest\"ort wachsen konnten}, bevor die Beschleunigung das Wachstum unterdr\"uckte. Die materiedominierte \"Ara -- in der die Gravitation das Strukturwachstum antreibt -- dauerte im CFM signifikant l\"anger an als im Standardmodell.
+\textbf{Implikation f\"ur die Strukturbildung:} Ein sp\"aterer Beginn der kosmischen Beschleunigung ($z_{\mathrm{acc}} = 0{,}52$ statt $0{,}84$) bedeutet, dass gravitativ gebundene Strukturen (Galaxienhaufen, gro\ss{}r\"aumige Filamente) \textit{l\"anger ungest\"ort wachsen konnten}, bevor die Beschleunigung das Wachstum unterdr\"uckte. Die materiedominierte \"Ara -- in der die Gravitation das Strukturwachstum antreibt -- dauerte im KRM signifikant l\"anger an als im Standardmodell.
 
 \textbf{Empirische Evidenz f\"ur fr\"uhe massive Strukturen:} Mehrere unabh\"angige Beobachtungen setzen das $\Lambda$CDM-Modell in Bezug auf die Strukturbildung unter erheblichen Druck:
 \begin{enumerate}
@@ -424,15 +424,15 @@ Der gefittete Zustandsgleichungsparameter $w < -1$ (Phantom-Bereich) wirft die b
 \item \textbf{Protocluster SPT2349$-$56:} Bereits 1,4\,Mrd.\ Jahre nach dem Urknall ($z = 4{,}3$) zeigt dieser Protocluster mindestens 14 gasreiche Galaxien mit einer Gesamtsternentstehungsrate von $\sim\!6500\,M_\odot$/yr -- weit reifer als von $\Lambda$CDM vorhergesagt \cite{Miller2018}.
 \end{enumerate}
 
-Das CFM bietet f\"ur alle drei Beobachtungen eine nat\"urliche Erkl\"arung: Da die Beschleunigung erst bei $z_{\mathrm{acc}} = 0{,}52$ einsetzt (statt $z_{\mathrm{acc}} = 0{,}84$), stand gravitativ gebundenen Strukturen mehr kosmische Zeit f\"ur ungest\"ortes Wachstum zur Verf\"ugung. Die CFM-Vorhersage ist direkt testbar durch Galaxienhaufen-Z\"ahlungen und schwache Gravitationslinsen-Surveys (Euclid, Vera C.\ Rubin Observatory).
+Das KRM bietet f\"ur alle drei Beobachtungen eine nat\"urliche Erkl\"arung: Da die Beschleunigung erst bei $z_{\mathrm{acc}} = 0{,}52$ einsetzt (statt $z_{\mathrm{acc}} = 0{,}84$), stand gravitativ gebundenen Strukturen mehr kosmische Zeit f\"ur ungest\"ortes Wachstum zur Verf\"ugung. Die KRM-Vorhersage ist direkt testbar durch Galaxienhaufen-Z\"ahlungen und schwache Gravitationslinsen-Surveys (Euclid, Vera C.\ Rubin Observatory).
 
 \begin{table}[H]
 \centering
-\caption{Dezelerationsparameter $q(z)$: $\Lambda$CDM vs.\ CFM.}
+\caption{Dezelerationsparameter $q(z)$: $\Lambda$CDM vs.\ KRM.}
 \label{tab:qz}
 \begin{tabular}{cccc}
 \toprule
-$z$ & $q$ ($\Lambda$CDM) & $q$ (CFM) & $\Delta q$ \\
+$z$ & $q$ ($\Lambda$CDM) & $q$ (KRM) & $\Delta q$ \\
 \midrule
 0,0 & $-0{,}634$ & $-0{,}805$ & $-0{,}171$ \\
 0,5 & $-0{,}217$ & $-0{,}017$ & $+0{,}200$ \\
@@ -442,7 +442,7 @@ $z$ & $q$ ($\Lambda$CDM) & $q$ (CFM) & $\Delta q$ \\
 \end{tabular}
 \end{table}
 
-\textbf{$H_0$-Implikationen:} Der Nuisance-Parameter $M$ absorbiert sowohl die absolute Helligkeit $M_B$ als auch $H_0$ \"uber die Beziehung $M = M_B + 5\log_{10}(c/H_0) + 25$. Unter Verwendung der SH0ES-Eichung ($M_B = -19{,}253$) liefert das CFM $H_0 = 76{,}1\,\mathrm{km/s/Mpc}$ gegen\"uber $H_0 = 75{,}5\,\mathrm{km/s/Mpc}$ im $\Lambda$CDM -- ein Unterschied von $\Delta H_0 = +0{,}5\,\mathrm{km/s/Mpc}$. Die $H_0$-Spannung wird durch das CFM allein nicht gel\"ost, da der Unterschied innerhalb der Messunsicherheit liegt. Eine direkte Aufl\"osung erfordert die Kombination mit CMB- und BAO-Daten.
+\textbf{$H_0$-Implikationen:} Der Nuisance-Parameter $M$ absorbiert sowohl die absolute Helligkeit $M_B$ als auch $H_0$ \"uber die Beziehung $M = M_B + 5\log_{10}(c/H_0) + 25$. Unter Verwendung der SH0ES-Eichung ($M_B = -19{,}253$) liefert das KRM $H_0 = 76{,}1\,\mathrm{km/s/Mpc}$ gegen\"uber $H_0 = 75{,}5\,\mathrm{km/s/Mpc}$ im $\Lambda$CDM -- ein Unterschied von $\Delta H_0 = +0{,}5\,\mathrm{km/s/Mpc}$. Die $H_0$-Spannung wird durch das KRM allein nicht gel\"ost, da der Unterschied innerhalb der Messunsicherheit liegt. Eine direkte Aufl\"osung erfordert die Kombination mit CMB- und BAO-Daten.
 
 % ===================================================================
 % 5. VERGLEICH MIT ALTERNATIVEN
@@ -464,7 +464,7 @@ $f(R)$-Gravitationstheorien \cite{Starobinsky1980, Sotiriou2010} ersetzen den Ri
 
 \subsection{Emergente Gravitation nach Verlinde}
 
-Verlinde \cite{Verlinde2011, Verlinde2017} schl\"agt vor, dass die Gravitation keine fundamentale Kraft, sondern ein emergentes, entropisches Ph\"anomen ist. In de-Sitter-R\"aumen f\"uhrt die mit dem kosmologischen Horizont assoziierte Entropie zu einer zus\"atzlichen ``dunklen'' Gravitationskraft, die das Verhalten von Galaxien ohne Dunkle Materie erkl\"aren k\"onnte. In einem eng verwandten Ansatz leitet Padmanabhan \cite{Padmanabhan2012} die kosmische Expansion als emergentes Ph\"anomen aus der Differenz zwischen Oberfl\"achen- und Bulk-Freiheitsgraden ab, wobei die kosmologische Konstante aus dem Bestreben der Raumzeit entsteht, holographische \"Aquipartition zu erreichen -- eine Perspektive, die strukturelle Gemeinsamkeiten mit dem Gleichgewichtsrahmenwerk des CFM aufweist.
+Verlinde \cite{Verlinde2011, Verlinde2017} schl\"agt vor, dass die Gravitation keine fundamentale Kraft, sondern ein emergentes, entropisches Ph\"anomen ist. In de-Sitter-R\"aumen f\"uhrt die mit dem kosmologischen Horizont assoziierte Entropie zu einer zus\"atzlichen ``dunklen'' Gravitationskraft, die das Verhalten von Galaxien ohne Dunkle Materie erkl\"aren k\"onnte. In einem eng verwandten Ansatz leitet Padmanabhan \cite{Padmanabhan2012} die kosmische Expansion als emergentes Ph\"anomen aus der Differenz zwischen Oberfl\"achen- und Bulk-Freiheitsgraden ab, wobei die kosmologische Konstante aus dem Bestreben der Raumzeit entsteht, holographische \"Aquipartition zu erreichen -- eine Perspektive, die strukturelle Gemeinsamkeiten mit dem Gleichgewichtsrahmenwerk des KRM aufweist.
 
 \subsection{Finsler-Gravitation}
 
@@ -476,7 +476,7 @@ Die resultierende Finsler-Friedmann-Gleichung erzeugt selbst im Vakuum eine expo
 
 \subsection{Cosmological Teleodynamics}
 
-Trivedi und Venkatasubramanian \cite{Trivedi2025} formulieren eine spieltheoretische Kosmologie, die erstaunliche Parallelen zum hier vorgestellten Ansatz aufweist. Ihre \textit{Cosmological Teleodynamics} beschreibt das Universum als ``riesiges Potentialspiel'', das sich einem kontinuierlichen Nash-Gleichgewicht ann\"ahert. Die kosmische Beschleunigung erscheint als ``statistisch emergenter Effekt dynamischen Ged\"achtnisses in einem selbstgravitierenden Medium'' -- eine Formulierung, die konzeptuell dem ``geometrischen Ged\"achtnis'' des CFM entspricht.
+Trivedi und Venkatasubramanian \cite{Trivedi2025} formulieren eine spieltheoretische Kosmologie, die erstaunliche Parallelen zum hier vorgestellten Ansatz aufweist. Ihre \textit{Cosmological Teleodynamics} beschreibt das Universum als ``riesiges Potentialspiel'', das sich einem kontinuierlichen Nash-Gleichgewicht ann\"ahert. Die kosmische Beschleunigung erscheint als ``statistisch emergenter Effekt dynamischen Ged\"achtnisses in einem selbstgravitierenden Medium'' -- eine Formulierung, die konzeptuell dem ``geometrischen Ged\"achtnis'' des KRM entspricht.
 
 \subsection{Synoptischer Vergleich}
 \label{subsec:synopse}
@@ -487,7 +487,7 @@ Trivedi und Venkatasubramanian \cite{Trivedi2025} formulieren eine spieltheoreti
 \label{tab:synopse}
 \begin{tabular}{llll}
 \toprule
-\textbf{Eigenschaft} & \textbf{CFM} & \textbf{Finsler} & \textbf{Teleodynamics} \\
+\textbf{Eigenschaft} & \textbf{KRM} & \textbf{Finsler} & \textbf{Teleodynamics} \\
 \midrule
 Theor.\ Basis & Standard-ART + Potential & Finsler-Geometrie & Stat.\ Mechanik + Spieltheorie \\
 Mechanismus & Nachlassende ``Bremse'' & Geschwindigkeitsabh.\ Metrik & Dynamisches Ged\"achtnis \\
@@ -507,18 +507,18 @@ Komplexit\"at & Gering (4 Param.) & Hoch & Mittel \\
 
 \subsection{Drei Modelle, eine Einsicht}
 
-Alle drei Ans\"atze -- CFM, Finsler-Gravitation und Cosmological Teleodynamics -- teilen eine fundamentale Einsicht:
+Alle drei Ans\"atze -- KRM, Finsler-Gravitation und Cosmological Teleodynamics -- teilen eine fundamentale Einsicht:
 \begin{quote}
 \textit{``Die beschleunigte Expansion ist kein neues `Ding', sondern eine Eigenschaft der Geometrie bzw.\ der statistischen Struktur des Universums selbst.''}
 \end{quote}
 
-\subsection{Hypothese: CFM als effektive Beschreibung}
+\subsection{Hypothese: KRM als effektive Beschreibung}
 
 Eine faszinierende M\"oglichkeit besteht darin, dass die drei Modelle verschiedene Aspekte desselben Ph\"anomens beschreiben. In Analogie zur Beziehung zwischen Thermodynamik und Statistischer Mechanik k\"onnte gelten:
 
 \begin{itemize}
 \item \textbf{Finsler-Gravitation} (mikroskopisch, fundamental): Alle Momente der 1-Partikel-Verteilungsfunktion tragen zur Gravitation bei.
-\item \textbf{CFM} (makroskopisch, ph\"anomenologisch): Das zeitabh\"angige Potential $\Phi(a)$ kodiert effektiv den Beitrag der h\"oheren Momente.
+\item \textbf{KRM} (makroskopisch, ph\"anomenologisch): Das zeitabh\"angige Potential $\Phi(a)$ kodiert effektiv den Beitrag der h\"oheren Momente.
 \item \textbf{Teleodynamics} (systemisch, spieltheoretisch): Die Nash-Gleichgewichtsdynamik beschreibt die globale Optimierung.
 \end{itemize}
 
@@ -527,7 +527,7 @@ Mathematisch l\"asst sich diese Komplementarit\"at als hierarchische Beziehung d
 \begin{split}
 \underbrace{G_{\mu\nu}^{\mathrm{Finsler}}(x, y)}_{\substack{\text{Finsler-Gravitation}\\\text{(mikroskopisch)}}}
 &\;\xrightarrow{\;\langle\cdot\rangle_{\mathrm{eff}}\;}
-\underbrace{G_{\mu\nu} + 8\pi G\,\Omega_\Phi(a)\,g_{\mu\nu}}_{\substack{\text{CFM: modifizierte}\\\text{Einstein-Gleichung}}} \\
+\underbrace{G_{\mu\nu} + 8\pi G\,\Omega_\Phi(a)\,g_{\mu\nu}}_{\substack{\text{KRM: modifizierte}\\\text{Einstein-Gleichung}}} \\
 &\;\xleftarrow{\;\delta\Phi/\delta s_i = 0\;}
 \underbrace{\max_{s_M, s_T} \Phi(s_M, s_T)}_{\substack{\text{Teleodynamics:}\\\text{Nash-Gleichgewicht}}}
 \end{split}
@@ -543,11 +543,11 @@ wobei der linke Pfeil die effektive Mittelung \"uber die geschwindigkeitsabh\"an
 
 \subsection{Beobachtbare Signaturen}
 
-\textbf{1.~Phantom-Zustandsgleichung $w(z) < -1$:} Das CFM sagt $|\Delta w| \approx 0{,}4$ \"uber den gesamten beobachtbaren Rotverschiebungsbereich voraus. Die ESA-Mission Euclid \cite{Euclid2024} und das Nancy Grace Roman Space Telescope (NASA, $\sim$2027) k\"onnen $\sigma_w \approx 0{,}02$--$0{,}05$ messen -- weit ausreichend, um diese Signatur nachzuweisen oder auszuschlie\ss{}en.
+\textbf{1.~Phantom-Zustandsgleichung $w(z) < -1$:} Das KRM sagt $|\Delta w| \approx 0{,}4$ \"uber den gesamten beobachtbaren Rotverschiebungsbereich voraus. Die ESA-Mission Euclid \cite{Euclid2024} und das Nancy Grace Roman Space Telescope (NASA, $\sim$2027) k\"onnen $\sigma_w \approx 0{,}02$--$0{,}05$ messen -- weit ausreichend, um diese Signatur nachzuweisen oder auszuschlie\ss{}en.
 
-\textbf{2.~Dezelerationsparameter:} Das CFM sagt einen fr\"uheren \"Ubergang zur beschleunigten Expansion voraus ($z_{\mathrm{acc}} = 0{,}52$ vs.\ $\Lambda$CDM: $z_{\mathrm{acc}} = 0{,}84$) sowie eine st\"arkere heutige Beschleunigung ($q_0 = -0{,}81$ vs.\ $-0{,}63$). Dies ist unabh\"angig von $w(z)$ testbar.
+\textbf{2.~Dezelerationsparameter:} Das KRM sagt einen fr\"uheren \"Ubergang zur beschleunigten Expansion voraus ($z_{\mathrm{acc}} = 0{,}52$ vs.\ $\Lambda$CDM: $z_{\mathrm{acc}} = 0{,}84$) sowie eine st\"arkere heutige Beschleunigung ($q_0 = -0{,}81$ vs.\ $-0{,}63$). Dies ist unabh\"angig von $w(z)$ testbar.
 
-\textbf{3.~Strukturwachstum:} Eine modifizierte Wachstumsrate $f \cdot \sigma_8$ ist vorhergesagt, messbar durch schwache Gravitationslinsen und Galaxienhaufen-Z\"ahlungen. Erste empirische Hinweise liefern bereits die JWST-``Universe Breakers'' bei $z > 7$ \cite{Labbe2023}, die El-Gordo-Anomalie ($> 6\sigma$ Spannung mit $\Lambda$CDM; \cite{Asencio2023}) und unerwartet reife Protocluster bei $z > 4$ \cite{Miller2018} -- allesamt konsistent mit der CFM-Vorhersage einer verl\"angerten Wachstumsphase.
+\textbf{3.~Strukturwachstum:} Eine modifizierte Wachstumsrate $f \cdot \sigma_8$ ist vorhergesagt, messbar durch schwache Gravitationslinsen und Galaxienhaufen-Z\"ahlungen. Erste empirische Hinweise liefern bereits die JWST-``Universe Breakers'' bei $z > 7$ \cite{Labbe2023}, die El-Gordo-Anomalie ($> 6\sigma$ Spannung mit $\Lambda$CDM; \cite{Asencio2023}) und unerwartet reife Protocluster bei $z > 4$ \cite{Miller2018} -- allesamt konsistent mit der KRM-Vorhersage einer verl\"angerten Wachstumsphase.
 
 \textbf{4.~CMB-Integraleffekte:} Ein modifizierter ISW-Effekt (\textit{Integrated Sachs-Wolfe}) in CMB-Temperatur-Kreuzkorrelationen.
 
@@ -555,7 +555,7 @@ wobei der linke Pfeil die effektive Mittelung \"uber die geschwindigkeitsabh\"an
 
 \begin{table}[H]
 \centering
-\caption{Relevante Beobachtungsmissionen f\"ur den CFM-Test.}
+\caption{Relevante Beobachtungsmissionen f\"ur den KRM-Test.}
 \label{tab:missionen}
 \small
 \begin{tabular}{llcl}
@@ -573,11 +573,11 @@ DESI & 2021-- & ${\approx}\,0{,}04$ & BAO + Wachstum \\
 
 \begin{table}[H]
 \centering
-\caption{Vergleich der Vorhersagen: $\Lambda$CDM vs.\ CFM (Pantheon+-Fit). Die $1\sigma$-Unsicherheiten stammen aus der MCMC-Analyse.}
+\caption{Vergleich der Vorhersagen: $\Lambda$CDM vs.\ KRM (Pantheon+-Fit). Die $1\sigma$-Unsicherheiten stammen aus der MCMC-Analyse.}
 \label{tab:vorhersagen}
 \begin{tabular}{lcc}
 \toprule
-\textbf{Eigenschaft} & $\Lambda$CDM & CFM \\
+\textbf{Eigenschaft} & $\Lambda$CDM & KRM \\
 \midrule
 $w(z{=}0)$ & $-1{,}000$ & $-1{,}36 \pm 0{,}02$ \\
 $w(z{=}0{,}5)$ & $-1{,}000$ & $-1{,}45^{+0{,}09}_{-0{,}28}$ \\
@@ -602,28 +602,28 @@ $z_{\mathrm{acc}}$ (\"Ubergang) & 0,84 & 0,52 \\
 \begin{enumerate}
 \item \textbf{Konzeptuelle Eleganz:} Keine neue Energieform erforderlich; die Beschleunigung ist eine ``nachlassende Einschr\"ankung'', kein ``neuer Antrieb''.
 \item \textbf{Spieltheoretische Fundierung:} Die Emergenz physikalischer Gesetze aus Gleichgewichtsbedingungen bietet einen neuartigen Erkl\"arungsrahmen, der durch die unabh\"angige Arbeit von Trivedi und Venkatasubramanian \cite{Trivedi2025} gest\"utzt wird.
-\item \textbf{Empirische Validierung:} Das CFM passt 1590 reale Pantheon+-Supernovae besser als $\Lambda$CDM ($\Delta\chi^2 = -12{,}2$, $\Delta\mathrm{AIC} = -8{,}2$) und generalisiert in der Kreuzvalidierung besser.
+\item \textbf{Empirische Validierung:} Das KRM passt 1590 reale Pantheon+-Supernovae besser als $\Lambda$CDM ($\Delta\chi^2 = -12{,}2$, $\Delta\mathrm{AIC} = -8{,}2$) und generalisiert in der Kreuzvalidierung besser.
 \item \textbf{Testbarkeit:} Spezifische, quantitative Vorhersagen f\"ur $w(z)$ und $z_{\mathrm{acc}}$, die innerhalb einer Dekade \"uberpr\"ufbar sind.
-\item \textbf{Empirische Unterst\"utzung:} Die CFM-Vorhersage einer verl\"angerten Wachstumsphase ($z_{\mathrm{acc}} = 0{,}52$) bietet eine nat\"urliche Erkl\"arung f\"ur die JWST-``Early Galaxy Tension'' \cite{Labbe2023, BoylanKolchin2023}, die El-Gordo-Anomalie \cite{Asencio2023} und unerwartet reife Protocluster \cite{Miller2018}.
-\item \textbf{Konvergenz unabh\"angiger Ans\"atze:} CFM, Finsler-Gravitation und Cosmological Teleodynamics kommen unabh\"angig zum selben Schluss: Dunkle Energie ist nicht notwendig.
+\item \textbf{Empirische Unterst\"utzung:} Die KRM-Vorhersage einer verl\"angerten Wachstumsphase ($z_{\mathrm{acc}} = 0{,}52$) bietet eine nat\"urliche Erkl\"arung f\"ur die JWST-``Early Galaxy Tension'' \cite{Labbe2023, BoylanKolchin2023}, die El-Gordo-Anomalie \cite{Asencio2023} und unerwartet reife Protocluster \cite{Miller2018}.
+\item \textbf{Konvergenz unabh\"angiger Ans\"atze:} KRM, Finsler-Gravitation und Cosmological Teleodynamics kommen unabh\"angig zum selben Schluss: Dunkle Energie ist nicht notwendig.
 \item \textbf{Reproduzierbarkeit:} Analysecode und Daten sind \"offentlich verf\"ugbar (\url{https://github.com/lukisch/cfm-cosmology}).
 \end{enumerate}
 
 \subsection{Limitationen und offene Fragen}
 
 \begin{enumerate}
-\item \textbf{Ph\"anomenologischer Charakter:} Das CFM ist keine fundamentale Theorie. Obwohl die $\tanh$-Form als exakte L\"osung der S\"attigungs-ODE~\eqref{eq:saturation_ode} motiviert werden kann und vier alternative Funktionalformen vergleichbare Ergebnisse liefern (Abschnitt~\ref{subsec:funktionalformen}), steht eine Herleitung aus einer fundamentalen Quantengleichung noch aus.
+\item \textbf{Ph\"anomenologischer Charakter:} Das KRM ist keine fundamentale Theorie. Obwohl die $\tanh$-Form als exakte L\"osung der S\"attigungs-ODE~\eqref{eq:saturation_ode} motiviert werden kann und vier alternative Funktionalformen vergleichbare Ergebnisse liefern (Abschnitt~\ref{subsec:funktionalformen}), steht eine Herleitung aus einer fundamentalen Quantengleichung noch aus.
 \item \textbf{Parameterfreiheit:} Vier effektive Parameter gegen\"uber zwei in $\Lambda$CDM f\"uhren zu einem marginalen BIC-Nachteil ($\Delta\mathrm{BIC} = +2{,}6$), der jedoch durch die bessere Kreuzvalidierung und die Robustheit \"uber verschiedene Funktionalformen relativiert wird.
-\item \textbf{Phantom-Bereich:} Der effektive Zustandsgleichungsparameter $w < -1$ liegt im Phantom-Bereich. Wie in Abschnitt~\ref{subsec:phantom} gezeigt, f\"uhrt dies im CFM-Kontext weder zu einem Big Rip noch zu Instabilit\"aten, da $\Omega_\Phi$ s\"attigt und kein physisches Feld darstellt. Formal verletzt das CFM die Null-Energie-Bedingung, analog zu $f(R)$-Gravitationstheorien \cite{Sotiriou2010}.
+\item \textbf{Phantom-Bereich:} Der effektive Zustandsgleichungsparameter $w < -1$ liegt im Phantom-Bereich. Wie in Abschnitt~\ref{subsec:phantom} gezeigt, f\"uhrt dies im KRM-Kontext weder zu einem Big Rip noch zu Instabilit\"aten, da $\Omega_\Phi$ s\"attigt und kein physisches Feld darstellt. Formal verletzt das KRM die Null-Energie-Bedingung, analog zu $f(R)$-Gravitationstheorien \cite{Sotiriou2010}.
 \item \textbf{Modellvergleich:} Der Vergleich in dieser Arbeit beschr\"ankt sich auf $\Lambda$CDM. Ein fairerer Referenzpunkt f\"ur das Phantom-Kreuzungsverhalten w\"are die $w_0w_a$CDM-Parametrisierung (CPL) \cite{Chevallier2001, Linder2003}, die ebenfalls $w < -1$ erlaubt. Ein solcher Vergleich wird in Paper~II pr\"asentiert.
 \item \textbf{Offene Tests:} CMB-Vorhersagen (ISW-Effekt, CMB-Leistungsspektrum), BAO-Signaturen und Gravitationslinsen-Effekte m\"ussen noch berechnet werden. Die Analyse mit der vollen Kovarianzmatrix (Abschnitt~\ref{subsec:ergebnisse}) best\"atigt jedoch die Ergebnisse der diagonalen Analyse.
 \item \textbf{Mikroskopische Basis:} Was ist $\Phi$ auf Quantenebene? Die Verbindung zu einer Theorie der Quantengravitation steht aus. Die m\"ogliche Beziehung zur Finsler-Gravitation (Abschnitt~\ref{sec:komplementaritaet}) k\"onnte hier eine Br\"ucke schlagen.
-\item \textbf{$H_0$-Spannung:} Die $H_0$-Analyse (Abschnitt~\ref{subsec:dezeleration}) zeigt $\Delta H_0 = +0{,}5\,$km/s/Mpc zwischen CFM und $\Lambda$CDM -- zu gering, um die $H_0$-Spannung zu l\"osen. Eine Aufl\"osung erfordert die Kombination mit CMB- und BAO-Daten.
+\item \textbf{$H_0$-Spannung:} Die $H_0$-Analyse (Abschnitt~\ref{subsec:dezeleration}) zeigt $\Delta H_0 = +0{,}5\,$km/s/Mpc zwischen KRM und $\Lambda$CDM -- zu gering, um die $H_0$-Spannung zu l\"osen. Eine Aufl\"osung erfordert die Kombination mit CMB- und BAO-Daten.
 \end{enumerate}
 
 \subsection{Philosophische Implikationen}
 
-Falls das CFM (oder ein verwandtes Modell) best\"atigt wird, h\"atte dies tiefgreifende Konsequenzen:
+Falls das KRM (oder ein verwandtes Modell) best\"atigt wird, h\"atte dies tiefgreifende Konsequenzen:
 
 \begin{itemize}
 \item \textbf{Dunkle Energie ist kein ``Ding'':} Sie w\"are eine geometrische Erinnerung, kein physisches Feld.
@@ -636,14 +636,14 @@ Dies w\"are vergleichbar mit dem \"Ubergang von ``Was treibt die Planeten an?'' 
 \subsection{Deduktive Struktur des Modells}
 \label{subsec:deduktiv}
 
-Ein Unterscheidungsmerkmal des CFM ist, dass sein Lagrangian nicht \textit{ad hoc} aus unabh\"angigen ph\"anomenologischen Termen zusammengesetzt, sondern aus einer deduktiven Kette abgeleitet ist, die von zwei Annahmen ausgeht und bei testbaren Vorhersagen endet:
+Ein Unterscheidungsmerkmal des KRM ist, dass sein Lagrangian nicht \textit{ad hoc} aus unabh\"angigen ph\"anomenologischen Termen zusammengesetzt, sondern aus einer deduktiven Kette abgeleitet ist, die von zwei Annahmen ausgeht und bei testbaren Vorhersagen endet:
 
 \begin{enumerate}
 \item \textbf{Axiom~1 (Anfangsbedingung):} Ein metastabiles Quantenvakuum (Nullraum) l\"asst eine gro\ss{}e Fluktuation zu, die einen Konzentrationsgradienten erzeugt -- die entstehende Raumzeit.
 \item \textbf{Axiom~2 (Entwicklungsprinzip):} Das System entwickelt sich entlang des Pfades, der die Entropieproduktion maximiert, w\"ahrend die strukturelle Integrit\"at des Nullraums erhalten bleibt (\"aquivalent: Prinzip der kleinsten Wirkung unter der Randbedingung der Muttersystem-Stabilit\"at; siehe Abschnitt~\ref{subsec:thermodynamik}).
 \end{enumerate}
 
-Aus diesen beiden Annahmen f\"uhrt folgende Deduktionskette -- hier r\"uckblickend dargestellt; ihre strenge Herleitung ist Gegenstand von Paper~III -- zur CFM-Wirkung (Paper~III, Gl.~(8)):
+Aus diesen beiden Annahmen f\"uhrt folgende Deduktionskette -- hier r\"uckblickend dargestellt; ihre strenge Herleitung ist Gegenstand von Paper~III -- zur KRM-Wirkung (Paper~III, Gl.~(8)):
 \begin{itemize}
 \item Axiom~2 erfordert eine \textit{kontrollierte, zeitlich gestreckte} Neutralisation des Gradienten $\to$ Einstein-Hilbert-Term $R/(16\pi G)$ (konservative Feldgleichungen als notwendige Bedingung).
 \item Der Gradient hat endliche Gr\"o\ss{}e, die R\"uckkehr darf das Vakuum nicht destabilisieren $\to$ \textit{S\"attigung} der R\"uckgaberate $\to$ P\"oschl-Teller-Skalarfeld mit $\tanh$-Dynamik.
@@ -653,7 +653,7 @@ Aus diesen beiden Annahmen f\"uhrt folgende Deduktionskette -- hier r\"uckblicke
 \item Cham\"aleon-Screening sichert die Sonnensystem-Kompatibilit\"at ohne zus\"atzliche Parameter.
 \end{itemize}
 
-Das resultierende Lagrangian $\mathcal{L} = R/(16\pi G) + \gamma R^2 + \frac{1}{2}(\partial\phi)^2 - V_{\mathrm{PT}}(\phi)$ hat seine \textit{Form} vollst\"andig durch die zwei Axiome bestimmt; nur die \textit{numerischen Werte} von $\gamma$, $V_0$ und $\phi_0$ werden durch Daten festgelegt. Diese deduktive Geschlossenheit -- von Annahmen zu einem eindeutigen Lagrangian zu falsifizierbaren Vorhersagen -- erhebt das CFM von einem ph\"anomenologischen Fit zu einem theoretischen Rahmenwerk.
+Das resultierende Lagrangian $\mathcal{L} = R/(16\pi G) + \gamma R^2 + \frac{1}{2}(\partial\phi)^2 - V_{\mathrm{PT}}(\phi)$ hat seine \textit{Form} vollst\"andig durch die zwei Axiome bestimmt; nur die \textit{numerischen Werte} von $\gamma$, $V_0$ und $\phi_0$ werden durch Daten festgelegt. Diese deduktive Geschlossenheit -- von Annahmen zu einem eindeutigen Lagrangian zu falsifizierbaren Vorhersagen -- erhebt das KRM von einem ph\"anomenologischen Fit zu einem theoretischen Rahmenwerk.
 
 % ===================================================================
 % 9. FAZIT UND AUSBLICK
@@ -665,16 +665,16 @@ Die vorliegende Arbeit hat gezeigt:
 
 \begin{enumerate}
 \item Ein spieltheoretischer Rahmen f\"ur die Kosmologie -- das Nash-Gleichgewicht zwischen Nullraum und Raumzeitblase -- f\"uhrt auf nat\"urliche Weise zu einem Modell, in dem physikalische Gesetze als emergente Gleichgewichtsbedingungen erscheinen. Die spieltheoretischen Axiome besitzen eine exakte thermodynamische \"Aquivalenz (Nash-Gleichgewicht $\leftrightarrow$ thermodynamisches Gleichgewicht, $\tanh$-S\"attigung $\leftrightarrow$ MEPP-Dynamik), die das Rahmenwerk in die Jacobson-Tradition der Gravitation als thermodynamische Zustandsgleichung \cite{Jacobson1995} stellt.
-\item Das daraus abgeleitete \textit{Curvature Feedback Model} (CFM) erkl\"art die beschleunigte Expansion ohne Dunkle Energie und besteht den Test gegen 1590 reale Typ-Ia-Supernovae des Pantheon+-Katalogs \cite{Scolnic2022}: $\Delta\chi^2 = -12{,}2$ (diagonal) bzw.\ $-11{,}2$ (volle Kovarianzmatrix), $\Delta\mathrm{AIC} = -8{,}2$ bzw.\ $-7{,}2$, bessere Kreuzvalidierung.
-\item Die robuste Modellselektion (AIC, BIC, 5-Fold-Kreuzvalidierung) zeigt, dass der bessere Fit des CFM nicht auf Overfitting zur\"uckzuf\"uhren ist. Dies wird durch vier alternative Funktionalformen best\"atigt, die alle $\Delta\chi^2 \approx -9$ bis $-12$ liefern.
+\item Das daraus abgeleitete \textit{Curvature Relaxation Model} (KRM) erkl\"art die beschleunigte Expansion ohne Dunkle Energie und besteht den Test gegen 1590 reale Typ-Ia-Supernovae des Pantheon+-Katalogs \cite{Scolnic2022}: $\Delta\chi^2 = -12{,}2$ (diagonal) bzw.\ $-11{,}2$ (volle Kovarianzmatrix), $\Delta\mathrm{AIC} = -8{,}2$ bzw.\ $-7{,}2$, bessere Kreuzvalidierung.
+\item Die robuste Modellselektion (AIC, BIC, 5-Fold-Kreuzvalidierung) zeigt, dass der bessere Fit des KRM nicht auf Overfitting zur\"uckzuf\"uhren ist. Dies wird durch vier alternative Funktionalformen best\"atigt, die alle $\Delta\chi^2 \approx -9$ bis $-12$ liefern.
 \item MCMC-basierte Parameterunsicherheiten ($\Omega_m = 0{,}368 \pm 0{,}024$) und die Phantom-Stabilit\"atsanalyse (kein Big Rip, asymptotisch de-Sitter) unterst\"utzen die physikalische Konsistenz.
-\item Das CFM macht testbare Vorhersagen: eine durchgehende Phantom-Zustandsgleichung $w(z) < -1$ und einen sp\"ateren Beschleunigungs\"ubergang ($z_{\mathrm{acc}} = 0{,}52$ vs.\ $0{,}84$ in $\Lambda$CDM), die mit Euclid und Roman innerhalb der n\"achsten Dekade \"uberpr\"ufbar sind. Bereits jetzt findet die CFM-Vorhersage einer verl\"angerten Wachstumsphase empirische Unterst\"utzung durch JWST-Beobachtungen unerwartet massereicher Galaxien bei hohen Rotverschiebungen \cite{Labbe2023, BoylanKolchin2023} und die statistisch un\-wahrscheinliche Existenz massiver Haufen wie El~Gordo \cite{Asencio2023}.
-\item Die Konvergenz dreier unabh\"angiger Ans\"atze (CFM, Finsler-Gravitation, Cosmological Teleodynamics) deutet auf einen m\"oglichen Paradigmenwechsel hin: \textit{Dunkle Energie als eigenst\"andige Entit\"at k\"onnte \"uberfl\"ussig sein.}
+\item Das KRM macht testbare Vorhersagen: eine durchgehende Phantom-Zustandsgleichung $w(z) < -1$ und einen sp\"ateren Beschleunigungs\"ubergang ($z_{\mathrm{acc}} = 0{,}52$ vs.\ $0{,}84$ in $\Lambda$CDM), die mit Euclid und Roman innerhalb der n\"achsten Dekade \"uberpr\"ufbar sind. Bereits jetzt findet die KRM-Vorhersage einer verl\"angerten Wachstumsphase empirische Unterst\"utzung durch JWST-Beobachtungen unerwartet massereicher Galaxien bei hohen Rotverschiebungen \cite{Labbe2023, BoylanKolchin2023} und die statistisch un\-wahrscheinliche Existenz massiver Haufen wie El~Gordo \cite{Asencio2023}.
+\item Die Konvergenz dreier unabh\"angiger Ans\"atze (KRM, Finsler-Gravitation, Cosmological Teleodynamics) deutet auf einen m\"oglichen Paradigmenwechsel hin: \textit{Dunkle Energie als eigenst\"andige Entit\"at k\"onnte \"uberfl\"ussig sein.}
 \end{enumerate}
 
-\textbf{N\"achste Schritte} umfassen: (a)~Test gegen Planck-CMB- und DESI-BAO-Daten (die volle Pantheon+-Kovarianzmatrix wurde bereits ber\"ucksichtigt), (b)~Berechnung von CMB-Leistungsspektrum und Strukturwachstumsvorhersagen ($f\sigma_8$), (c)~Erforschung der Verbindung zwischen CFM und Finsler-Geometrie, (d)~Entwicklung einer kovarianten Formulierung von $\Phi(a)$ aus dem Ricci-Skalar~$R$, (e)~Untersuchung quantenmechanischer Grundlagen des Kr\"ummungs-R\"uckgabepotentials, und (f)~Kombination mit lokalen Entfernungsleiter-Daten zur direkten $H_0$-Bestimmung.
+\textbf{N\"achste Schritte} umfassen: (a)~Test gegen Planck-CMB- und DESI-BAO-Daten (die volle Pantheon+-Kovarianzmatrix wurde bereits ber\"ucksichtigt), (b)~Berechnung von CMB-Leistungsspektrum und Strukturwachstumsvorhersagen ($f\sigma_8$), (c)~Erforschung der Verbindung zwischen KRM und Finsler-Geometrie, (d)~Entwicklung einer kovarianten Formulierung von $\Phi(a)$ aus dem Ricci-Skalar~$R$, (e)~Untersuchung quantenmechanischer Grundlagen des Kr\"ummungs-R\"uckgabepotentials, und (f)~Kombination mit lokalen Entfernungsleiter-Daten zur direkten $H_0$-Bestimmung.
 
-\textbf{Ausblick: Vereinigung mit MOND -- Ein Universum ohne dunklen Sektor?} Eine besonders faszinierende Perspektive er\"offnet sich durch die Kombination des CFM mit \textit{Modified Newtonian Dynamics} (MOND) \cite{Milgrom1983}. W\"ahrend das CFM die Dunkle Energie als geometrischen Effekt eliminiert, ersetzt MOND die Dunkle Materie durch eine modifizierte Gravitationsdynamik auf galaktischen Skalen. Beide Rahmenwerke konvergieren in der Vorhersage, dass Strukturen fr\"uher und effizienter entstehen als in $\Lambda$CDM -- das CFM durch eine verl\"angerte materiedominierte \"Ara ($z_{\mathrm{acc}} = 0{,}52$), MOND durch effektiv st\"arkere Gravitation bei niedrigen Beschleunigungen \cite{Asencio2023}. Eine vorl\"aufige Analyse mit einem rein baryonischen Universum ($\Omega_m = \Omega_b \approx 0{,}05$) und einem erweiterten geometrischen Potential $\Omega_\Phi(a) = \Phi_0 \cdot f_{\mathrm{tanh}}(a) + \alpha \cdot a^{-\beta}$ liefert $\Delta\chi^2 = -26{,}3$ und $\Delta\mathrm{AIC} = -16{,}3$ gegen\"uber $\Lambda$CDM -- \textit{deutlich besser als sowohl das Standard-CFM als auch $\Lambda$CDM}. Die MCMC-Posterioranalyse ergibt $\beta = 2{,}02 \pm 0{,}20$, was exakt der Skalierung r\"aumlicher Kr\"ummung ($a^{-2}$) entspricht. Die ``Dunkle Materie'' w\"are demnach ein dynamischer Kr\"ummungseffekt, kein Teilchen. Dieses Ergebnis bedarf einer vollst\"andigen relativistischen Behandlung (z.\,B.\ im AeST-Rahmen \cite{Skordis2021}) und wird in einer Folgearbeit detailliert analysiert.
+\textbf{Ausblick: Vereinigung mit MOND -- Ein Universum ohne dunklen Sektor?} Eine besonders faszinierende Perspektive er\"offnet sich durch die Kombination des KRM mit \textit{Modified Newtonian Dynamics} (MOND) \cite{Milgrom1983}. W\"ahrend das KRM die Dunkle Energie als geometrischen Effekt eliminiert, ersetzt MOND die Dunkle Materie durch eine modifizierte Gravitationsdynamik auf galaktischen Skalen. Beide Rahmenwerke konvergieren in der Vorhersage, dass Strukturen fr\"uher und effizienter entstehen als in $\Lambda$CDM -- das KRM durch eine verl\"angerte materiedominierte \"Ara ($z_{\mathrm{acc}} = 0{,}52$), MOND durch effektiv st\"arkere Gravitation bei niedrigen Beschleunigungen \cite{Asencio2023}. Eine vorl\"aufige Analyse mit einem rein baryonischen Universum ($\Omega_m = \Omega_b \approx 0{,}05$) und einem erweiterten geometrischen Potential $\Omega_\Phi(a) = \Phi_0 \cdot f_{\mathrm{tanh}}(a) + \alpha \cdot a^{-\beta}$ liefert $\Delta\chi^2 = -26{,}3$ und $\Delta\mathrm{AIC} = -16{,}3$ gegen\"uber $\Lambda$CDM -- \textit{deutlich besser als sowohl das Standard-KRM als auch $\Lambda$CDM}. Die MCMC-Posterioranalyse ergibt $\beta = 2{,}02 \pm 0{,}20$, was exakt der Skalierung r\"aumlicher Kr\"ummung ($a^{-2}$) entspricht. Die ``Dunkle Materie'' w\"are demnach ein dynamischer Kr\"ummungseffekt, kein Teilchen. Dieses Ergebnis bedarf einer vollst\"andigen relativistischen Behandlung (z.\,B.\ im AeST-Rahmen \cite{Skordis2021}) und wird in einer Folgearbeit detailliert analysiert.
 
 \begin{quote}
 \textit{``Manchmal ist die eleganteste Erkl\"arung nicht eine neue Kraft, sondern eine nachlassende Einschr\"ankung.''}
