@@ -1,0 +1,24 @@
+{
+  "a0_base_cH0_2pi": 1.0415793661124482e-10,
+  "a0_obs": 1.2e-10,
+  "discrepancy_pct": 13.201719490629316,
+  "ratio": 0.8679828050937068,
+  "tension_sigma": 0.6578058779962699,
+  "H0_values": {
+    "Planck": 67.36,
+    "SH0ES": 73.04,
+    "TRGB": 69.8
+  },
+  "a0_from_H0": {
+    "Planck": 1.0415793661124482e-10,
+    "SH0ES": 1.1294085050601727e-10,
+    "TRGB": 1.0793087849561886e-10
+  },
+  "B0_needed_model1_sqrt": 0.7533941499383399,
+  "B0_needed_model2_linear": 0.8679828050937068,
+  "obs_uncertainty": {
+    "sigma_stat": 2e-12,
+    "sigma_syst": 2.4e-11,
+    "sigma_total": 2.408318915758459e-11
+  }
+}
