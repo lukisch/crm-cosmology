@@ -41,14 +41,14 @@
 \date{\today}
 
 \begin{abstract}
-We develop a game-theoretic framework for cosmology in which spacetime evolution is modeled as a Nash equilibrium between a metastable quantum vacuum (null space) and a spacetime bubble. The central result is the \textit{Curvature Relaxation Model} (CRM), which explains accelerated expansion not through dark energy but through a diminishing curvature return potential $\Omega_\Phi(a) = \Phi_0 \cdot \tanh(k(a - a_{\mathrm{trans}}))$ -- a geometric ``memory'' of the Big Bang energy concentration. Tested against 1,590 Pantheon+ Type~Ia supernovae \cite{Scolnic2022} with both diagonal and full covariance errors, the CRM yields $\Delta\chi^2 = -12.2$ ($-11.2$) and $\Delta\mathrm{AIC} = -8.2$ ($-7.2$) relative to $\Lambda$CDM; cross-validation confirms better generalization. MCMC analysis gives $\Omega_m = 0.368 \pm 0.024$; four alternative saturation functions yield comparable results, confirming robustness. The model predicts $w(z) < -1$ with $|\Delta w| \approx 0.4$ and a later acceleration onset ($z_{\mathrm{acc}} = 0.52$ vs.\ $0.84$), both testable with Euclid and Roman. The later acceleration implies an extended matter-dominated growth phase, naturally explaining the JWST ``Universe Breakers'' at $z > 7$ \cite{Labbe2023} and the El~Gordo anomaly \cite{Asencio2023}. Phantom stability is guaranteed by saturation ($\Omega_\Phi \to \Phi_0$, de~Sitter end state, no Big Rip). The game-theoretic axioms possess an exact thermodynamic equivalence connecting to the Jacobson tradition \cite{Jacobson1995}. Analysis code is publicly available.\footnote{\url{https://github.com/lukisch/cfm-cosmology}}
+We develop a game-theoretic framework for cosmology in which spacetime evolution is modeled as a Nash equilibrium between a metastable quantum vacuum (null space) and a spacetime bubble. The central result is the \textit{Curvature Relaxation Model} (CRM), which explains accelerated expansion not through dark energy but through a diminishing curvature return potential $\Omega_\Phi(a) = \Phi_0 \cdot \tanh(k(a - a_{\mathrm{trans}}))$ -- a geometric ``memory'' of the Big Bang energy concentration. Tested against 1,590 Pantheon+ Type~Ia supernovae \cite{Scolnic2022} with both diagonal and full covariance errors, the CRM yields $\Delta\chi^2 = -12.2$ ($-11.2$) and $\Delta\mathrm{AIC} = -8.2$ ($-7.2$) relative to $\Lambda$CDM; cross-validation confirms better generalization. MCMC analysis gives $\Omega_m = 0.368 \pm 0.024$; four alternative saturation functions yield comparable results, confirming robustness. The model predicts $w(z) < -1$ with $|\Delta w| \approx 0.4$ and a later acceleration onset ($z_{\mathrm{acc}} = 0.52$ vs.\ $0.84$), both testable with Euclid and Roman. The later acceleration implies an extended matter-dominated growth phase, naturally explaining the JWST ``Universe Breakers'' at $z > 7$ \cite{Labbe2023} and the El~Gordo anomaly \cite{Asencio2023}. Phantom stability is guaranteed by saturation ($\Omega_\Phi \to \Phi_0$, de~Sitter end state, no Big Rip). The game-theoretic axioms possess an exact thermodynamic equivalence connecting to the Jacobson tradition \cite{Jacobson1995}. Analysis code is publicly available.\footnote{\url{https://github.com/lukisch/crm-cosmology}}
 \end{abstract}
 
 \keywords{game theory, Nash equilibrium, cosmology, dark energy, curvature return potential, Curvature Relaxation Model, Friedmann equation, Finsler gravity, accelerated expansion, equation of state}
 
 \maketitle
 
-\thanks{AI tools (Claude, Anthropic; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/lukisch/cfm-cosmology}.}
+\thanks{AI tools (Claude, Anthropic; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/lukisch/crm-cosmology}.}
 
 \thanks{Paper~I in the CRM series.}
 
@@ -312,7 +312,7 @@ M_{\mathrm{best}} = \frac{\sum_i w_i (m_i^{\mathrm{obs}} - \mu_i^{\mathrm{th}})}
 
 \textbf{MCMC uncertainties:} For the flat CRM, parameter uncertainties are determined using \textit{emcee} \cite{ForemanMackey2013} (32~walkers, 3,000~steps, 500~burn-in). The posterior distributions yield $1\sigma$ confidence intervals for all parameters including derived quantities $\Phi_0$ and $z_{\mathrm{trans}}$.
 
-\textbf{Model selection:} In addition to $\chi^2$, the Akaike Information Criterion (AIC~$= \chi^2 + 2k$) and the Bayesian Information Criterion (BIC~$= \chi^2 + k \ln n$) are computed, where $k$ is the number of effective parameters and $n$ the number of data points. To check for overfitting, a 5-fold cross-validation is additionally performed. The complete analysis code is publicly available.\footnote{\url{https://github.com/lukisch/cfm-cosmology}}
+\textbf{Model selection:} In addition to $\chi^2$, the Akaike Information Criterion (AIC~$= \chi^2 + 2k$) and the Bayesian Information Criterion (BIC~$= \chi^2 + k \ln n$) are computed, where $k$ is the number of effective parameters and $n$ the number of data points. To check for overfitting, a 5-fold cross-validation is additionally performed. The complete analysis code is publicly available.\footnote{\url{https://github.com/lukisch/crm-cosmology}}
 
 \subsection{Results}
 \label{subsec:results}
@@ -625,7 +625,7 @@ $z_{\mathrm{acc}}$ (transition) & 0.84 & 0.52 \\
 \item \textbf{Testability:} Specific, quantitative predictions for $w(z)$ and $z_{\mathrm{acc}}$ that are verifiable within a decade.
 \item \textbf{Empirical support:} The CRM prediction of an extended growth phase ($z_{\mathrm{acc}} = 0.52$) offers a natural explanation for the JWST ``early galaxy tension'' \cite{Labbe2023, BoylanKolchin2023}, the El~Gordo anomaly \cite{Asencio2023}, and unexpectedly mature protoclusters \cite{Miller2018}.
 \item \textbf{Convergence of independent approaches:} CRM, Finsler gravity, and Cosmological Teleodynamics independently arrive at the same conclusion: dark energy is not necessary.
-\item \textbf{Reproducibility:} Analysis code and data are publicly available (\url{https://github.com/lukisch/cfm-cosmology}).
+\item \textbf{Reproducibility:} Analysis code and data are publicly available (\url{https://github.com/lukisch/crm-cosmology}).
 \end{enumerate}
 
 \subsection{Limitations and Open Questions}
@@ -727,7 +727,7 @@ This research received no external funding.
 \paragraph{Data availability.}
 The Pantheon+ supernova data \cite{Scolnic2022} are publicly available.
 All analysis code and numerical results are available at
-\url{https://github.com/lukisch/cfm-cosmology}
+\url{https://github.com/lukisch/crm-cosmology}
 (DOI: \href{https://doi.org/10.5281/zenodo.18728936}{10.5281/zenodo.18728936}).
 
 \begin{thebibliography}{99}
