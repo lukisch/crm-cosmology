@@ -25,7 +25,6 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import json
 import subprocess
-import os
 
 # ============================================================
 # Constants
@@ -43,8 +42,8 @@ A0_OBS = 1.20e-10
 RESULTS_DIR = Path("/home/cfm-cosmology/results/paper4/a0_discrepancy")
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
-TELEGRAM_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-TELEGRAM_CHAT = os.environ.get("TELEGRAM_CHAT_ID", "595767047")
+TELEGRAM_TOKEN = "7952992531:AAH_z_IlLcc5pl0HsBSJxSG9XtgX1jUiJFc"
+TELEGRAM_CHAT = "595767047"
 
 
 def send_telegram(msg):
