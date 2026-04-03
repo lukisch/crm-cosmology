@@ -1,0 +1,147 @@
+Loading Planck 2018 data...
+Data: TT=2471, TE=1967, EE=1967, total=6405
+Loading checkpoint: /home/cfm-cosmology/results/cfm_fR_mcmc_chain_checkpoint_500.npz
+Checkpoint: Step 500, 24000 samples, acceptance=0.483
+Resuming from 48 walker positions:
+     alpha_M_0: 0.001022 +/- 0.000720
+         n_exp: 0.725894 +/- 0.468020
+     omega_cdm: 0.119968 +/- 0.000273
+         logAs: 3.044707 +/- 0.002226
+           n_s: 0.965367 +/- 0.002795
+
+================================================================================
+MCMC RESUME: cfm_fR (continuing from step 500)
+  Remaining steps: 4500
+  Walkers: 48, Cores: 6
+  maxtasksperchild: 50 (Worker-Recycling gegen Memory Leak)
+  Checkpoint every 250 steps
+  Save path: /home/cfm-cosmology/results/cfm_fR_mcmc_chain.npz
+================================================================================
+
+[20:50:25] Starting production (steps 501-5000)...
+  [22:22:38] Step 600/5000, accept=0.472, best_logL=-3312.6, time=92.2min, RAM=1.5/30.6GB (free=28.8GB)
+  [23:54:20] Step 700/5000, accept=0.468, best_logL=-3312.6, time=183.9min, RAM=1.4/30.6GB (free=28.8GB)
+  [01:26:44] Step 800/5000, accept=0.467, best_logL=-3312.6, time=276.3min, RAM=1.4/30.6GB (free=28.8GB)
+  [03:00:14] Step 900/5000, accept=0.468, best_logL=-3312.6, time=369.8min, RAM=1.5/30.6GB (free=28.8GB)
+  [04:34:53] Step 1000/5000, accept=0.470, best_logL=-3312.6, time=464.5min, RAM=1.5/30.6GB (free=28.8GB)
+    -> Checkpoint saved (step 1000, 48000 total samples)
+  [06:11:08] Step 1100/5000, accept=0.473, best_logL=-3312.6, time=560.7min, RAM=1.6/30.6GB (free=28.6GB)
+  [07:45:29] Step 1200/5000, accept=0.473, best_logL=-3312.6, time=655.1min, RAM=1.5/30.6GB (free=28.7GB)
+  [09:19:41] Step 1300/5000, accept=0.472, best_logL=-3312.6, time=749.3min, RAM=1.5/30.6GB (free=28.7GB)
+  [10:53:49] Step 1400/5000, accept=0.471, best_logL=-3312.6, time=843.4min, RAM=1.4/30.6GB (free=28.8GB)
+  [12:28:16] Step 1500/5000, accept=0.472, best_logL=-3312.6, time=937.8min, RAM=1.4/30.6GB (free=28.9GB)
+    -> Checkpoint saved (step 1500, 72000 total samples)
+  [14:02:07] Step 1600/5000, accept=0.472, best_logL=-3312.6, time=1031.7min, RAM=1.5/30.6GB (free=28.7GB)
+  [15:32:03] Step 1700/5000, accept=0.472, best_logL=-3312.6, time=1121.6min, RAM=1.4/30.6GB (free=28.8GB)
+  [17:04:36] Step 1800/5000, accept=0.472, best_logL=-3312.6, time=1214.2min, RAM=1.4/30.6GB (free=28.9GB)
+  [18:39:34] Step 1900/5000, accept=0.472, best_logL=-3312.6, time=1309.1min, RAM=1.5/30.6GB (free=28.7GB)
+  [20:10:39] Step 2000/5000, accept=0.469, best_logL=-3312.6, time=1400.2min, RAM=1.1/30.6GB (free=29.1GB)
+    -> Checkpoint saved (step 2000, 96000 total samples)
+  [21:43:15] Step 2100/5000, accept=0.468, best_logL=-3312.6, time=1492.8min, RAM=1.4/30.6GB (free=28.8GB)
+  [23:17:51] Step 2200/5000, accept=0.467, best_logL=-3312.6, time=1587.4min, RAM=1.4/30.6GB (free=28.8GB)
+  [00:48:24] Step 2300/5000, accept=0.467, best_logL=-3312.6, time=1678.0min, RAM=1.5/30.6GB (free=28.7GB)
+  [02:21:15] Step 2400/5000, accept=0.467, best_logL=-3312.6, time=1770.8min, RAM=1.5/30.6GB (free=28.7GB)
+  [03:55:14] Step 2500/5000, accept=0.467, best_logL=-3312.6, time=1864.8min, RAM=1.6/30.6GB (free=28.7GB)
+    -> Checkpoint saved (step 2500, 120000 total samples)
+  [05:29:03] Step 2600/5000, accept=0.467, best_logL=-3312.6, time=1958.6min, RAM=1.6/30.6GB (free=28.6GB)
+  [07:00:01] Step 2700/5000, accept=0.466, best_logL=-3312.6, time=2049.6min, RAM=1.4/30.6GB (free=28.8GB)
+  [08:32:15] Step 2800/5000, accept=0.465, best_logL=-3312.6, time=2141.8min, RAM=1.6/30.6GB (free=28.6GB)
+  [10:05:04] Step 2900/5000, accept=0.465, best_logL=-3312.6, time=2234.6min, RAM=1.5/30.6GB (free=28.7GB)
+  [11:36:14] Step 3000/5000, accept=0.464, best_logL=-3312.6, time=2325.8min, RAM=1.5/30.6GB (free=28.7GB)
+    -> Checkpoint saved (step 3000, 144000 total samples)
+  [13:07:12] Step 3100/5000, accept=0.463, best_logL=-3312.6, time=2416.8min, RAM=1.6/30.6GB (free=28.7GB)
+  [14:40:20] Step 3200/5000, accept=0.463, best_logL=-3312.6, time=2509.9min, RAM=1.5/30.6GB (free=28.7GB)
+  [16:14:20] Step 3300/5000, accept=0.463, best_logL=-3312.6, time=2603.9min, RAM=1.5/30.6GB (free=28.7GB)
+  [17:49:28] Step 3400/5000, accept=0.463, best_logL=-3312.6, time=2699.0min, RAM=1.5/30.6GB (free=28.8GB)
+  [19:22:45] Step 3500/5000, accept=0.463, best_logL=-3312.6, time=2792.3min, RAM=1.7/30.6GB (free=28.5GB)
+    -> Checkpoint saved (step 3500, 168000 total samples)
+  [20:58:35] Step 3600/5000, accept=0.464, best_logL=-3312.6, time=2888.2min, RAM=1.5/30.6GB (free=28.8GB)
+  [22:32:30] Step 3700/5000, accept=0.464, best_logL=-3312.6, time=2982.1min, RAM=1.5/30.6GB (free=28.8GB)
+  [00:06:30] Step 3800/5000, accept=0.464, best_logL=-3312.6, time=3076.1min, RAM=1.5/30.6GB (free=28.7GB)
+  [01:37:40] Step 3900/5000, accept=0.464, best_logL=-3312.6, time=3167.2min, RAM=1.6/30.6GB (free=28.6GB)
+  [03:11:57] Step 4000/5000, accept=0.464, best_logL=-3312.6, time=3261.5min, RAM=1.5/30.6GB (free=28.7GB)
+    -> Checkpoint saved (step 4000, 192000 total samples)
+  [04:45:21] Step 4100/5000, accept=0.464, best_logL=-3312.6, time=3354.9min, RAM=1.5/30.6GB (free=28.7GB)
+  [06:17:43] Step 4200/5000, accept=0.464, best_logL=-3312.6, time=3447.3min, RAM=1.6/30.6GB (free=28.6GB)
+  [07:49:59] Step 4300/5000, accept=0.464, best_logL=-3312.6, time=3539.6min, RAM=1.3/30.6GB (free=28.9GB)
+  [09:22:36] Step 4400/5000, accept=0.465, best_logL=-3312.6, time=3632.2min, RAM=1.4/30.6GB (free=28.8GB)
+  [10:55:50] Step 4500/5000, accept=0.465, best_logL=-3312.6, time=3725.4min, RAM=1.6/30.6GB (free=28.6GB)
+    -> Checkpoint saved (step 4500, 216000 total samples)
+  [12:30:04] Step 4600/5000, accept=0.465, best_logL=-3312.6, time=3819.6min, RAM=1.6/30.6GB (free=28.7GB)
+  [14:03:11] Step 4700/5000, accept=0.465, best_logL=-3312.6, time=3912.8min, RAM=1.6/30.6GB (free=28.6GB)
+  [15:37:10] Step 4800/5000, accept=0.465, best_logL=-3312.6, time=4006.7min, RAM=1.5/30.6GB (free=28.8GB)
+  [17:12:42] Step 4900/5000, accept=0.465, best_logL=-3312.6, time=4102.3min, RAM=1.5/30.6GB (free=28.8GB)
+  [18:44:11] Step 5000/5000, accept=0.465, best_logL=-3312.6, time=4193.8min, RAM=1.5/30.6GB (free=28.7GB)
+    -> Checkpoint saved (step 5000, 240000 total samples)
+
+================================================================================
+CONVERGENCE DIAGNOSTICS
+================================================================================
+
+Autocorrelation times (resume segment only, 4500 steps):
+     alpha_M_0: tau = 75.6
+         n_exp: tau = 83.4
+     omega_cdm: tau = 59.2
+         logAs: tau = 62.3
+           n_s: tau = 58.8
+
+Mean autocorrelation time: 67.9
+Chain length / tau: 66.3 (should be >> 50)
+Effective Sample Size (ESS): 3182
+
+Gelman-Rubin R-hat (split-chain, resume segment):
+     alpha_M_0: R-hat = 1.0155  [WARNING]
+         n_exp: R-hat = 1.0176  [WARNING]
+     omega_cdm: R-hat = 1.0143  [WARNING]
+         logAs: R-hat = 1.0174  [WARNING]
+           n_s: R-hat = 1.0130  [WARNING]
+
+================================================================================
+MCMC RESULTS (combined: checkpoint + resume)
+================================================================================
+
+Combined chain shape: (240000, 5)
+  Previous (checkpoint): 24000 samples
+  New (resume): 216000 samples
+Total evaluations (this run): 0
+Total time (this run): 4193.8 min
+Acceptance fraction (resume): 0.465
+
+Best-fit (lowest chi2 = 6625.1, dchi2 = -3.7):
+     alpha_M_0 = 0.002338
+         n_exp = 0.273327
+     omega_cdm = 0.120022
+         logAs = 3.044268
+           n_s = 0.965962
+
+Marginalized 1D constraints (mean +/- std):
+   Parameter         Mean        Std       Median        16%        84%
+----------------------------------------------------------------------
+     alpha_M_0     0.001273   0.000725     0.001147   0.000550   0.002098
+         n_exp     0.655309   0.402987     0.550646   0.256918   1.128392
+     omega_cdm     0.120013   0.000300     0.120015   0.119717   0.120309
+         logAs     3.044365   0.001941     3.044356   3.042432   3.046294
+           n_s     0.965631   0.002414     0.965607   0.963236   0.968021
+
+Derived parameters at best-fit:
+  A_s = 2.0995e-09
+  alpha_M(a=1) = 0.000637
+  Omega_m = 0.3142
+
+  P(alpha_M_0 > 0) = 0.9999
+  alpha_M_0 detection significance: 1.76 sigma
+
+Correlation matrix:
+              alpha_M_0      n_exp  omega_cdm      logAs        n_s
+     alpha_M_0      1.000     -0.612     -0.043     -0.078      0.083
+         n_exp     -0.612      1.000      0.032      0.030     -0.020
+     omega_cdm     -0.043      0.032      1.000      0.543     -0.049
+         logAs     -0.078      0.030      0.543      1.000     -0.544
+           n_s      0.083     -0.020     -0.049     -0.544      1.000
+
+Chain saved to: /home/cfm-cosmology/results/cfm_fR_mcmc_chain.npz
+Chain also saved to: /tmp/cfm_fR_mcmc_results.npz
+
+================================================================================
+MCMC COMPLETE
+================================================================================

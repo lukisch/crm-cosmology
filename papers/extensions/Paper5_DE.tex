@@ -1,0 +1,904 @@
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+
+% MiKTeX REVTeX 4.2 needs explicit package loading
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{{../figures/}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Korollar}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Bemerkung}
+\newtheorem{axiom}{Axiom}
+
+\usepackage{hyperref}
+\hypersetup{
+    pdftitle={Das Sättigungstheorem: Axiomatische Zwangsbedingungen für Quantengravitation aus kosmologischer Relaxation},
+    pdfauthor={Lukas Geiger},
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black
+}
+
+\begin{document}
+
+% ===================================================================
+% TITELSEITE
+% ===================================================================
+
+\title{Das Sättigungstheorem: Axiomatische Zwangsbedingungen\\für Quantengravitation aus kosmologischer Relaxation}
+
+\author{Lukas Geiger}
+\thanks{ORCID: \url{https://orcid.org/0009-0005-7296-1534}}
+\affiliation{Unabhängiger Forscher, Bernau, Deutschland}
+
+\date{\today}
+
+\begin{abstract}
+Wir formulieren vier minimale Axiome -- endliche geometrische Kapazität, kooperative Verstärkung mit antisymmetrischer Erweiterung, monotone kosmische Kontrolle und Renormierungsgruppen-Komposition mit Randregularität -- die jede Quantentheorie der Gravitation erfüllen muss, wenn ihr makroskopischer Limes die allgemeine Relativitätstheorie mit einem beschränkten Relaxationsmechanismus reproduziert. Aus diesen Axiomen allein leiten wir das \textit{Sättigungstheorem} her: die einzige glatte, skalenkohärente effektive Antwortfunktion, deren Komposition sich regulär zur Sättigungsgrenze fortsetzt, ist der Tangens hyperbolicus $S(g) = S_{\max}\tanh(\alpha\,u(g))$, bis auf Reparametrisierung. Alternative Profile -- logistisch, rational, Arkustangens oder harte Sättigung -- sind ausgeschlossen, es sei denn, sie reduzieren sich auf $\tanh$ über zulässige Reparametrisierung. Der mathematische Schlüsselhebel ist ein Kompositionsgesetz (Axiom~D), das die funktionale Form auf Lösungen der Abel-Gleichung einschränkt, deren einzige beschränkte monotone Lösung $\tanh$ ist. Große Quantengravitationsprogramme -- Schleifen-Quantengravitation, Asymptotic Safety, String-/holographische Ansätze, Kausalmengentheorie und nichtkommutative Geometrie -- erfüllen die Axiome auf natürliche Weise, wenn sie auf kosmologische Observablen eingeschränkt werden, was die Universalität der Sättigungsdynamik über disparate Frameworks hinweg erklärt. Das Resultat erhebt die $\tanh$-Sättigungs-ODE $dX/da = k(1-X^2)$ des Curvature Relaxation Model von einem phänomenologischen Fit zu einer \textit{universellen Normalform} kapazitätsbegrenzter kooperativer Relaxation, wobei die offene Frage bleibt, welche UV-Vervollständigung $k$ und $\Phi_0$ festlegt.
+\end{abstract}
+
+\keywords{Quantengravitation, Sättigungsdynamik, axiomatische Kosmologie, No-Go-Theorem, Curvature Relaxation Model, tanh-Universalität, Renormierungsgruppe}
+
+\thanks{KI-Werkzeuge (Claude, Anthropic; Copilot, Microsoft/GitHub; Gemini, Google DeepMind) wurden für mathematische Formalisierung, Literaturrecherche, Code-Entwicklung und Texterstellung verwendet. Alle physikalischen Hypothesen, axiomatischen Entscheidungen, wissenschaftliche Interpretation und Verantwortung für die Inhalte liegen vollständig beim Autor.}
+
+\thanks{Paper~V der CRM-Serie. Begleitarbeiten: \cite{Geiger2026,Geiger2026b,Geiger2026c,Geiger2026d}.}
+
+\maketitle
+
+% ===================================================================
+% 1. EINLEITUNG
+% ===================================================================
+\section{Einleitung}
+\label{sec:intro}
+
+\subsection{Das Problem}
+
+Die Vereinigung der Quantenmechanik und der allgemeinen Relativitätstheorie bleibt das zentrale offene Problem der theoretischen Physik. Nach Jahrzehnten intensiver Forschung haben mehrere bedeutende Forschungsprogramme tiefe strukturelle Einsichten geliefert, ohne bislang auf eine einzige Theorie zu konvergieren:
+
+\begin{itemize}
+\item \textbf{Effective field theory (EFT) der Gravitation} berechnet zuverlässige Quantenkorrektionen bei niedrigen Energien, bietet aber keine UV-Vervollständigung \cite{Donoghue1994}.
+\item \textbf{Asymptotic Safety} sucht einen UV-Fixpunkt des Renormierungsgruppenflusses (RG) der Gravitation, wodurch die Theorie ohne neue Freiheitsgrade eingeschränkt wird \cite{Weinberg1979,Reuter1998,Percacci2017}.
+\item \textbf{Stringtheorie} bietet einen UV-endlichen Rahmen, der Gravitation automatisch enthält, sieht sich aber dem Landscape/Selection-Problem gegenüber \cite{Polchinski1998}.
+\item \textbf{Loop Quantum Gravity (LQG)} erreicht Hintergrundunabhängigkeit mit diskreten Geometrieoperatoren, hat aber Schwierigkeiten mit der Dynamik und dem klassischen Limes \cite{Rovelli2004,Thiemann2007}.
+\item \textbf{Holographie/AdS-CFT} bietet eine nichtperturbative Definition der Quantengravitation im anti-de~Sitter-Raum, mit unklarer Erweiterung auf realistische Kosmologie \cite{Maldacena1999}.
+\item \textbf{Causal Sets} postulieren diskrete Kausalstruktur als fundamental, mit dem Kontinuum als emergent \cite{Sorkin2003,Surya2019}.
+\item \textbf{Noncommutative geometry} formuliert Geometrie als Spektraldaten neu und verbindet natürlich Operatoren und Raumzeit \cite{Connes1994}.
+\end{itemize}
+
+Orthogonal zu diesen UV-Vervollständigungsprogrammen beschränken die \textit{Swampland-Vermutungen} \cite{Obied2018} die Frage, welche niederenergetischen Theorien konsistent in die Quantengravitation eingebettet werden können, während die \textit{EFT der Dark Energy} \cite{Gubitosi2013} Abweichungen von $\Lambda$CDM auf perturbativer Ebene parametrisiert. Kein Framework bestimmt jedoch die \textit{funktionale Form} des kosmologischen Sättigungsprofils.
+
+Eine bemerkenswerte Beobachtung ist, dass wenn eines der oben aufgelisteten UV-Vervollständigungsprogramme auf die Kosmologie angewendet wird, die resultierende effektive Dynamik generisch \textit{Sättigungsverhalten} aufweist: einen begrenzten, kooperativen Ansatz zu einer maximalen geometrischen Konfiguration. Dieses Papier fragt, ob diese Universalität zufällig oder unvermeidlich ist.
+
+\subsection{Das CRM als empirischer Anker}
+
+Das Curvature Relaxation Model (CRM) \cite{Geiger2026,Geiger2026b,Geiger2026c,Geiger2026d} bietet einen konkreten, empirisch getesteten kosmologischen Rahmen, in dem Sättigungsdynamik eine zentrale Rolle spielt. Das Modell ersetzt die kosmologische Konstante $\Lambda$ und partikuläre Dunkle Materie durch geometrische Krümmungsrückkehr und erreicht $\Delta\chi^2 = -5,5$ gegenüber $\Lambda$CDM auf gemeinsamen SN+CMB+BAO-Daten mit 6 Parametern und null Early Dark Energy \cite{Geiger2026b}. Das gesamte Framework leitet sich aus einer einzelnen dynamischen Gleichung ab:
+\begin{equation}
+\frac{dX}{da} = k(1 - X^2)\,,
+\label{eq:saturation_ode}
+\end{equation}
+wobei $X = \Omega_\Phi/\Phi_0$ das normalisierte Krümmungsrückkehrpotential ist und $a$ der Skalenfaktor ist. Die Lösung $X(a) = \tanh(k(a - a_{\mathrm{trans}}))$ bietet Spätzeit-Beschleunigung (``Dunkle Energie'') in ihrer gesättigten Phase und gravitatives Gerüst (``Dunkle Materie'') in ihrer ungesättigten Phase \cite{Geiger2026b}.
+
+Paper III \cite{Geiger2026c} leitet diese ODE aus der effektiven Lagrangedichte $\mathcal{L}_{\mathrm{CRM}} = R/(16\pi G) + \gamma \mathcal{F}(T/\rho) R^2 + \frac{1}{2}(\partial\phi)^2 - V_{\mathrm{PT}}(\phi)$ ab, wobei $V_{\mathrm{PT}}(\phi) = V_0/\cosh^2(\phi/\phi_0)$ ein Pöschl-Teller-Potential ist. Paper III untersucht auch fünf UV-Vervollständigungskandidaten (LQG, Finsler-Geometrie, informationstheoretische Raumzeit, Causal Sets, Quanten-Fehlerkorrektur) und beobachtet, dass alle ODE-Strukturen der Form $dX/dt \propto (1 - X^2)$ produzieren.
+
+Das vorliegende Papier erhebt diese Beobachtung von \textit{struktureller Analogie} zu \textit{mathematischem Theorem}: Wir beweisen, dass jede Theorie, die vier physikalisch motivierte Axiome erfüllt, Sättigungsverhalten vom $\tanh$-Typ produzieren muss, unabhängig von ihrem mikroskopischen Mechanismus.
+
+\subsection{Umfang und Struktur}
+
+Das zentrale Ergebnis ist das \textit{Saturation Theorem} (Theorem~\ref{thm:saturation}): Unter den Axiomen A--D (einschließlich Randregularität des Kompositionsgesetzes) ist die effektive kosmologische Antwortfunktion eindeutig als $\tanh$ bestimmt, bis auf Umparametrisierung. Das Papier ist wie folgt strukturiert:
+
+\begin{itemize}
+\item Section~\ref{sec:axioms}: Formulierung der vier Axiome.
+\item Section~\ref{sec:theorem}: Aussage und Beweis des Saturation Theorem.
+\item Section~\ref{sec:exclusion}: Ausschluss alternativer Sättigungsprofile.
+\item Section~\ref{sec:qg}: Verifikation der Axiome in bedeutenden QG-Programmen.
+\item Section~\ref{sec:ontology}: Ontologische Implikationen: Raumzeit als geordnete Phase.
+\item Section~\ref{sec:observational}: Beobachtungsfolgerungen und offene Fragen.
+\item Section~\ref{sec:discussion}: Diskussion und Ausblick.
+\end{itemize}
+
+
+% ===================================================================
+% 2. DIE VIER AXIOME
+% ===================================================================
+\section{Die vier Axiome}
+\label{sec:axioms}
+
+Wir formulieren die Axiome in Begriffen einer effektiven Antwortfunktion $S_T(g)$, wobei $T$ eine Quantengravitationstheorie bezeichnet und $g$ ein effektiver Kopplungs-/Krümmungs-/Rückkopplungsparameter ist, der die ``Entfernung'' von UV zu IR misst. Die Funktion $S_T(g)$ kodiert, wie die geometrische Ausgabe der Theorie (Krümmung, Expansionsrate, geometrische Ordnung) auf $g$ reagiert.
+
+\subsection{Axiom A: Endliche geometrische Kapazität}
+
+\begin{axiom}[Endliche geometrische Kapazität]
+\label{ax:capacity}
+Pro Hubble-Patch existiert eine endliche maximale geometrische Ordnung $C_{\max} < \infty$. Äquivalent ist die effektive Antwortfunktion $S_T(g)$ global beschränkt:
+\begin{equation}
+0 \leq S_T(g) < S_{\max} < \infty \quad \forall\, g \geq 0\,.
+\end{equation}
+\end{axiom}
+
+\textit{Physikalischer Inhalt.} Dieses Axiom schließt unendliche Krümmung, unendliche Informationsdichte und UV-Divergenzen aus. Es ist extrem schwach: es gilt in LQG (endliche Flächenquanta \cite{Rovelli2004}), in Holographie (Bekenstein-Schranke \cite{Bekenstein1981}), in quantenmechanisch fehlerkorrigierender Raumzeit (endliche Code-Kapazität \cite{Almheiri2015}), in Causal Set-Theorie (endliche Dichte \cite{Sorkin2003}) und in Asymptotic Safety (endliche effektive Wirkung am UV-Fixpunkt \cite{Reuter1998}).
+
+Ohne endliche Kapazität ist Quantengravitation per Definition instabil: unbegrenzte geometrische Konfigurationen entsprechen Singularitäten, die jedes QG-Programm aufzulösen anstrebt.
+
+\textit{Verbindung zum CRM.} Die Sättigungsamplitude $\Phi_0$ im CRM \cite{Geiger2026} ist die physikalische Realisierung von $S_{\max}$. Das Pöschl-Teller-Potential $V(\phi) = V_0/\cosh^2(\phi/\phi_0)$ erzwingt dynamisch $\Omega_\Phi \leq \Phi_0$ \cite{Geiger2026c}.
+
+\subsection{Axiom B: Kooperative Verstärkung}
+
+\begin{axiom}[Kooperative Verstärkung]
+\label{ax:cooperative}
+Existierende geometrische Ordnung erleichtert weitere Ordnung. Die effektive Antwortfunktion $S_T(g)$ ist glatt ($C^\infty$) für $g \geq 0$ mit einer lokalen Expansion bei $g = 0$:
+\begin{equation}
+S_T(g) = c_1 g + c_3 g^3 + \mathcal{O}(g^5)\,, \quad c_1 > 0\,.
+\label{eq:ir_expansion}
+\end{equation}
+Die ungerade-Potenz-Struktur spiegelt den katalytischen Charakter der Antwort: die Rate der geometrischen Ordnung ist proportional sowohl zur bestehenden geordneten Fraktion als auch zur verbleibenden Kapazität.
+\end{axiom}
+
+\textit{Physikalischer Inhalt.} Dieses Axiom kodiert den kooperativen, selbstverstärkenden Charakter der geometrischen Ordnung. Es ist das gravitative Analogon der ferromagnetischen Ordnung, bei der ausgerichtete Spins weitere Ausrichtung erleichtern. Formal stellt die Bedingung $c_1 > 0$ sicher, dass die Antwort für kleine Perturbationen positiv (Ordnung, nicht Desordnung) ist, während die ungerade-Potenz-Struktur mit der antisymmetrischen Erweiterung konsistent ist (Axiom B').
+
+Ohne kooperative Verstärkung gäbe es keine klassische Raumzeit: eine lineare oder antikooperative Antwort kann nicht die langlebigen, großräumigen geometrischen Strukturen des Universums erzeugen. Der kooperative Charakter ist analog zum spontanen Symmetriebruch in der Festkörperphysik: lokale Ordnung sät weitere Ordnung, treibt das System zu einem global geordneten Zustand (Sättigung).
+
+\textit{Verbindung zum CRM.} Die Sättigungskopplung $k$ in der CRM-ODE~\eqref{eq:saturation_ode} ist $c_1$. Das spieltheoretische Gleichgewicht aus Paper I \cite{Geiger2026} bietet die thermodynamische Motivation: der Konzentrationsgradient $G$ des Nullraums treibt kooperative Ordnung, bis die Raumzeit-Blase sättigt.
+
+Eine Begleitbedingung erweitert den Bereich von $S_T$ auf negative Argumente, was die gruppentheoretische Klassifizierung von Schritt 2 im Beweis ermöglicht:
+
+\begin{axiom}[Antisymmetrische Erweiterung (B')]
+\label{ax:antisymmetry}
+Die Antwortfunktion $S_T$ lässt eine glatte antisymmetrische Erweiterung auf alle $g \in \mathbb{R}$ zu:
+\begin{equation}
+S_T(-g) = -S_T(g) \quad \forall\, g\,.
+\label{eq:antisymmetry}
+\end{equation}
+\end{axiom}
+
+\textit{Physikalischer Inhalt.} Die Antisymmetrie hat drei komplementäre Motivationen:
+
+\textit{(i) Vorzeichenkovarianz der Antwort.} Der Parameter $g$ ist keine ``Entfernung'' (die per Definition nicht-negativ wäre), sondern eine \textit{vorzeichenbehaftete Abweichung} von einem symmetrischen Referenzzustand. Im CRM parametrisiert $g$ die Krümmungsperturbation relativ zum de~Sitter-Hintergrund; positives $g$ entspricht überdichten Perturbationen, die geometrische Ordnung verstärken, negatives $g$ zu unterdichten Regionen, die sie reduzieren. Vorzeichenkovarianz ($S_T(-g) = -S_T(g)$) besagt dann, dass die Antwortfunktion über- und unterdichte Regionen symmetrisch in Magnitude behandelt -- eine natürliche physikalische Anforderung ohne symmetriebrechenden Mechanismus in der Antwort selbst. Wir betonen, dass Axiom B' \textit{nicht} eine Aussage über kosmologische Zeitumkehrsymmetrie ist (die durch die Expansion gebrochen ist); es ist eine Beschränkung der funktionalen Form der Antwort unter $g \to -g$.
+
+\textit{(ii) Präzedenzfälle in der Physik.} Vorzeichenkovarianz von Antwortfunktionen ist ubiquitär: in der Elektrodynamik die Polarisierung $P(-E) = -P(E)$ für zentrosymmetrische Medien; im Magnetismus $M(-H) = -M(H)$ für die paramagnetische/ferromagnetische Antwort; in der Renormalisierungsgruppe sind Beta-Funktionen dimensionsloser Kopplungen ungerade Funktionen der Kopplungsabweichung von einem Fixpunkt. Die Antisymmetrie von Axiom B' ist das gravitative Analogon dieser wohlbekannten Symmetrien.
+
+\textit{(iii) Mathematische Rolle.} Zusammen mit der ungerade-Potenz-Struktur von Axiom B erweitert B' das Kompositionsgesetz von der Halbgerade $[0, S_{\max})$ zu einer vollständigen Gruppenoperation auf $(-S_{\max}, S_{\max})$, die für die Abel-Gleichungs-Klassifizierung wesentlich ist. Ohne B' steht nur eine Halbgruppen-Struktur zur Verfügung, und das Eindeutigkeitsargument von Schritt 2 gilt nicht in derselben Form. Wir beachten, dass dies eine explizite Annahme ist, keine abgeleitete Konsequenz; ihre Lockerung führt zu alternativen Kompositionsstrukturen (z.B. $C(x,y) = x + y - xy$ auf $[0,1)$), weshalb sie als separates Axiom erscheint, statt in Axiom B subsumiert zu werden.
+
+\subsection{Axiom C: Monotone kosmische Kontrolle}
+
+\begin{axiom}[Monotone kosmische Kontrolle]
+\label{ax:monotone}
+Die effektive Antwortfunktion $S_T(g)$ ist monoton wachsend mit Sättigung im Unendlichen:
+\begin{equation}
+S_T'(g) \geq 0\,, \quad \lim_{g \to \infty} S_T(g) = S_{\max}\,.
+\label{eq:monotone}
+\end{equation}
+Es gibt genau eine relevante Richtung (Kontrollparameter), die den Übergang von niedriger zu hoher geometrischer Ordnung regiert.
+\end{axiom}
+
+\textit{Physikalischer Inhalt.} Dies schließt oszillierende, Multi-Fixpunkt- oder chaotische geometrische Dynamik aus. Es garantiert:
+\begin{itemize}
+\item Eine eindeutige Zeitrichtung (thermodynamischer Pfeil).
+\item Kein ``Springen'' zwischen geometrischen Phasen.
+\item Stabile Expansion zu einem de~Sitter-Attraktor.
+\end{itemize}
+
+Im CRM ist der Kontrollparameter der Skalenfaktor $a$; in RG-Sprache entspricht er der einzelnen relevanten Richtung, die vom UV-Fixpunkt zum IR fließt \cite{Percacci2017}. Axiom C wird verletzt durch zyklische Kosmologien und durch Modelle mit mehreren stabilen Vakua -- beide denen ein eindeutiger thermodynamischer Pfeil fehlt. Wir beachten, dass Axiom C eine Einschränkung auf den \textit{kosmologischen Sektor} mit einem einzelnen dominanten Übergang ist: es behandelt nicht die String-Landschaft (wo Tunneln zwischen metastabilen Vakua zu nicht-monotonen Trajektorien führt) oder stochastische Inflation (wo lokale Fluktuationen die Monotonie brechen). Diese Szenarios betreffen mehrere effektive Kontrollparameter oder stochastische Dynamik und liegen außerhalb des Bereichs des Einfeld-, deterministischen Axiom-Systems. Das Theorem sollte gelesen werden als: ``innerhalb der Klasse von Theorien mit einem einzelnen deterministischen Sättigungskanal ist die funktionale Form eindeutig $\tanh$.''
+
+\textit{Verbindung zum CRM.} Die Monotonie von $\Omega_\Phi(a)$ ist eine direkte Konsequenz der ODE~\eqref{eq:saturation_ode}: da $1 - X^2 > 0$ für $|X| < 1$ ist, ist die Lösung streng wachsend.
+
+\begin{remark}[Axiom-Interdependenz]
+Wie in Corollary~\ref{cor:monotonicity} gezeigt, folgt Monotonie (Axiom C) aus den Axiomen A, B, B' und D. Wir behalten dennoch Axiom C als explizite Aussage für physikalische Transparenz: es verbindet sich direkt mit dem thermodynamischen Zeitpfeil und macht den Ausschluss von oszillierender/chaotischer Kosmologie auf der Axiom-Ebene sichtbar. Der logische Gehalt des Axiom-Systems ist daher: drei unabhängige Axiome (A, B/B', D) plus eine abgeleitete Konsequenz (C).
+\end{remark}
+
+\subsection{Axiom D: Renormalisierungsgruppenkomposition}
+
+\begin{axiom}[Renormalisierungsgruppenkomposition]
+\label{ax:composition}
+Es existiert eine Skalenkomposition $g \mapsto g_1 \oplus g_2$ (``zwei RG-Schritte in Abfolge'') derart, dass die Antwortfunktion kompositionell kohärent ist:
+\begin{equation}
+S_T(g_1 \oplus g_2) = \mathcal{C}\!\left(S_T(g_1),\, S_T(g_2)\right)\,,
+\label{eq:composition}
+\end{equation}
+wobei $\mathcal{C}$ eine glatte, kommutative, assoziative Komposition mit neutralem Element $0$ und absorbierendem Rand $S_{\max}$ ist:
+\begin{equation}
+\mathcal{C}(S, 0) = S\,, \quad \mathcal{C}(S, S_{\max}) = S_{\max}\,.
+\label{eq:composition_boundary}
+\end{equation}
+Überdies erstreckt sich $\mathcal{C}$ glatt (d.h. $C^\infty$) auf das abgeschlossene Quadrat $[0, S_{\max}]^2$.
+\end{axiom}
+
+\textit{Physikalischer Inhalt.} Dies ist das tiefste Axiom. Es besagt, dass die geometrische Antwort \textit{selbst-konsistent unter Grobkörnung} sein muss: das Universum bei zwei aufeinanderfolgenden Skalen zu beobachten und die Ergebnisse zu kombinieren muss die gleiche Antwort geben wie die direkte Beobachtung bei der kombinierten Skala. Dies ist die definierende Eigenschaft einer Renormalisierungsgruppe.
+
+Das Kompositionsgesetz~\eqref{eq:composition} kodiert die Anforderung, dass die Theorie \textit{skala-kohärent} im folgenden präzisen Sinne sein muss: die Antwortfunktion $S_T$ ist ein Homomorphismus von der additiven Struktur des Kontrollparameters zur Kompositionsalgebra von Antworten; d.h. keine bevorzugte Skala existiert, auf der diese Homomorphismus-Eigenschaft abbricht oder ihren Charakter ändert. Die absorbierende Randbedingung $\mathcal{C}(S, S_{\max}) = S_{\max}$ spiegelt die Tatsache, dass vollständig gesättigte Geometrie nicht weiter geordnet werden kann -- sie ist ein Fixpunkt.
+
+Die $C^\infty$-Erweiterungsanforderung hat eine direkte physikalische Interpretation: sie verlangt, dass das Kompositionsgesetz \textit{auch nahe der Sättigung} wohlverhalten bleibt. In physikalischen Begriffen bedeutet dies, dass der Ansatz zur geometrischen Kapazitätsgrenze glatt ist und keine neuen Divergenzen oder kritischen Exponenten einführt. Drei physikalische Argumente stützen diese Anforderung:
+
+\textit{(a) Keine neue Phasenübergang bei Sättigung.} Eine Komposition, die singuläre Ableitungen am Rand entwickelt, würde einen Phasenübergang \textit{innerhalb} des Sättigungsprozesses selbst signalisieren -- d.h. der Sättigungsmechanismus würde gerade dort zusammenbrechen, wo er am meisten benötigt wird. Die Glattheitsbedingung schließt solch pathologisches Verhalten aus. Dies unterscheidet sich von Phasenübergängen beim \textit{Beginn} der Sättigung (die erlaubt sind und der Übergangsepoche $a_{\mathrm{trans}}$ des CRM entsprechen); die Randregularität betrifft das \textit{vollständig gesättigte} Regime.
+
+\textit{(b) Unterscheidung von kritischen Phänomenen.} Während kritische Exponenten und divergente Suszeptibilitäten Phasenübergänge bei endlicher Temperatur charakterisieren (der Curie-Punkt in Ferromagneten, $T_c$ in Supraflüida), ist die Sättigungsgrenze $S \to S_{\max}$ ein \textit{asymptotisches} Regime ($g \to \infty$), kein kritischer Punkt. In der ferromagnetischen Analogie entspricht dies $T \to 0$ (vollständige Ausrichtung), nicht $T \to T_c$ (kritische Fluktuationen). Der Null-Temperatur-Limes der Magnetisierung \textit{ist} glatt ($M \to M_s$ exponentiell in Mean-Field-Theorie und als Potenzgesetz bei niedrigem $T$, aber ohne divergente Ableitungen der \textit{Komposition} von Magnetisierungen). Die $C^\infty$-Anforderung ist daher physikalisch angemessen für die Sättigungsgrenze.
+
+\textit{(c) Analytizität des Vakuumzustands.} In der Quantenfeldtheorie ist das Vakuum ein analytischer Zustand: alle Korrelationsfunktionen im Vakuum sind glatt. Da vollständige Sättigung ($S = S_{\max}$) den geometrischen Analogon des Vakuums darstellt (der maximal geordnete Zustand), sollte die Komposition von Antworten nahe diesem Zustand die Glattheit des Vakuums erben.
+
+\textit{Verbindung zum CRM.} Im CRM entsteht das Kompositionsgesetz aus der thermodynamischen Struktur: das Krümmungsrückkehrpotential $\Omega_\Phi$ bei Skala $a_1 \cdot a_2$ wird durch die Potentiale bei $a_1$ und $a_2$ durch die Gruppeneigenschaft der Sättigungs-ODE bestimmt. Die $\tanh$-Funktion erfüllt $\tanh(u_1 + u_2) = (\tanh u_1 + \tanh u_2)/(1 + \tanh u_1 \tanh u_2)$, was genau ein Kompositionsgesetz der geforderten Form mit $\mathcal{C}(x,y) = (x + y)/(1 + xy/S_{\max}^2)$ ist.
+
+
+% ===================================================================
+% 3. THE SATURATION THEOREM
+% ===================================================================
+\section{Das Saturation Theorem}
+\label{sec:theorem}
+
+\subsection{Aussage}
+
+\begin{theorem}[Saturation Theorem]
+\label{thm:saturation}
+Sei $T$ eine Theorie, deren effektive Antwortfunktion $S_T(g)$ die Axiome A--D erfüllt (einschließlich Rand-Regularität von $\mathcal{C}$) und die Antisymmetrie-Bedingung B'. Dann existieren Konstanten $\alpha > 0$, $S_{\max} > 0$ und eine strikt monotone Umparametrisierung $u = u(g)$ mit $u(0) = 0$, so dass
+\begin{equation}
+S_T(g) = S_{\max}\,\tanh\!\left(\alpha\,u(g)\right)\,.
+\label{eq:saturation_form}
+\end{equation}
+Das Kompositionsgesetz ist eindeutig als relativistische Geschwindigkeitsaddition $\mathcal{C}(x,y) = (x+y)/(1+xy)$ bestimmt, bis auf Reskalierung durch $S_{\max}$. Keine Theorie, die die Axiome erfüllt, kann eine andere Kompositionsstruktur annehmen.
+\end{theorem}
+
+\subsection{Zentrale Lemmata}
+
+Die Eindeutigkeit von $\mathrm{arctanh}$ beruht auf der folgenden Kette von Ergebnissen, die wir hier formulieren und in Schritt 2 des Beweises verwenden.
+
+\begin{lemma}[Shift-Regularität erzwingt exponentielle Verankerung]\label{lem:shift_regular_exponential}
+Sei $\psi:\mathbb{R}\to(-1,1)$ ein $C^\infty$ strikt wachsender ungerader Diffeomorphismus und definiere
+\[
+C(x,y):=\psi(\psi^{-1}(x)+\psi^{-1}(y))\qquad (x,y\in(-1,1)).
+\]
+Angenommen, $C\in C^\infty((-1,1)^2)$. Setze $\delta(u):=1-\psi(u)$ für $u\to+\infty$.
+Dann existiert $\kappa>0$ derart, dass für jedes feste $v\in\mathbb{R}$,
+\[
+\lim_{u\to+\infty}\frac{\delta(u+v)}{\delta(u)}=e^{-\kappa v}.
+\]
+Insbesondere gilt $\delta(u)=A\,e^{-\kappa u}\,(1+o(1))$ für $u\to+\infty$ mit $A>0$.
+\end{lemma}
+
+\begin{proof}[Beweisskizze]
+Fixiere $v\in\mathbb{R}$ und betrachte $x=\psi(u)$ mit $u\to+\infty$. Dann gilt $C(x,\psi(v))=\psi(u+v)\to 1$. Die Annahme $C\in C^\infty((-1,1)^2)$ impliziert, dass für jedes feste $v$ alle $x$-Ableitungen von $x\mapsto C(x,\psi(v))$ endlich bleiben, wenn $x\to 1^-$, was in eine gleichmäßige Kontrolle der $u$-Asymptotik von $\psi(u+v)$ relativ zu $\psi(u)$ übersetzt. Dies erzwingt, dass das Shift-Verhältnis $\delta(u+v)/\delta(u)$ konvergiert und die multiplikative Cauchysche Funktionalgleichung in $v$ erfüllt, daher muss es $e^{-\kappa v}$ für ein $\kappa>0$ sein.
+\end{proof}
+
+\begin{proposition}[Quadratisches Verschwinden des infinitesimalen Generators]\label{prop:generator_quadratic}
+Unter den Annahmen von Lemma~\ref{lem:shift_regular_exponential}, definiere den infinitesimalen Generator $a(x):=\partial_2 C(x,0)$ für $x\in(-1,1)$. Dann gelten $a\in C^\infty((-1,1))$, $a(x)>0$ für alle $x$, und
+\[
+a(x)=\lambda(1-x^2)\qquad \text{für eine Konstante }\lambda>0.
+\]
+Äquivalent dazu gilt für $\phi:=\psi^{-1}$: $\phi'(x)=1/(\lambda(1-x^2))$ für alle $x\in(-1,1)$.
+\end{proposition}
+
+\begin{proof}[Beweisskizze]
+Die Gruppen-Identität $C(x,0)=x$ gibt $a(0)=1$. Für jedes feste $x$ ist die Abbildung $y\mapsto C(x,y)$ ein $C^\infty$ Diffeomorphismus (Inverses: $y\mapsto C(-x,y)$), daher gilt $a(x)\neq 0$ für alle $x$ und nach Zusammenhang $a(x)>0$. Mit $x=\psi(u)$ erhalten wir $a(\psi(u))=\psi'(u)$. Lemma~\ref{lem:shift_regular_exponential} impliziert $\psi'(u)\asymp 1-\psi(u)$ für $u\to+\infty$, und nach Ungeradheit ähnlich für $u\to-\infty$, was $a(x)\asymp 1-x^2$ nahe $\pm 1$ ergibt. Die $C^\infty$-Regularität von $C$ schließt jede nicht-konstante glatte Modulation dieses quadratischen Verschwindens aus: falls $a(x)=(1-x^2)\,h(x)$ mit nicht-konstantem $h$, dann divergiert für hinreichend hohe Ableitungsordnung $m+n$ die gemischte Partielle $\partial_x^m\partial_y^n C$, wenn $(x,y)\to(1^-,y_0)$ -- wie explizit für den modulierten Fall $h(x)=1+\alpha x^2$ gezeigt (dritte Ableitungen divergieren logarithmisch). Daher gilt $h\equiv\lambda$.
+\end{proof}
+
+\begin{corollary}[Eindeutigkeit von $\mathrm{arctanh}$ bis auf Skalierung]\label{cor:uniqueness_arctanh}
+Sei $\phi:(-1,1)\to\mathbb{R}$ ungerade, $C^\infty$, strikt wachsend, $\phi(0)=0$ und $\phi(1^-)=+\infty$. Falls $C(x,y):=\phi^{-1}(\phi(x)+\phi(y))\in C^\infty((-1,1)^2)$, dann existiert $c>0$ derart, dass
+\[
+\phi(x)=c\,\mathrm{arctanh}(x)\qquad (x\in(-1,1)),
+\]
+und daher $C(x,y)=(x+y)/(1+xy)$.
+\end{corollary}
+
+\begin{proof}
+Nach Proposition~\ref{prop:generator_quadratic} gilt $\phi'(x)=1/(\lambda(1-x^2))$. Integration mit $\phi(0)=0$ ergibt $\phi(x)=\lambda^{-1}\,\mathrm{arctanh}(x)$.
+\end{proof}
+
+\subsection{Beweis des Saturation Theorems}
+
+Der Beweis verläuft in drei Schritten.
+
+\textit{Schritt 1: Herleitung der Funktionalgleichung.}
+Definiere die normalisierte Antwort $\sigma(g) = S_T(g)/S_{\max} \in [0, 1)$. Die Axiome A und C garantieren, dass $\sigma$ beschränkt und monoton wachsend ist. Axiom D [Gl.~\eqref{eq:composition}] fordert die Existenz einer Komposition:
+\begin{equation}
+\sigma(g_1 \oplus g_2) = C(\sigma(g_1), \sigma(g_2))\,,
+\label{eq:normalized_composition}
+\end{equation}
+wobei $C: [0,1) \times [0,1) \to [0,1)$ kommutativ, assoziativ, mit Neutralelement $0$ und absorbierendem Rand $1$ ist.
+
+\textit{Schritt 2: Reduktion auf Abels Gleichung.}
+Nach Axiom B hat $\sigma$ die lokale Entwicklung~\eqref{eq:ir_expansion} mit $c_1 > 0$. Nach Axiom B' [Gl.~\eqref{eq:antisymmetry}] gilt $\sigma(-g) = -\sigma(g)$, daher erweitert sich $C$ zu einer Gruppenoperation auf $(-1,1)$ mit absorbierenden Rändern bei $\pm 1$.
+
+Die Assoziativitätsbedingung $C(C(x,y),z) = C(x, C(y,z))$ zusammen mit Kommutativität und Randbedingungen impliziert, dass $C$ ein \textit{einparametriges stetiges Gruppengesetz} auf $(-1,1)$ definiert (die Taylorentwicklung am Ursprung definiert ein eindimensionales kommutatives formales Gruppengesetz im Sinne von \cite{Hazewinkel1978}; hier ist die Verbindung, dass jede glatte, assoziative, kommutative binäre Operation auf einer Umgebung von $0 \in \mathbb{R}$ mit Neutralelement $0$ durch Taylorentwicklung ein formales Gruppengesetz über $\mathbb{R}$ ist, und umgekehrt wendet sich Aczéls analytischer Satz auf die konvergente Realisierung dieser formalen Struktur auf dem Intervall $(-1,1)$ an). Wir wenden Aczéls Darstellungssatz \cite{Aczel1966} auf das \textit{offene Intervall} $(-1,1)$ an, wobei $C$ glatt, strikt monoton in jedem Argument ist (da $\sigma$ strikt monoton nach Axiom C ist) und das Neutralelement $0$ im Inneren liegt. Die absorbierenden Randbedingungen $C(x, \pm 1) = \pm 1$ sind \textit{nicht} Teil des Definitionsbereichs, auf den Aczéls Satz angewendet wird; sie werden als Grenzverhalten behandelt. Konkret ergibt Aczéls Satz eine stetige, strikt monotone Funktion $\phi: (-1,1) \to \mathbb{R}$ mit $\phi(0) = 0$. Die absorbierenden Randbedingungen implizieren dann $\phi(x) \to +\infty$ für $x \to 1^-$ und $\phi(x) \to -\infty$ für $x \to -1^+$ (da $C(x,y) \to 1$ für $y \to 1$ impliziert, dass $\phi(x) + \phi(y) \to \infty$, was $\phi(y) \to \infty$ erfordert):
+\begin{equation}
+\phi(C(x,y)) = \phi(x) + \phi(y)\,.
+\label{eq:abel}
+\end{equation}
+Dies ist Abels Funktionalgleichung. Aczéls Satz ergibt, dass $\phi$ stetig ist; da $C$ glatt ist (Axiom D) und $\phi'(0) = c_1 > 0$ (Axiom B), zeigt die Differentiation von~\eqref{eq:abel}, dass $\phi$ die $C^\infty$-Regularität von $C$ auf $(-1,1)$ erbt. Die Funktion $\phi$ ist bis auf eine positive multiplikative Konstante bestimmt. Zwei Bedingungen wählen gemeinsam $\phi = \mathrm{arctanh}$:
+\begin{enumerate}
+\item Die Antisymmetrie (Axiom B') erzwingt $\phi(-x) = -\phi(x)$.
+\item Nach Korollar~\ref{cor:uniqueness_arctanh} bestimmt die $C^\infty$-Regularität von $C$ auf $(-1,1)^2$ eindeutig $\phi = c\,\mathrm{arctanh}$ (bis auf die positive Konstante $c$). Der Beweis verläuft durch die Lemma-Proposition-Kette von Abschnitt~\ref{sec:theorem}: Lemma~\ref{lem:shift_regular_exponential} zeigt, dass $C^\infty$-Shift-Regularität exponentielle Rand-Verankerung erzwingt $\delta(u) = A\,e^{-\kappa u}(1+o(1))$; Proposition~\ref{prop:generator_quadratic} zeigt, dass dies $\phi'(x) = 1/(\lambda(1-x^2))$ impliziert, also quadratisches Verschwinden des infinitesimalen Generators; Integration mit $\phi(0)=0$ ergibt $\phi = c\,\mathrm{arctanh}$. Alternative Abel-Funktionen -- algebraisch ($x/(1-x^2)$, $\tan(\pi x/2)$: divergente 2. Ableitungen an der Ecke), modulations-logarithmisch ($(1+\alpha x^2)\mathrm{arctanh}(x)$: divergente 3. Ableitungen) -- werden als Spezialfälle ausgeschlossen.
+\end{enumerate}
+Dies ergibt das Kompositionsgesetz:
+\begin{equation}
+C(x, y) = \frac{x + y}{1 + x\,y}\,,
+\label{eq:addition_formula}
+\end{equation}
+was die relativistische Geschwindigkeitsadditionsformel ist -- die einzige glatte, kommutative, assoziative binäre Operation auf $(-1,1)$ mit Neutralelement $0$, absorbierenden Rändern $\pm 1$ und $C^\infty$-Erweiterung zum geschlossenen Quadrat.
+
+\textit{Schritt 3: Invertierung zu $\tanh$.}
+Da $\phi(\sigma(g)) = \mathrm{arctanh}(\sigma(g))$ eine additive Funktion des Kontrollparameters sein muss (d.h., $\phi(\sigma(g)) = \alpha\,u(g)$ für eine Umparametrisierung $u$ und eine Konstante $\alpha > 0$), erhalten wir:
+\begin{equation}
+\sigma(g) = \tanh(\alpha\,u(g))\,,
+\end{equation}
+und daher $S_T(g) = S_{\max}\,\tanh(\alpha\,u(g))$, was~\eqref{eq:saturation_form} ist. Wenn die Axiome exakt gelten, ist das Resultat exakt. Approximative Axiom-Erfüllung (z.B. Zusammenbruch des Kompositionsgesetzes bei sehr kleinem $g$, wo Standardgravitation dominiert) würde Korrektionen einführen; eine formale Stabilitätsanalyse solcher Störungen ist ein offenes Problem. \hfill $\square$
+
+\begin{corollary}[Monotonizität ist automatisch]
+\label{cor:monotonicity}
+Axiom C (monotone kosmische Kontrolle) folgt aus den Axiomen A, B, B' und D. Das heißt, jede Antwortfunktion, die $A + B + B' + D$ erfüllt, ist automatisch strikt monoton wachsend.
+\end{corollary}
+
+\textit{Beweis.} Differenziere $\sigma(g + h) = C(\sigma(g), \sigma(h))$ bezüglich $h$ an der Stelle $h = 0$:
+\[
+\sigma'(g) = \partial_2 C(\sigma(g), 0) \cdot \sigma'(0)\,.
+\]
+Definiere $a(x) := \partial_2 C(x, 0)$. Nach der Gruppenstruktur von Axiom D ist für jedes feste $x \in (-1,1)$ die Abbildung $y \mapsto C(x,y)$ ein $C^\infty$ Diffeomorphismus von $(-1,1)$ (sein Inverses ist $y \mapsto C(-x, y)$ aus dem Gruppen-Inversen). Daher gilt $\partial_2 C(x, 0) = a(x) \neq 0$ für alle $x \in (-1,1)$. Da $(-1,1)$ zusammenhängend ist und $a(0) = \partial_2 C(0,0) = 1 > 0$ (aus $C(0,y) = y$), impliziert Stetigkeit $a(x) > 0$ für alle $x$. Mit $\sigma'(0) = c_1 > 0$ (Axiom B) erhalten wir $\sigma'(g) = a(\sigma(g)) \cdot c_1 > 0$ für alle $g$. \hfill $\square$
+
+\begin{remark}
+Dies bedeutet, dass das Axiom-System auf drei unabhängige Axiome (A, B/B', D) plus die abgeleitete Konsequenz C reduziert werden kann. Wir behalten Axiom C als separate Aussage für physikalische Transparenz: sie macht die Monotonie-Annahme explizit und verbindet sich direkt mit dem thermodynamischen Pfeil der Zeit. Aber logisch ist es ein Theorem, kein Axiom.
+\end{remark}
+
+\begin{proposition}[Axiom-Unabhängigkeit]
+\label{prop:independence}
+Die Axiome sind logisch unabhängig: für jedes Axiom existiert eine Funktion, die die anderen erfüllt, aber das ausgewählte verletzt.
+
+\textit{(1) Verletzt A, erfüllt B/B'--D:} $\sigma(g) = g$ (unbegrenzte lineare Antwort; $C(x,y) = x+y$, assoziativ und kommutativ).
+
+\textit{(2) Verletzt B', erfüllt A,C,D:} $\sigma(g) = 1 - e^{-g}$ für $g \geq 0$, mit $C(x,y) = x + y - xy$ (probabilistisches Oder); keine antisymmetrische Erweiterung.
+
+\textit{(3) Verletzt C, erfüllt A,B/B' aber nicht D:} $\sigma(g) = \tanh(g) \cdot \cos(\epsilon g)$ für kleine $\epsilon > 0$; beschränkt, antisymmetrisch, glatt mit $\sigma'(0) > 0$, aber nicht-monoton für $g \gg 1$. Dieses Beispiel zeigt, dass C unabhängig von $\{A, B, B'\}$ allein ist. Aber nach Korollar~\ref{cor:monotonicity} ist C \textit{nicht} unabhängig von $\{A, B, B', D\}$ gemeinsam -- es folgt als abgeleitete Konsequenz. Daher ist C ein abhängiges Axiom, behalten für physikalische Klarheit.
+
+\textit{(4) Verletzt D, erfüllt A--C,B':} $\sigma(g) = (2/\pi)\arctan(g)$; beschränkt, monoton, antisymmetrisch, aber seine induzierte Komposition (über $\phi = \tan(\pi x/2)$) entwickelt divergente zweite Ableitungen ($\sim \epsilon^{-1}$) am Rand von $[-1,1]^2$, was die $C^\infty$-Erweiterungs-Anforderung von Axiom D verletzt. Ähnlich hat $\sigma(g) = g/\sqrt{1+g^2}$ (mit $\phi(x) = x/\sqrt{1-x^2}$) divergente zweite Ableitungen am Rand ($\sim \epsilon^{-1/2}$).
+\end{proposition}
+
+\subsection{Interpretation}
+
+Der Satz sagt aus, dass $\tanh$ keine \textit{Modellwahl} ist, sondern die \textit{kanonische Lösung unter Rand-Regularität} der kombinierten Nebenbedingungen von Beschränktheit, Kooperation, Monotonizität und Skalen-Kohärenz. Der Schlüssel-mathematische Einblick ist, dass das Kompositionsgesetz (Axiom D) erzwingt, dass die Antwortfunktion die Inverse einer Lösung zu Abels Gleichung ist, und die einzige solche Inverse mit dem korrekten Randverhalten ist $\tanh$.
+
+Physikalisch sagt der Satz aus:
+\begin{quote}
+\textit{Jede Quantengravitationstheorie, die skalenkohärent, kooperativ, beschränkt, monoton ist und deren Kompositionsgesetz sich regulär zur Sättigungs-Grenze erweitert, muss kosmologische Sättigungs-Dynamik vom $\tanh$-Typ erzeugen -- unabhängig von ihrem mikroskopischen Mechanismus.}
+\end{quote}
+
+Die Umparametrisierung $u(g)$ absorbiert die mikroskopischen Details der Theorie: verschiedene UV-Vervollständigungen entsprechen verschiedenen Funktionen $u(g)$, aber alle erzeugen die gleiche Funktionalform $\tanh(\alpha\,u)$ für die Antwort.
+
+
+% ===================================================================
+
+% ===================================================================
+% 4. AUSSCHLUSS ALTERNATIVER PROFILE
+% ===================================================================
+\section{Ausschluss alternativer Sättigungsprofile}
+\label{sec:exclusion}
+
+\begin{corollary}[Ausschluss alternativer Sättigungsprofile]
+\label{cor:exclusion}
+Keines der folgenden Profile kann die Axiome~A--D gleichzeitig erfüllen, außer wenn es durch zulässige Reparametrisierung $u(g)$ auf die $\tanh$-Form reduzierbar ist:
+\begin{enumerate}
+\item[(i)] \textbf{Logistisches Profil:} $S_{\max}/(1 + e^{-\beta u})$.
+\item[(ii)] \textbf{Rationales Profil:} $S_{\max}\,u/(1 + u)$.
+\item[(iii)] \textbf{Arkustangens-Profil:} $S_{\max}\,(2/\pi)\arctan(\beta u)$.
+\item[(iv)] \textbf{Harte Sättigung:} $S_{\max}\,\min(u, 1)$.
+\end{enumerate}
+\end{corollary}
+
+\textit{Beweis.} Jedes Alternative verletzt ein spezifisches Axiom:
+
+\textit{(i) Logistisch.} Die logistische Funktion $L(u) = 1/(1 + e^{-\beta u})$ hat $L(0) = 1/2 \neq 0$, was die Bedingung des neutralen Elements verletzt. Die verschobene Logistik $\tilde{L}(u) = (L(u) - 1/2) \cdot 2$ ergibt $\tilde{L}(u) = \tanh(\beta u/2)$ -- genau die $\tanh$-Form. Daher ist jedes ``logistische'' Modell, das Axiom~D erfüllt, in Wirklichkeit $\tanh$ in versteckter Form.
+
+\textit{(ii) Rational.} Die Funktion $R(u) = u/(1+u)$ hat Abel-Transformation $\phi(x) = x/(1-x)$, die $C(x,y) = \phi^{-1}(\phi(x) + \phi(y)) = (x + y - 2xy)/(1 - xy)$ ergibt. Für kleine $x, y$ erhält man $C(x,y) \approx x + y - 2xy$. Der quadratische Mischterm $-2xy$ ist unverträglich mit der Antisymmetriebedingung (Axiom~B'): Antisymmetrisches $\sigma$ impliziert, dass die induzierte Komposition $C(-x,-y) = -C(x,y)$ erfüllen muss, aber $(x+y-2xy)/(1-xy)$ tut das nicht. Äquivalent: $R(u)$ selbst ist nicht antisymmetrisch, was Axiom~B' verletzt.
+
+\textit{(iii) Arkustangens.} Die Funktion $A(u) = (2/\pi)\arctan(\beta u)$ hat Abel-Transformation $\phi(x) = \tan(\pi x/2)$, die $C(x,y) = (2/\pi)\arctan(\tan(\pi x/2) + \tan(\pi y/2))$ ergibt. Während diese Komposition auf dem offenen Quadrat $(-1,1)^2$ wohldefiniert und glatt ist, kann sie nicht glatt auf das geschlossene Quadrat $[-1,1]^2$ erweitert werden: die zweiten partiellen Ableitungen $\partial^2 C/\partial x^2$ und $\partial^2 C/\partial x\,\partial y$ divergieren beide, wenn $(x,y) \to (1,1)$ (numerisch $\sim \epsilon^{-1}$ entlang $x = y = 1 - \epsilon$), was die $C^\infty$-Randregularitätsanforderung von Axiom~D verletzt. Diese algebraische ($\epsilon^{-1}$) Divergenz ist charakteristisch für alle Abel-Funktionen mit Potenzgesetz-Randverhalten; nur die logarithmische Divergenz von $\mathrm{arctanh}$ ergibt eine rationale -- und damit automatisch glatte -- Komposition.
+
+\textit{(iv) Harte Sättigung.} $\min(u, 1)$ ist bei $u = 1$ nicht $C^\infty$, was die Glattheitsanforderung von Axiom~B verletzt. \hfill $\square$
+
+\begin{remark}
+Der logistische Fall (i) ist instruktiv: er scheint eine echte Alternative zu sein, aber das Kompositionsgesetz zwingt ihn, sich auf $\tanh$ zu reduzieren. Dies veranschaulicht die Kraft von Axiom~D: oberflächliche Freiheit bei der Profilwahl wird durch die Anforderung der Skalenkohärenz eliminiert.
+\end{remark}
+
+
+% ===================================================================
+% 5. VERIFIKATION IN QUANTENGRAVITATIONS-PROGRAMMEN
+% ===================================================================
+\section{Die Axiome in Quantengravitations-Programmen}
+\label{sec:qg}
+
+Wir verifizieren nun, dass die vier Axiome erfüllt sind -- oder zumindest natürlicherweise kompatibel sind -- in jedem großen Quantengravitations-Programm, wenn beschränkt auf kosmologische Observablen.
+
+\subsection{Loop Quantum Gravity / Loop Quantum Cosmology}
+
+In Loop Quantum Cosmology (LQC) \cite{Ashtekar2006,Bojowald2008} lautet die modifizierte Friedmann-Gleichung:
+\begin{equation}
+H^2 = \frac{8\pi G}{3}\,\rho\!\left(1 - \frac{\rho}{\rho_c}\right)\,,
+\label{eq:lqc_friedmann}
+\end{equation}
+wobei $\rho_c \sim \rho_{\mathrm{Pl}}$ eine kritische Dichte ist, die durch den Barbero-Immirzi-Parameter $\gamma_{\mathrm{BI}}$ gesetzt wird. Dies hat genau die Struktur einer Sättigungsgleichung: die Expansionsrate ist begrenzt ($H^2 \leq H_{\max}^2$), und der Bounce bei $\rho = \rho_c$ ersetzt die klassische Singularität.
+
+\textit{Axiom A:} Die kritische Dichte $\rho_c$ bietet endliche geometrische Kapazität. \textit{Axiom B:} Für $\rho \ll \rho_c$ wird die Standard-Friedmann-Gleichung wiederhergestellt mit $c_1 > 0$. Die Holonomie-Korrektionen sind kooperativ: die Abweichung von GR wächst mit der Krümmung. \textit{Axiom C:} Im expandierenden Bereich ($\dot{a} > 0$) ist die Lösung monoton. \textit{Axiom D:} LQC besitzt kein manifestes RG-Kompositionsgesetz im Sinne von Axiom~D; die effektiven Gleichungen erben Diffeomorphismus-Invarianz von der vollen LQG, was strukturelle Kohärenz über Skalen hinweg bietet, aber eine rigorose Ableitung der assoziativen Kompositions-Eigenschaft~\eqref{eq:composition} aus dem LQG-Hilbert-Raum bleibt ein offenes Problem (daher das ``?'' in Tabelle~\ref{tab:axiom_check}).
+
+Mit $X = 1 - 2\rho/\rho_c$ kann die LQC-Friedmann-Gleichung~\eqref{eq:lqc_friedmann} umgeschrieben werden als $H^2 \propto (1 - X^2)$. Der Faktor $(1-X^2)$ ist dieselbe Nichtlinearität, die auf der rechten Seite der Sättigungs-ODE~\eqref{eq:saturation_ode} erscheint; beachte jedoch, dass die LQC-Gleichung $H^2$ regiert, während die CRM-ODE $dX/da$ regiert -- die strukturelle Analogie liegt im Sättigungsmechanismus, nicht einer direkten Identifikation der beiden Gleichungen. Die CRM-Parameter $k$ und $\Phi_0$ würden sich auf die LQG-Mindestfläche $\Delta$ (der kleinste Nicht-Null-Eigenwert des Flächenoperators) und den Barbero-Immirzi-Parameter $\gamma_{\mathrm{BI}}$ abbilden, obwohl diese Abbildung nicht rigoros hergeleitet wurde.
+
+\subsection{Asymptotic Safety}
+
+Im Asymptotic Safety-Programm \cite{Weinberg1979,Reuter1998,Percacci2017} hat die gravitationale effektive Wirkung einen UV-Fixpunkt $g^* > 0$, wo die dimensionslose Newton-Konstante und kosmologische Konstante skalenunabhängig werden. Der RG-Fluss von UV zu IR definiert die effektive Gravitationskopplung $G_k$ und kosmologische ``Konstante'' $\Lambda_k$ als Funktionen der RG-Skala $k$.
+
+\textit{Axiom A:} Der UV-Fixpunkt bietet eine endliche obere Schranke für die effektive Kopplung. \textit{Axiom B:} Der Fluss weg vom Fixpunkt ist kooperativ: die relevante Richtung hat positiven kritischen Exponenten \cite{Percacci2017}. \textit{Axiom C:} Der Fluss ist monoton entlang der relevanten Richtung (per Definition von Relevanz). \textit{Axiom D:} Eine Klarstellung ist nötig. Die Wilson-RG-Halbgruppe $R_{k_1} \circ R_{k_2} = R_{k_1 k_2}$ operiert auf dem Raum der Kopplungen (dem ``Theorie-Raum''), nicht direkt auf der Antwortfunktion $S_T$. Um die beiden zu verbinden, muss man den RG-Fluss auf die einzelne relevante Richtung parametriert durch $g$ projizieren. Im Asymptotic Safety-Szenario mit UV-Fixpunkt wird der Fluss nahe dem Fixpunkt durch eine endliche Anzahl relevanter Richtungen kontrolliert; in der einfachsten Truncation (Einstein-Hilbert mit $G_k, \Lambda_k$) gibt es typischerweise zwei relevante Richtungen. Die Einzelfeld-Annahme von Axiom~D entspricht der Beschränkung auf die dominante relevante Richtung, unter welcher die RG-Halbgruppe auf dem Theorie-Raum ein Kompositionsgesetz auf der eindimensionalen Antwort $S_T(g)$ \textit{induziert}. Diese Projektion ist exakt, wenn eine einzelne relevante Richtung dominiert (wie im kosmologischen Sektor), und näherungsweise ansonsten -- eine Limitation, die mit der Einzelfeld-Einschränkung des Theorems geteilt wird (siehe Limitation~4).
+
+Tatsächlich ist Asymptotic Safety das QG-Programm, in dem Axiom~D am natürlichsten erfüllt ist, weil es \textit{selbst} eine Renormalisierungs-Gruppen-Aussage ist. Das Asymptotic Safety-Szenario für Kosmologie \cite{Bonanno2002} produziert effektive Friedmann-Gleichungen mit Sättigungsverhalten bei hoher Krümmung, konsistent mit der $\tanh$-Form.
+
+Neuere Berechnungen in zunehmend anspruchsvolleren Truncations bieten wachsende numerische Evidenz für den Reuter-Fixpunkt. Eichhorn und Held~\cite{EichhornHeld2018} zeigen, dass Asymptotic Safety die Top-Quark-Yukawa-Kopplung einschränkt, mit einer Vorhersage von ungefähr 171\,GeV für die Top-Quark-Polmasse, konsistent mit dem beobachteten Wert von $172.6 \pm 0.3$\,GeV \cite{PDG2024} -- eine konkrete Teilchenphysik-Konsequenz des UV-Fixpunkts. Breiter zeigt Eichhorn~\cite{Eichhorn2020}, wie die Fixpunkt-Struktur natürlicherweise die Standard-Modell-Materie-Inhalte ohne zusätzliche Feinabstimmung unterbringt. Diese Resultate stärken den Fall, dass das Asymptotic Safety-Programm die Axiome natürlicherweise realisiert: die Fixpunkt-Existenz (Axiom~A), der kooperative Fluss (Axiom~B), und die RG-Komposition (Axiom~D) sind Eigenschaften, die in hochmodernen funktionalen RG-Berechnungen verifiziert sind.
+
+\subsection{Stringtheorie und Holographie}
+
+In der Stringtheorie bietet die UV-Endlichkeit der String-Amplitude Axiom~A. Die String-Landschaft führt zwar ein Selektionsproblem ein, verletzt aber die Axiome für kein \textit{spezifisches} Vakuum nicht: innerhalb einer gegebenen Kompaktifizierung hat die Low-Energy-EFT einen eindeutigen RG-Fluss, der die Axiome~B--D erfüllt.
+
+Der holographische Zugang (AdS/CFT \cite{Maldacena1999}) bietet besonders starke Unterstützung für Axiom~D: die Bulk/Boundary-Korrespondenz \textit{ist} ein Kompositionsgesetz, das geometrische Beschreibungen auf verschiedenen Skalen in Beziehung setzt. Die Ryu-Takayanagi-Formel \cite{Ryu2006} und ihre Quantenkorrektionen etablieren eine monotone Beziehung zwischen Verschränkungs-Entropie und geometrischer Fläche, was Axiom~C erfüllt.
+
+Für kosmologische Anwendungen bietet die de Sitter-Entropie-Schranke $S_{\mathrm{dS}} = \pi/(\Lambda G) < \infty$ Axiom~A, während der holographische RG-Fluss \cite{deBoer2000} die Kompositions-Struktur bietet.
+
+\subsection{Causal Set Theory}
+
+In der Causal Set Theory \cite{Sorkin2003,Surya2019} tritt die kosmologische Konstante als dynamische Größe $\Lambda \sim 1/\sqrt{N}$ auf, wobei $N$ die Anzahl der Causal-Set-Elemente ist. Dies produziert eine kosmologische ``Konstante'', die abnimmt, während das Universum wächst, und einen endlichen asymptotischen Wert anstrebt -- genau das Sättigungsverhalten von Axiom~C.
+
+\textit{Axiom A:} Die endliche Dichte von Causal-Set-Elementen bietet geometrische Kapazität. \textit{Axiom B:} Während das Poisson-Sprinkling selbst unkorreliert ist, produziert die \textit{Dynamik} der Causal-Set-Entwicklung (sequentielle Wachstums-Modelle \cite{Surya2019}) kooperatives Ordnen: neu hinzugefügte Elemente haften vorzugsweise an die bestehende kausale Struktur an, was geometrische Ordnung verstärkt. \textit{Axiom C:} Die $1/\sqrt{N}$-Skalierung nimmt monoton ab. \textit{Axiom D:} Die sequentielle Wachstums-Dynamik bietet ein natürliches Kompositionsgesetz, obwohl sein genaues Verhältnis zur RG-Komposition von Axiom~D weitere Analyse erfordert.
+
+\subsection{Causal Dynamical Triangulations}
+
+Causal Dynamical Triangulations (CDT) \cite{Ambjorn2005,Loll2019} konstruieren Quantengravitation mittels eines regularisierten Pfadintegrals über kausale Triangulationen. Monte-Carlo-Simulationen enthüllen ein Phasendiagramm mit einer physikalisch relevanten ``de Sitter-Phase'' (Phase~$C_{dS}$), in der die emergente Geometrie Hausdorff-Dimension $d_H \approx 4$ hat und ein Volumenprofil, das gut durch euklidischen de Sitter-Raum beschrieben wird.
+
+\textit{Axiom A:} Die Triangulation bietet eine endliche Anzahl von Bausteinen pro Raumzeit-Volumen, erzwingt also endliche geometrische Kapazität. \textit{Axiom B:} In der de Sitter-Phase wächst das Volumenprofil kooperativ, bevor es sättigt -- die geometrische Ordnung verstärkt sich selbst. Die ungeraden-Potenz-Struktur (Axiom~B') ist nicht explizit verifiziert worden. \textit{Axiom C:} Das de Sitter-Volumenprofil ist monoton (im expandierenden Bereich). \textit{Axiom D:} CDT besitzt natürliche Blockierungs-Transformationen (Vergröberung von Triangulationen), was einen Kandidaten für das Kompositionsgesetz bietet, aber die präzise assoziative Struktur ist nicht rigoros etabliert worden.
+
+\subsection{Nichtkommutative Geometrie}
+
+Das Programm von Connes \cite{Connes1994} rekonstruiert Geometrie aus spektralen Daten (der Dirac-Operator auf einer nichtkommutativen Algebra). Das Spektral-Wirkungs-Prinzip liefert das Standard-Modell-Lagrangian gekoppelt an Gravitation aus dem Spektrum eines einzelnen Operators.
+
+\textit{Axiom A:} Die Spektral-Wirkung hat eine natürliche UV-Abschneidung $\Lambda$ (die Energieskala, bei der die Spektral-Summe ausgewertet wird), was endliche geometrische Kapazität bietet. \textit{Axiom B:} Die Seeley-DeWitt-Koeffizienten $a_0, a_2, a_4, \ldots$ der Wärme-Kern-Expansion haben gerade Potenzen von $\Lambda$; die ungeraden-Potenz-Struktur, die Axiom~B erfordert, tritt nach Reparametrisierung zu einer geeigneten Kopplungs-Variable auf, aber diese Identifikation erfordert weitere Analyse. \textit{Axiom C:} Der spektrale Fluss ist in der geeigneten Richtung monoton. \textit{Axiom D:} Die Komposition von spektralen Tripeln bietet algebraische Kompositions-Kohärenz.
+
+\subsection{Zusammenfassung: Warum Universalität?}
+
+Tabelle~\ref{tab:axiom_check} fasst die Axiom-Verifikation zusammen. Kein einzelnes QG-Programm ist rigoros bewiesen worden, alle vier Axiome gleichzeitig zu erfüllen; stattdessen erfüllt jedes Programm natürlicherweise eine wesentliche Teilmenge, wobei die restlichen Axiome plausibel aber noch nicht formal etabliert sind (angedeutet durch ($\checkmark$) und ? in der Tabelle). Der Wert des Theorems ist daher zweifach: (i)~als \textit{bedingtes} Resultat identifiziert es die präzisen Bedingungen, unter denen $\tanh$-Sättigung unvermeidbar ist, und (ii)~als \textit{Diagnostikum} zeigt es auf, welche Eigenschaften jedes QG-Programms weitere Untersuchung erfordern. Die breite Kompatibilität über Programme hinweg erklärt die ``unreasonable Universalität'' der Sättigungs-Dynamik: nicht dass die Programme in mikroskopischen Details übereinstimmen, sondern dass sie alle -- oder plausiblerweise alle -- dieselben makroskopischen Zwänge erfüllen.
+
+\begin{table}[h]
+\caption{Axiom-Verifikation über Quantengravitations-Programme. $\checkmark$ = natürlicherweise erfüllt mit expliziter Konstruktion, ($\checkmark$) = plausibel mit milden Annahmen, ? = offene Frage, die weitere Analyse erfordert.}
+\label{tab:axiom_check}
+\begin{ruledtabular}
+\begin{tabular}{lcccc}
+Programm & A & B/B' & C & D \\
+\hline
+LQG/LQC & $\checkmark$ & $\checkmark$ & $\checkmark$ & ? \\
+Asymptotic Safety & $\checkmark$ & ($\checkmark$) & $\checkmark$ & $\checkmark$ \\
+Strings/Holographie & $\checkmark$ & ($\checkmark$) & ($\checkmark$) & ($\checkmark$) \\
+Causal Sets & $\checkmark$ & ? & $\checkmark$ & ? \\
+CDT & $\checkmark$ & ($\checkmark$) & ($\checkmark$) & ? \\
+NCG & $\checkmark$ & ? & ? & ? \\
+CRM (effektiv) & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+% ===================================================================
+% 6. ONTOLOGIE: ORDNUNG, NICHT METRIK
+% ===================================================================
+\section{Raumzeit als geordnete Phase}
+\label{sec:ontology}
+
+Die umfassende Axiom-Erfüllung in Tabelle~\ref{tab:axiom_check} wirft eine konzeptionelle Frage auf: Falls die $\tanh$-Form universal ist, was bedeutet diese Universalität für die Natur der Raumzeit?
+
+\subsection{Die konzeptionelle Verschiebung}
+
+Das Saturation Theorem, kombiniert mit dem empirischen Erfolg des CRM, deutet auf eine Neukonzeptualisierung der Quantengravitation hin:
+
+\begin{quote}
+\textit{Quantengravitation ist nicht die Quantisierung der Metrik, sondern die Theorie, wie geometrische Ordnung aus einem vorgemetrischen Quantensystem hervorgeht.}
+\end{quote}
+
+Die $\tanh$-Sättigung ist nicht eine Eigenschaft eines spezifischen Feldes oder einer Kopplung, sondern die universelle Signatur eines kapazitätsbegrenzten kooperativen Ordnungsprozesses -- unabhängig davon, ob die mikroskopischen Freiheitsgrade Spin-Netzwerke (LQG), Strings, Causal-Set-Elemente oder Code-Qubits (QEC) sind.
+
+\subsection{Die ferromagnetische Analogie}
+
+Die Analogie zur spontanen Magnetisierung ist präzise auf der Ebene der Ginzburg-Landau-Freien-Energie. Die CRM-Sättigungs-ODE $dX/da = k(1 - X^2)$ ist die Bewegungsgleichung für den Ordnungsparameter eines Phasenübergangs zweiter Ordnung mit Doppelmulden-Freien-Energie $F(X) = -k(X - X^3/3)$. Paper~III \cite{Geiger2026c} entwickelt diese Analogie im Detail und identifiziert:
+
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Ferromagnetismus & CRM-Kosmologie \\
+\hline
+Magnetisierung $M$ & Krümmungsrückkehr $\Omega_\Phi$ \\
+Inverse Temperatur $J/k_BT$ & Skalenfaktor $a$ \\
+Curie-Punkt ($J/k_BT_c$) & Übergang $a_{\mathrm{trans}}$ \\
+Spin-Wechselwirkung $J$ & Krümmungskopplung $k$ \\
+Sättigung $M_s$ & Sättigung $\Phi_0$ \\
+$\tanh(J/k_BT)$ & $\tanh(k(a - a_{\mathrm{trans}}))$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Das Saturation Theorem liefert die mathematische Grundlage für diese Analogie auf der \textit{Mean-Field-Ebene}: beide Systeme erfüllen die Axiome~A--D in der Mean-Field-Approximation, und daher produzieren beide $\tanh$-Antwortfunktionen. Wir bemerken, dass die exakte Magnetisierung eines $d$-dimensionalen Ising-Modells von der Mean-Field-$\tanh$ in der Nähe der kritischen Temperatur abweicht ($M \sim (T_c - T)^{\beta}$ mit nichttrivialem kritischen Exponenten $\beta \neq 1/2$ für $d < 4$). Diese Abweichung entspricht dem Zusammenbruch der $C^\infty$-Randregularität von Axiom~D in der Nähe des \textit{kritischen Punktes} (dem Beginn der Ordnung), nicht in der Nähe der \textit{Sättigung} ($T \to 0$). Die Analogie ist daher für das Sättigungsregime und die Mean-Field-Theorie präzise, während Fluktuationskorrektionen in der Nähe der Kritikalität eine Mehrfeld-Erweiterung erfordern (siehe Ausblick). Die Universalität ist strukturell, nicht metaphorisch, innerhalb des Gültigkeitsbereichs der Axiome.
+
+Nachdem wir das ontologische Rahmenwerk etabliert haben, wenden wir uns nun seinen empirischen Konsequenzen zu.
+
+% ===================================================================
+% 7. BEOBACHTUNGSMÄSSIGE KONSEQUENZEN
+% ===================================================================
+\section{Beobachtungsmäßige Konsequenzen und offene Fragen}
+\label{sec:observational}
+
+\subsection{Was das Theorem vorhersagt}
+
+Das Saturation Theorem hat zwei Klassen von Vorhersagen:
+
+\textbf{Universelle Vorhersagen} (unabhängig von der UV-Vervollständigung):
+\begin{enumerate}
+\item Die kosmologische Expansionsgeschichte muss $\tanh$-ähnliche Sättigung folgen. Wir betonen, dass das CRM-Ergebnis $\Delta\chi^2 = -5.5$ \cite{Geiger2026b} \textit{keinen} unabhängigen Test des Theorems darstellt, da das CRM mit einem $\tanh$-Profil konstruiert wurde, bevor die Axiome formuliert wurden. Der empirische Gehalt des Theorems ist das \textit{Kompositionsgesetz} $\mathcal{C}(x,y) = (x+y)/(1+xy)$, das eine Vorhersage jenseits jeder individuellen Profilanpassung ist. Ein unabhängiger Test würde entweder (a)~die Anpassung einer modellunabhängigen $\tanh$-Vorlage an SN+CMB+BAO-Daten ohne CRM-spezifische Priors erfordern, oder (b)~das Kompositionsgesetz direkt durch den Vergleich von Sättigungsantworten bei verschiedenen Rotverschiebungs-Bins verifizieren und die Konsistenz mit der Geschwindigkeitsadditionsregel prüfen.
+\item Die laufende Krümmungskopplung $\beta_{\mathrm{eff}}(a)$ muss eine monotone Übergangsfunktion sein (bereits bestätigt: $\beta_{\mathrm{early}} \approx 2.8 \to \beta_{\mathrm{late}} \approx 2.0$ \cite{Geiger2026b}).
+\item Kein alternatives Relaxationsprofil (logistisch, Potenzgesetz, etc.) kann die Daten \textit{und} gleichzeitig skalenkohärent anpassen.
+\end{enumerate}
+
+\textbf{UV-abhängige Vorhersagen} (zwischen Vervollständigungen diskriminierend):
+\begin{enumerate}
+\item Die spezifischen Werte von $k$ (Sättigungsrate), $\Phi_0$ (Sättigungsamplitude) und $\gamma$ (Kopplungskonstante) hängen von der UV-Theorie ab.
+\item Die Übergangschärfe ($n$ im sigmoidalen Übergang) codiert die Universalitätsklasse.
+\item Sub-Planck-Korrektionen zum $\tanh$-Profil sind UV-Theorie-spezifisch.
+\end{enumerate}
+
+\subsection{Das fehlende Stück: warum \textit{diese} Parameter?}
+
+Das Saturation Theorem bestimmt die \textit{Form} aber nicht die \textit{Koeffizienten}. Die verbleibende offene Frage ist:
+
+\begin{quote}
+\textit{Warum hat das Universum die spezifischen Werte $k \approx 9.8$, $\Phi_0 \approx 0.43$, $\gamma \sim \mathcal{O}(1)\,H_0^{-2}$?}
+\end{quote}
+
+Diese Frage ist analog zum Problem der Feinstrukturkonstante: die \textit{Existenz} der elektromagnetischen Kopplung wird durch Eichsymmetrie erzwungen, aber der \textit{Wert} $\alpha \approx 1/137$ wird nicht allein durch die Symmetrie bestimmt.
+
+Mehrere UV-Vervollständigungen machen spezifische Vorhersagen:
+\begin{itemize}
+\item \textbf{LQC:} $\Phi_0$ wird auf den Barbero-Immirzi-Parameter $\gamma_{\mathrm{BI}}$ abgebildet, der durch Schwarzloch-Entropie eingeschränkt wird \cite{Meissner2004}. Dies würde einen spezifischen Wert von $\Phi_0$ vorhersagen.
+\item \textbf{Asymptotische Sicherheit:} Die kritischen Exponenten am UV-Fixpunkt bestimmen die Übergangschärfe $n$, was eine spezifische Vorhersage für die Form von $\beta_{\mathrm{eff}}(a)$ liefert \cite{Reuter1998}.
+\item \textbf{Holographie:} Die de Sitter-Entropie $S_{\mathrm{dS}} = \pi/(\Lambda G)$ verbindet $\Phi_0$ mit dem Verhältnis von UV- und IR-Skalen.
+\end{itemize}
+
+Ein konkreter Testfall ist die $\sqrt{\pi}$-Vermutung von Paper~II \cite{Geiger2026b}: das CRM sagt einen MOND-ähnlichen Verstärkungsfaktor $\mu_{\mathrm{eff}} = \sqrt{\pi}$ voraus, der aus der Gauß-Normalisierung der Sättigungs-Partitionsfunktion hervorgeht. Die Ableitung dieses Wertes aus einer spezifischen UV-Vervollständigung würde direkt die Quantengravitations-Parameter mit der beobachteten Galaxien-Dynamik verbinden.
+
+\subsection{Skalarfeld-Oszillationen als QG-Signatur}
+
+Paper~III \cite{Geiger2026c} zeigt, dass das Pöschl-Teller-Potential ein diskretes Spektrum von Bindungszuständen unterstützt. Im kosmologischen Kontext entsprechen diese oszillatorischen Korrektionen zur Expansionsrate in späten Zeiten:
+\begin{equation}
+H^2(a) = H_{\mathrm{smooth}}^2(a)\left[1 + \epsilon \cdot e^{-\Gamma a} \cos(\omega a + \delta)\right]\,,
+\end{equation}
+mit $\epsilon \ll 1$. Diese Oszillationen würden eine direkte Signatur der \textit{Quantennatur} des Sättigungsmechanismus sein -- analog zu den diskreten Energieniveaus eines Quantensystems. Die Detektion in hochpräzisen BAO- oder SN-Daten würde einen Beweis für den Quantenursprung der CRM-Sättigung darstellen.
+
+
+% ===================================================================
+% 8. DISKUSSION
+% ===================================================================
+\section{Diskussion und Ausblick}
+\label{sec:discussion}
+
+\subsection{Was wurde erreicht}
+
+\begin{enumerate}
+\item \textbf{Ein No-Go-Theorem:} Jede kosmologische Theorie, die die Axiome~A--D mit Randbedingungsregularität erfüllt, muss eine $\tanh$-artige Sättigung produzieren. Dies ist ein strukturelles Resultat, unabhängig von spezifischen QG-Programmen.
+
+\item \textbf{Universalität erklärt:} Die Beobachtung, dass LQG, Asymptotic Safety, Stringtheorie, Causal Sets und Noncommutative Geometry alle strukturell ähnliche Sättigungsdynamiken produzieren, ist nicht länger rätselhaft -- sie folgt aus dem Saturation Theorem.
+
+\item \textbf{CRM erhoben:} Das CRM's Sättigungs-ODE $dX/da = k(1-X^2)$ ist nicht ein ad hoc phänomenologisches Fitting, sondern die universelle Normalform von kapazitätsbegrenzter kooperativer Relaxation -- das kanonische glatte, skalenkohärente Sättigungsprofil unter Randbedingungsregularität.
+
+\item \textbf{Ontologische Klarheit:} Quantengravitation ist nicht die Quantisierung der Metrik, sondern die Theorie geometrischer Ordnung -- ein Phasenübergang von einem prä-geometrischen Quantensystem zu klassischer Raumzeit.
+\end{enumerate}
+
+\subsection{Relation zum CRM-Programm}
+
+Dieses Paper vervollständigt den konzeptionellen Bogen der CRM-Serie: spieltheoretische Grundlagen (Paper~I \cite{Geiger2026}), phänomenologisches Fitting mit $\Delta\chi^2 = -5.5$ (Paper~II \cite{Geiger2026b}), Lagrangian-Herleitung (Paper~III \cite{Geiger2026c}), galaktische Dynamik (Paper~IV \cite{Geiger2026d}), und nun axiomatische Grundlegung (diese Arbeit). Der logische Status des CRM ist:
+\begin{enumerate}
+\item Die \textit{Form} der Dynamik ($\tanh$) ist ein mathematisches Theorem (dieses Paper).
+\item Das \textit{Lagrangian} ist hergeleitet (Paper~III).
+\item Die \textit{Parameter} sind durch Daten eingeschränkt (Papers~II, III, IV).
+\item Die \textit{UV-Vervollständigung} bleibt offen -- aber das Theorem zeigt, dass \textit{jede} brauchbare Vervollständigung die effektiven CRM-Dynamiken reproduzieren muss.
+\end{enumerate}
+
+\subsection{Limitationen und Einschränkungen}
+
+\begin{enumerate}
+\item \textbf{Axiom D ist stark.} Das Renormalisierungsgruppen-Kompositionsgesetz ist das restriktivste Axiom. Theorien ohne gut definiertes RG-Fließverhalten (einige diskrete Ansätze, Multiversum-Szenarien) erfüllen es möglicherweise nicht. Wir sehen dies als ein Feature, nicht als Bug: Axiom~D ist genau die Bedingung, die prädiktive Theorien von Rahmenwerken ohne beobachtbare Konsequenzen unterscheidet.
+
+\item \textbf{Der Beweis ist algebraisch, nicht konstruktiv.} Das Theorem stellt die Form der Antwortfunktion fest, konstruiert aber die UV-Theorie nicht. Die ``Reparametrisierung'' $u(g)$ absorbiert alle mikroskopischen Informationen; $u(g)$ aus ersten Prinzipien zu bestimmen erfordert das Lösen der spezifischen QG-Theorie. Eine potentielle Einwand ist, dass jede beschränkte monotone Funktion trivial als $\tanh(\alpha\,u(g))$ für ein geeignetes $u(g)$ geschrieben werden kann, was die $\tanh$-Form inhaltsleer macht. Wir adressieren dies direkt: Der nichttriviale, falsifizierbare Inhalt des Theorems liegt in dem \textit{Kompositionsgesetz} $\mathcal{C}(x,y) = (x+y)/(1+xy)$, nicht in der Profilform. Das Kompositionsgesetz ist eine strukturelle Beschränkung, wie Antworten bei verschiedenen Skalen kombiniert werden -- es ist das Gravitational-Analogon der relativistischen Geschwindigkeitsadditionsregel. Diese Beschränkung (i)~wird nicht durch generische beschränkte monotone Funktionen erfüllt (z.B. erfüllt $\text{erf}(g)$ nicht eine assoziative glatte Komposition mit absorbierender Grenze), (ii)~ist grundsätzlich testbar durch Vergleich von Sättigungsantworten bei verschiedenen Skalen, und (iii)~schränkt den Raum erlaubter effektiver Theorien auf diejenigen ein, deren RG-Flusses die durch das Theorem identifizierte eindimensionale Gruppenstruktur hat.
+
+\item \textbf{Kosmologische Einschränkung.} Die Axiome sind für kosmologische Observablen formuliert. Ob sie sich auf lokale Physik (Schwarze Löcher, Gravitationswellen) erweitern lässt, erfordert weitere Analyse. Die bestehenden CRM-Vorhersagen für lokale Physik (Chamäleon-Screening, $\alpha_T = 0$, Bullet Cluster-Auflösung \cite{Geiger2026b,Geiger2026c,Geiger2026d}) sind von dem Lagrangian hergeleitet, nicht von den Axiomen.
+
+\item \textbf{Die kontinuierliche Gruppenklassifikation und Einzelfeld-Einschränkung.} Der Beweis beruht auf Aczél's Darstellungstheorem für kontinuierliche assoziative Operationen \cite{Aczel1966} und der Klassifikation eindimensionaler formaler Gruppengesetze \cite{Hazewinkel1978}. Während diese Resultate gut etabliert sind, erfordert die physikalische Anwendbarkeit die Annahme, dass die Komposition \textit{eindimensional} ist -- d.h. dass es eine einzige relevante Richtung gibt. Dies ist eine echte Limitation: das CRM selbst (Paper~IV \cite{Geiger2026d}) führt einen Vektorsektor neben dem Skalar ein, und realistische modifizierte Gravitationstheorien (z.B. Horndeski, beyond-Horndeski) haben generisch mehrere gekoppelte Freiheitsgrade. Jedoch merken wir an, dass das Theorem auf den \textit{Skalarsektor in Isolation} angewendet wird: der CRM's Skalar-Sättigungs-Kanal $\Omega_\Phi(a) = \Phi_0 \tanh(k(a - a_{\mathrm{trans}}))$ ist eine eindimensionale Antwort, die die Axiome unabhängig vom Vektorsektor erfüllt. Die Mehrfeld-Erweiterung (Klassifikation mehrdimensionaler kommutativer Gruppengesetze, einschließlich elliptischer und Lubin-Tate formaler Gruppen) ist ein offenes mathematisches Problem, das das Theorem verstärken würde, wird aber für das Skalarsektor-Resultat nicht benötigt.
+
+\item \textbf{Die Eindeutigkeitsauswahl.} Die Auswahl von $\mathrm{arctanh}$ als die eindeutige ungerade Abel-Funktion, deren induzierte Komposition sich zu $C^\infty([-1,1]^2)$ erweitert, beruht auf vier Säulen: (i)~explizite Verifikation gegen alle standardmäßigen Alternativen (algebraisch: $x/(1-x^2)$, $\tan(\pi x/2)$, $x/\sqrt{1-x^2}$; moduliertes Logarithmisches: $(1+\alpha x^2)\,\mathrm{arctanh}(x)$); (ii)~das strukturelle Argument, dass nur die logarithmische Divergenzrate von $\mathrm{arctanh}$ eine \textit{rationale} Komposition $(x+y)/(1+xy)$ produziert, daher automatische $C^\infty$ Erweiterung; (iii)~das perturbative Argument (Schritt~2), dass jede Abweichung von $\mathrm{arctanh}$ flach an der Grenze logarithmische Divergenzen in höheren Ableitungen einführt; und (iv)~das \textit{Verschiebungs-Regularitäts-Argument} (Schritt~2): $C^\infty$-Regularität der Translationsfamilie $T_v(u) = \psi(u+v)$ an der Grenze erzwingt, dass der Defekt $\delta(u) = 1 - \psi(u)$ exponentiell zerfällt, was sich zu $\phi = c\,\mathrm{arctanh}$ global integriert. Säule~(iv) liefert das stärkste Argument und reduziert die Eindeutigkeit auf ein einzelnes analytisches Prinzip (exponentiales Grenz-Attachment aus Verschiebungs-Regularität).
+\end{enumerate}
+
+\subsection{Das No-Go-Theorem als Filter}
+
+Das Saturation Theorem dient als ein \textit{Filter} für Quantengravitations-Vorschläge:
+
+\begin{itemize}
+\item Jede vorgeschlagene QG-Theorie, die Axiom~A verletzt (unendliche geometrische Ordnung erlaubt), muss das Singularitätsproblem separat adressieren.
+\item Jede Theorie, die Axiom~C verletzt (oszillierende oder Multi-Fixpunkt-Dynamik hat), muss erklären, warum das beobachtete Universum einen eindeutigen thermodynamischen Pfeil hat.
+\item Jede Theorie, die Axiom~D verletzt (fehlende Skalenkohärenz), muss erklären, warum ihre Vorhersagen unempfindlich gegen die Beobachtungsskala sind.
+\end{itemize}
+
+Theorien, die alle vier Axiome erfüllen, sind \textit{eingeschränkt}, um $\tanh$-Sättigung zu produzieren, was eine konkrete, falsifizierbare Vorhersage für ihren kosmologischen Sektor liefert.
+
+\subsection{Relation zu anderen Rahmenwerken}
+
+\textit{Swampland-Vermutungen.} Die de~Sitter-Swampland-Vermutung \cite{Obied2018} postuliert $|\nabla V|/V \geq c \sim \mathcal{O}(1)$ in jeder Quantengravitations-Landschaft und benachteiligt eine strikte kosmologische Konstante. Das Saturation Theorem ist komplementär: es adressiert nicht die Existenz von de~Sitter-Vakua, aber schränkt den \textit{dynamischen Zugang} zum Spätzeitattraktor ein. Eine CRM-artige Sättigung mit $\Phi_0 < \infty$ ist kompatibel mit der Swampland-Schranke, da die effektive Dunkle-Energie-Dichte $\rho_\Phi(a)$ dynamisch anstatt als festes $\Lambda$ entwickelt.
+
+\textit{EFT der Dunklen Energie.} Die effektive Feldtheorie der Dunklen Energie \cite{Gubitosi2013} parametrisiert Abweichungen vom $\Lambda$CDM auf der Ebene der gestörten Wirkung. Das Saturation Theorem operiert auf einer anderen Ebene: es schränkt die \textit{Hintergrund}-Antwortfunktion ein, nicht die perturbative Operatorbasis. Eine zukünftige Aufgabe ist, die $\tanh$-Sättigung in der EFT-of-DE-Sprache auszudrücken und die CRM-Parameter $(k, \Phi_0, \gamma)$ auf die EFT-Operatorkoeffizienten $\{\alpha_i(t)\}$ abzubilden.
+
+\subsection{Ausblick}
+
+Drei Richtungen sind unmittelbar:
+
+\begin{enumerate}
+\item \textbf{Parameterherleitung.} Der nächste Schritt ist, $k$, $\Phi_0$ und $\gamma$ aus einer spezifischen UV-Vervollständigung herzuleiten. Der vielversprechendste Kandidat ist die LQG/holographische Schnittmenge, wo der Barbero-Immirzi-Parameter und die holographische Entropie-Schranke gemeinsam die Sättigungsparameter fixieren könnten.
+
+\item \textbf{Mehrfeld-Erweiterung.} Die Erweiterung des Theorems auf Theorien mit mehreren Sättigungs-Kanälen (z.B. Skalar + Vektor im CRM \cite{Geiger2026d}) erfordert die Klassifikation mehrdimensionaler kommutativer Gruppengesetze (das höherdimensionale Analogon der Abel-Gleichungs-Reduktion). Dies ist mathematisch reichhaltiger und könnte Beschränkungen auf die Vektorsektor-Parameter $K_B$ und $\mathcal{F}$ liefern.
+
+\item \textbf{Schwarzloch-Inneres.} Wenn das Saturation Theorem auf Schwarzloch-Innere (mit der Radialkoordinate die Skalenfaktor ersetzend) angewendet wird, sagt es eine $\tanh$-artige Singularitätsauflösung voraus -- konsistent mit LQG-Bounce-Modellen \cite{Ashtekar2006} und dem Planck-Star-Szenario \cite{Rovelli2014}.
+\end{enumerate}
+
+
+% ===================================================================
+% 9. SCHLUSSFOLGERUNG
+% ===================================================================
+\section{Schlussfolgerung}
+\label{sec:conclusion}
+
+Wir haben das Saturation Theorem bewiesen: jede Quantengravitations-Theorie, die vier minimale Axiome plus Randbedingungsregularität der Komposition erfüllt -- endliche geometrische Kapazität, kooperative Verstärkung, monotone kosmische Kontrolle und Renormalisierungsgruppen-Komposition -- muss kosmologische Dynamiken mit einem $\tanh$-artigen Sättigungsprofil produzieren. Dies ist keine Modellwahl, sondern eine mathematische Notwendigkeit, analog zu wie Eichsymmetrie die Existenz von Eichbosonen erzwingt, ohne die Kopplungskonstante zu spezifizieren.
+
+Das Theorem hat drei Konsequenzen:
+
+\begin{enumerate}
+\item Das CRM's Sättigungs-ODE $dX/da = k(1-X^2)$ ist die \textit{universelle Normalform} von kapazitätsbegrenzter kooperativer Relaxation -- die eindeutige Antwortfunktion kompatibel mit Beschränktheit, Kooperativität, Monotonie und Skalenkohärenz.
+
+\item Die Beobachtung, dass LQG, Asymptotic Safety, Stringtheorie, Causal Sets und Noncommutative Geometry alle $\tanh$-artige Sättigung in ihren kosmologischen Sektoren produzieren, ist \textit{erklärt}: sie folgt aus den Axiomen, die jedes Programm erfüllt.
+
+\item Quantengravitation wird als die Theorie geometrischer Ordnung rekonzeptualisiert -- ein Phasenübergang von einem prä-geometrischen Quantensystem zu klassischer Raumzeit -- statt der ``Quantisierung der Metrik''.
+\end{enumerate}
+
+Das verbleibende offene Problem -- die spezifischen Parameter $(k, \Phi_0, \gamma)$ aus einer UV-Vervollständigung herzuleiten -- ist das Analogon zur Ableitung der Feinstrukturkonstante aus einer Theorie der Quantenelektrodynamik. Das Theorem schränkt die \textit{Form} jeder brauchbaren Theorie ein; die Aufgabe der Gemeinschaft ist nun, welche UV-Vervollständigung die \textit{beobachteten} Werte auswählt, zu bestimmen.
+
+\begin{quote}
+\textit{Das Sättigungsprofil ist durch die Axiome auf den $\tanh$-Typ eingeschränkt -- nicht als Modellwahl, sondern als Konsequenz von Skalenkohärenz und Randbedingungsregularität.}
+\end{quote}
+
+
+% ===================================================================
+% DANKSAGUNGEN
+% ===================================================================
+\begin{acknowledgments}
+Diese Arbeit wurde als unabhängige Forschung ohne institutionelle Finanzierung durchgeführt. Der Autor dankt den Open-Source-Gemeinschaften hinter der wissenschaftlichen Recheninfrastruktur, die im gesamten CRM-Programm verwendet wurde.
+
+\textit{KI-Werkzeuge.} KI-basierte Werkzeuge (Claude von Anthropic; Copilot von Microsoft/GitHub; Gemini von Google DeepMind) wurden für mathematische Formalisierung, Literaturübersicht, Codeentwicklung und Textgenerierung verwendet. Alle physikalischen Hypothesen, axiomatischen Wahlen, wissenschaftliche Interpretation und Verantwortung für den Inhalt liegen ausschließlich beim Autor.
+
+\textit{Finanzierungsinformationen.} Diese Forschung erhielt keine externe Finanzierung.
+
+\textit{Datenverfügbarkeit.} Dieses Paper ist rein theoretisch. Der CRM-Analysecode und die Daten sind verfügbar unter \url{https://github.com/lukisch/crm-cosmology} (DOI: \href{https://doi.org/10.5281/zenodo.18728935}{10.5281/zenodo.18728935}).
+\end{acknowledgments}
+
+
+% ===================================================================
+
+% ===================================================================
+% BIBLIOGRAPHY
+% ===================================================================
+\begin{thebibliography}{50}
+
+\bibitem{Geiger2026}
+L.~Geiger (2026).
+Game-Theoretic Cosmology and the Curvature Relaxation Model: Nash Equilibria Between Null Space and Spacetime Bubble.
+Companion paper (Paper~I).
+\url{https://github.com/lukisch/crm-cosmology}.
+\href{https://doi.org/10.5281/zenodo.18728935}{doi:10.5281/zenodo.18728935}.
+
+\bibitem{Geiger2026b}
+L.~Geiger (2026).
+Eliminating the Dark Sector: Unifying the Curvature Relaxation Model with MOND.
+Companion paper (Paper~II).
+\href{https://doi.org/10.5281/zenodo.18728935}{doi:10.5281/zenodo.18728935}.
+
+\bibitem{Geiger2026c}
+L.~Geiger (2026).
+Microscopic Foundations of the Curvature Relaxation Model: From Quantum Geometry to Macroscopic Saturation.
+Companion paper (Paper~III).
+\href{https://doi.org/10.5281/zenodo.18728935}{doi:10.5281/zenodo.18728935}.
+
+\bibitem{Geiger2026d}
+L.~Geiger (2026).
+The Galactic--Cosmological Nexus: Connecting CRM to MOND Dynamics via Curvature Saturation.
+Companion paper (Paper~IV).
+\href{https://doi.org/10.5281/zenodo.18728935}{doi:10.5281/zenodo.18728935}.
+
+\bibitem{Donoghue1994}
+J.~F.~Donoghue (1994).
+General relativity as an effective field theory: The leading quantum corrections.
+\textit{Physical Review D}, 50(6), 3874.
+DOI: 10.1103/PhysRevD.50.3874.
+arXiv:gr-qc/9405057.
+
+\bibitem{Eichhorn2020}
+A.~Eichhorn,
+\textit{Asymptotically safe gravity},
+arXiv:2003.00044 (2020).
+
+\bibitem{EichhornHeld2018}
+A.~Eichhorn and A.~Held,
+\textit{Top mass from asymptotic safety},
+Phys.\ Lett.\ B \textbf{777}, 217--221 (2018).
+arXiv:1707.01107.
+
+\bibitem{Weinberg1979}
+S.~Weinberg (1979).
+Ultraviolet divergences in quantum theories of gravitation.
+In S.~W.~Hawking \& W.~Israel (Eds.), \textit{General Relativity: An Einstein Centenary Survey}, pp.\ 790--831.
+Cambridge University Press.
+
+\bibitem{Reuter1998}
+M.~Reuter (1998).
+Nonperturbative evolution equation for quantum gravity.
+\textit{Physical Review D}, 57(2), 971.
+DOI: 10.1103/PhysRevD.57.971.
+arXiv:hep-th/9605030.
+
+\bibitem{Percacci2017}
+R.~Percacci (2017).
+\textit{An Introduction to Covariant Quantum Gravity and Asymptotic Safety}.
+World Scientific.
+
+\bibitem{Polchinski1998}
+J.~Polchinski (1998).
+\textit{String Theory}, Vols.~1--2.
+Cambridge University Press.
+
+\bibitem{Rovelli2004}
+C.~Rovelli (2004).
+\textit{Quantum Gravity}.
+Cambridge University Press.
+
+\bibitem{Thiemann2007}
+T.~Thiemann (2007).
+\textit{Modern Canonical Quantum General Relativity}.
+Cambridge University Press.
+
+\bibitem{Maldacena1999}
+J.~Maldacena (1998).
+The large-$N$ limit of superconformal field theories and supergravity.
+\textit{Adv.\ Theor.\ Math.\ Phys.}\ \textbf{2}, 231--252.
+[Reprinted in \textit{Int.\ J.\ Theor.\ Phys.}\ \textbf{38}, 1113--1133 (1999).]
+arXiv:hep-th/9711200.
+
+\bibitem{Sorkin2003}
+R.~D.~Sorkin (2003).
+Causal sets: Discrete gravity.
+In \textit{Lectures on Quantum Gravity}, pp.\ 305--327.
+Springer.
+arXiv:gr-qc/0309009.
+
+\bibitem{Surya2019}
+S.~Surya (2019).
+The causal set approach to quantum gravity.
+\textit{Living Reviews in Relativity}, 22, 5.
+DOI: 10.1007/s41114-019-0023-1.
+
+\bibitem{Connes1994}
+A.~Connes (1994).
+\textit{Noncommutative Geometry}.
+Academic Press.
+
+\bibitem{Bekenstein1981}
+J.~D.~Bekenstein (1981).
+A universal upper bound on the entropy-to-energy ratio for bounded systems.
+\textit{Physical Review D}, 23(2), 287.
+DOI: 10.1103/PhysRevD.23.287.
+
+\bibitem{Almheiri2015}
+A.~Almheiri, X.~Dong, \& D.~Harlow (2015).
+Bulk locality and quantum error correction in AdS/CFT.
+\textit{Journal of High Energy Physics}, 2015, 163.
+DOI: 10.1007/JHEP04(2015)163.
+
+\bibitem{Aczel1966}
+J.~Acz\'el (1966).
+\textit{Lectures on Functional Equations and Their Applications}.
+Academic Press, New York.
+
+\bibitem{Hazewinkel1978}
+M.~Hazewinkel (1978).
+\textit{Formal Groups and Applications}.
+Academic Press.
+
+\bibitem{Ashtekar2006}
+A.~Ashtekar, T.~Pawlowski, \& P.~Singh (2006).
+Quantum nature of the Big Bang.
+\textit{Physical Review Letters}, 96(14), 141301.
+DOI: 10.1103/PhysRevLett.96.141301.
+arXiv:gr-qc/0602086.
+
+\bibitem{Bojowald2008}
+M.~Bojowald (2008).
+Loop quantum cosmology.
+\textit{Living Reviews in Relativity}, 11, 4.
+DOI: 10.12942/lrr-2008-4.
+
+\bibitem{Bonanno2002}
+A.~Bonanno \& M.~Reuter (2002).
+Cosmology of the Planck era from a renormalization group for quantum gravity.
+\textit{Physical Review D}, 65(4), 043508.
+DOI: 10.1103/PhysRevD.65.043508.
+arXiv:hep-th/0106133.
+
+\bibitem{Ryu2006}
+S.~Ryu \& T.~Takayanagi (2006).
+Holographic derivation of entanglement entropy from the anti-de~Sitter space/conformal field theory correspondence.
+\textit{Physical Review Letters}, 96(18), 181602.
+DOI: 10.1103/PhysRevLett.96.181602.
+arXiv:hep-th/0603001.
+
+\bibitem{deBoer2000}
+J.~de Boer, E.~P.~Verlinde, \& H.~L.~Verlinde (2000).
+On the holographic renormalization group.
+\textit{Journal of High Energy Physics}, 2000(08), 003.
+DOI: 10.1088/1126-6708/2000/08/003.
+arXiv:hep-th/9912012.
+
+
+\bibitem{Meissner2004}
+K.~A.~Meissner (2004).
+Black-hole entropy in Loop Quantum Gravity.
+\textit{Classical and Quantum Gravity}, 21(22), 5245.
+DOI: 10.1088/0264-9381/21/22/015.
+arXiv:gr-qc/0407052.
+
+\bibitem{Rovelli2014}
+C.~Rovelli \& F.~Vidotto (2014).
+Planck stars.
+\textit{International Journal of Modern Physics D}, 23(12), 1442026.
+DOI: 10.1142/S0218271814420267.
+arXiv:1401.6562.
+
+\bibitem{PDG2024}
+S.~Navas et~al. (Particle Data Group) (2024).
+Review of Particle Physics.
+\textit{Physical Review D}, 110, 030001.
+DOI: 10.1103/PhysRevD.110.030001.
+
+\bibitem{Obied2018}
+G.~Obied, H.~Ooguri, L.~Spodyneiko, \& C.~Vafa (2018).
+De Sitter Space and the Swampland.
+arXiv:1806.08362.
+
+\bibitem{Gubitosi2013}
+G.~Gubitosi, F.~Piazza, \& F.~Vernizzi (2013).
+The Effective Field Theory of Dark Energy.
+\textit{Journal of Cosmology and Astroparticle Physics}, 2013(02), 032.
+DOI: 10.1088/1475-7516/2013/02/032.
+arXiv:1210.0201.
+
+\bibitem{Ambjorn2005}
+J.~Ambj\o{}rn, J.~Jurkiewicz, \& R.~Loll (2005).
+The spectral dimension of the universe is scale dependent.
+\textit{Physical Review Letters}, 95(17), 171301.
+DOI: 10.1103/PhysRevLett.95.171301.
+arXiv:hep-th/0505113.
+
+\bibitem{Loll2019}
+R.~Loll (2020).
+Quantum gravity from causal dynamical triangulations: a review.
+\textit{Classical and Quantum Gravity}, 37(1), 013002.
+DOI: 10.1088/1361-6382/ab57c7.
+arXiv:1905.08669.
+
+\end{thebibliography}
+
+\end{document}
+

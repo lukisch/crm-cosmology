@@ -1,0 +1,96 @@
+========================================================================
+CFM + MOND: BARYON-ONLY UNIVERSE TEST
+========================================================================
+Datum: Februar 2026
+Datensatz: Pantheon+ (Scolnic et al. 2022)
+Hypothese: Wenn MOND gilt, ist Omega_m = Omega_b ~ 0.05
+
+------------------------------------------------------------------------
+REFERENZ: LCDM
+------------------------------------------------------------------------
+  Omega_m = 0.2443
+  chi2    = 729.00
+  AIC     = 733.00
+  BIC     = 743.74
+  Params  = 2
+
+------------------------------------------------------------------------
+REFERENZ: CFM Standard (Omega_m frei)
+------------------------------------------------------------------------
+  Omega_m = 0.3635
+  k       = 1.2994
+  a_trans  = 0.7500
+  Phi0    = 1.0468
+  chi2    = 716.81
+  AIC     = 724.81
+  BIC     = 746.30
+
+------------------------------------------------------------------------
+TEST A: CFM Baryon-Only (Omega_m = 0.05 fest)
+------------------------------------------------------------------------
+  Omega_m = 0.0500 (fest)
+  k       = 86.3998
+  a_trans  = 0.0602  (z_trans = 15.61)
+  Phi0    = 0.9500
+  Omega_Phi(z=0) = 0.9500
+  Omega_total    = 1.000000
+  chi2    = 945.51
+  AIC     = 951.51
+  BIC     = 967.62
+  Delta chi2 vs LCDM = +216.51
+  Delta AIC  vs LCDM = +218.51
+
+------------------------------------------------------------------------
+TEST B: CFM Baryonen-Band (0.03 <= Omega_m <= 0.07)
+------------------------------------------------------------------------
+  Omega_m = 0.0700
+  k       = 98.1787
+  a_trans  = 0.1022  (z_trans = 8.79)
+  Phi0    = 0.9300
+  Omega_Phi(z=0) = 0.9300
+  Omega_total    = 1.000000
+  chi2    = 894.65
+  AIC     = 902.65
+  BIC     = 924.14
+  Delta chi2 vs LCDM = +165.65
+  Delta AIC  vs LCDM = +169.65
+
+------------------------------------------------------------------------
+TEST C: Erweitertes CFM (geom. DM-Ersatz)
+------------------------------------------------------------------------
+  Omega_m = 0.0500 (fest, nur Baryonen)
+  k       = 3.9923
+  a_trans  = 0.9500  (z_trans = 0.05)
+  Phi0    = 0.7521  (DE-Anteil)
+  alpha   = 0.5000  (geom. DM-Amplitude)
+  beta    = 2.6089  (geom. DM-Skalierung)
+  Omega_Phi(z=0) = 0.9500
+  Omega_total    = 1.000000
+  chi2    = 710.25
+  AIC     = 720.25
+  BIC     = 747.11
+  Delta chi2 vs LCDM = -18.75
+  Delta AIC  vs LCDM = -12.75
+
+========================================================================
+ZUSAMMENFASSUNG
+========================================================================
+
+Modell                        chi2      AIC      BIC    dchi2     dAIC
+------------------------------------------------------------------------
+LCDM                         729.0    733.0    743.7     +0.0     +0.0
+CFM Standard                 716.8    724.8    746.3    -12.2     -8.2
+CFM Baryon Fixed             945.5    951.5    967.6   +216.5   +218.5
+CFM Baryon Band              894.7    902.7    924.1   +165.7   +169.7
+CFM Extended+MOND            710.3    720.3    747.1    -18.7    -12.7
+
+========================================================================
+BEWERTUNG
+========================================================================
+
+  ERGEBNIS: Das einfache Baryon-Only CFM (Test A) degradiert stark
+  (Delta chi2 = +216.5).
+
+  Das erweiterte CFM (Test C) mit geometrischem DM-Ersatz
+  fittet BESSER als LCDM (Delta chi2 = -18.7)!
+  => Die Vereinigung von CFM + MOND ist prinzipiell MOEGLICH.

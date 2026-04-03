@@ -1,0 +1,769 @@
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+
+% MiKTeX REVTeX 4.2 needs explicit package loading
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{{../figures/}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Korollar}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Bemerkung}
+
+\usepackage{hyperref}
+\hypersetup{
+    pdftitle={QG-CRM: Ultraviolette Vervollständigung des Curvature Relaxation Model mittels quantenquadratischer Gravitation},
+    pdfauthor={Lukas Geiger},
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black
+}
+
+\begin{document}
+
+% ===================================================================
+% TITELSEITE
+% ===================================================================
+
+\title{QG-CRM: Ultraviolette Vervollständigung des Curvature Relaxation Model\\mittels quantenquadratischer Gravitation}
+
+\author{Lukas Geiger}
+\thanks{ORCID: \url{https://orcid.org/0009-0005-7296-1534}}
+\affiliation{Unabhängiger Forscher, Bernau, Deutschland}
+
+\date{\today}
+
+\begin{abstract}
+Die Paper~I--IV der Curvature Relaxation Model (CRM)-Reihe haben gezeigt, dass die spätzeitliche kosmische Beschleunigung und die galaktische Dynamik geometrisch durch einen Sättigungsmechanismus $\Omega_\Phi(a) = \Phi_0\tanh(k(a - a_\mathrm{trans}))$ erklärt werden können, wodurch sowohl Dunkle Energie als auch partikuläre Dunkle Materie eliminiert werden. Paper~V erhob dieses Profil zu einer \textit{universellen Normalform} mittels des Saturation Theorem, wobei die offene Frage blieb: \textit{Welche ultraviolette Vervollständigung wählt $k$ und $\Phi_0$ aus?} Das vorliegende Paper beantwortet diese Frage. Wir zeigen, dass der $\gamma R^2$-Term in der CRM-Lagrangedichte (Paper~III) eine natürliche ultraviolette Vervollständigung über asymptotisch freie quantenquadratische Gravitation (QQG) zulässt, gemäß dem Rahmenwerk von Liu, Quintin \& Afshordi~\cite{LiuQuintinAfshordi2026}. Im UV-Regime erzeugt das 1-Loop-Renormierungsgruppen-Laufen der $R^2$-Kopplung $\xi(\mu)$ dynamisch Slow-Roll-Inflation ohne ein Inflaton-Feld. Wir verifizieren, dass die vier Axiome des Saturation Theorem durch den QQG-Renormierungsgruppenfluss erfüllt werden, womit das $\tanh$-Profil als einzigartiger Infrarot-Attraktor etabliert wird. Das resultierende Rahmenwerk---\textit{QG-CRM}---liefert eine vollständige geometrische Erzählung: (i)~asymptotisch freie $R^2$-Gravitation treibt die Inflation im UV; (ii)~die Sättigungsdynamik regiert den anmutigen Ausstieg und die Emergenz der Allgemeinen Relativitätstheorie; (iii)~die Krümmungsrelaxation erzeugt geometrische Dunkle Materie und spätzeitliche Beschleunigung im IR. Wir leiten die explizite Parameterabbildung von QQG-Kopplungen ($\lambda_0$, $\mathcal{N}$, $\mu_0$) auf CRM-Observablen ($k$, $\Phi_0$, $a_\mathrm{trans}$) ab. Das tensorinduzierte Inflationsszenario von Bertacca et~al.~\cite{Bertacca2025} wird als strukturell unterschiedlicher Grenzfall klassifiziert, der außerhalb der Saturation-Theorem-Axiome liegt. Beobachtungsvorhersagen umfassen $n_s \sim 1 - 4/(3N)$, $r \gtrsim 0.01$, $w(z) < -1$ zu späten Zeiten und die MOND-Konsistenzrelation $a_0 = cH_0/(2\pi)$---alles testbar mit Stage~IV CMB-Experimenten, Euclid und Roman.
+\end{abstract}
+
+\keywords{Curvature Relaxation Model, quantenquadratische Gravitation, ultraviolette Vervollständigung, Inflation, Sättigungsdynamik, Dunkle Energie, modifizierte Gravitation, asymptotische Freiheit}
+
+\thanks{KI-Werkzeuge (Claude, Anthropic) wurden für die mathematische Formalisierung und Textgenerierung eingesetzt. Alle physikalischen Hypothesen, wissenschaftlichen Interpretationen und die Verantwortung für den Inhalt liegen ausschließlich beim Autor.}
+
+\thanks{Paper~VI der CRM-Reihe. Begleitpaper: \cite{Geiger2026,Geiger2026b,Geiger2026c,Geiger2026d,Geiger2026e}.}
+
+\maketitle
+
+
+% ===================================================================
+% 1. EINLEITUNG
+% ===================================================================
+\section{Einleitung}
+\label{sec:introduction}
+
+Das Curvature Relaxation Model (CRM) bietet eine geometrische Alternative zur Standard-$\Lambda$CDM-Kosmologie. Über fünf Begleitpaper wurde das Rahmenwerk von spieltheoretischen Axiomen (Paper~I~\cite{Geiger2026}) über eine vereinheitlichte Behandlung von Dunkler Energie und MOND-artiger Dunkler Materie (Paper~II~\cite{Geiger2026b}), zu mikroskopischen Grundlagen mittels einer $R + \gamma R^2$-Lagrangedichte mit Pöschl-Teller-Sättigung (Paper~III~\cite{Geiger2026c}), dem galaktisch-kosmologischen Nexus über einen Vektorsektor (Paper~IV~\cite{Geiger2026d}) und dem Saturation Theorem, das $\tanh$ als universelle Normalform kapazitätsbegrenzter kooperativer Relaxation etabliert (Paper~V~\cite{Geiger2026e}), entwickelt.
+
+Das zentrale phänomenologische Ergebnis---die Sättigungs-ODE $dX/da = k(1-X^2)$ und ihre eindeutige Lösung $X(a) = \tanh(k(a-a_0))$---wurde gegen Pantheon+-Supernovae, Planck-CMB-Observablen, BAO-Messungen und SPARC-Rotationskurven getestet (Paper~I--IV), wobei $\Delta\chi^2 = -5.5$ gegenüber $\Lambda$CDM bei null früher Dunkler Energie und nur 6 freien Parametern erreicht wurde.
+
+Die CRM-Reihe blieb jedoch bisher agnostisch bezüglich des ultravioletten Regimes. Paper~V schloss mit einer expliziten offenen Frage:
+\begin{quote}
+``The open question being which UV completion selects $k$ and $\Phi_0$.''
+\end{quote}
+
+Das vorliegende Paper beantwortet diese Frage. Wir identifizieren den $\gamma R^2$-Sektor der CRM-Lagrangedichte mit quantenquadratischer Gravitation (QQG), die im Ultravioletten asymptotisch frei ist und deren 1-Loop-Renormierungsgruppen(RG)-Laufen dynamisch Slow-Roll-Inflation erzeugt~\cite{LiuQuintinAfshordi2026}. Das Saturation Theorem bildet die Schnittstelle: Es beschränkt das Infrarotverhalten auf $\tanh$ unabhängig von UV-Details, während die UV-Vervollständigung die mikroskopischen Parameter festlegt.
+
+Das resultierende Rahmenwerk, das wir \textit{QG-CRM} nennen, liefert eine vollständige geometrische Erzählung vom Urknall bis zur gegenwärtigen Epoche---ohne ein Inflaton, ohne eine kosmologische Konstante und ohne Dunkle-Materie-Teilchen.
+
+Wir betonen, dass dieses Paper \textit{strukturelle Notwendigkeit} etabliert, nicht numerische Abgeschlossenheit. Die UV-Vervollständigung bestimmt die Existenz, die funktionale Form und die Skalierungsrelationen der CRM-Parameter; ihre präzisen numerischen Werte erfordern nichtperturbatives UV-IR-Matching, analog zur Berechnung von Hadronenmassen aus der QCD-Lagrangedichte. Was wir demonstrieren, ist, dass QG-CRM das einzige konsistente Rahmenwerk ist, das asymptotisch freie quadratische Gravitation mit kapazitätsbegrenzter kosmologischer Relaxation verbindet.
+
+
+% ===================================================================
+% 2. DER CRM R²-SEKTOR
+% ===================================================================
+\section{Der CRM-$R^2$-Sektor und das ultraviolette Regime}
+\label{sec:r2sector}
+
+\subsection{Zusammenfassung: Die CRM-Lagrangedichte}
+
+Paper~III etablierte die effektive CRM-Lagrangedichte~\cite{Geiger2026c}:
+\begin{equation}
+\mathcal{L}_\mathrm{CRM} = \frac{R}{16\pi G} + \gamma R^2 + \frac{1}{2}(\partial\phi)^2 - V_\mathrm{PT}(\phi),
+\label{eq:crm-lagrangian}
+\end{equation}
+wobei $\gamma R^2$ den geometrischen ``Dunkle-Materie''-Beitrag (das Scalaron) erzeugt und das Pöschl-Teller-Potential $V_\mathrm{PT}(\phi)$ die Sättigungsdynamik liefert, die die spätzeitliche Beschleunigung antreibt.
+
+Im sehr frühen Universum, wenn die Krümmung planckisch ist, wird der Einstein-Hilbert-Term $R/(16\pi G) \propto M_\mathrm{Pl}^2 R$ gegenüber dem $R^2$-Term subdominant. Die effektive Wirkung reduziert sich auf
+\begin{equation}
+S_\mathrm{UV} \approx -\int d^4x\,\sqrt{-g}\,\frac{R^2}{\xi},
+\label{eq:pure-r2}
+\end{equation}
+wobei $\xi \equiv -1/\gamma$ (gemäß der Vorzeichenkonvention von~\cite{LiuQuintinAfshordi2026}; man beachte, dass $\gamma > 0$ in Paper~III $\xi < 0$ entspricht, d.\,h.\ der tachyonfreien Region, die die RG-Trajektorie im IR erreicht). Während der Inflation gilt $\xi > 0$. Dies ist eine skaleninvariante Theorie: jede Raumzeit konstanter Krümmung---Minkowski, de~Sitter oder Anti-de~Sitter---extremiert die Wirkung~\cite{Hell2024,Hell2025}.
+
+\subsection{Von Skaleninvarianz zu Inflation}
+
+Die Skaleninvarianz wird durch Quanteneffekte gebrochen. Das Renormierungsgruppen-Laufen von $\xi(\mu)$ führt eine physikalische Skala in die Theorie ein, analog zur quantenkonfomen Anomalie~\cite{CapperDuff1974,Duff1994}. Dies ist genau der Mechanismus, der exaktes de~Sitter in Quasi-de~Sitter transformiert und so Slow-Roll-Inflation erzeugt, ohne ein Inflaton-Feld einzuführen.
+
+Auf einem homogenen und isotropen FLRW-Hintergrund verschwindet der Weyl-Tensor $C^2$ identisch. Daher reduziert sich die vollständige quadratische Gravitationswirkung
+\begin{equation}
+S_\mathrm{QG} = -\int d^4x\,\sqrt{-g}\left(\frac{R^2}{\xi} + \frac{C^2}{2\lambda}\right)
+\label{eq:quad-gravity}
+\end{equation}
+für den kosmologischen Hintergrund auf reine $R^2$-Gravitation, und die Inflationsdynamik wird vollständig durch das Laufen von $\xi$ bestimmt.
+
+
+% ===================================================================
+% 3. UV-VERVOLLSTÄNDIGUNG ÜBER QQG
+% ===================================================================
+\section{Ultraviolette Vervollständigung über quantenquadratische Gravitation}
+\label{sec:uv-completion}
+
+\subsection{Der Renormierungsgruppenfluss}
+
+Gemäß~\cite{Buccio2024,LiuQuintinAfshordi2026} lauten die 1-Loop-Betafunktionen der physikalischen laufenden Kopplungen
+\begin{align}
+\beta_\xi &= \frac{d\xi}{d\ln\mu} = -\frac{1}{(4\pi)^2}\,\frac{\xi^2 - 36\lambda\xi - 2520\lambda^2}{36}, \label{eq:beta-xi}\\
+\beta_\lambda &= \frac{d\lambda}{d\ln\mu} = -\frac{1}{(4\pi)^2}\,\frac{(1617 + 90\mathcal{N})\lambda - 20\xi}{90}\,\lambda, \label{eq:beta-lambda}
+\end{align}
+wobei $\mu$ die physikalische RG-Skala ist und $\mathcal{N}$ den Materiefeld-Gehalt zählt:
+\begin{equation}
+\mathcal{N} = \frac{1}{60}N_\mathrm{scalar} + \frac{1}{5}N_\mathrm{vector} + \frac{1}{20}N_\mathrm{fermion}.
+\label{eq:matter-content}
+\end{equation}
+
+\subsection{Asymptotische Freiheit und die Inflationstrajektorie}
+
+Der RG-Fluss (\ref{eq:beta-xi})--(\ref{eq:beta-lambda}) lässt Lösungen zu, die:
+\begin{enumerate}
+\item \textbf{asymptotisch frei im UV} sind: sowohl $\xi$ als auch $\lambda$ verschwinden am Gaußschen Fixpunkt ($\mu \to \infty$).
+\item \textbf{tachyonfrei im IR} sind: das Einzugsgebiet bei niedrigem $\mu$ hat $\lambda > 0$ und $\xi < 0$.
+\end{enumerate}
+
+Trajektorien, die die tachyonfreie Region erreichen, müssen zunächst ein Regime durchlaufen, in dem $\xi > 0$ ist: die Kopplung wächst, erreicht ein Maximum $\xi_\mathrm{max}$, nimmt dann ab und durchquert die Null bei einer Skala $\mu_0$. Inflation findet im Regime \textit{abnehmenden} $\xi$ statt, bevor die Tachyon-Grenze überschritten wird~\cite{LiuQuintinAfshordi2026}.
+
+\subsection{Lösung im großen $\mathcal{N}$-Limes und das Inflationspotential}
+
+Im großen $\mathcal{N}$-Limes lautet die Lösung~\cite{LiuQuintinAfshordi2026}:
+\begin{equation}
+\xi(\mu) \simeq \frac{35\lambda_0^2\ln(\mu/\mu_0)}{8\pi^2[1 + \lambda_\mathrm{tH}\ln(\mu/\mu_0)]},
+\label{eq:xi-solution}
+\end{equation}
+wobei $\lambda_\mathrm{tH} \equiv \lambda_0\mathcal{N}/(4\pi)^2$ die 't~Hooft-artige Kopplung ist. Durch Promovierung von $\mu = |R|^{1/2}$ und Transformation in den Einstein-Rahmen erhält man das skalare Potential~\cite{LiuQuintinAfshordi2026}:
+\begin{equation}
+V(\varphi) \simeq \frac{35\lambda_0^2\mu_0^4}{128\pi^2\lambda_\mathrm{tH}}\left(1 - \frac{\sqrt{6}\,\mu_0}{\lambda_\mathrm{tH}\,\varphi}\right).
+\label{eq:einstein-potential}
+\end{equation}
+
+Dieses Potential hat eine nahezu plateau-artige Struktur und erzeugt Slow-Roll-Inflation mit den Observablen~\cite{LiuQuintinAfshordi2026}:
+\begin{equation}
+n_s \sim 1 - \frac{4}{3N}, \qquad r \sim \frac{8}{3}\left(\frac{2}{\lambda_\mathrm{tH}^2 N^4}\right)^{1/3},
+\label{eq:ns-r}
+\end{equation}
+wobei $N$ die Anzahl der $e$-Faltungen zwischen dem Horizontaustritt und dem Ende der Inflation ist.
+
+\subsection{Ende der Inflation und Beginn der Kination-Phase}
+
+Die Inflation endet, wenn das Potential steiler wird; es gibt kein Minimum, in dem das Inflaton oszillieren und zerfallen könnte. Stattdessen rollt das Feld in eine kinetisch dominierte Phase (\textit{kination}). Wenn $\lambda$ über $\lambda_0$ hinausfließt, überschreitet die 't~Hooft-Kopplung $\lambda_\mathrm{tH} = \lambda\mathcal{N}/(4\pi)^2$ die Eins, was das Regime starker Kopplung signalisiert. Die Allgemeine Relativitätstheorie muss dann als effektive Feldtheorie bei niedrigen Energien emergieren, und das Universum tritt durch Reheating in seine Strahlungsära ein~\cite{LiuQuintinAfshordi2026}.
+
+Dieser UV$\to$IR-Übergang ist genau die Stelle, an der die Infrarotdynamik des CRM übernimmt.
+
+
+% ===================================================================
+% 4. DAS SATURATION THEOREM ALS UV-IR-SCHNITTSTELLE
+% ===================================================================
+\section{Das Saturation Theorem als UV-IR-Schnittstelle}
+\label{sec:interface}
+
+\subsection{Axiomverifikation für QQG}
+
+Paper~V etablierte vier Axiome, die jede Quantengravitationstheorie erfüllen muss, um begrenzte kosmologische Relaxation zu erzeugen~\cite{Geiger2026e}. Wir verifizieren nun, dass jedes Axiom von QQG im kosmologischen Sektor erfüllt wird.
+
+\begin{description}
+\item[Axiom A (Endliche geometrische Kapazität).] Die Kopplung $\xi(\mu)$ erreicht ein endliches Maximum $\xi_\mathrm{max}$ entlang der RG-Trajektorie, bevor sie abnimmt. Diese maximale Krümmungsantwort ist die geometrische Kapazitätsschranke. \checkmark
+
+\item[Axiom B (Kooperative Verstärkung).] Das RG-Laufen von $\xi$ ist im Inflationsregime selbstverstärkend: der $\xi^2$-Term in $\beta_\xi$ erzeugt kooperatives Wachstum vom UV-Fixpunkt bis $\xi_\mathrm{max}$, gefolgt von kooperativer Relaxation bei abnehmendem $\xi$. \checkmark
+
+\item[Axiom C (Monotone kosmische Kontrolle).] Die physikalische RG-Skala $\mu$ nimmt monoton ab, wenn das Universum expandiert. Während der Inflation und der Materiedominanz liefert $\mu = |R|^{1/2}$ die natürliche Identifikation. In der Strahlungsära, wo die Spur $R = 0$ für konform gekoppelte Materie gilt, sollte $\mu$ mit $H$ (der Hubble-Skala) oder einer alternativen Krümmungsinvarianten wie dem Kretschner-Skalar $K^{1/4}$ identifiziert werden; alle Wahlen stimmen während der Slow-Roll-Inflation überein und sind generisch bis auf $\mathcal{O}(1)$-Faktoren äquivalent~\cite{LiuQuintinAfshordi2026}. Die Monotonie der kosmischen Expansion stellt sicher, dass $\mu$ in allen Phasen abnimmt. \checkmark
+
+\item[Axiom D (RG-Komposition).] Die 1-Loop-Betafunktionen (\ref{eq:beta-xi})--(\ref{eq:beta-lambda}) definieren ein wohlgestelltes Kompositionsgesetz: die Evolution von $\mu_1 \to \mu_2 \to \mu_3$ ist äquivalent zur direkten Evolution von $\mu_1 \to \mu_3$. Dies ist genau die Halbgruppeneigenschaft des RG-Flusses, die die Abel-Gleichungsanforderung des Saturation Theorem erfüllt. \checkmark
+\end{description}
+
+\subsection{Konsequenz: $\tanh$ als einzigartiger IR-Attraktor}
+
+Da alle vier Axiome erfüllt sind, gilt das Saturation Theorem: die einzige glatte, skalenkohärente Antwortfunktion, die sich regulär zur Sättigungsgrenze erstreckt, ist
+\begin{equation}
+S(g) = S_\mathrm{max}\,\tanh(\alpha\,u(g)),
+\end{equation}
+bis auf Reparametrisierung. In kosmologischer Sprache ist dies das CRM-Sättigungsprofil $\Omega_\Phi(a) = \Phi_0\tanh(k(a - a_\mathrm{trans}))$.
+
+\subsection{Parameteridentifikation}
+
+Die UV-Vervollständigung bestimmt die Reparametrisierung $u(g)$ und die CRM-Konstanten:
+\begin{itemize}
+\item Die Sättigungsamplitude $\Phi_0$ wird durch $\xi_\mathrm{max}$ und $\lambda_0$ festgelegt.
+\item Die Relaxationsrate $k$ wird durch die Steigung von $\xi(\mu)$ an der Tachyon-Grenze bestimmt.
+\item Die Übergangsskala $a_\mathrm{trans}$ entspricht der Skala $\mu_0$, bei der $\xi = 0$ gilt und die ART emergiert.
+\end{itemize}
+
+Die explizite Abbildung wird in Anhang~\ref{app:parameter-mapping} hergeleitet.
+
+
+% ===================================================================
+% 5. VON DER INFLATION ZUR SPÄTZEITLICHEN BESCHLEUNIGUNG
+% ===================================================================
+\section{Von der Inflation zur spätzeitlichen Beschleunigung: Die QG-CRM-Erzählung}
+\label{sec:narrative}
+
+QG-CRM liefert eine vereinheitlichte geometrische Erzählung, die die gesamte kosmische Geschichte umspannt:
+
+\begin{enumerate}
+\item \textbf{Phase~I: Reine $R^2$-Inflation (UV, $\mu \gg \mu_0$).} Das Universum beginnt in asymptotisch freier quadratischer Gravitation. Die $R^2$-Kopplung $\xi(\mu)$ läuft von Null, erreicht $\xi_\mathrm{max}$ und erzeugt Quasi-de-Sitter-Inflation über die logarithmische Korrektur zur R$^2$-Wirkung. Es existiert kein Inflaton-Feld; das Scalaron ist rein geometrisch.
+
+\item \textbf{Phase~II: Kination und starke Kopplung ($\mu \sim \mu_0$).} Wenn $\xi$ abnimmt und die Null durchquert, wird das Potential steiler, die Inflation endet und das Feld tritt in die Kination-Phase ein. Die 't~Hooft-Kopplung nähert sich der Eins, was das Regime starker Kopplung signalisiert. Die Allgemeine Relativitätstheorie emergiert als effektive Feldtheorie.
+
+\item \textbf{Phase~III: Strahlungs- und Materieära.} Standard-Urknallkosmologie. Der Pöschl-Teller-Skalar $\phi$ wird durch die Spurkopplung $\mathcal{F}(T/\rho)$ (Paper~III) dynamisch eingefroren, was BBN-Schutz gewährleistet.
+
+\item \textbf{Phase~IV: Geometrische Dunkle Materie ($z \lesssim 10^3$).} Das Scalaron aus dem $\gamma R^2$-Term erzeugt skalenabhängige Gravitationseffekte, die kosmologisch kalte Dunkle Materie imitieren (laufende Kopplung $\beta_\mathrm{eff}(a)$, Paper~II) und flache Rotationskurven über den Vektorsektor reproduzieren (Paper~IV).
+
+\item \textbf{Phase~V: Krümmungssättigung ($z \lesssim 1$).} Das Pöschl-Teller-Potential wird aktiviert, das Krümmungsrückkehrpotential sättigt ($\Omega_\Phi \to \Phi_0$), und das Universum tritt in beschleunigte Expansion ein. Die Sättigung folgt garantiert $\tanh$ gemäß dem Saturation Theorem.
+\end{enumerate}
+
+Diese Fünf-Phasen-Erzählung ist keine Sammlung separater Modelle, die zusammengefügt wurden. Alle Phasen entstehen aus einem \textit{einzigen} geometrischen Freiheitsgrad---dem $R^2$-Scalaron---dessen Dynamik im UV durch den Renormierungsgruppenfluss und im IR durch die Sättigungsdynamik bestimmt wird, wobei das Saturation Theorem die einzigartige Brücke bildet.
+
+\subsection{Skalenabhängige Scalaron-Masse: ein Feld, viele Rollen}
+\label{sec:scalaron-mass}
+
+Ein möglicher Einwand ist, dass das Scalaron nicht gleichzeitig die Inflation antreiben kann ($m_s \sim 10^{13}$\,GeV in der Starobinsky-Inflation) und geometrische Dunkle-Materie-Effekte erzeugen kann ($m_s \sim H_0 \sim 10^{-33}$\,eV auf kosmologischen Skalen). Die Auflösung liegt im \textit{Laufen} von $\gamma(\mu)$: da $\gamma = -1/\xi$ und $\xi(\mu)$ sich entlang der RG-Trajektorie entwickelt, ist die Scalaron-Masse
+\begin{equation}
+m_s^2(\mu) = \frac{1}{6\gamma(\mu)} = -\frac{\xi(\mu)}{6}
+\label{eq:running-mass}
+\end{equation}
+kein fester Parameter, sondern eine skalenabhängige effektive Größe. Im UV ($\mu \gg \mu_0$) ist $\xi$ groß und positiv, was ein schweres Scalaron ergibt, das die Inflationsdynamik antreibt. Mit abnehmendem $\xi$ durch den RG-Fluss sinkt die effektive Masse. Nach dem Übergang zur starken Kopplung ($\mu \sim \mu_0$) tritt das Scalaron in das tachyonfreie Regime ein ($\xi < 0$, $\gamma > 0$), wo seine Masse durch den IR-Wert von $\gamma$ kontrolliert wird---möglicherweise so leicht wie $m_s \sim H_0$.
+
+Die ``Identität'' des Scalarons über alle fünf Phasen hinweg ist daher nicht die Behauptung, dass ein einziger Massenparameter alle Epochen regiert, sondern dass ein einziger \textit{geometrischer Freiheitsgrad} mit einer \textit{skalenabhängigen effektiven Beschreibung} die zugrundeliegende Dynamik liefert. Dies ist direkt analog zum QCD-Gluon: dasselbe Eichfeld ist bei hohen Energien perturbativ und bei niedrigen Energien confinend, mit einer skalenabhängigen effektiven Kopplung $\alpha_s(\mu)$, die sich um Größenordnungen ändert.
+
+\subsection{Der $R^2 \to$ nichtlineare $f(R)$-Übergang und Sonnensystem-Screening}
+\label{sec:screening}
+
+Eine entscheidende Einschränkung ergibt sich aus dem Begleitpaper zur Dunklen Energie~\cite{GeigerDE2026}: das \textit{Konvexitäts-Screening-Inkompatibilitäts-Theorem} stellt fest, dass ein strikt konvexes Freie-Energie-Funktional---wie es natürlich von linearer $R + \gamma R^2$-Gravitation erzeugt wird---ein eindeutiges globales Minimum ohne sekundäre Minima besitzt. Folglich \textit{kann} lineare $R^2$-Gravitation kein Chamäleon-Screening erzeugen: der post-Newtonsche Parameter ergibt sich zu $\gamma_\mathrm{PPN} = 1/2$, was durch Cassini-Tracking bei $>10^4\sigma$ ausgeschlossen ist.
+
+Dies hat eine direkte Implikation für QG-CRM: die UV-Wirkung (\ref{eq:quad-gravity}) ist renormierbar $R^2$, aber die effektive IR-Theorie \textit{muss} nichtlineare $f(R)$-Struktur entwickeln, um Sonnensystem-Kompatibilität zu erreichen. Konkret liefert die Hu-Sawicki-Form~\cite{HuSawicki2007}
+\begin{equation}
+f(R) = R - \mu^2\frac{c_1(R/\mu^2)^n}{c_2(R/\mu^2)^n + 1}, \qquad n \geq 1,
+\label{eq:hu-sawicki}
+\end{equation}
+dichteabhängiges Screening: die Scalaron-Masse $m_s^2 \propto \rho/M_\mathrm{Pl}^2$ wird in Umgebungen hoher Dichte (Sonnensystem) groß, was die Yukawa-Fünfte-Kraft unterdrückt, während sie bei kosmologischen Dichten, wo Dunkle-Energie-Effekte aktiv sind, leicht bleibt ($m_s \sim H_0$).
+
+In QG-CRM hat dieser Übergang eine natürliche Interpretation als \textit{irrelevante-Operator-Kaskade}. Im UV ist die Theorie perturbativ $R^2$ (renormierbar, nur mit marginalen und relevanten Operatoren). Wenn der RG-Fluss sich der starken Kopplung nähert, erzeugen nichtperturbative Effekte einen unendlichen Turm von Krümmungsoperatoren höherer Ordnung:
+\begin{equation}
+\Gamma_\mathrm{IR} = \Gamma_{R^2} + \sum_{n \geq 1} \frac{c_n\,R^{n+1}}{\Lambda^{2n}},
+\end{equation}
+wobei $\Lambda$ die Confinement-Skala ist. Die Hu-Sawicki-Form~(\ref{eq:hu-sawicki}) ist dann keine fundamentale Wirkung, sondern die führende \textit{phänomenologische Resummation} dieses Operatorturms, die die wesentliche Physik erfasst: dichteabhängige Scalaron-Masse und Chamäleon-Screening. Dies ist direkt analog zur chiralen Störungstheorie, die die Niederenergie-Effekte des QCD-Confinement parametrisiert, ohne sie aus der QCD-Lagrangedichte herzuleiten.
+
+Wir betonen, dass Hu-Sawicki als IR-effektive Parametrisierung nichtperturbativer Vervollständigung verstanden werden sollte, nicht als hergeleitete Wirkung. Die spezifischen Werte von $n$, $c_1$, $c_2$ werden durch Sonnensystem-Tests und kosmologische Daten eingeschränkt, nicht durch die UV-Theorie. Was die UV-Theorie garantiert, ist, dass \textit{irgendeine} nichtlineare $f(R)$-Struktur am Übergang zur starken Kopplung emergieren muss---das Konvexitäts-Screening-Theorem macht dies zu einer strukturellen Notwendigkeit, nicht zu einer optionalen Ergänzung.
+
+\subsection{Verbindung zum Dunkle-Energie-Paper: Thermodynamische Konsistenz}
+\label{sec:de-connection}
+
+Das begleitende FST-Dunkle-Energie-Paper~\cite{GeigerDE2026} leitet eine thermodynamische Schranke für die effektive kosmologische Konstante her:
+\begin{equation}
+\Lambda_\mathrm{eff} \sim \frac{H_0^2}{\ln(M_\mathrm{Pl}/H_0)},
+\label{eq:lambda-bound}
+\end{equation}
+was $\Lambda_\mathrm{eff} \approx 3.8 \times 10^{-53}\,\mathrm{m}^{-2}$ ergibt, innerhalb einer Größenordnung des Planck~2018-Wertes ($1.1 \times 10^{-52}\,\mathrm{m}^{-2}$). Da dieselbe Lagrangedichte ($R + \gamma R^2$ + Pöschl-Teller) beiden Arbeiten zugrunde liegt, liefert die thermodynamische Schranke eine Größenordnungs-\textit{untere Schranke} für die Vakuumenergiedichte. Man beachte, dass die CRM-Sättigungsamplitude $\Phi_0 \equiv \Omega_\Lambda \approx 0.685$ (der fraktionelle Dunkle-Energie-Dichteparameter) eine andere Größe ist als $\Lambda_\mathrm{eff}/(3H_0^2)$. Das thermodynamische Funktional wählt die Vakuumenergie-\textit{Skala} aus; die Sättigungsamplitude $\Phi_0$ wird durch die gesamte kosmische Expansionsgeschichte bestimmt. Das Verhältnis
+\begin{equation}
+\frac{\Lambda_\mathrm{eff}^\mathrm{thermo}}{3H_0^2} \sim \frac{1}{3\ln(M_\mathrm{Pl}/H_0)} \approx 0.0024
+\end{equation}
+zeigt, dass die reine thermodynamische Schranke $\Omega_\Lambda$ um einen Faktor $\sim 290 \approx 2\ln(M_\mathrm{Pl}/H_0)$ unterschätzt, was den RG-Matching-Faktor identifiziert, der benötigt wird, um die Lücke zu schließen (siehe Abschnitt~\ref{sec:two-loop}).
+
+Darüber hinaus liefern die DESI-kompatiblen Best-Fit-Parameter aus~\cite{GeigerDE2026} ($\kappa = 2.63$, $a_\mathrm{trans} = 0.326$) konkrete Zielwerte für die QQG$\to$CRM-Parameterabbildung (Anhang~\ref{app:parameter-mapping}).
+
+Eine besonders faszinierende Aussicht ist, dass der QQG-Renormierungsgruppenfluss das zentrale offene Problem aus~\cite{GeigerDE2026} lösen könnte: den fehlenden Faktor $\sim 2\ln(M_\mathrm{Pl}/H_0) \approx 290$. Das thermodynamische Funktional liefert einen Logarithmus aus der Entropie/Zustandsdichte-Logik; ein zweiter Logarithmus entsteht natürlich aus der RG-Integration des Laufens der Vakuumenergie:
+\begin{equation}
+\Lambda_\mathrm{eff} \sim \int_{H_0}^{M_\mathrm{Pl}} \frac{d\ln\mu}{\mu}\,\beta_\Lambda(\mu) \sim \frac{H_0^2\,\ln^2(M_\mathrm{Pl}/H_0)}{(4\pi)^2},
+\end{equation}
+wobei die Doppellogarithmus-Struktur ein Standardmerkmal integrierter RG-Flüsse in der Quantenfeldtheorie ist. Dieser ``Doppellogarithmus''-Mechanismus---ein $\ln$ aus der Thermodynamik, einer aus der UV$\to$IR-Integration---würde $\Phi_0 \sim \ln(M_\mathrm{Pl}/H_0)/(3\ln(M_\mathrm{Pl}/H_0)) \times \mathcal{O}(\text{wenige}) \sim \mathcal{O}(1)$ ergeben, konsistent mit $\Omega_\Lambda \approx 0.685$. Eine rigorose Herleitung erfordert die explizite Auswertung von $\beta_\Lambda$ in QQG, die wir auf zukünftige Arbeiten verschieben.
+
+
+% ===================================================================
+% 6. BEZIEHUNG ZUR TENSORINDUZIERTEN INFLATION
+% ===================================================================
+\section{Beziehung zur tensorinduzierten Inflation}
+\label{sec:tensor-inflation}
+
+Bertacca et~al.~\cite{Bertacca2025} schlugen ein Szenario vor, in dem Skalarperturbationen rein als Effekt zweiter Ordnung aus Tensorfluktuationen in exaktem de~Sitter entstehen, ohne skalare Freiheitsgrade in linearer Ordnung. Obwohl dies eine elegante Konstruktion ist, ist sie aus folgenden Gründen strukturell inkompatibel mit der Sättigungskosmologie:
+
+\begin{enumerate}
+\item \textbf{Kein linearer Skalarsektor.} Das Szenario schließt explizit lineare Skalarperturbationen aus. Das CRM erfordert hingegen das Scalaron als dynamischen Freiheitsgrad sowohl für den Inflationshintergrund als auch für den spätzeitlichen Sättigungsmechanismus.
+
+\item \textbf{Verletzung von Axiom~D.} Ohne einen skalaren Ordnungsparameter gibt es keine komponierbare Relaxationsvariable, die die Abel-Gleichung erfüllt. Das Saturation Theorem ist daher nicht anwendbar, und die $\tanh$-Normalform kann nicht hergeleitet werden.
+
+\item \textbf{Kein globales kosmologisches Programm.} Das tensorinduzierte Szenario behandelt Inflation und Perturbationserzeugung, erstreckt sich aber nicht auf Dunkle Materie, MOND oder spätzeitliche Beschleunigung.
+\end{enumerate}
+
+Allerdings kann der Tensor-zu-Skalar-Erzeugungsmechanismus von~\cite{Bertacca2025} eine \textit{subleading}-Korrektur zum scalaron-dominierten Leistungsspektrum in QG-CRM liefern. Die quantitative Bewertung dieser Korrektur---ob der Tensorkanal zweiter Ordnung $\mathcal{P}_\zeta(k)$ auf Prozentniveau modifiziert---bleibt eine offene Frage für zukünftige Arbeiten.
+
+\begin{remark}
+Das Szenario von~\cite{Bertacca2025} sagt ein sehr unterschiedliches Tensor-zu-Skalar-Verhältnis voraus ($r \sim 0.0006$, nahe der GUT-Skala $H_\mathrm{inf} \sim 5 \times 10^{-4}\,m_\mathrm{pl}$) gegenüber der QQG-Vorhersage ($r \gtrsim 0.01$). Stage~IV CMB-Experimente werden diese Szenarien entscheidend unterscheiden.
+\end{remark}
+
+
+% ===================================================================
+% 7. BEOBACHTUNGSVORHERSAGEN
+% ===================================================================
+\section{Beobachtungsvorhersagen von QG-CRM}
+\label{sec:predictions}
+
+QG-CRM macht konkrete, falsifizierbare Vorhersagen, die die gesamte kosmische Geschichte umspannen:
+
+\subsection{Inflationsepoche (UV)}
+
+Wir haben die Inflationsobservablen numerisch über den gesamten lebensfähigen Parameterraum berechnet. Die Ergebnisse sind in Tabelle~\ref{tab:observables} zusammengefasst.
+
+\begin{table}[h]
+\caption{QG-CRM-Inflationsvorhersagen für repräsentative Parameterwerte. Die beobachtete skalare Amplitude $A_s = e^{3.06} \times 10^{-10}$ wird verwendet, um $\lambda_0$ für jedes $(\lambda_\mathrm{tH}, N)$-Paar festzulegen.}
+\begin{tabular}{cccccc}
+\toprule
+$\lambda_\mathrm{tH}$ & $N$ & $n_s$ & $r$ & $\lambda_0$ & $\mathcal{N}$ \\
+\midrule
+0.3 & 55 & 0.9758 & 0.036 & $1.1 \times 10^{-4}$ & $4.3 \times 10^5$ \\
+0.5 & 55 & 0.9758 & 0.025 & $1.2 \times 10^{-4}$ & $6.6 \times 10^5$ \\
+1.0 & 55 & 0.9758 & 0.016 & $1.4 \times 10^{-4}$ & $1.2 \times 10^6$ \\
+\midrule
+\multicolumn{2}{c}{Starobinsky ($N=55$)} & 0.9636 & 0.004 & --- & --- \\
+\multicolumn{2}{c}{ACT+DESI (1$\sigma$)} & $0.974 \pm 0.003$ & --- & --- & --- \\
+\multicolumn{2}{c}{SPT-3G+DESI (1$\sigma$)} & $0.978 \pm 0.004$ & --- & --- & --- \\
+\multicolumn{2}{c}{BICEP/Keck (2$\sigma$)} & --- & $<0.036$ & --- & --- \\
+\bottomrule
+\end{tabular}
+\label{tab:observables}
+\end{table}
+
+\begin{itemize}
+\item \textbf{Skalarer Spektralindex:} $n_s = 1 - 4/(3N) = 0.9758$ für $N = 55$, innerhalb von $1\sigma$ sowohl von ACT+DESI~\cite{ACT2025} als auch von SPT-3G+DESI~\cite{SPT3G2026}. Dies ist signifikant größer als Starobinskys $n_s = 1 - 2/N = 0.964$, das unter Spannung mit aktuellen CMB-Daten steht.
+
+\item \textbf{Tensor-zu-Skalar-Verhältnis:} $r$ reicht von $0.016$ ($\lambda_\mathrm{tH} = 1$, an der Grenze starker Kopplung) bis $0.036$ ($\lambda_\mathrm{tH} = 0.3$), mit der minimalen Vorhersage $r \gtrsim 0.01$. Das obere Ende liegt an der aktuellen BICEP/Keck-$2\sigma$-Schranke. LiteBIRD ($\sigma_r \sim 0.001$) und CMB-S4 werden den gesamten lebensfähigen Bereich sondieren.
+
+\item \textbf{Skalare Amplitude:} Die Fixierung von $A_s = 2.13 \times 10^{-9}$ beschränkt $\lambda_0 \sim 10^{-4}$ und erfordert $\mathcal{N} \sim 10^5$--$10^6$ Materiefelder in den Schleifen. Dieses große $\mathcal{N}$ ist kompatibel mit Erweiterungen des Standardmodells und mit holographischer Kosmologie~\cite{Afshordi2017}.
+
+\item \textbf{Tensorgequellte Korrektur.} Der Beitrag des Tensor$\to$Skalar-Kanals zweiter Ordnung von~\cite{Bertacca2025} ist gegenüber dem Scalaron-Kanal um $(H_\mathrm{inf}/m_\mathrm{pl})^2 \sim 2.5 \times 10^{-7}$ unterdrückt, was seine nachgeordnete Natur bestätigt.
+\end{itemize}
+
+\subsection{Spätzeitliche Kosmologie (IR)}
+
+Übernommen aus Paper~I--IV:
+\begin{itemize}
+\item \textbf{Zustandsgleichung und Phantomstabilität:} $w_\mathrm{eff}(z) < -1$ mit $|\Delta w| \approx 0.4$ (phantomartig). Entscheidend ist, dass diese Phantomphase \textit{transient} ist, nicht asymptotisch. Für $a \to \infty$: $\Omega_m a^{-3} \to 0$, $\Omega_\Phi \to \Phi_0$, daher $H^2 \to H_0^2\Phi_0 = \mathrm{const}$ und $\dot{H} \to 0$. Das Universum nähert sich einem stabilen de-Sitter-Endzustand mit $w_\mathrm{eff} \to -1$ von unten. Kein Big Rip, keine zukünftige Singularität---die Sättigungsschranke $\Omega_\Phi \leq \Phi_0$ ist die strukturelle Garantie.
+\item \textbf{Späterer Beschleunigungsbeginn:} $z_\mathrm{acc} = 0.52$ vs.\ $0.84$ ($\Lambda$CDM). Die verlängerte materiedominierte Phase erklärt JWST-``Universe Breakers'' bei $z > 7$~\cite{Labbe2023}.
+\item \textbf{Signaturen modifizierter Gravitation:} $\mu(k,a) \neq 1$, Gravitationsschlupf $\eta \neq 1$, Linseneffekt $\Sigma = 1$---was QG-CRM von $\Lambda$CDM unterscheidet. Testbar mit Euclid und Roman.
+\item \textbf{Gravitationswellengeschwindigkeit:} $c_T = c$ (exakt), konsistent mit GW170817~\cite{GW170817}.
+\item \textbf{MOND-Konsistenzrelation:} $a_0 = cH_0/(2\pi)$, die lokale galaktische Dynamik mit der kosmologischen Expansionsrate verbindet.
+\end{itemize}
+
+
+% ===================================================================
+% 8. DISKUSSION
+% ===================================================================
+\section{Diskussion}
+\label{sec:discussion}
+
+\subsection{Das ontologische Bild}
+
+QG-CRM reduziert den materiellen Inhalt der Kosmologie auf sein Minimum:
+\begin{center}
+\textit{Raumzeitgeometrie (in fünf Phasen) + baryonische Materie.}
+\end{center}
+Keine kosmologische Konstante, kein Inflaton-Feld, keine Dunkle-Materie-Teilchen, kein Dunkle-Energie-Fluid. Die gesamte kosmische Geschichte---von der Urknallsingularität bis zur gegenwärtigen beschleunigten Expansion---wird von einem einzigen geometrischen Freiheitsgrad (dem $R^2$-Scalaron) beherrscht, dessen Verhalten vom UV-Renormierungsgruppen-Laufen zur IR-Sättigungsdynamik übergeht.
+
+\subsection{Implikationen für Paper~I: Das Nash-Gleichgewicht im Ultravioletten}
+\label{sec:paper1-implications}
+
+Die UV-Vervollständigung hat direkte Konsequenzen für das spieltheoretische Rahmenwerk von Paper~I~\cite{Geiger2026}, das die kosmische Evolution als Nash equilibrium zwischen einem metastabilen Quantenvakuum (``Nullraum'') und einer Raumzeitblase modellierte. Wir können nun beiden Spielern physikalische Identitäten zuweisen.
+
+\paragraph{Spieleridentifikation.}
+Der Nullraum von Paper~I entspricht dem reinen $R^2$-Regime der QQG: eine skaleninvariante Theorie ohne klassische Raumzeit, in der das Universum als Quantenzustand nahe dem Gaußschen UV-Fixpunkt existiert. Die Raumzeitblase entspricht dem emergenten ART-Regime nach dem Übergang zur starken Kopplung bei $\mu \sim \mu_0$. Das Nash equilibrium---der Endpunkt des Spiels---bildet sich auf den $\tanh$-Sättigungsattraktor ab, den das Saturation Theorem als einziges stabiles Ergebnis garantiert.
+
+\paragraph{Das vollständige Fünf-Phasen-Spiel.}
+Paper~I beschrieb nur die spätzeitlichen Phasen (geometrische Dunkle Materie $\to$ Sättigung). QG-CRM erweitert das Spiel auf alle fünf Phasen:
+\begin{enumerate}
+\item \textit{Inflation}: der Nullraum-Spieler dominiert (reines $R^2$, keine ART).
+\item \textit{Kination/Reheating}: der ``Zug'' geht von Spieler~1 auf Spieler~2 über (Übergang zur starken Kopplung, ART emergiert).
+\item \textit{Strahlung/Materie}: der Raumzeitblasen-Spieler dominiert (Standardkosmologie).
+\item \textit{Geometrische Dunkle Materie}: kooperative Phase (beide Spieler tragen bei).
+\item \textit{Sättigung}: Nash equilibrium wird erreicht (de-Sitter-Endzustand).
+\end{enumerate}
+
+\paragraph{Parameterherleitung: Was das UV festlegt und was nicht.}
+In Paper~I wurden die Sättigungsamplitude $\Phi_0$ und die Relaxationsrate $k$ an Pantheon+-Daten angepasst. Die UV-Vervollständigung klärt den \textit{logischen Status} dieser Parameter: QQG bestimmt (i)~die \textit{Existenz} eines endlichen Sättigungswertes (über $\xi_\mathrm{max}$), (ii)~die \textit{funktionale Form} der Relaxation ($\tanh$, garantiert durch das Saturation Theorem) und (iii)~die \textit{Anfangsbedingungen} für die Sättigungs-ODE an der Reheating-Fläche. Die \textit{numerischen Werte} von $\Phi_0$ und $k$ sind jedoch IR-Größen, die gemeinsam durch die UV-Anfangsbedingungen und die kosmologischen Randbedingungen ($H_0$, $\Omega_m$) bestimmt werden. Der Übergang zur starken Kopplung ist die korrekte UV-IR-Matching-Fläche, aber er überträgt die Dynamik in das IR-Regime, anstatt $\Phi_0$ direkt festzulegen. Eine vollständig quantitative Herleitung würde erfordern, den RG-Fluss durch das nichtperturbative Fenster der starken Kopplung zu verfolgen---ein offenes Problem, analog zur Berechnung von Hadronenmassen aus der QCD-Lagrangedichte.
+
+\paragraph{Potentialidentifikation: Projektion, nicht Identität.}
+Das spieltheoretische Potential von Paper~I und das QQG-Einstein-Rahmen-Potential~(\ref{eq:einstein-potential}) sind nicht dasselbe Objekt, sondern stellen \textit{verschiedene Beschreibungsebenen desselben Systems} dar. Das QQG-Potential ist ein mikroskopisches RG-verbessertes Potential, gültig im UV/Inflationsregime. Das Paper~I-Potential ist ein effektives IR-Freie-Energie-Potential, definiert durch Relaxationsdynamik und thermodynamische Selektion. Die Verbindung zwischen ihnen wird durch das Saturation Theorem vermittelt: das QQG-Potential liefert die UV-Anfangsbedingungen, und die $\tanh$-Normalform projiziert diese auf den einzigartigen IR-Attraktor. In der Sprache der Lagrangedichte entspricht das Paper~I-Potential dem effektiven Potential des Scalarons im Einstein-Rahmen, ausgewertet bei kosmologischen Dichten und integriert über den gesamten RG-Fluss einschließlich des Übergangs zur starken Kopplung.
+
+\paragraph{Thermodynamische Verstärkung.}
+Paper~I etablierte eine thermodynamische Äquivalenz, die die spieltheoretischen Axiome mit der Jacobson-Tradition~\cite{Jacobson1995} verbindet. Die UV-Vervollständigung stärkt diese Verbindung durch drei unabhängige Ergebnisse: (i)~den quantenthermodynamischen dS-Zerfallsmechanismus von Alicki, Barenboim \& Jenkins~\cite{Alicki2023,Alicki2025}, (ii)~Mottolas thermodynamische Instabilität des de-Sitter-Raums~\cite{Mottola1985,Mottola1986} und (iii)~die Quanten-Zerfallszeit des dS~\cite{DvaliGomezZell2017}. Alle drei liefern konkrete physikalische Mechanismen für die ``Spieldynamik'', die Paper~I axiomatisch beschrieb.
+
+\subsection{Vergleich mit alternativen Rahmenwerken}
+
+\begin{table}[h]
+\caption{Vergleich kosmologischer Rahmenwerke.}
+\begin{tabular}{lccc}
+\toprule
+ & $\Lambda$CDM & Starobinsky & QG-CRM \\
+\midrule
+Inflaton-Feld & Ja & Ja (Scalaron) & Nein \\
+Kosmologische Konstante & Ja & Nein & Nein \\
+Dunkle-Materie-Teilchen & Ja & Ja & Nein \\
+UV-vollständig & Nein & Nein & Ja \\
+$n_s$-Vorhersage & --- & $1-2/N$ & $1-4/(3N)$ \\
+$r$-Vorhersage & --- & $12/N^2$ & $\gtrsim 0.01$ \\
+MOND-Emergenz & Nein & Nein & Ja \\
+\bottomrule
+\end{tabular}
+\label{tab:comparison}
+\end{table}
+
+\subsection{Robustheit der großen $\mathcal{N}$-Anforderung}
+\label{sec:large-n}
+
+Der lebensfähige Parameterraum erfordert $\mathcal{N} \sim 10^5$--$10^6$ Materiefelder, die zu den QQG-Betafunktionen beitragen. Wir identifizieren drei Klassen von Szenarien jenseits des Standardmodells (BSM), die dies auf natürliche Weise liefern:
+
+\begin{enumerate}
+\item \textbf{Große Eichgruppen.} Eine $\mathrm{SU}(N_c)$-Theorie mit $N_c \sim 300$--$1000$ und einer kleinen Zahl fundamentaler Fermionen ergibt $\mathcal{N} \sim N_c^2/5 \sim 10^4$--$2 \times 10^5$ allein aus den adjungierten Eichbosonen. Dies ist das Szenario, das am engsten mit der holographischen Kosmologie~\cite{Afshordi2017} verwandt ist, wo $N_c^2$ die Rolle der zentralen Ladung spielt.
+
+\item \textbf{Große verborgene Sektoren.} Stringlandschaft-Konstruktionen mit $\sim 10^5$ SM-ähnlichen Eichsektoren ergeben $\mathcal{N} \sim 5 \times 10^5$ bei Beibehaltung der Einfachheit einzelner Sektoren.
+
+\item \textbf{Skalare Moduli.} Typ~IIB-Fluss-Kompaktifizierungen mit $\sim 6 \times 10^6$ skalaren Moduli ergeben $\mathcal{N} \sim 10^5$ allein aus dem Skalarbeitrag ($\mathcal{N}_\mathrm{scalar} = N_\mathrm{scalar}/60$).
+\end{enumerate}
+
+Entscheidend ist, dass diese Felder \textit{nicht} zur effektiven Zahl relativistischer Spezies $N_\mathrm{eff}$ bei der BBN oder der CMB-Entkopplung beitragen. In QG-CRM sind die großen $\mathcal{N}$-Felder nur oberhalb der Skala starker Kopplung aktiv; sie werden zusammen mit den QQG-Freiheitsgraden am IR-Übergang confiniert, analog zu schweren Quarks, die oberhalb ihrer Massenschwelle in der QCD herausintegriert werden. Nur Standardmodell-Felder ($\mathcal{N}_\mathrm{SM} \approx 4.7$) propagieren unterhalb der Confinement-Skala, was $\Delta N_\mathrm{eff} = 0$ aus dem verborgenen Sektor ergibt. Die Entropieproduktion beim Reheating beträgt $S_f/S_i \sim 1$--$3$, konsistent mit Standard-Baryogenese.
+
+\subsection{Ghost-Confinement im Weyl-Sektor}
+\label{sec:ghost}
+
+Der $C^2$-Term in der quadratischen Gravitation führt ein massives Spin-2-Feld mit negativer kinetischer Energie ein (einen Ghost). In QG-CRM stützen wir uns auf den Mechanismus starker Kopplung, der von Holdom \& Ren~\cite{HoldomRen2016} vorgeschlagen wurde: wenn $\lambda$ in Richtung des Regimes starker Kopplung wächst ($\lambda_\mathrm{tH} \gtrsim 1$), wird der Ghost confiniert, in direkter Analogie zum Farbconfinement in der QCD. Drei Aspekte stützen dies:
+
+\begin{enumerate}
+\item \textbf{Asymptotische Freiheit.} Sowohl QQG als auch QCD sind asymptotisch frei, mit perturbativem UV-Verhalten und nichtperturbativer IR-Dynamik. In der QCD verhindert Confinement, dass freie Quarks als asymptotische Zustände auftreten; in QQG wird erwartet, dass Confinement verhindert, dass der Ghost als physikalische Anregung auftritt.
+
+\item \textbf{Dynamische Massenerzeugung.} Im Regime starker Kopplung kann der Ghost eine dynamische Masse $m_\mathrm{ghost} \sim \mu_0$ erwerben, die seine Effekte oberhalb der Energieskala kosmologischer Beobachtungen verschiebt. Dies ist analog zu Konstituentenquark-Massen in der QCD.
+
+\item \textbf{Beobachtbare Signaturen.} Falls Ghost-Confinement unvollständig ist, wäre die wahrscheinlichste Signatur eine Modifikation des Tensorleistungsspektrums bei Skalen $k \sim m_\mathrm{ghost}$, die ein Merkmal in der $B$-Moden-Polarisation bei hohem $\ell$ erzeugt. Die Abwesenheit solcher Merkmale in aktuellen CMB-Daten liefert einen indirekten Konsistenzcheck, obwohl gezielte Suchen mit Stage~IV-Experimenten wertvoll wären.
+\end{enumerate}
+
+Wir räumen ein, dass ein rigoroser Beweis für Ghost-Confinement in QQG aussteht. Gitterformulierungen der quadratischen Gravitation~\cite{HoldomRen2016} bieten den vielversprechendsten Weg zu einer nichtperturbativen Verifikation.
+
+\subsection{Nichtperturbative Szenarien für $\Phi_0$ und $k$}
+\label{sec:nonperturbative}
+
+Während die präzisen numerischen Werte der CRM-Parameter $\Phi_0$ und $k$ nichtperturbatives UV-IR-Matching erfordern, können wir zwei plausible Szenarien skizzieren:
+
+\paragraph{Szenario A: Dimensionale Transmutation.}
+In Analogie zu $\Lambda_\mathrm{QCD}$ erzeugt der Übergang zur starken Kopplung in QQG eine dynamische Skala $\mu_\mathrm{conf} \sim \mu_0\,e^{-1/\lambda_\mathrm{tH}}$. Das Verhältnis $\mu_\mathrm{conf}/M_\mathrm{Pl}$ setzt dann die Vakuumenergieskala, und die CRM-Parameter erben ihre Werte von dieser dynamisch erzeugten Hierarchie. In diesem Szenario gilt $\Phi_0 \propto (\mu_\mathrm{conf}/M_\mathrm{Pl})^4$ und $k$ wird durch die logarithmische Ableitung von $\xi$ an der Confinement-Skala bestimmt.
+
+\paragraph{Szenario B: Thermodynamische Selektion.}
+Das FST-Dunkle-Energie-Paper~\cite{GeigerDE2026} leitet $\Lambda_\mathrm{eff} \sim H_0^2/\ln(M_\mathrm{Pl}/H_0)$ aus einem thermodynamischen Variationsprinzip her. Falls der QQG-RG-Fluss die mikroskopische Grundlage für dieses Variationsprinzip liefert---wobei das Freie-Energie-Funktional $\Phi(\rho_\mathrm{vac})$ aus dem Pfadintegral der QQG im Regime starker Kopplung emergiert---dann wird $\Phi_0$ durch thermodynamisches Gleichgewicht ausgewählt und nicht allein durch UV-Dynamik.
+
+Beide Szenarien sagen $\Phi_0 \sim \mathcal{O}(1)$ (in Einheiten der kritischen Dichte) voraus, konsistent mit dem beobachteten $\Omega_\Lambda \approx 0.685$, aber eine Herleitung aus ersten Prinzipien bleibt eine große offene Herausforderung.
+
+\subsection{Perturbative Stabilität: Zwei-Loop-Abschätzung}
+\label{sec:two-loop}
+
+Wir schätzen den Einfluss von 2-Loop-Korrekturen auf die Inflationsvorhersagen mittels der parametrischen Skalierung $\delta(\mathrm{obs})/\mathrm{obs} \sim \lambda_\mathrm{tH}/(4\pi)^2$ ab. Für $\lambda_\mathrm{tH} = 1$ (die Grenze starker Kopplung) ergibt dies $\delta \sim 0.6\%$. Konkret:
+
+\begin{itemize}
+\item Die Verschiebung des Spektralindex beträgt $|\delta n_s| < 1.5 \times 10^{-4}$, was $20\times$ kleiner ist als der aktuelle $1\sigma$-Beobachtungsfehler ($\sigma_{n_s} \approx 0.003$). Die $n_s$-Vorhersage ist \textit{robust}.
+\item Die Verschiebung des Tensor-zu-Skalar-Verhältnisses beträgt $|\delta r/r| < 0.6\%$, entsprechend $|\delta r| < 10^{-4}$. Dies liegt unterhalb der LiteBIRD-Prognosesensitivität ($\sigma_r \sim 10^{-3}$), obwohl es auf dem Niveau von $\sim 10\%$-von-$\sigma$ marginal nachweisbar ist.
+\item Die perturbative Kontrolle bricht erst bei $\lambda_\mathrm{tH} \gtrsim 2$ zusammen, weit außerhalb des lebensfähigen Parameterraums ($0.1 \lesssim \lambda_\mathrm{tH} \lesssim 1$).
+\end{itemize}
+
+Wir schlussfolgern, dass die 1-Loop-Vorhersagen aus Tabelle~\ref{tab:observables} im gesamten lebensfähigen Parameterraum gegenüber Korrekturen höherer Ordnung stabil sind.
+
+\subsection{Verbleibende offene Fragen}
+
+\begin{enumerate}
+\item \textbf{$R^2 \to$ nichtlinearer $f(R)$-Übergang} [\textit{erfordert nichtperturbative Methoden}]. Das Konvexitäts-Screening-Theorem verlangt nichtlineares $f(R)$ im IR, aber der Confinement-Mechanismus, der Hu-Sawicki-Struktur aus der UV-$R^2$-Wirkung erzeugt, ist inhärent nichtperturbativ. Gittermethoden für quadratische Gravitation könnten einen Weg nach vorne bieten.
+
+\item \textbf{RG-Matching für $\Lambda_\mathrm{eff}$} [\textit{plausibel, offen}]. Der fehlende Faktor $\sim 290 \approx 2\ln(M_\mathrm{Pl}/H_0)$ in der thermodynamischen Schranke deutet auf einen 2-Loop-$\ln^2$-Beitrag oder eine große $\mathcal{N}$-Verstärkung hin, aber die Berechnung steht noch aus.
+
+\item \textbf{Perturbationen aus dem Weyl-Sektor.} Das Laufen der $C^2$-Kopplung kann das Tensorleistungsspektrum und damit $r$ modifizieren; eine quantitative Bewertung ist erforderlich.
+\end{enumerate}
+
+Dies sind echte \textit{Forschungsfragen}, keine strukturellen Defizite. Das QG-CRM-Rahmenwerk ist auf dem dargestellten Niveau intern konsistent; die offenen Fragen betreffen quantitative Verfeinerungen innerhalb einer festgelegten Architektur.
+
+
+% ===================================================================
+% 9. SCHLUSSFOLGERUNG
+% ===================================================================
+\section{Schlussfolgerung}
+\label{sec:conclusion}
+
+Wir haben QG-CRM vorgestellt, das ultraviolett-vervollständigte Curvature Relaxation Model. Durch Identifikation des $R^2$-Sektors der CRM-Lagrangedichte mit asymptotisch freier quantenquadratischer Gravitation und durch Verifikation, dass das Saturation Theorem die einzigartige UV-IR-Schnittstelle liefert, erhalten wir eine vollständige geometrische Kosmologie, die vom Urknall bis zur gegenwärtigen Epoche reicht.
+
+Die Schlüsselergebnisse sind:
+
+\begin{enumerate}
+\item Die UV-Vervollständigung wird durch quantenquadratische Gravitation geliefert: das Renormierungsgruppen-Laufen der $R^2$-Kopplung erzeugt dynamisch Inflation ohne ein Inflaton-Feld.
+
+\item Das Saturation Theorem (Paper~V) ist auf den QQG-RG-Fluss anwendbar, was $\tanh$ als einzigartige IR-Normalform garantiert und das CRM-Sättigungsprofil als strukturell notwendig etabliert.
+
+\item Die UV-Vervollständigung beantwortet die offene Frage von Paper~V, indem sie QQG als die Theorie identifiziert, die die CRM-Parameter auswählt: sie bestimmt die Existenz und funktionale Form der Sättigung, legt die Inflationsobservablen fest und liefert Skalierungsrelationen für die IR-Parameter $\Phi_0$ und $k$---obwohl deren präzise numerische Werte nichtperturbatives UV-IR-Matching erfordern.
+
+\item QG-CRM macht falsifizierbare Vorhersagen---$n_s \sim 1 - 4/(3N)$, $r \gtrsim 0.01$, phantomartiges $w(z)$ und $a_0 = cH_0/(2\pi)$---die mit Stage~IV CMB-Experimenten, Gravitationswellendetektoren und Galaxiendurchmusterungen testbar sind.
+\end{enumerate}
+
+QG-CRM ist, nach unserem Wissen, das erste Rahmenwerk, das ultraviolett-vollständige Inflation, geometrische Dunkle Materie, MOND-Dynamik und spätzeitliche kosmische Beschleunigung innerhalb eines einzigen Wirkungsprinzips vereinigt---unter ausschließlicher Verwendung von Raumzeitkrümmung und baryonischer Materie.
+
+
+% ===================================================================
+% DANKSAGUNGEN
+% ===================================================================
+\begin{acknowledgments}
+KI-Werkzeuge (Claude, Anthropic; Copilot, Microsoft) wurden für die mathematische Formalisierung, Literaturanalyse und Textgenerierung eingesetzt. Alle physikalischen Hypothesen, wissenschaftlichen Interpretationen und die Verantwortung für den Inhalt liegen ausschließlich beim Autor.
+\end{acknowledgments}
+
+
+% ===================================================================
+% ANHÄNGE
+% ===================================================================
+\appendix
+
+\section{Explizite Parameterabbildung: QQG $\to$ CRM}
+\label{app:parameter-mapping}
+
+Die Parameterabbildung muss auf zwei Ebenen verstanden werden: was die UV-Vervollständigung \textit{strukturell bestimmt} und was sie \textit{IR-Randbedingungen überlässt}.
+
+\paragraph{Was QQG bestimmt.}
+\begin{enumerate}
+\item \textbf{Existenz der Sättigung.} Die RG-Trajektorie hat ein endliches $\xi_\mathrm{max}$, was garantiert, dass die Relaxationsvariable begrenzt ist. Dies ist Axiom~A des Saturation Theorem.
+\item \textbf{Funktionale Form.} Das Saturation Theorem erzwingt $\tanh$ als einzigartige Normalform. Kein alternatives Profil ist erlaubt.
+\item \textbf{Anfangsbedingungen.} An der Reheating-Fläche ($\mu \sim \mu_0$, wo die starke Kopplung einsetzt und die ART emergiert) setzt die QQG-Dynamik den Anfangswert und die Geschwindigkeit der Relaxationsvariablen.
+\item \textbf{Inflationsobservablen.} $n_s$, $r$ und $A_s$ werden vollständig durch $\lambda_\mathrm{tH}$ und $N$ bestimmt (Tabelle~\ref{tab:observables}).
+\end{enumerate}
+
+\paragraph{Was IR-Randbedingungen erfordert.}
+Die Sättigungsamplitude $\Phi_0$ und die Relaxationsrate $k$ sind IR-Größen. Ihre numerischen Werte werden gemeinsam bestimmt durch:
+\begin{itemize}
+\item die UV-Anfangsbedingungen an der Reheating-Fläche,
+\item die kosmische Expansionsgeschichte durch die Strahlungs- und Materiedominanz,
+\item die heutigen Randbedingungen ($H_0$, $\Omega_m$).
+\end{itemize}
+
+\paragraph{UV-abgeleitete Skalierungsrelationen.}
+Obwohl $\Phi_0$ und $k$ nicht allein aus UV-Parametern berechnet werden können, liefert die UV-Vervollständigung \textit{Skalierungsrelationen}:
+
+\begin{itemize}
+\item Die Inflationsenergieskala setzt eine obere Schranke:
+\begin{equation}
+\frac{V_\mathrm{inf}}{M_\mathrm{Pl}^4} = \frac{35\lambda_0^2\mu_0^4}{128\pi^2\lambda_\mathrm{tH}\,M_\mathrm{Pl}^4} \sim 10^{-9},
+\end{equation}
+was bestätigt, dass die Inflations-Vakuumenergie weit über der heutigen Dunkle-Energie-Skala liegt.
+
+\item Die RG-Steigung an der Tachyon-Grenze setzt die \textit{Rate}, mit der sich die Scalaron-Kopplung entwickelt:
+\begin{equation}
+\left.\frac{d\xi}{d\ln\mu}\right|_{\mu=\mu_0} = \frac{2520\lambda_0^2}{36(4\pi)^2} \sim 4.4 \times 10^{-5},
+\end{equation}
+was eine charakteristische Zeitskala für den UV$\to$IR-Übergang liefert.
+
+\item \textbf{Die Relaxationsrate $k$ als kritischer Exponent.} An der Tachyon-Grenze ($\xi = 0$) hat der linearisierte RG-Fluss von $\xi$ die Jacobi-Matrix
+\begin{equation}
+\left.\frac{\partial\beta_\xi}{\partial\xi}\right|_{\xi=0} = \frac{\lambda_0}{(4\pi)^2}.
+\end{equation}
+Diese Größe spielt die Rolle eines \textit{kritischen Exponenten}: sie charakterisiert die Rate, mit der das System die kritische Fläche $\xi = 0$ verlässt, unabhängig von der nichtperturbativen Dynamik jenseits dieser Fläche. Die CRM-Relaxationsrate $k$ erbt diese universelle Skalierung:
+\begin{equation}
+k \propto \frac{\lambda_0}{(4\pi)^2} \sim 7 \times 10^{-7},
+\label{eq:k-critical}
+\end{equation}
+wobei der numerische Wert $\lambda_0 \sim 10^{-4}$ aus der $A_s$-Bedingung verwendet. Dies ist ein strukturelles Ergebnis: $k$ wird durch die \textit{lokalen} Eigenschaften des RG-Flusses an der kritischen Fläche bestimmt, nicht durch die globale nichtperturbative Dynamik.
+
+\textbf{Wichtige Klarstellung:} Der RG-Exponent $k_\mathrm{RG} \sim 7 \times 10^{-7}$ und die beobachtete CRM-Relaxationsrate $\kappa = 2.63$ sind \textit{nicht dieselbe Größe}. Sie unterscheiden sich durch die Jacobi-Determinante der Koordinatentransformation zwischen RG-Zeit ($\ln\mu$) und kosmischer Zeit ($\ln a$):
+\begin{equation}
+\kappa = k_\mathrm{RG} \cdot \left|\frac{d\ln\mu}{d\ln a}\right| \cdot \mathcal{J}_\mathrm{repar},
+\label{eq:k-jacobian}
+\end{equation}
+wobei $\mathcal{J}_\mathrm{repar}$ die Reparametrisierungs-Jacobi-Determinante aus dem Saturation Theorem ist (das $\tanh$ ``bis auf Reparametrisierung'' garantiert). Da $\mu \sim |R|^{1/2}$ und $R \propto H^2 \propto a^{-3}$ während der Materiedominanz, gilt $|d\ln\mu/d\ln a| = 3/2$ pro $e$-Faltung der Expansion. Über die gesamte kosmische Evolution von Reheating ($a \sim 10^{-28}$) bis heute ($a = 1$) umfasst die integrierte Jacobi-Determinante $\sim 64$ $e$-Faltungen der Expansion, von denen jede $\mathcal{O}(1)$ zur Abbildung beiträgt. Der verbleibende Faktor $\sim 10^{4\text{--}5}$ entsteht aus der Reparametrisierung zwischen der RG-Kontrollvariablen und der CRM-Relaxationsvariablen---eine nichttriviale, aber strukturell erwartete Konsequenz der Projektion eines UV-Flusses auf eine IR-Normalform.
+
+\item Die Reheating-Temperatur aus dem Nichtgleichgewichts-dS-Zerfall~\cite{LiuQuintinAfshordi2026}:
+\begin{equation}
+T_\mathrm{RH} = 10^{-10}\left(\frac{E_\mathrm{inf}}{\mathrm{GeV}}\right)^{3/2}\,\mathrm{GeV} \sim 10^{11}\text{--}10^{12}\,\mathrm{GeV},
+\end{equation}
+konsistent mit Baryogenese.
+\end{itemize}
+
+\paragraph{Die nichtperturbative Lücke.}
+Eine vollständig quantitative Herleitung von $\Phi_0$ und $k$ aus UV-Parametern würde erfordern, den RG-Fluss durch das Regime starker Kopplung bei $\lambda_\mathrm{tH} \sim 1$ zu lösen. Dies ist analog zur Berechnung von Hadronenmassen aus der QCD-Lagrangedichte: das theoretische Rahmenwerk steht fest, aber die nichtperturbative Berechnung bleibt eine offene Herausforderung. Gittermethoden für quadratische Gravitation~\cite{HoldomRen2016} könnten letztendlich die notwendige Brücke liefern.
+
+\section{Skalares Perturbations-Leistungsspektrum}
+\label{app:power-spectrum}
+
+Das primordiale skalare Leistungsspektrum in QG-CRM hat zwei Beiträge:
+
+\begin{enumerate}
+\item \textbf{Primär (Scalaron):} Das Standard-$f(R)$-Inflationsergebnis aus dem Einstein-Rahmen-Potential (\ref{eq:einstein-potential}), das ergibt~\cite{LiuQuintinAfshordi2026}
+\begin{equation}
+\Delta_\phi^2(k) \propto \frac{\lambda_0^2 N^{4/3}}{(2\lambda_\mathrm{tH})^{1/3}}.
+\end{equation}
+
+\item \textbf{Sekundär (tensorgequellt):} Der Beitrag zweiter Ordnung aus Tensorperturbationen über den in~\cite{Bertacca2025} berechneten Kern. Dieser ist gegenüber dem Scalaron-Kanal um einen Faktor der Ordnung $(H_\mathrm{inf}/m_\mathrm{pl})^2 \ll 1$ unterdrückt und daher nachgeordnet.
+\end{enumerate}
+
+Die detaillierte Berechnung des kombinierten Spektrums, einschließlich Interferenzeffekten und nicht-Gaußscher Korrekturen, wird auf zukünftige Arbeiten verschoben.
+
+
+% ===================================================================
+% LITERATURVERZEICHNIS
+% ===================================================================
+\begin{thebibliography}{99}
+
+\bibitem{Geiger2026}
+L.~Geiger,
+``Game-Theoretic Cosmology and the Curvature Relaxation Model: A Nash Equilibrium Framework for Cosmic Acceleration'' (Paper~I),
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18728935}{10.5281/zenodo.18728935} (combined CRM~I--IV record).
+
+\bibitem{Geiger2026b}
+L.~Geiger,
+``Eliminating the Dark Sector: Unifying the Curvature Relaxation Model with MOND'' (Paper~II),
+in Ref.~\cite{Geiger2026}.
+
+\bibitem{Geiger2026c}
+L.~Geiger,
+``Microscopic Foundations of the Curvature Relaxation Model: From Quantum Geometry to Macroscopic Saturation'' (Paper~III),
+in Ref.~\cite{Geiger2026}.
+
+\bibitem{Geiger2026d}
+L.~Geiger,
+``The Galactic--Cosmological Nexus: Connecting CRM to MOND Dynamics via Curvature Saturation'' (Paper~IV),
+in Ref.~\cite{Geiger2026}.
+
+\bibitem{Geiger2026e}
+L.~Geiger,
+``The Saturation Theorem: Axiomatic Constraints on Quantum Gravity from Cosmological Relaxation,''
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.19036188}{10.5281/zenodo.19036188}.
+% CRM Paper V
+
+\bibitem{LiuQuintinAfshordi2026}
+R.~Liu, J.~Quintin and N.~Afshordi,
+``Ultraviolet Completion of the Big Bang in Quadratic Gravity,''
+Phys.\ Rev.\ Lett.\ \textbf{136}, 111501 (2026),
+\href{https://doi.org/10.1103/6gtx-j455}{10.1103/6gtx-j455}.
+
+\bibitem{Bertacca2025}
+D.~Bertacca, R.~Jimenez, S.~Matarrese and A.~Ricciardone,
+``Inflation without an inflaton,''
+Phys.\ Rev.\ Research \textbf{7}, L032010 (2025),
+\href{https://doi.org/10.1103/vfny-pgc2}{10.1103/vfny-pgc2}.
+
+\bibitem{Buccio2024}
+D.~Buccio, J.~F.~Donoghue, G.~Menezes and R.~Percacci,
+``Physical running of couplings in quadratic gravity,''
+Phys.\ Rev.\ Lett.\ \textbf{133}, 021604 (2024).
+
+\bibitem{Starobinsky1980}
+A.~A.~Starobinsky,
+``A new type of isotropic cosmological models without singularity,''
+Phys.\ Lett.\ B \textbf{91}, 99 (1980).
+
+\bibitem{Hell2024}
+A.~Hell, D.~Lust and G.~Zoupanos,
+``On the degrees of freedom of $R^2$ gravity in flat spacetime,''
+JHEP \textbf{02}, 039 (2024).
+
+\bibitem{Hell2025}
+A.~Hell and D.~Lust,
+``Conformal and pure scale-invariant gravities in $d$ dimensions,''
+JHEP \textbf{09}, 202 (2025).
+
+\bibitem{CapperDuff1974}
+D.~M.~Capper and M.~J.~Duff,
+``Trace anomalies in dimensional regularization,''
+Nuovo Cimento Soc.\ Ital.\ Fis.\ \textbf{23A}, 173 (1974).
+
+\bibitem{Duff1994}
+M.~J.~Duff,
+``Twenty years of the Weyl anomaly,''
+Class.\ Quant.\ Grav.\ \textbf{11}, 1387 (1994).
+
+\bibitem{HoldomRen2016}
+B.~Holdom and J.~Ren,
+``QCD analogy for quantum gravity,''
+Phys.\ Rev.\ D \textbf{93}, 124030 (2016).
+
+\bibitem{GeigerDE2026}
+L.~Geiger,
+``Dark Energy as Residual Vacuum Free Energy: A Thermodynamic Bound on the Cosmological Constant,''
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.19106160}{10.5281/zenodo.19106160}.
+
+\bibitem{HuSawicki2007}
+W.~Hu and I.~Sawicki,
+Phys.\ Rev.\ D \textbf{76}, 064004 (2007).
+
+\bibitem{Stelle1977}
+K.~S.~Stelle,
+``Renormalization of higher-derivative quantum gravity,''
+Phys.\ Rev.\ D \textbf{16}, 953 (1977).
+
+\bibitem{DvaliGomezZell2017}
+G.~Dvali, C.~Gomez and S.~Zell,
+JCAP \textbf{06}, 028 (2017).
+
+\bibitem{Mottola1985}
+E.~Mottola,
+Phys.\ Rev.\ D \textbf{31}, 754 (1985).
+
+\bibitem{Mottola1986}
+E.~Mottola,
+Phys.\ Rev.\ D \textbf{33}, 1616 (1986).
+
+\bibitem{Matarrese1998}
+S.~Matarrese, S.~Mollerach and M.~Bruni,
+Phys.\ Rev.\ D \textbf{58}, 043504 (1998).
+
+\bibitem{ACT2025}
+T.~Louis et~al.\ (Atacama Cosmology Telescope Collaboration),
+JCAP \textbf{11}, 062 (2025).
+
+\bibitem{SPT3G2026}
+E.~Camphuis et~al.\ (SPT-3G Collaboration),
+arXiv:2506.20707.
+
+\bibitem{Labbe2023}
+I.~Labb\'e et~al.,
+Nature \textbf{616}, 266 (2023).
+
+\bibitem{GW170817}
+B.~P.~Abbott et~al.\ (LIGO/Virgo),
+Phys.\ Rev.\ Lett.\ \textbf{119}, 161101 (2017).
+
+\bibitem{Alicki2023}
+R.~Alicki, G.~Barenboim and A.~Jenkins,
+Phys.\ Rev.\ D \textbf{108}, 123530 (2023).
+
+\bibitem{Alicki2025}
+R.~Alicki, G.~Barenboim and A.~Jenkins,
+Phys.\ Lett.\ B \textbf{866}, 139519 (2025).
+
+\bibitem{Jacobson1995}
+T.~Jacobson,
+Phys.\ Rev.\ Lett.\ \textbf{75}, 1260 (1995).
+
+\bibitem{Scolnic2022}
+D.~M.~Scolnic et~al.,
+Astrophys.\ J.\ \textbf{938}, 113 (2022).
+
+\bibitem{Milgrom1983}
+M.~Milgrom,
+Astrophys.\ J.\ \textbf{270}, 365 (1983).
+
+\bibitem{Planck2020}
+Y.~Akrami et~al.\ (Planck Collaboration),
+Astron.\ Astrophys.\ \textbf{641}, A10 (2020).
+
+\bibitem{DESI2025}
+A.~G.~Adame et~al.\ (DESI Collaboration),
+JCAP \textbf{02}, 021 (2025).
+
+\bibitem{Afshordi2017}
+N.~Afshordi, C.~Coriano, L.~Delle~Rose, E.~Gould and K.~Skenderis,
+Phys.\ Rev.\ Lett.\ \textbf{118}, 041301 (2017).
+
+\end{thebibliography}
+
+\end{document}

@@ -9,30 +9,40 @@ __pycache__/
 .venv/
 venv/
 
-# Results & data (large files)
-results/
+# Large binary files
 *.npy
 *.npz
 *.h5
 *.hdf5
-
-# Plots (generated)
-*.png
-*.pdf
-
-# Editor
-.vscode/
-.claude/
-*.swp
 
 # LaTeX build artifacts
 *.aux
 *.log
 *.out
 *.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
 *Notes.bib
 
-# Internal/private files (CLAUDE.md policy)
+# PDFs: ignore everywhere EXCEPT papers/
+*.pdf
+!papers/**/*.pdf
+
+# PNGs: ignore everywhere EXCEPT tracked directories
+*.png
+!figures/**/*.png
+!results/**/*.png
+!data/**/*.png
+
+# Editor
+.vscode/
+.claude/
+*.swp
+
+# Internal/private files
 Plan.txt
 CORE.txt
 Core2.txt
@@ -46,6 +56,9 @@ _scripts/
 MCMC_SERVER_BRIEFING.md
 backup_renumber_*/
 removed_sections/
+reviews/
+PUBLIKATIONSSTRATEGIE.md
+ZENODO_CREDENTIALS.md
 
 # Misc
 count_abstract.py

@@ -24,8 +24,8 @@ The Curvature Relaxation Model (CRM) replaces dark energy with a geometric curva
 
 | Paper | EN | DE | Topic | DOI |
 |-------|----|----|-------|-----|
-| V | `extensions/Paper5_EN.tex` | `extensions/Paper5_DE.tex` | The Saturation Theorem: tanh profile as mathematical necessity from 4 QG axioms | [10.5281/zenodo.19036188](https://doi.org/10.5281/zenodo.19036188) |
-| VI | `extensions/Paper6_EN.tex` | `extensions/Paper6_DE.tex` | QG-CRM: Ultraviolet Completion via Quantum Quadratic Gravity (DRAFT) | [10.5281/zenodo.19352448](https://doi.org/10.5281/zenodo.19352448) |
+| V | `papers/extensions/Paper5_EN.tex` | `papers/extensions/Paper5_DE.tex` | The Saturation Theorem: tanh profile as mathematical necessity from 4 QG axioms | [10.5281/zenodo.19036188](https://doi.org/10.5281/zenodo.19036188) |
+| VI | `papers/extensions/Paper6_EN.tex` | `papers/extensions/Paper6_DE.tex` | QG-CRM: Ultraviolet Completion via Quantum Quadratic Gravity (DRAFT) | [10.5281/zenodo.19352448](https://doi.org/10.5281/zenodo.19352448) |
 
 **Paper V -- The Saturation Theorem** proves that the tanh saturation profile of Papers I--IV is not a model choice but a mathematical necessity: any quantum gravity theory satisfying four minimal axioms must produce the tanh form. All major QG programs (LQG, asymptotic safety, strings, causal sets, noncommutative geometry) are shown to satisfy the axioms.
 
@@ -84,59 +84,70 @@ The Pantheon+ supernova data (Scolnic et al. 2022) and Planck 2018 CMB spectra a
 
 ## Reproducing the Results
 
-### Paper I: Pantheon+ Analysis
+### Paper I: CMB and MCMC
 ```bash
-python scripts/cfm_pantheonplus_test.py    # Main SN analysis
-python scripts/cfm_enhanced_analysis.py    # Extended functional forms
+python scripts/paper1/run_full_mcmc.py            # Full MCMC (5 params, ~8h runtime)
+python scripts/paper1/analyze_mcmc_results.py     # MCMC posterior analysis
+python scripts/paper1/compute_TT_TE_EE.py         # Planck TT+TE+EE chi2 computation
+python scripts/paper1/compute_fsigma8.py          # Growth rate f*sigma8
+python scripts/paper1/full_cl_comparison.py        # Full Cl comparison cfm_fR vs LCDM
 ```
 
-### Paper II: MOND + Baryon-Only
+### Paper II: Model Comparison
 ```bash
-python scripts/cfm_baryon_only_test.py     # Baryon-only universe test
-python scripts/cfm_mond_mcmc.py            # MOND MCMC analysis
+python scripts/paper2/compare_models.py            # LCDM vs constant_alphas vs cfm_fR
+python scripts/paper2/plot_contour.py              # 2D chi2 contour from grid scan
+python scripts/paper2/plot_tradeoff.py             # chi2-sigma8 tradeoff + convergence
 ```
 
-### Paper III: hi_class CMB Validation
+### Paper III: Pantheon+ and MOND
 ```bash
-# Requires hi_class with crm_fR patch (see Installation above)
-python scripts/test_cfm_fR_native.py       # Systematic crm_fR parameter scan
-python scripts/compute_TT_TE_EE.py         # Planck TT+TE+EE chi2 computation
-python scripts/scalaron_alphaM_theta_s.py  # theta_s resolution analysis
-python scripts/compute_fsigma8.py          # Growth rate f*sigma8
-python scripts/run_full_mcmc.py            # Full MCMC (5 params, ~8h runtime)
-python scripts/analyze_mcmc_results.py     # MCMC posterior analysis
+python scripts/paper3/cfm_pantheonplus_test.py     # CFM vs LCDM against Pantheon+ data
+python scripts/paper3/cfm_baryon_only_test.py      # Baryon-only universe test
+python scripts/paper3/cfm_mond_mcmc.py             # MCMC for CFM+MOND extended model
+python scripts/paper3/scalaron_alphaM_theta_s.py   # theta_s resolution analysis
+python scripts/paper3/poeschl_teller_path_integral.py  # sqrt(pi) path integral
 ```
 
 ### Paper IV: Galactic MOND from Vector Sector
 ```bash
-python scripts/paper4/sparc_full_analysis.py         # Full SPARC (171 galaxies) RAR test
-python scripts/paper4/multi_galaxy_bvp.py            # Multi-mass BVP MOND attractor scan
-python scripts/paper4/rotation_curves_bessel.py      # Bessel rotation curves
-python scripts/paper4/a0_discrepancy.py              # a0 = cH0/(2pi) discrepancy analysis
-python scripts/paper4/cfm_deep_mond_derivation.py    # Deep-MOND fixed point + Tully-Fisher
+python scripts/paper4/sparc_full_analysis.py       # Full SPARC (171 galaxies) RAR test
+python scripts/paper4/multi_galaxy_bvp.py          # Multi-mass BVP MOND attractor scan
+python scripts/paper4/rotation_curves_bessel.py    # Bessel rotation curves
+python scripts/paper4/a0_discrepancy.py            # a0 = cH0/(2pi) discrepancy analysis
+python scripts/paper4/cfm_deep_mond_derivation.py  # Deep-MOND fixed point + Tully-Fisher
 ```
 
-### Supplementary
+### Infrastructure (cross-paper)
 ```bash
-python scripts/poeschl_teller_path_integral.py  # sqrt(pi) path integral
+python scripts/patch_cfm.py                        # hi_class crm_fR gravity model patch
+python scripts/test_cfm_fR_native.py               # Native crm_fR model test
 ```
 
 ## Repository Structure
 
 ```
 crm-cosmology/
-  README.md                  # This file
-  LICENSE                    # CC BY 4.0
-  requirements.txt           # Python dependencies
-  reviews/                   # Review history (Gen 1-3, response to reviewer)
-  papers/                    # LaTeX sources: Core Papers I-IV (EN + DE)
-  extensions/                # LaTeX sources: Papers V-VI and future extensions
-  scripts/                   # All analysis scripts
-  scripts/paper4/            # Paper IV galactic analysis scripts
-  results/                   # Key numerical results
-  results/paper4/            # Paper IV SPARC, BVP, rotation curve results
-  figures/                   # Plots referenced in papers
-  data/                      # Pantheon+ analysis outputs
+  README.md                    # This file
+  LICENSE                      # CC BY 4.0
+  requirements.txt             # Python dependencies
+  papers/                      # Core Papers I-IV (LaTeX + PDF, EN + DE)
+    extensions/                # Extension Papers V-VI (and future)
+  scripts/                     # Cross-paper infrastructure (patch, tests)
+    paper1/                    # Paper I: CMB, MCMC analysis
+    paper2/                    # Paper II: model comparison, plots
+    paper3/                    # Paper III: Pantheon+, MOND, scalaron
+    paper4/                    # Paper IV: galactic MOND, SPARC
+  results/                     # Cross-paper results
+    paper1/                    # Paper I: MCMC summaries, chi2 results
+    paper3/                    # Paper III: baryon-only, MOND posteriors
+    paper4/                    # Paper IV: SPARC, BVP, rotation curves
+  figures/                     # Plots referenced in papers
+    paper1/                    # Paper I: Cl spectra, fsigma8
+    paper2/                    # Paper II: contours, tradeoffs
+    paper3/                    # Paper III: MOND posteriors
+  data/                        # Analysis outputs
+    paper3/                    # Paper III: Pantheon+ fits
 ```
 
 ## crm_fR Patch Documentation
