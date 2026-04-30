@@ -44,25 +44,38 @@ venv/
 
 # Internal/private files
 Plan.txt
-CORE.txt
-Core2.txt
+BEWEISNOTIZ.md
+CORE*.txt
 REVISE.txt
+SOLVED*.txt
+REVIEW_ZYKLUS*.txt
+SCIPOST.txt
 _archive/
 _partners/
+*_submission/
 _SciPost_submission/
 _data/
 _results/
 _scripts/
+_copilot/
 MCMC_SERVER_BRIEFING.md
+*BRIEFING*
 backup_renumber_*/
 removed_sections/
 reviews/
+results_server/
+MASTER_LAGRANGIAN.*
 PUBLIKATIONSSTRATEGIE.md
 ZENODO_CREDENTIALS.md
+*.bak
 
 # Misc
 count_abstract.py
 renumber_papers.py
+scripts/check_integrity.py
+scripts/convert_to_revtex.py
+scripts/find_cite_diff.py
+scripts/fix_abstracts.py
 papers/check_integrity.py
 papers/convert_to_revtex.py
 papers/find_cite_diff.py

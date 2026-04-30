@@ -1,4 +1,4 @@
-CFM_FR FULL MCMC RESULTS (RESUMED)
+CRM_FR FULL MCMC RESULTS (RESUMED)
 Date: 2026-02-19 18:44
 Walkers: 48, Total Steps: 5000
 Resumed from step: 500

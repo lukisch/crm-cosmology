@@ -44,7 +44,7 @@ Papers~I--III of the Curvature Relaxation Model (CRM) series demonstrated that a
 
 \keywords{MOND, modified gravity, vector-tensor theory, radial acceleration relation, curvature relaxation, dark matter alternative, galactic dynamics}
 
-\thanks{AI tools (Claude, Anthropic; Copilot, Microsoft/GitHub; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/lukisch/crm-cosmology}.}
+\thanks{AI tools (Claude, Anthropic; Copilot, Microsoft/GitHub; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/research-line/crm-cosmology}.}
 
 \thanks{Paper~IV in the CRM series. Companion papers: \cite{Geiger2026,Geiger2026b,Geiger2026c}.}
 
@@ -1037,6 +1037,22 @@ The Aether Scalar Tensor (AeST) theory of Skordis \& Z{\l}o\'snik \cite{Skordis2
 
 A detailed comparison of the perturbation spectra (CMB $C_\ell$ and matter $P(k)$) between CRM and AeST would be highly informative but lies beyond the scope of this paper. Recent work has demonstrated that relativistic MOND theories with timelike vector fields -- including AeST -- can be reformulated as mimetic gravity theories, exposing deep conformal and disformal symmetries in the metric structure~\cite{MimeticMOND2024}. Whether the CRM vector sector admits a similar mimetic reformulation, potentially simplifying its stability analysis, is an open question.
 
+\subsection{Independent convergence: Imprint-Fading theory}
+
+Independently and by a different method, Kovacs~\cite{Kovacs2026} derives the same fundamental scale $a_0 = cH_0/(2\pi)$ from the equality of the Gibbons--Hawking temperature of de~Sitter spacetime and the Unruh temperature at acceleration~$a_0$. His ``Imprint-Fading'' (IF) theory introduces a scalar curvature-occupation field $s(\mathbf{x},t) \in (0,1)$ governed by a single dissipative evolution equation $\dot{s} = H_0[y - s^2/(1-s)]$, where $y \equiv g_\mathrm{N}/a_0$. In steady state, this yields the MOND simple interpolation function $\nu(y) = [1 + \sqrt{1+4/y}]/2$ \emph{exactly and algebraically} -- a result that is not fitted but follows from the fixed-point condition. Global asymptotic stability is proved via a Lyapunov functional.
+
+The convergence of two independent frameworks on the same $a_0$ relation -- derived here from the saturation ODE attractor and Fourier frequency conversion (Sec.~\ref{sec:a0_derivation}), and by Kovacs from thermodynamic temperature equality -- strengthens the case for its physical significance. Three further points of comparison deserve emphasis:
+
+\begin{enumerate}
+\item \textbf{Complementary MOND derivations:} The IF theory obtains MOND as an exact algebraic equilibrium of a one-field dissipative equation; the CRM obtains it as an emergent numerical attractor of the two-field (scalar + vector) system via BVP extraction. Both routes converge on MOND phenomenology but from distinct mathematical structures.
+
+\item \textbf{Non-equilibrium predictions:} The IF theory provides a quantitative relaxation spectrum ($\tau = 0.09$--$204$\,Gyr) and predicts hyperbolic halo decay after baryon stripping, with a sharp dynamical bifurcation at $s_0 = \ln 2$. These non-equilibrium predictions -- testable with JWST, Gaia~DR4, and WEAVE -- have no analogue in the CRM or in any prior MOND formulation.
+
+\item \textbf{Dark energy equation of state:} The IF framework predicts $w \geq -1$ as a consequence of the null energy condition applied to the Fisher information metric on $s \in (0,1)$. This is consistent with DESI~DR2 results ($w_0 \approx -0.75$)~\cite{DESI2025} and with the CRM Lagrangian: the $f(R) = R + 2\gamma R^2$ sector of Paper~III generically yields $w \to -1$ from above, not from below. The phantom value $w = -1.355$ reported in Paper~I is an artefact of the phenomenological tanh fit to Pantheon+ data with diagonal covariance and should not be regarded as a prediction of the Lagrangian theory. We therefore regard $w \geq -1$ as the natural CRM prediction, in agreement with the IF result.
+\end{enumerate}
+
+The key difference in scope remains: the IF theory is currently developed at the non-relativistic galactic level (with a candidate covariant extension), while the CRM provides a complete cosmological framework validated against CMB, BAO, and supernova data. A synthesis of the IF thermodynamic structure with the CRM Lagrangian formulation may prove fruitful.
+
 \subsection{The coupling function: derivation vs.\ ansatz}
 
 We emphasize that the coupling function $\mathcal{F}$ in Eq.~\eqref{eq:coupling} is a \textit{minimal-coupling ansatz} consistent with six constraints, not a unique deductive result. The three-factor structure (gatekeeper $\times$ saturation $\times$ projection) is physically motivated and constraint-minimal, but alternative forms satisfying the same constraints may exist.
@@ -1118,7 +1134,7 @@ This research received no external funding.
 \paragraph{Data availability.}
 The SPARC database \cite{Lelli2016} is publicly available.
 All analysis code and numerical results are available at
-\url{https://github.com/lukisch/crm-cosmology}
+\url{https://github.com/research-line/crm-cosmology}
 (DOI: \href{https://doi.org/10.5281/zenodo.18728936}{10.5281/zenodo.18728936}).
 
 % ===================================================================
@@ -1130,7 +1146,7 @@ All analysis code and numerical results are available at
 \bibitem{Geiger2026}
 Geiger, L.\ (2026).
 Game-Theoretic Cosmology and the Curvature Relaxation Model: Nash Equilibria Between Null Space and Spacetime Bubble.
-Companion paper. \url{https://github.com/lukisch/crm-cosmology}.
+Companion paper. \url{https://github.com/research-line/crm-cosmology}.
 \href{https://doi.org/10.5281/zenodo.18728936}{DOI: 10.5281/zenodo.18728936}.
 
 \bibitem{Geiger2026b}
@@ -1315,6 +1331,12 @@ B.~Famaey and S.~S.~McGaugh (2012).
 Modified Newtonian Dynamics (MOND): Observational Phenomenology and Relativistic Extensions.
 \textit{Living Reviews in Relativity}, \textbf{15}, 10.
 \href{https://doi.org/10.12942/lrr-2012-10}{DOI: 10.12942/lrr-2012-10}.
+
+\bibitem{Kovacs2026}
+G.~Kovacs (2026).
+Gravity Imprints, Time Fades: A Curvature-Memory Relaxation Model with Exact MOND Steady State.
+Manuscript v4.4, March 2026.
+Available at \url{https://vixra.org/abs/2604.0006}.
 
 \bibitem{MimeticMOND2024}
 V.~Skordis and T.~Z{\l}o\'snik (2024).

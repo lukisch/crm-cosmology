@@ -21,6 +21,7 @@ from pathlib import Path
 import time
 import json
 import subprocess
+import os
 
 # ============================================================
 # Constants
@@ -36,11 +37,13 @@ A0 = c_light * H0 / (2 * np.pi)
 RESULTS_DIR = Path("/home/cfm-cosmology/results/paper4/bvp")
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
-TELEGRAM_TOKEN = "7952992531:AAH_z_IlLcc5pl0HsBSJxSG9XtgX1jUiJFc"
-TELEGRAM_CHAT = "595767047"
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT = os.getenv("TELEGRAM_CHAT_ID")
 
 
 def send_telegram(msg):
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT:
+        return
     try:
         subprocess.run([
             "curl", "-s", "-X", "POST",

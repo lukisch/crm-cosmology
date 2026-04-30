@@ -2,7 +2,7 @@
 # MCMC Monitor: checks every 30 min, sends Telegram + pushes to GitHub when done
 
 BOT_TOKEN="${TELEGRAM_BOT_TOKEN:?Error: TELEGRAM_BOT_TOKEN not set}"
-CHAT_ID="595767047"
+CHAT_ID="${TELEGRAM_CHAT_ID:?Error: TELEGRAM_CHAT_ID not set}"
 LOG="/home/cfm-cosmology/results/mcmc_resume_log.txt"
 GIT_REPO="/home/cfm-cosmology-git"
 
@@ -79,7 +79,7 @@ Pushe Ergebnisse zu GitHub..."
         push_results
         
         send_telegram "📦 *Ergebnisse auf GitHub gepusht!*
-https://github.com/lukisch/cfm-cosmology
+https://github.com/research-line/crm-cosmology
 Repo: results/
 
 ⚠️ SERVER LOESCHEN nicht vergessen!"
@@ -96,7 +96,7 @@ $(head -30 /tmp/cfm_fR_mcmc_summary.txt)"
         send_telegram "❌ *MCMC ABGESTUERZT!*
 $(tail -5 "$LOG")
 
-SSH: ssh -i ~/.ssh/id_ed25519_mcmc root@46.225.30.98"
+SSH: use the project server inventory for the current host."
         push_checkpoint
         break
     fi

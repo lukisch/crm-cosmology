@@ -51,6 +51,7 @@ from pathlib import Path
 import json
 import subprocess
 import time
+import os
 
 # ============================================================
 # Physical constants (SI)
@@ -73,8 +74,8 @@ f_H = H0 / (2 * np.pi)    # = 3.472e-19 Hz  (Hubble cycle per second)
 T_H = 1.0 / f_H           # = 2*pi/H0 = 91.2 Gyr  (Hubble period)
 k_H = H0 / c_light        # = omega_H / c  [rad/m]
 
-TELEGRAM_TOKEN = "7952992531:AAH_z_IlLcc5pl0HsBSJxSG9XtgX1jUiJFc"
-TELEGRAM_CHAT = "595767047"
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT = os.getenv("TELEGRAM_CHAT_ID")
 
 RESULTS_DIR = Path("/home/cfm-cosmology/results/paper4/2pi_derivation")
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -84,6 +85,8 @@ RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 # ============================================================
 
 def send_telegram(msg):
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT:
+        return
     try:
         subprocess.run([
             "curl", "-s", "-X", "POST",

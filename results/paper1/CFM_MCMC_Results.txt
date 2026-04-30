@@ -1,4 +1,4 @@
-Loaded chain from: C:\Users\User\OneDrive\.RESEARCH\Natur&Technik\Spieltheorie Urknall\results\cfm_fR_mcmc_chain.npz
+Loaded chain from: results/cfm_fR_mcmc_chain.npz
 ================================================================================
 cfm_fR MCMC ANALYSIS
 ================================================================================
@@ -85,8 +85,8 @@ $\alpha_{M,0} > 0$ significance & $1.8\sigma$ & --- & --- \\
 \end{table}
 
 
-For corner plot, run: python C:\Users\User\OneDrive\.RESEARCH\Natur&Technik\Spieltheorie Urknall\scripts\generate_corner_plot.py
-Output: C:\Users\User\OneDrive\.RESEARCH\Natur&Technik\Spieltheorie Urknall\figures\cfm_contour.png
+For corner plot, run: python scripts/generate_corner_plot.py
+Output: figures/paper2/cfm_contour.png
 
 ================================================================================
 ANALYSIS COMPLETE

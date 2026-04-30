@@ -22,6 +22,7 @@ import sys
 import json
 import time
 import subprocess
+import os
 from pathlib import Path
 
 import numpy as np
@@ -34,17 +35,22 @@ import matplotlib.pyplot as plt
 # ---------------------------------------------------------------------------
 # Import aus bestehendem BVP-Solver v5
 # ---------------------------------------------------------------------------
-sys.path.insert(0, '/home/cfm-cosmology/scripts/paper4')
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parents[1]
+sys.path.insert(0, str(SCRIPT_DIR))
 from multi_galaxy_bvp import solve_cfm_v5, A0, G, MSUN, KPC
 
 # ---------------------------------------------------------------------------
 # Konfiguration
 # ---------------------------------------------------------------------------
-RESULTS_DIR = Path("/home/cfm-cosmology/results/paper4/mu_extraction")
+RESULTS_DIR = Path(os.getenv(
+    "CRM_RESULTS_DIR",
+    REPO_ROOT / "results" / "paper4" / "mu_extraction",
+))
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
-TELEGRAM_TOKEN = "7952992531:AAH_z_IlLcc5pl0HsBSJxSG9XtgX1jUiJFc"
-TELEGRAM_CHAT  = "595767047"
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT = os.getenv("TELEGRAM_CHAT_ID")
 
 # 20 Massen von 10^8 bis 10^12.5 in 0.25-dex Schritten
 LOG_MASSES = np.arange(8.0, 12.75, 0.25).tolist()  # [8.0, 8.25, ..., 12.5]
@@ -58,6 +64,8 @@ TIMEOUT_PER_GALAXY = 600  # Sekunden
 
 def send_telegram(msg: str) -> None:
     """Sendet eine Telegram-Nachricht (fire-and-forget, ignoriert Fehler)."""
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT:
+        return
     try:
         subprocess.run(
             [

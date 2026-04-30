@@ -4,7 +4,7 @@
 
 **Projektordner:** Dieses Projekt liegt in OneDrive unter:
 ```
-C:\Users\User\OneDrive\.RESEARCH\Natur&Technik\Spieltheorie Urknall\
+<repo-root>/
 ```
 Alle relevanten Dateien synchronisieren sich automatisch.
 
@@ -47,7 +47,7 @@ Der Python-Wrapper wird gebaut unter:
 
 ### 1.3 cfm_fR Gravity Model patchen
 
-Das CFM-Modell muss in hi_class integriert werden BEVOR der Python-Wrapper gebaut wird:
+Das CRM-Modell muss in hi_class integriert werden BEVOR der Python-Wrapper gebaut wird:
 
 ```bash
 cd /home/hi_class
@@ -249,7 +249,7 @@ np.savez(_local_path, **_save_args)
 
 Der `results/`-Ordner liegt unter:
 ```
-C:\Users\User\OneDrive\.RESEARCH\Natur&Technik\Spieltheorie Urknall\results\
+<repo-root>/results/
 ```
 In WSL:
 ```

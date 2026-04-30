@@ -41,12 +41,12 @@
 \date{\today}
 
 \begin{abstract}
-We develop a game-theoretic framework for cosmology in which spacetime evolution is modeled as a Nash equilibrium between a metastable quantum vacuum (null space) and a spacetime bubble. The central result is the \textit{Curvature Relaxation Model} (CRM), which explains accelerated expansion not through dark energy but through a diminishing curvature return potential $\Omega_\Phi(a) = \Phi_0 \cdot \tanh(k(a - a_{\mathrm{trans}}))$ -- a geometric ``memory'' of the Big Bang energy concentration. Tested against 1,590 Pantheon+ Type~Ia supernovae \cite{Scolnic2022} with both diagonal and full covariance errors, the CRM yields $\Delta\chi^2 = -12.2$ ($-11.2$) and $\Delta\mathrm{AIC} = -8.2$ ($-7.2$) relative to $\Lambda$CDM; cross-validation confirms better generalization. MCMC analysis gives $\Omega_m = 0.368 \pm 0.024$; four alternative saturation functions yield comparable results, confirming robustness. The model predicts $w(z) < -1$ with $|\Delta w| \approx 0.4$ and a later acceleration onset ($z_{\mathrm{acc}} = 0.52$ vs.\ $0.84$), both testable with Euclid and Roman. The later acceleration implies an extended matter-dominated growth phase, naturally explaining the JWST ``Universe Breakers'' at $z > 7$ \cite{Labbe2023} and the El~Gordo anomaly \cite{Asencio2023}. Phantom stability is guaranteed by saturation ($\Omega_\Phi \to \Phi_0$, de~Sitter end state, no Big Rip). The game-theoretic axioms possess an exact thermodynamic equivalence connecting to the Jacobson tradition \cite{Jacobson1995}. Analysis code is publicly available.\footnote{\url{https://github.com/lukisch/crm-cosmology}}
+We develop a game-theoretic framework for cosmology in which spacetime evolution is modeled as a Nash equilibrium between a metastable quantum vacuum (null space) and a spacetime bubble. The central result is the \textit{Curvature Relaxation Model} (CRM), which explains accelerated expansion not through dark energy but through a diminishing curvature return potential $\Omega_\Phi(a) = \Phi_0 \cdot \tanh(k(a - a_{\mathrm{trans}}))$ -- a geometric ``memory'' of the Big Bang energy concentration. Tested against 1,590 Pantheon+ Type~Ia supernovae \cite{Scolnic2022} with both diagonal and full covariance errors, the CRM yields $\Delta\chi^2 = -12.2$ ($-11.2$) and $\Delta\mathrm{AIC} = -8.2$ ($-7.2$) relative to $\Lambda$CDM; cross-validation confirms better generalization. MCMC analysis gives $\Omega_m = 0.368 \pm 0.024$; four alternative saturation functions yield comparable results, confirming robustness. The model predicts $w(z) < -1$ with $|\Delta w| \approx 0.4$ and a later acceleration onset ($z_{\mathrm{acc}} = 0.52$ vs.\ $0.84$), both testable with Euclid and Roman. The later acceleration implies an extended matter-dominated growth phase, naturally explaining the JWST ``Universe Breakers'' at $z > 7$ \cite{Labbe2023} and the El~Gordo anomaly \cite{Asencio2023}. Phantom stability is guaranteed by saturation ($\Omega_\Phi \to \Phi_0$, de~Sitter end state, no Big Rip). The game-theoretic axioms possess an exact thermodynamic equivalence connecting to the Jacobson tradition \cite{Jacobson1995}. Analysis code is publicly available.\footnote{\url{https://github.com/research-line/crm-cosmology}}
 \end{abstract}
 
 \keywords{game theory, Nash equilibrium, cosmology, dark energy, curvature return potential, Curvature Relaxation Model, Friedmann equation, Finsler gravity, accelerated expansion, equation of state}
 
-\thanks{AI tools (Claude, Anthropic; Copilot, Microsoft/GitHub; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/lukisch/crm-cosmology}.}
+\thanks{AI tools (Claude, Anthropic; Copilot, Microsoft/GitHub; Gemini, Google DeepMind) were used for mathematical formalization, code development, and text generation. All physical hypotheses, scientific interpretation, and responsibility for the content lie solely with the author. The analysis code is available at \url{https://github.com/research-line/crm-cosmology}.}
 
 \thanks{Paper~I in the CRM series.}
 
@@ -316,7 +316,7 @@ M_{\mathrm{best}} = \frac{\sum_i w_i (m_i^{\mathrm{obs}} - \mu_i^{\mathrm{th}})}
 
 \textbf{MCMC uncertainties:} For the flat CRM, parameter uncertainties are determined using \textit{emcee} \cite{ForemanMackey2013} (32~walkers, 3,000~steps, 500~burn-in). The posterior distributions yield $1\sigma$ confidence intervals for all parameters including derived quantities $\Phi_0$ and $z_{\mathrm{trans}}$.
 
-\textbf{Model selection:} In addition to $\chi^2$, the Akaike Information Criterion (AIC~$= \chi^2 + 2k$) and the Bayesian Information Criterion (BIC~$= \chi^2 + k \ln n$) are computed, where $k$ is the number of effective parameters and $n$ the number of data points. To check for overfitting, a 5-fold cross-validation is additionally performed. The complete analysis code is publicly available.\footnote{\url{https://github.com/lukisch/crm-cosmology}}
+\textbf{Model selection:} In addition to $\chi^2$, the Akaike Information Criterion (AIC~$= \chi^2 + 2k$) and the Bayesian Information Criterion (BIC~$= \chi^2 + k \ln n$) are computed, where $k$ is the number of effective parameters and $n$ the number of data points. To check for overfitting, a 5-fold cross-validation is additionally performed. The complete analysis code is publicly available.\footnote{\url{https://github.com/research-line/crm-cosmology}}
 
 \subsection{Results}
 \label{subsec:results}
@@ -631,7 +631,7 @@ $z_{\mathrm{acc}}$ (transition) & 0.84 & 0.52 \\
 \item \textbf{Testability:} Specific, quantitative predictions for $w(z)$ and $z_{\mathrm{acc}}$ that are verifiable within a decade.
 \item \textbf{Empirical support:} The CRM prediction of an extended growth phase ($z_{\mathrm{acc}} = 0.52$) offers a natural explanation for the JWST ``early galaxy tension'' \cite{Labbe2023, BoylanKolchin2023}, the El~Gordo anomaly \cite{Asencio2023}, and unexpectedly mature protoclusters \cite{Miller2018}.
 \item \textbf{Convergence of independent approaches:} CRM, Finsler gravity, and Cosmological Teleodynamics independently arrive at the same conclusion: dark energy is not necessary.
-\item \textbf{Reproducibility:} Analysis code and data are publicly available (\url{https://github.com/lukisch/crm-cosmology}).
+\item \textbf{Reproducibility:} Analysis code and data are publicly available (\url{https://github.com/research-line/crm-cosmology}).
 \end{enumerate}
 
 \subsection{Limitations and Open Questions}
@@ -645,7 +645,7 @@ $z_{\mathrm{acc}}$ (transition) & 0.84 & 0.52 \\
 \item \textbf{Outstanding tests:} CMB predictions (ISW effect, CMB power spectrum), BAO signatures, and gravitational lensing effects remain to be computed. The analysis with the full covariance matrix (Section~\ref{subsec:results}) does however confirm the results of the diagonal analysis.
 \item \textbf{Microscopic basis:} What is $\Phi$ at the quantum level? The connection to a theory of quantum gravity is outstanding. The possible relationship to Finsler gravity (Section~\ref{sec:complementarity}) could bridge this gap.
 \item \textbf{$H_0$ tension:} The $H_0$ analysis (Section~\ref{subsec:deceleration}) shows $\Delta H_0 = +0.5\,$km/s/Mpc between CRM and $\Lambda$CDM -- too small to resolve the $H_0$ tension. A resolution requires the combination with CMB and BAO data.
-\item \textbf{DESI DR2 tension (potentially model-threatening):} The CRM predicts an effective equation-of-state parameter $w_{\mathrm{eff}} < -1$ (phantom regime) at late times, consistent with the Pantheon+ fit. However, DESI DR2 \cite{DESI2025} reports a preference for $w_0 \approx -0.75$ (i.e., $w > -1$), with the $w_0w_a$CDM fit yielding $w_0 = -0.667^{+0.072}_{-0.066}$ when combined with CMB and supernovae. This places the DESI DR2 central value and the CRM prediction on \textit{opposite sides} of $w = -1$, representing a potential falsification of the CRM's phantom-regime dynamics at the level of roughly 1--2$\sigma$. This tension must be confronted directly: either the CRM's $w(z)$ trajectory must be shown to be compatible with DESI DR2 constraints across the full redshift range, or the model requires revision. We flag this as the most significant current observational challenge for the CRM.
+\item \textbf{DESI DR2 tension and resolution via the Lagrangian theory:} The phenomenological Pantheon+ fit in this paper yields $w_{\mathrm{eff}} < -1$ (phantom regime). However, DESI DR2 \cite{DESI2025} reports $w_0 = -0.667^{+0.072}_{-0.066}$ (i.e., $w > -1$), placing it on the \textit{opposite side} of $w = -1$. We now regard this tension as resolved by the Lagrangian formulation in Paper~III~\cite{Geiger2026c}: the $f(R) = R + 2\gamma R^2$ sector generically yields $w \to -1$ from above, respecting the null energy condition. The phantom value $w = -1.355$ is an artefact of the phenomenological tanh fit with diagonal covariance, not a prediction of the fundamental theory. Independently, Kovacs~\cite{Kovacs2026} reaches the same conclusion via the Fisher information metric on a curvature-occupation field, proving $w \geq -1$ from metric positivity. We therefore regard $w \geq -1$ as the natural CRM prediction, consistent with both the Lagrangian theory and current observational constraints.
 \end{enumerate}
 
 
@@ -739,7 +739,7 @@ This research received no external funding.
 \paragraph{Data availability.}
 The Pantheon+ supernova data \cite{Scolnic2022} are publicly available.
 All analysis code and numerical results are available at
-\url{https://github.com/lukisch/crm-cosmology}
+\url{https://github.com/research-line/crm-cosmology}
 (DOI: \href{https://doi.org/10.5281/zenodo.18728936}{10.5281/zenodo.18728936}).
 
 \begin{thebibliography}{99}
@@ -1001,6 +1001,12 @@ Geiger, L.\ (2026).
 The Galactic--Cosmological Nexus: Connecting CRM to MOND Dynamics via Curvature Saturation.
 Companion paper (Paper~IV), submitted simultaneously.
 \href{https://doi.org/10.5281/zenodo.18728936}{DOI: 10.5281/zenodo.18728936}.
+
+\bibitem{Kovacs2026}
+G.~Kovacs (2026).
+Gravity Imprints, Time Fades: A Curvature-Memory Relaxation Model with Exact MOND Steady State.
+Manuscript v4.4, March 2026.
+Available at \url{https://vixra.org/abs/2604.0006}.
 
 \end{thebibliography}
 
