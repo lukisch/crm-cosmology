@@ -36,11 +36,20 @@ import sys
 import time
 import warnings
 import requests
+from pathlib import Path
 warnings.filterwarnings('ignore')
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_FILE = os.path.join(SCRIPT_DIR, "Pantheon+SH0ES.dat")
-OUTPUT_DIR = SCRIPT_DIR
+REPO_ROOT = Path(__file__).resolve().parents[2]
+RAW_DATA_DIR = REPO_ROOT / "data" / "raw" / "pantheon"
+RAW_DATA_DIR.mkdir(parents=True, exist_ok=True)
+DATA_URL = (
+    "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/"
+    "main/Pantheon%2B_Data/4_DISTANCES_AND_COVAR/Pantheon%2BSH0ES.dat"
+)
+DATA_FILE = str(RAW_DATA_DIR / "Pantheon+SH0ES.dat")
+OUTPUT_DIR = str(REPO_ROOT / "data" / "paper3")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 Z_MIN = 0.01
 N_GRID = 2000
 C_LIGHT = 299792.458  # km/s
@@ -50,6 +59,11 @@ C_LIGHT = 299792.458  # km/s
 # ==========================================================================
 
 def load_data():
+    if not os.path.exists(DATA_FILE):
+        resp = requests.get(DATA_URL, timeout=60)
+        resp.raise_for_status()
+        with open(DATA_FILE, 'w', encoding='utf-8') as f:
+            f.write(resp.text)
     df = pd.read_csv(DATA_FILE, sep=r'\s+', comment='#')
     mask = (
         (df['zHD'] > Z_MIN) &
@@ -74,7 +88,7 @@ COV_URL = (
     "main/Pantheon%2B_Data/4_DISTANCES_AND_COVAR/"
     "Pantheon%2BSH0ES_STAT%2BSYS.cov"
 )
-COV_FILE = os.path.join(SCRIPT_DIR, "Pantheon+SH0ES_STAT+SYS.cov")
+COV_FILE = str(RAW_DATA_DIR / "Pantheon+SH0ES_STAT+SYS.cov")
 
 def download_covariance():
     if os.path.exists(COV_FILE):

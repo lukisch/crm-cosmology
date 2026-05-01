@@ -19,6 +19,9 @@ import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.interpolate import interp1d
 import sys, os
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 # ================================================================
 # PART A: Scalaron ODE solution
@@ -398,5 +401,5 @@ print("COMPLETE")
 print("="*80)
 
 # Save results
-outpath = os.path.join(os.path.dirname(__file__), '..', '_results', 'Scalaron_Alpha_M_Analysis.txt')
+outpath = REPO_ROOT / 'results' / 'paper3' / 'Scalaron_ThetaS_Analysis.txt'
 # (results already printed to stdout, will be captured)

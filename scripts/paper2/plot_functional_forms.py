@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 # CFM best-fit Parameter
 # CFM best-fit parameters
@@ -91,9 +92,9 @@ fig.suptitle('Robustness of the CFM: Physics is robust, mathematics just a tool'
              fontsize=15, fontweight='bold', y=1.02)
 
 plt.tight_layout()
-outpath = 'C:\\Users\\User\\OneDrive\\Desktop\\Forschung\\Natur&Technik\\Spieltheorie Urknall\\_results\\CFM_Functional_Forms_Comparison.png'
-import os
-os.makedirs(os.path.dirname(outpath), exist_ok=True)
+repo_root = Path(__file__).resolve().parents[2]
+outpath = repo_root / 'figures' / 'paper2' / 'CFM_Functional_Forms_Comparison.png'
+outpath.parent.mkdir(parents=True, exist_ok=True)
 fig.savefig(outpath, dpi=200, bbox_inches='tight')
 print(f"Plot saved: {outpath}")
 plt.close()

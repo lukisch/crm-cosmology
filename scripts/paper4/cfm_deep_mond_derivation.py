@@ -45,7 +45,11 @@ H0 = 67.36e3 / (3.0856775814e22)
 RHO_CRIT = 3 * H0**2 / (8 * np.pi * G)
 A0 = c_light * H0 / (2 * np.pi)
 
-outdir = Path('/home/cfm-cosmology/results/paper4/deep_mond')
+REPO_ROOT = Path(__file__).resolve().parents[2]
+outdir = Path(os.getenv(
+    "CRM_RESULTS_DIR",
+    str(REPO_ROOT / "results" / "paper4" / "deep_mond"),
+))
 outdir.mkdir(parents=True, exist_ok=True)
 
 

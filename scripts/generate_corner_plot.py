@@ -73,7 +73,8 @@ except ImportError:
     HAS_CORNER = False
     print("corner library not found, using manual implementation")
 
-fig_dir = os.path.join(os.path.dirname(__file__), '..', 'figures')
+fig_dir = os.path.join(os.path.dirname(__file__), '..', 'figures', 'paper2')
+os.makedirs(fig_dir, exist_ok=True)
 
 if HAS_CORNER:
     fig = corner.corner(

@@ -34,7 +34,11 @@ MPC = KPC * 1e3
 H0 = 67.36e3 / MPC
 A0 = c_light * H0 / (2 * np.pi)
 
-RESULTS_DIR = Path("/home/cfm-cosmology/results/paper4/bvp")
+REPO_ROOT = Path(__file__).resolve().parents[2]
+RESULTS_DIR = Path(os.getenv(
+    "CRM_RESULTS_DIR",
+    str(REPO_ROOT / "results" / "paper4" / "bvp"),
+))
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")

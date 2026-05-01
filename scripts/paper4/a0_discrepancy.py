@@ -40,7 +40,11 @@ RHO_CRIT = 3 * H0**2 / (8 * np.pi * G)
 A0_BASE = c_light * H0 / (2 * np.pi)
 A0_OBS = 1.20e-10
 
-RESULTS_DIR = Path("/home/cfm-cosmology/results/paper4/a0_discrepancy")
+REPO_ROOT = Path(__file__).resolve().parents[2]
+RESULTS_DIR = Path(os.getenv(
+    "CRM_RESULTS_DIR",
+    str(REPO_ROOT / "results" / "paper4" / "a0_discrepancy"),
+))
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")

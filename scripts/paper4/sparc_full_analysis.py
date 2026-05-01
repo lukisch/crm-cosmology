@@ -44,9 +44,17 @@ UPSILON_DISK = 0.5       # M/L at 3.6um (Schombert+2014)
 UPSILON_BUL = 0.7        # Bulge M/L at 3.6um
 
 # Paths
-SPARC_DIR = Path("/home/cfm-cosmology/data/sparc/rotmod")
-SPARC_TABLE = Path("/home/cfm-cosmology/data/sparc/SPARC_Lelli2016c.mrt")
-RESULTS_DIR = Path("/home/cfm-cosmology/results/paper4/sparc")
+REPO_ROOT = Path(__file__).resolve().parents[2]
+SPARC_ROOT = Path(os.getenv(
+    "CRM_SPARC_DIR",
+    str(REPO_ROOT / "data" / "raw" / "sparc"),
+))
+SPARC_DIR = Path(os.getenv("CRM_SPARC_ROTMOD_DIR", str(SPARC_ROOT / "rotmod")))
+SPARC_TABLE = Path(os.getenv("CRM_SPARC_TABLE", str(SPARC_ROOT / "SPARC_Lelli2016c.mrt")))
+RESULTS_DIR = Path(os.getenv(
+    "CRM_RESULTS_DIR",
+    str(REPO_ROOT / "results" / "paper4" / "sparc"),
+))
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 # Telegram

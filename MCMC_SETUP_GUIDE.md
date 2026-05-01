@@ -1,12 +1,13 @@
 # MCMC Setup Guide -- Extended Chain Run on New System
 
-**Zweck:** Die MCMC-Chain aus `run_full_mcmc.py` muss mit mehr Samples neu gerechnet werden (Reviewer-Anforderung: mindestens 48 Walkers, 5000 Production Steps, Konvergenz-Diagnostik).
+**Zweck:** Die MCMC-Chain aus `scripts/paper1/run_full_mcmc.py` kann auf einem Linux/WSL-System reproduziert oder fortgesetzt werden (Reviewer-Anforderung: mindestens 48 Walkers, 5000 Production Steps, Konvergenz-Diagnostik).
 
-**Projektordner:** Dieses Projekt liegt in OneDrive unter:
+**Projektordner:** Verwende einen lokalen Clone des öffentlichen Repos:
 ```
-<repo-root>/
+git clone https://github.com/research-line/crm-cosmology.git
+cd crm-cosmology
 ```
-Alle relevanten Dateien synchronisieren sich automatisch.
+Alle Pfade unten verwenden `PROJ` als Repo-Root.
 
 ---
 
@@ -52,9 +53,8 @@ Das CRM-Modell muss in hi_class integriert werden BEVOR der Python-Wrapper gebau
 ```bash
 cd /home/hi_class
 
-# Pfad zum Projekt (OneDrive in WSL mounten):
-# OneDrive ist typischerweise unter /mnt/c/Users/User/OneDrive/
-PROJ="/mnt/c/Users/User/OneDrive/.RESEARCH/Natur&Technik/Spieltheorie Urknall"
+# Pfad zum lokalen Repo-Clone
+PROJ="$HOME/crm-cosmology"
 
 python3 "$PROJ/scripts/patch_cfm.py"
 
@@ -69,7 +69,7 @@ cd /home/hi_class
 ### 1.4 Verifizieren dass cfm_fR funktioniert
 
 ```bash
-PROJ="/mnt/c/Users/User/OneDrive/.RESEARCH/Natur&Technik/Spieltheorie Urknall"
+PROJ="$HOME/crm-cosmology"
 python3 "$PROJ/scripts/test_cfm_fR_native.py"
 ```
 
@@ -85,11 +85,11 @@ pip3 install emcee numpy scipy matplotlib
 
 ## 2. MCMC Script anpassen
 
-Das bestehende Script `scripts/run_full_mcmc.py` muss fuer den erweiterten Lauf angepasst werden:
+Das bestehende Script `scripts/paper1/run_full_mcmc.py` enthaelt die erweiterten Laufparameter und kann bei vorhandenem Checkpoint fortsetzen.
 
 ### 2.1 Pfad zum hi_class Python-Wrapper
 
-Zeile 12 in `run_full_mcmc.py`:
+Zeile 12 in `scripts/paper1/run_full_mcmc.py`:
 ```python
 sys.path.insert(0, '/home/hi_class/python/build/lib.linux-x86_64-cpython-312')
 ```
@@ -251,10 +251,7 @@ Der `results/`-Ordner liegt unter:
 ```
 <repo-root>/results/
 ```
-In WSL:
-```
-/mnt/c/Users/User/OneDrive/.RESEARCH/Natur&Technik/Spieltheorie Urknall/results/
-```
+Die grossen `.npz`-Chain-Dateien bleiben lokal im `results/`-Ordner und sind per `.gitignore` von GitHub ausgeschlossen; zusammengefasste Resultate und Plots liegen versioniert unter `results/paper1/`, `results/paper3/`, `results/paper4/` und `figures/`.
 
 ---
 
@@ -262,13 +259,13 @@ In WSL:
 
 ```bash
 # In WSL:
-PROJ="/mnt/c/Users/User/OneDrive/.RESEARCH/Natur&Technik/Spieltheorie Urknall"
+PROJ="$HOME/crm-cosmology"
 
 # Empfohlen: in screen/tmux laufen lassen (ueberlebt Terminal-Schliessung):
 tmux new -s mcmc
 
 cd /home/hi_class
-python3 "$PROJ/scripts/run_full_mcmc.py" 2>&1 | tee "$PROJ/results/mcmc_run_log.txt"
+python3 "$PROJ/scripts/paper1/run_full_mcmc.py" 2>&1 | tee "$PROJ/results/mcmc_run_log.txt"
 ```
 
 ---
@@ -278,7 +275,7 @@ python3 "$PROJ/scripts/run_full_mcmc.py" 2>&1 | tee "$PROJ/results/mcmc_run_log.
 ### 7.1 Ergebnisse pruefen
 
 ```bash
-python3 "$PROJ/scripts/analyze_mcmc_results.py"
+python3 "$PROJ/scripts/paper1/analyze_mcmc_results.py"
 ```
 
 ### 7.2 Corner Plot generieren
@@ -302,7 +299,7 @@ Diese Werte stehen in:
 - `papers/Paper1_EN.tex` (Sections 6, 7)
 - `papers/Paper1_DE.tex` (analog)
 - `papers/Paper3_EN.tex` (Honest Assessment, Zeile ~872)
-- `reviews/RESPONSE_TO_REVIEWER.md`
+- `results/paper1/CFM_MCMC_Results.txt`
 
 ---
 
@@ -338,4 +335,4 @@ Die laengere Chain sollte diese Werte bestaetigen oder leicht verschieben, aber 
 
 ---
 
-*Erstellt am 15. Februar 2026. Bei Fragen: Die vollstaendige Projektdokumentation liegt in `reviews/RESPONSE_TO_REVIEWER.md`.*
+*Erstellt am 15. Februar 2026. Aktualisiert am 1. Mai 2026 auf die oeffentliche Repo-Struktur `research-line/crm-cosmology`.*

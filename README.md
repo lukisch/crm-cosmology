@@ -82,6 +82,8 @@ The patch modifies `gravity_models_smg.c` to add the `crm_fR` gravity model. See
 
 The Pantheon+ supernova data (Scolnic et al. 2022) and Planck 2018 CMB spectra are downloaded automatically by the analysis scripts. No manual download required.
 
+Downloaded external raw data are cached under `data/raw/`, which is intentionally ignored by Git. Versioned outputs remain in `data/paper3/`, `results/`, and `figures/`. For the SPARC Paper IV script, place the SPARC table and `rotmod/` files under `data/raw/sparc/` or set `CRM_SPARC_DIR`, `CRM_SPARC_TABLE`, or `CRM_SPARC_ROTMOD_DIR`.
+
 ## Reproducing the Results
 
 ### Paper I: CMB and MCMC

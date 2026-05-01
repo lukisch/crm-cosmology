@@ -22,12 +22,21 @@ import matplotlib.pyplot as plt
 import emcee
 import os
 import time
+import requests
+from pathlib import Path
 import warnings
 warnings.filterwarnings('ignore')
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_FILE = os.path.join(SCRIPT_DIR, "Pantheon+SH0ES.dat")
-OUTPUT_DIR = os.path.join(os.path.dirname(SCRIPT_DIR), "_results")
+REPO_ROOT = Path(__file__).resolve().parents[2]
+RAW_DATA_DIR = REPO_ROOT / "data" / "raw" / "pantheon"
+RAW_DATA_DIR.mkdir(parents=True, exist_ok=True)
+DATA_URL = (
+    "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/"
+    "main/Pantheon%2B_Data/4_DISTANCES_AND_COVAR/Pantheon%2BSH0ES.dat"
+)
+DATA_FILE = str(RAW_DATA_DIR / "Pantheon+SH0ES.dat")
+OUTPUT_DIR = str(REPO_ROOT / "results" / "paper3")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 Z_MIN = 0.01
@@ -39,6 +48,11 @@ OMEGA_B = 0.05  # Fixed baryonic matter density
 # ==========================================================================
 
 def load_data():
+    if not os.path.exists(DATA_FILE):
+        resp = requests.get(DATA_URL, timeout=60)
+        resp.raise_for_status()
+        with open(DATA_FILE, 'w', encoding='utf-8') as f:
+            f.write(resp.text)
     df = pd.read_csv(DATA_FILE, sep=r'\s+', comment='#')
     mask = (
         (df['zHD'] > Z_MIN) &

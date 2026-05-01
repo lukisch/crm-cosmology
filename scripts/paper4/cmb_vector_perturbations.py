@@ -43,7 +43,7 @@ Physikalischer Hintergrund:
 
 Autor:  L. Geiger / Claude Code
 Datum:  2026-02-26
-Server: /home/cfm-cosmology/results/paper4/cmb_vector/
+Default output: results/paper4/cmb_vector/
 """
 
 import sys
@@ -92,7 +92,11 @@ m_eff_0    = np.sqrt(alpha_M0) * H0  # s^{-1}, heutiger Wert
 # ============================================================
 # Output-Verzeichnis
 # ============================================================
-OUTDIR = Path('/home/cfm-cosmology/results/paper4/cmb_vector')
+REPO_ROOT = Path(__file__).resolve().parents[2]
+OUTDIR = Path(os.getenv(
+    "CRM_RESULTS_DIR",
+    str(REPO_ROOT / "results" / "paper4" / "cmb_vector"),
+))
 OUTDIR.mkdir(parents=True, exist_ok=True)
 
 # ============================================================

@@ -68,6 +68,10 @@ print(f"Data: TT={len(tt_ell)}, TE={len(te_ell)}, EE={len(ee_ell)}, total={n_dat
 # ================================================================
 N_EVAL = 0
 T_START = time.time()
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+_PROJECT_DIR = os.path.abspath(os.path.join(_SCRIPT_DIR, '..', '..'))
+_RESULTS_DIR = os.path.join(_PROJECT_DIR, 'results')
+os.makedirs(_RESULTS_DIR, exist_ok=True)
 
 def log_likelihood(theta):
     """
@@ -261,7 +265,7 @@ with Pool(processes=6, maxtasksperchild=50) as pool:
             logp_so_far = sampler.get_log_prob(flat=True)
             best_idx = np.argmax(logp_so_far)
             best_chi2 = -2 * logp_so_far[best_idx]
-            checkpoint_path = f'/home/cfm-cosmology/results/checkpoint_96w_{step}.npz'
+            checkpoint_path = os.path.join(_RESULTS_DIR, f'checkpoint_96w_{step}.npz')
             np.savez(checkpoint_path,
                      chain=chain_so_far, log_prob=logp_so_far,
                      param_names=PARAM_NAMES,
@@ -339,12 +343,10 @@ for i, name in enumerate(PARAM_NAMES):
     print()
 
 # Save chain
-_script_dir = os.path.dirname(os.path.abspath(__file__))
-_project_dir = os.path.dirname(_script_dir)
 _save_args = dict(chain=chain, log_prob=log_prob,
                   param_names=PARAM_NAMES,
                   best_params=best_params, best_chi2=best_chi2)
-_persistent_path = os.path.join(_project_dir, 'results', 'cfm_fR_mcmc_96w3000s_chain.npz')
+_persistent_path = os.path.join(_RESULTS_DIR, 'cfm_fR_mcmc_96w3000s_chain.npz')
 np.savez(_persistent_path, **_save_args)
 np.savez('/tmp/cfm_fR_mcmc_results.npz', **_save_args)
 print(f"\nChain saved to: {_persistent_path}")

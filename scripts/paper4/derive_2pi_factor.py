@@ -77,7 +77,11 @@ k_H = H0 / c_light        # = omega_H / c  [rad/m]
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT = os.getenv("TELEGRAM_CHAT_ID")
 
-RESULTS_DIR = Path("/home/cfm-cosmology/results/paper4/2pi_derivation")
+REPO_ROOT = Path(__file__).resolve().parents[2]
+RESULTS_DIR = Path(os.getenv(
+    "CRM_RESULTS_DIR",
+    str(REPO_ROOT / "results" / "paper4" / "2pi_derivation"),
+))
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 # ============================================================

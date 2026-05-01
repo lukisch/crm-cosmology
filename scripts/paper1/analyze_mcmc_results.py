@@ -13,7 +13,7 @@ import os
 
 # Load results -- try project directory first, then /tmp/
 script_dir = os.path.dirname(os.path.abspath(__file__))
-project_dir = os.path.dirname(script_dir)
+project_dir = os.path.abspath(os.path.join(script_dir, '..', '..'))
 chain_paths = [
     os.path.join(project_dir, 'results', 'cfm_fR_mcmc_chain.npz'),
     '/tmp/cfm_fR_mcmc_results.npz',
@@ -196,8 +196,8 @@ print(r"""\bottomrule
 # For publication-quality corner plots, use generate_corner_plot.py
 # which works with either the full chain or synthetic samples from
 # the summary statistics.
-fig_dir = os.path.join(project_dir, 'figures')
-print(f"\nFor corner plot, run: python {os.path.join(script_dir, 'generate_corner_plot.py')}")
+fig_dir = os.path.join(project_dir, 'figures', 'paper2')
+print(f"\nFor corner plot, run: python {os.path.join(project_dir, 'scripts', 'generate_corner_plot.py')}")
 print(f"Output: {os.path.join(fig_dir, 'cfm_contour.png')}")
 
 # Save chain to project directory for future use

@@ -36,6 +36,7 @@ venv/
 !figures/**/*.png
 !results/**/*.png
 !data/**/*.png
+data/raw/
 
 # Editor
 .vscode/

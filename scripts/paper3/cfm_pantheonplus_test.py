@@ -99,6 +99,7 @@ import requests
 import os
 import sys
 import time
+from pathlib import Path
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -108,12 +109,16 @@ warnings.filterwarnings('ignore')
 # ==========================================================================
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = Path(__file__).resolve().parents[2]
+RAW_DATA_DIR = REPO_ROOT / "data" / "raw" / "pantheon"
+RAW_DATA_DIR.mkdir(parents=True, exist_ok=True)
 DATA_URL = (
     "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/"
     "main/Pantheon%2B_Data/4_DISTANCES_AND_COVAR/Pantheon%2BSH0ES.dat"
 )
-DATA_FILE = os.path.join(SCRIPT_DIR, "Pantheon+SH0ES.dat")
-OUTPUT_DIR = SCRIPT_DIR
+DATA_FILE = str(RAW_DATA_DIR / "Pantheon+SH0ES.dat")
+OUTPUT_DIR = str(REPO_ROOT / "data" / "paper3")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 Z_MIN = 0.01       # Mindest-Rotverschiebung (unterhalb dominieren Pekuliarv.)
 N_GRID = 2000      # Gitterpunkte fuer kumulative Trapezregel

@@ -172,7 +172,7 @@ def log_probability(theta):
 # 4. LOAD CHECKPOINT
 # ================================================================
 _script_dir = os.path.dirname(os.path.abspath(__file__))
-_project_dir = os.path.dirname(_script_dir)
+_project_dir = os.path.abspath(os.path.join(_script_dir, '..', '..'))
 _results_dir = os.path.join(_project_dir, 'results')
 os.makedirs(_results_dir, exist_ok=True)
 _persistent_path = os.path.join(_results_dir, 'cfm_fR_mcmc_chain.npz')
