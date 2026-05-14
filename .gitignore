@@ -41,24 +41,46 @@ data/raw/
 # Editor
 .vscode/
 .claude/
+.codex/
+.gemini/
+.agents/
 *.swp
+.DS_Store
+Thumbs.db
+desktop.ini
 
 # Internal/private files
 Plan.txt
 BEWEISNOTIZ.md
+BEWEISNOTIZ*.md
+BEWEISNOTIZ_LANG_ALT.md
+KONZEPT.md
+AKTIONSPLAN.md
+PUBLIKATIONSPLAN.md
+POSTRELEASE-PR.md
+MEILENSTEINE.md
 CORE*.txt
 REVISE.txt
+REVIEW.txt
+REVIEW_CHAIN*.md
+REVIEW_CYCLE*.md
 SOLVED*.txt
 REVIEW_ZYKLUS*.txt
 SCIPOST.txt
 _archive/
 _partners/
+_handoff/
+_reviews/
+_private/
 *_submission/
 _SciPost_submission/
 _data/
 _results/
 _scripts/
 _copilot/
+_proof-notes/
+proof-notes/
+proof_notes/
 MCMC_SERVER_BRIEFING.md
 *BRIEFING*
 backup_renumber_*/
@@ -68,6 +90,18 @@ results_server/
 MASTER_LAGRANGIAN.*
 PUBLIKATIONSSTRATEGIE.md
 ZENODO_CREDENTIALS.md
+ZENODO_DRAFT.md
+TODO.md
+DONE.md
+FORSCHUNGSSTAND*.md
+GAPS*.md
+LINKEDIN.txt
+PUBLICATION_STRATEGY.txt
+*TOKEN*
+*SECRET*
+*CREDENTIAL*
+credentials*
+secrets*
 *.bak
 
 # Misc
