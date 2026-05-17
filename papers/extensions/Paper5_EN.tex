@@ -44,7 +44,7 @@
 \date{\today}
 
 \begin{abstract}
-We formulate four minimal axioms -- finite geometric capacity, cooperative reinforcement, monotone cosmic control, and renormalization-group composition -- that any quantum gravity theory must satisfy if its macroscopic limit reproduces general relativity with a bounded relaxation mechanism. From these axioms alone, we derive the \textit{Saturation Theorem}: the unique smooth, scale-coherent effective response function whose composition extends regularly to the saturation boundary is the hyperbolic tangent $S(g) = S_{\max}\tanh(\alpha\,u(g))$, up to reparametrization. Alternative profiles -- logistic, rational, arctangent, or hard-saturation -- are excluded unless they reduce to $\tanh$ via admissible reparametrization. The key mathematical lever is a composition law (Axiom~D) restricting the functional form to solutions of Abel's equation, whose unique bounded monotone solution is $\tanh$. Major quantum gravity programs -- Loop Quantum Gravity, asymptotic safety, string/holographic approaches, causal set theory, and noncommutative geometry -- naturally satisfy the axioms when restricted to cosmological observables, explaining the universality of saturation dynamics across disparate frameworks. The result elevates the $\tanh$ saturation ODE $dX/da = k(1-X^2)$ of the Curvature Relaxation Model from a phenomenological fit to a \textit{universal normal form} of capacity-limited cooperative relaxation, the open question being which UV completion selects $k$ and $\Phi_0$.
+We formulate four minimal axioms -- finite geometric capacity, cooperative reinforcement, monotone cosmic control, and renormalization-group composition -- that any quantum gravity theory must satisfy if its macroscopic limit reproduces general relativity with a bounded relaxation mechanism. These axioms imply an Abel-coordinate description of one-dimensional saturation dynamics. A hyperbolic tangent profile follows once the saturation boundary is fixed by an additional projective boundary-quotient normalization: the ratio $R(x)=(1+x)/(1-x)$ must multiply under composition. Without that normalization, smooth boundary regularity alone leaves a family of smooth hyperbolic boundary collars, for example Abel coordinates of the form $\operatorname{arctanh}(x)+\varepsilon x$. The corrected \textit{Saturation Theorem} is therefore a projective-collar normal-form theorem: $S(g)=S_{\max}\tanh(\alpha\,u(g))$ is selected by scale coherence plus the projective boundary quotient, not by bare smoothness alone. Major quantum gravity programs -- Loop Quantum Gravity, asymptotic safety, string/holographic approaches, causal set theory, and noncommutative geometry -- naturally motivate the axioms when restricted to cosmological observables. The result elevates the $\tanh$ saturation ODE $dX/da = k(1-X^2)$ of the Curvature Relaxation Model from a phenomenological fit to a canonical projective normal form of capacity-limited cooperative relaxation, while leaving open which UV completion selects $k$, $\Phi_0$, and the projective quotient physically.
 \end{abstract}
 
 \keywords{quantum gravity, saturation dynamics, axiomatic cosmology, No-Go theorem, Curvature Relaxation Model, tanh universality, renormalization group}
@@ -91,11 +91,11 @@ where $X = \Omega_\Phi/\Phi_0$ is the normalized curvature return potential and 
 
 Paper~III \cite{Geiger2026c} derives this ODE from the effective Lagrangian $\mathcal{L}_{\mathrm{CRM}} = R/(16\pi G) + \gamma \mathcal{F}(T/\rho) R^2 + \frac{1}{2}(\partial\phi)^2 - V_{\mathrm{PT}}(\phi)$, where $V_{\mathrm{PT}}(\phi) = V_0/\cosh^2(\phi/\phi_0)$ is a P\"oschl-Teller potential. Paper~III also surveys five UV-completion candidates (LQG, Finsler geometry, information-theoretic spacetime, causal sets, quantum error correction), observing that all produce ODE structures of the form $dX/dt \propto (1 - X^2)$.
 
-The present paper elevates this observation from \textit{structural analogy} to \textit{mathematical theorem}: we prove that any theory satisfying four physically motivated axioms must produce $\tanh$-type saturation, regardless of its microscopic mechanism.
+The present paper elevates this observation from \textit{structural analogy} to a conditional normal-form theorem: the four physically motivated axioms give an Abel-coordinate saturation law, and the additional projective boundary-quotient normalization selects the $\tanh$ representative.
 
 \subsection{Scope and structure}
 
-The central result is the \textit{Saturation Theorem} (Theorem~\ref{thm:saturation}): Under Axioms~A--D (including boundary regularity of the composition law), the effective cosmological response function is uniquely determined to be $\tanh$, up to reparametrization. The paper is organized as follows:
+The central result is the \textit{Saturation Theorem} (Theorem~\ref{thm:saturation}): Axioms~A--D reduce the effective cosmological response to an Abel coordinate, while the projective boundary-quotient normalization D' uniquely selects the $\tanh$ normal form up to reparametrization. The paper is organized as follows:
 
 \begin{itemize}
 \item Section~\ref{sec:axioms}: Formulation of the four axioms.
@@ -167,7 +167,7 @@ S_T(-g) = -S_T(g) \quad \forall\, g\,.
 
 \textit{(ii)~Precedents in physics.} Sign covariance of response functions is ubiquitous: in electrodynamics, the polarization $P(-E) = -P(E)$ for centrosymmetric media; in magnetism, $M(-H) = -M(H)$ for the paramagnetic/ferromagnetic response; in the renormalization group, beta functions of dimensionless couplings are odd functions of the coupling deviation from a fixed point. The antisymmetry of Axiom~B' is the gravitational analog of these well-established symmetries.
 
-\textit{(iii)~Mathematical role.} Together with the odd-power structure of Axiom~B, B' extends the composition law from the half-line $[0, S_{\max})$ to a full group operation on $(-S_{\max}, S_{\max})$, which is essential for the Abel-equation classification. Without B', only a semigroup structure is available, and the uniqueness argument of Step~2 does not apply in the same form. We note that this is an explicit assumption, not a derived consequence; its relaxation leads to alternative composition structures (e.g., $C(x,y) = x + y - xy$ on $[0,1)$), which is why it appears as a separate axiom rather than being subsumed into Axiom~B.
+\textit{(iii)~Mathematical role.} Together with the odd-power structure of Axiom~B, B' extends the composition law from the half-line $[0, S_{\max})$ to a full group operation on $(-S_{\max}, S_{\max})$, which is essential for the Abel-equation classification. Without B', only a semigroup structure is available, and the Abel-representation argument of Step~2 does not apply in the same form. We note that this is an explicit assumption, not a derived consequence; its relaxation leads to alternative composition structures (e.g., $C(x,y) = x + y - xy$ on $[0,1)$), which is why it appears as a separate axiom rather than being subsumed into Axiom~B.
 
 \subsection{Axiom C: Monotone Cosmic Control}
 
@@ -188,7 +188,7 @@ There exists exactly one relevant direction (control parameter) governing the tr
 \item Stable expansion toward a de~Sitter attractor.
 \end{itemize}
 
-In the CRM, the control parameter is the scale factor $a$; in RG language, it corresponds to the single relevant direction flowing from the UV fixed point to the IR \cite{Percacci2017}. Axiom~C is violated by cyclic cosmologies and by models with multiple stable vacua -- both of which lack a unique thermodynamic arrow. We note that Axiom~C is a restriction to the \textit{cosmological sector} with a single dominant transition: it does not address the string landscape (where tunneling between metastable vacua produces non-monotone trajectories) or stochastic inflation (where local fluctuations break monotonicity). These scenarios involve multiple effective control parameters or stochastic dynamics, placing them outside the scope of the single-field, deterministic axiom system. The theorem should be read as: ``within the class of theories with a single deterministic saturation channel, the functional form is uniquely $\tanh$.''
+In the CRM, the control parameter is the scale factor $a$; in RG language, it corresponds to the single relevant direction flowing from the UV fixed point to the IR \cite{Percacci2017}. Axiom~C is violated by cyclic cosmologies and by models with multiple stable vacua -- both of which lack a unique thermodynamic arrow. We note that Axiom~C is a restriction to the \textit{cosmological sector} with a single dominant transition: it does not address the string landscape (where tunneling between metastable vacua produces non-monotone trajectories) or stochastic inflation (where local fluctuations break monotonicity). These scenarios involve multiple effective control parameters or stochastic dynamics, placing them outside the scope of the single-field, deterministic axiom system. The theorem should be read as follows: A--D give an Abel/collar class for a single deterministic saturation channel; adding D' selects the projective $\tanh$ representative.
 
 \textit{Connection to CRM.} The monotonicity of $\Omega_\Phi(a)$ is a direct consequence of the ODE~\eqref{eq:saturation_ode}: since $1 - X^2 > 0$ for $|X| < 1$, the solution is strictly increasing.
 
@@ -211,6 +211,33 @@ where $\mathcal{C}$ is a smooth, commutative, associative composition with neutr
 \label{eq:composition_boundary}
 \end{equation}
 Furthermore, $\mathcal{C}$ extends smoothly (i.e., $C^\infty$) to the closed square $[0, S_{\max}]^2$.
+\end{axiom}
+
+\begin{remark}[Boundary-collar guardrail]
+The smooth-extension clause in Axiom~D is not, by itself, used below as a uniqueness claim for $\mathrm{arctanh}$. The Abel coordinate
+\[
+  \phi_\varepsilon(x)=\operatorname{arctanh}(x)+\varepsilon x
+\]
+induces a smooth associative composition on the open interval and gives a smooth positive boundary collar via
+\[
+  q_\varepsilon(x)=e^{-2\phi_\varepsilon(x)}
+  =\frac{1-x}{1+x}e^{-2\varepsilon x}.
+\]
+Thus bare smoothness of the positive saturation face selects a hyperbolic collar class, not a unique projective coordinate. The $\tanh$ normal form becomes a theorem only after the projective boundary quotient is fixed explicitly.
+\end{remark}
+
+\begin{axiom}[Projective Boundary-Quotient Normalization (D')]
+\label{ax:projective_quotient}
+For the normalized response $x=S/S_{\max}\in(-1,1)$, the projective boundary quotient
+\[
+  R(x):=\frac{1+x}{1-x}
+\]
+is multiplicative under composition:
+\begin{equation}
+  R(C(x,y))=R(x)R(y).
+  \label{eq:projective_quotient}
+\end{equation}
+Equivalently, the ratio of distances to the two saturation faces is the additive work/rapidity coordinate of the one-dimensional response channel.
 \end{axiom}
 
 \textit{Physical content.} This is the deepest axiom. It states that the geometric response must be \textit{self-consistent under coarse-graining}: observing the universe at two successive scales and combining the results must give the same answer as observing at the combined scale directly. This is the defining property of a renormalization group.
@@ -236,60 +263,48 @@ The $C^\infty$-extension requirement has a direct physical interpretation: it de
 
 \subsection{Statement}
 
-\begin{theorem}[Saturation Theorem]
+\begin{theorem}[Saturation Theorem, projective-collar form]
 \label{thm:saturation}
-Let $T$ be a theory whose effective response function $S_T(g)$ satisfies Axioms~A--D (including boundary regularity of $\mathcal{C}$) and the antisymmetry condition~B'. Then there exist constants $\alpha > 0$, $S_{\max} > 0$, and a strictly monotone reparametrization $u = u(g)$ with $u(0) = 0$, such that
+Let $T$ be a theory whose effective response function $S_T(g)$ satisfies Axioms~A--D and the antisymmetry condition~B'. Then the normalized response $\sigma(g)=S_T(g)/S_{\max}$ admits an odd Abel coordinate $\phi:(-1,1)\to\mathbb{R}$ such that
+\[
+  \phi(C(x,y))=\phi(x)+\phi(y).
+\]
+If, in addition, the projective boundary-quotient normalization D' holds, then there exist constants $\alpha > 0$, $S_{\max} > 0$, and a strictly monotone reparametrization $u = u(g)$ with $u(0) = 0$, such that
 \begin{equation}
 S_T(g) = S_{\max}\,\tanh\!\left(\alpha\,u(g)\right)\,.
 \label{eq:saturation_form}
 \end{equation}
-The composition law is uniquely determined as the relativistic velocity addition $\mathcal{C}(x,y) = (x+y)/(1+xy)$, up to rescaling by $S_{\max}$. No theory satisfying the axioms can adopt a different composition structure.
+The composition law is then determined as the relativistic velocity addition $\mathcal{C}(x,y) = (x+y)/(1+xy)$, up to rescaling by $S_{\max}$. Without D', Axioms~A--D determine the Abel/collar structure but do not exclude all smooth non-projective collars.
 \end{theorem}
 
 \subsection{Key Lemmas}
 
-The uniqueness of $\mathrm{arctanh}$ rests on the following chain of results, which we state here and invoke in Step~2 of the proof.
+The uniqueness of $\mathrm{arctanh}$ rests on a projective quotient, not on smoothness alone.
 
-\begin{lemma}[Shift-regularity forces exponential pinning]\label{lem:shift_regular_exponential}
-Let $\psi:\mathbb{R}\to(-1,1)$ be a $C^\infty$ strictly increasing odd diffeomorphism and define
+\begin{lemma}[Projective quotient selects $\mathrm{arctanh}$]\label{lem:projective_arctanh}
+Let $C$ be a continuous, strictly monotone, commutative and associative group law on $(-1,1)$ with neutral element $0$. Suppose $C$ has an Abel coordinate $\phi$,
 \[
-C(x,y):=\psi(\psi^{-1}(x)+\psi^{-1}(y))\qquad (x,y\in(-1,1)).
+  \phi(C(x,y))=\phi(x)+\phi(y),
 \]
-Assume $C\in C^\infty((-1,1)^2)$. Set $\delta(u):=1-\psi(u)$ for $u\to+\infty$.
-Then there exists $\kappa>0$ such that for every fixed $v\in\mathbb{R}$,
+and satisfies the projective quotient law~\eqref{eq:projective_quotient}. Then there exists $c>0$ such that
 \[
-\lim_{u\to+\infty}\frac{\delta(u+v)}{\delta(u)}=e^{-\kappa v}.
+  \phi(x)=c\,\operatorname{arctanh}(x),
+  \qquad
+  C(x,y)=\frac{x+y}{1+xy}.
 \]
-In particular, $\delta(u)=A\,e^{-\kappa u}\,(1+o(1))$ as $u\to+\infty$ for some $A>0$.
 \end{lemma}
 
-\begin{proof}[Proof sketch]
-Fix $v\in\mathbb{R}$ and consider $x=\psi(u)$ with $u\to+\infty$. Then $C(x,\psi(v))=\psi(u+v)\to 1$. The assumption $C\in C^\infty((-1,1)^2)$ implies that for each fixed $v$, all $x$-derivatives of $x\mapsto C(x,\psi(v))$ remain finite as $x\to 1^-$, which translates into uniform control of the $u$-asymptotics of $\psi(u+v)$ relative to $\psi(u)$. This forces the shift ratio $\delta(u+v)/\delta(u)$ to converge and to satisfy the multiplicative Cauchy equation in $v$, hence it must be $e^{-\kappa v}$ for some $\kappa>0$.
-\end{proof}
-
-\begin{proposition}[Quadratic vanishing of the infinitesimal generator]\label{prop:generator_quadratic}
-Under the assumptions of Lemma~\ref{lem:shift_regular_exponential}, define the infinitesimal generator $a(x):=\partial_2 C(x,0)$ for $x\in(-1,1)$. Then $a\in C^\infty((-1,1))$, $a(x)>0$ for all $x$, and
-\[
-a(x)=\lambda(1-x^2)\qquad \text{for some constant }\lambda>0.
-\]
-Equivalently, writing $\phi:=\psi^{-1}$, one has $\phi'(x)=1/(\lambda(1-x^2))$ for all $x\in(-1,1)$.
-\end{proposition}
-
-\begin{proof}[Proof sketch]
-The group identity $C(x,0)=x$ gives $a(0)=1$. For each fixed $x$, the map $y\mapsto C(x,y)$ is a $C^\infty$ diffeomorphism (inverse: $y\mapsto C(-x,y)$), hence $a(x)\neq 0$ for all $x$ and by connectedness $a(x)>0$. Writing $x=\psi(u)$, one has $a(\psi(u))=\psi'(u)$. Lemma~\ref{lem:shift_regular_exponential} implies $\psi'(u)\asymp 1-\psi(u)$ as $u\to+\infty$, and by oddness similarly at $u\to-\infty$, yielding $a(x)\asymp 1-x^2$ near $\pm 1$. The $C^\infty$-regularity of $C$ rules out any nonconstant smooth modulation of this quadratic vanishing: if $a(x)=(1-x^2)\,h(x)$ with $h$ nonconstant, then for sufficiently high derivative order $m+n$, the mixed partial $\partial_x^m\partial_y^n C$ diverges as $(x,y)\to(1^-,y_0)$ -- as demonstrated explicitly for the modulated case $h(x)=1+\alpha x^2$ (third derivatives diverge logarithmically). Therefore $h\equiv\lambda$.
-\end{proof}
-
-\begin{corollary}[Uniqueness of $\mathrm{arctanh}$ up to scaling]\label{cor:uniqueness_arctanh}
-Let $\phi:(-1,1)\to\mathbb{R}$ be odd, $C^\infty$, strictly increasing, $\phi(0)=0$, and $\phi(1^-)=+\infty$. If $C(x,y):=\phi^{-1}(\phi(x)+\phi(y))\in C^\infty((-1,1)^2)$, then there exists $c>0$ such that
-\[
-\phi(x)=c\,\mathrm{arctanh}(x)\qquad (x\in(-1,1)),
-\]
-and hence $C(x,y)=(x+y)/(1+xy)$.
-\end{corollary}
-
 \begin{proof}
-By Proposition~\ref{prop:generator_quadratic}, $\phi'(x)=1/(\lambda(1-x^2))$. Integrating with $\phi(0)=0$ gives $\phi(x)=\lambda^{-1}\,\mathrm{arctanh}(x)$.
+Set $L(x):=\frac12\log((1+x)/(1-x))=\operatorname{arctanh}(x)$. By D',
+\[
+  L(C(x,y))=L(x)+L(y).
+\]
+Thus $F(t):=\phi(\tanh t)$ is a continuous additive function of $t=L(x)$, so $F(t)=ct$ for some $c>0$. Hence $\phi(x)=cL(x)=c\,\operatorname{arctanh}(x)$, and solving $L(C)=L(x)+L(y)$ gives $C(x,y)=(x+y)/(1+xy)$.
 \end{proof}
+
+\begin{remark}[Why D' is necessary]
+The family $\phi_\varepsilon(x)=\operatorname{arctanh}(x)+\varepsilon x$ is odd, smooth and strictly increasing for small $\varepsilon$, diverges at the boundary, and induces a smooth positive saturation collar through $q_\varepsilon=e^{-2\phi_\varepsilon}$. Hence the old claim that $C^\infty$ boundary regularity alone excludes all non-$\mathrm{arctanh}$ Abel coordinates is too strong. The corrected theorem uses D' as the mathematical and physical normalization that removes this boundary-gauge freedom.
+\end{remark}
 
 \subsection{Proof of the Saturation Theorem}
 
@@ -311,24 +326,22 @@ The associativity condition $C(C(x,y),z) = C(x, C(y,z))$ combined with commutati
 \phi(C(x,y)) = \phi(x) + \phi(y)\,.
 \label{eq:abel}
 \end{equation}
-This is Abel's functional equation. Acz\'el's theorem yields $\phi$ continuous; since $C$ is smooth (Axiom~D) and $\phi'(0) = c_1 > 0$ (Axiom~B), differentiating~\eqref{eq:abel} shows that $\phi$ inherits the $C^\infty$ regularity of $C$ on $(-1,1)$. The function $\phi$ is determined up to a positive multiplicative constant. Two conditions jointly select $\phi = \mathrm{arctanh}$:
-\begin{enumerate}
-\item The antisymmetry (Axiom~B') forces $\phi(-x) = -\phi(x)$.
-\item By Corollary~\ref{cor:uniqueness_arctanh}, the $C^\infty$-regularity of $C$ on $(-1,1)^2$ uniquely determines $\phi = c\,\mathrm{arctanh}$ (up to the positive constant $c$). The proof proceeds through the Lemma--Proposition chain of Section~\ref{sec:theorem}: Lemma~\ref{lem:shift_regular_exponential} establishes that $C^\infty$-shift-regularity forces exponential boundary pinning $\delta(u) = A\,e^{-\kappa u}(1+o(1))$; Proposition~\ref{prop:generator_quadratic} shows this implies $\phi'(x) = 1/(\lambda(1-x^2))$, i.e., quadratic vanishing of the infinitesimal generator; integration with $\phi(0)=0$ yields $\phi = c\,\mathrm{arctanh}$. Alternative Abel functions -- algebraic ($x/(1-x^2)$, $\tan(\pi x/2)$: divergent 2nd derivatives at the corner), modulated-logarithmic ($(1+\alpha x^2)\mathrm{arctanh}(x)$: divergent 3rd derivatives) -- are excluded as special cases.
-\end{enumerate}
-This yields the composition law:
+This is Abel's functional equation. Acz\'el's theorem yields $\phi$ continuous; since $C$ is smooth (Axiom~D) and $\phi'(0) = c_1 > 0$ (Axiom~B), differentiating~\eqref{eq:abel} shows that $\phi$ inherits the $C^\infty$ regularity of $C$ on $(-1,1)$. The function $\phi$ is determined up to a positive multiplicative constant, and antisymmetry (Axiom~B') lets it be chosen odd. At this stage Axioms~A--D give an Abel/collar theorem, not yet $\phi=\mathrm{arctanh}$.
+
+\textit{Step 2b: Projective boundary normalization.}
+If the additional normalization D' holds, Lemma~\ref{lem:projective_arctanh} gives $\phi=c\,\mathrm{arctanh}$. This yields the composition law:
 \begin{equation}
 C(x, y) = \frac{x + y}{1 + x\,y}\,,
 \label{eq:addition_formula}
 \end{equation}
-which is the relativistic velocity addition formula -- the unique smooth, commutative, associative binary operation on $(-1,1)$ with neutral element $0$, absorbing boundaries $\pm 1$, and $C^\infty$ extension to the closed square.
+which is the relativistic velocity addition formula. The uniqueness is therefore projective: it is uniqueness after fixing the boundary quotient $R=(1+x)/(1-x)$, not uniqueness from bare smoothness of all Abel collars.
 
 \textit{Step 3: Inversion to $\tanh$.}
-Since $\phi(\sigma(g)) = \mathrm{arctanh}(\sigma(g))$ must be an additive function of the control parameter (i.e., $\phi(\sigma(g)) = \alpha\,u(g)$ for a reparametrization $u$ and constant $\alpha > 0$), we obtain:
+Since $\phi(\sigma(g)) = c\,\mathrm{arctanh}(\sigma(g))$ must be an additive function of the control parameter (i.e., $\phi(\sigma(g)) = \alpha\,u(g)$ for a reparametrization $u$ and constant $\alpha > 0$), we obtain:
 \begin{equation}
 \sigma(g) = \tanh(\alpha\,u(g))\,,
 \end{equation}
-and therefore $S_T(g) = S_{\max}\,\tanh(\alpha\,u(g))$, which is~\eqref{eq:saturation_form}. When the axioms hold exactly, the result is exact. Approximate axiom satisfaction (e.g., breakdown of the composition law at very small $g$ where standard GR dominates) would introduce corrections; a formal stability analysis of such perturbations is an open problem. \hfill $\square$
+and therefore $S_T(g) = S_{\max}\,\tanh(\alpha\,u(g))$, after absorbing the positive constant $c$ into $\alpha u$. When Axioms~A--D and D' hold exactly, the result is exact. Approximate axiom satisfaction (e.g., breakdown of the composition law at very small $g$ where standard GR dominates) would introduce corrections; a formal stability analysis of such perturbations is an open problem. \hfill $\square$
 
 \begin{corollary}[Monotonicity is automatic]
 \label{cor:monotonicity}
@@ -360,14 +373,14 @@ The axioms are logically independent: for each, there exists a function satisfyi
 
 \subsection{Interpretation}
 
-The theorem states that the $\tanh$ is not a \textit{model choice} but the \textit{canonical solution under boundary regularity} to the combined constraints of boundedness, cooperativity, monotonicity, and scale coherence. The key mathematical insight is that the composition law (Axiom~D) forces the response function to be the inverse of a solution to Abel's equation, and the only such inverse with the correct boundary behavior is $\tanh$.
+The theorem states that $\tanh$ is not a mere \textit{model choice}, but the \textit{canonical projective representative} of a one-dimensional Abel saturation channel. The key mathematical insight is two-step: Axiom~D forces the response function to be the inverse of an Abel coordinate, and D' fixes the otherwise free boundary collar by making the projective quotient $R=(1+x)/(1-x)$ multiplicative.
 
 Physically, the theorem says:
 \begin{quote}
-\textit{Any quantum gravity theory that is scale-coherent, cooperative, bounded, monotone, and whose composition law extends regularly to the saturation boundary must produce cosmological saturation dynamics of the $\tanh$ type -- regardless of its microscopic mechanism.}
+\textit{Any quantum gravity theory that is scale-coherent, cooperative, bounded, monotone, and whose saturation boundary is normalized by the projective quotient must produce cosmological saturation dynamics of the $\tanh$ type. Without that quotient normalization, the theorem gives an Abel/collar class rather than a unique profile.}
 \end{quote}
 
-The reparametrization $u(g)$ absorbs the microscopic details of the theory: different UV completions correspond to different functions $u(g)$, but all produce the same functional form $\tanh(\alpha\,u)$ for the response.
+The reparametrization $u(g)$ absorbs the microscopic details of the theory: different UV completions correspond to different functions $u(g)$. The common $\tanh(\alpha\,u)$ form is forced only after the projective boundary ratio has been identified as the physical composition variable.
 
 
 % ===================================================================
@@ -378,7 +391,7 @@ The reparametrization $u(g)$ absorbs the microscopic details of the theory: diff
 
 \begin{corollary}[Exclusion of Alternative Saturation Profiles]
 \label{cor:exclusion}
-None of the following profiles can simultaneously satisfy Axioms~A--D, except when reducible to the $\tanh$ form via admissible reparametrization $u(g)$:
+None of the following profiles can simultaneously satisfy Axioms~A--D plus the projective normalization D', except when reducible to the $\tanh$ form via admissible reparametrization $u(g)$:
 \begin{enumerate}
 \item[(i)] \textbf{Logistic profile:} $S_{\max}/(1 + e^{-\beta u})$.
 \item[(ii)] \textbf{Rational profile:} $S_{\max}\,u/(1 + u)$.
@@ -449,7 +462,7 @@ In causal set theory \cite{Sorkin2003,Surya2019}, the cosmological constant aris
 
 \subsection{Causal Dynamical Triangulations}
 
-Causal Dynamical Triangulations (CDT) \cite{Ambjorn2005,Loll2019} construct quantum gravity via a regularized path integral over causal triangulations. Monte Carlo simulations reveal a phase diagram with a physically relevant ``de~Sitter phase'' (phase~$C_{dS}$) in which the emergent geometry has Hausdorff dimension $d_H \approx 4$ and a volume profile well-described by Euclidean de~Sitter space.
+Causal Dynamical Triangulations (CDT) \cite{Ambjorn2005,Loll2020} construct quantum gravity via a regularized path integral over causal triangulations. Monte Carlo simulations reveal a phase diagram with a physically relevant ``de~Sitter phase'' (phase~$C_{dS}$) in which the emergent geometry has Hausdorff dimension $d_H \approx 4$ and a volume profile well-described by Euclidean de~Sitter space.
 
 \textit{Axiom A:} The triangulation provides a finite number of building blocks per spacetime volume, enforcing finite geometric capacity. \textit{Axiom B:} In the de~Sitter phase, the volume profile grows cooperatively before saturating -- the geometric ordering is self-reinforcing. The odd-power structure (Axiom~B') has not been explicitly verified. \textit{Axiom C:} The de~Sitter volume profile is monotone (in the expanding branch). \textit{Axiom D:} CDT possesses natural blocking transformations (coarse-graining of triangulations), providing a candidate for the composition law, but the precise associative structure has not been rigorously established.
 
@@ -519,7 +532,7 @@ $\tanh(J/k_BT)$ & $\tanh(k(a - a_{\mathrm{trans}}))$ \\
 \end{tabular}
 \end{center}
 
-The Saturation Theorem provides the mathematical foundation for this analogy at the \textit{mean-field level}: both systems satisfy Axioms~A--D in the mean-field approximation, and therefore both produce $\tanh$ response functions. We note that the exact magnetization of a $d$-dimensional Ising model deviates from the mean-field $\tanh$ near the critical temperature ($M \sim (T_c - T)^{\beta}$ with non-trivial critical exponent $\beta \neq 1/2$ for $d < 4$). This deviation corresponds to the breakdown of Axiom~D's $C^\infty$ boundary regularity near the \textit{critical point} (the onset of ordering), not near \textit{saturation} ($T \to 0$). The analogy is therefore precise for the saturation regime and mean-field theory, while fluctuation corrections near criticality require a multi-field extension (see Outlook). The universality is structural, not metaphorical, within the domain of validity of the axioms.
+The Saturation Theorem provides the mathematical foundation for this analogy at the \textit{mean-field level}: both systems satisfy an Abel-type composition structure in the mean-field approximation, and the usual mean-field magnetization corresponds to the projective $\tanh$ representative. We note that the exact magnetization of a $d$-dimensional Ising model deviates from the mean-field $\tanh$ near the critical temperature ($M \sim (T_c - T)^{\beta}$ with non-trivial critical exponent $\beta \neq 1/2$ for $d < 4$). This deviation corresponds to the breakdown of the one-dimensional projective-collar approximation near the \textit{critical point} (the onset of ordering), not near \textit{saturation} ($T \to 0$). The analogy is therefore precise for the saturation regime and mean-field theory, while fluctuation corrections near criticality require a multi-field extension (see Outlook). The universality is structural, not metaphorical, within the domain of validity of the axioms and D'.
 
 Having established the ontological framework, we now turn to its empirical consequences.
 
@@ -533,11 +546,11 @@ Having established the ontological framework, we now turn to its empirical conse
 
 The Saturation Theorem has two classes of predictions:
 
-\textbf{Universal predictions} (independent of UV completion):
+\textbf{Projective-collar predictions} (after D' is imposed):
 \begin{enumerate}
-\item The cosmological expansion history must follow $\tanh$-type saturation. We emphasize that the CRM's $\Delta\chi^2 = -5.5$ result \cite{Geiger2026b} does \textit{not} constitute an independent test of the theorem, since the CRM was constructed with a $\tanh$ profile before the axioms were formulated. The theorem's empirical content is the \textit{composition law} $\mathcal{C}(x,y) = (x+y)/(1+xy)$, which is a prediction beyond any individual profile fit. An independent test would require either (a)~fitting a model-agnostic $\tanh$-template to SN+CMB+BAO data without CRM-specific priors, or (b)~verifying the composition law directly by comparing saturation responses at different redshift bins and checking consistency with the velocity-addition rule.
+\item If the projective boundary quotient is physically realized, the cosmological expansion history should be compatible with $\tanh$-type saturation. We emphasize that the CRM's $\Delta\chi^2 = -5.5$ result \cite{Geiger2026b} does \textit{not} constitute an independent test of the theorem, since the CRM was constructed with a $\tanh$ profile before the axioms were formulated. The theorem's empirical content is the \textit{composition law} $\mathcal{C}(x,y) = (x+y)/(1+xy)$, which is a prediction beyond any individual profile fit. An independent test would require either (a)~fitting a model-agnostic $\tanh$-template to SN+CMB+BAO data without CRM-specific priors, or (b)~verifying the composition law directly by comparing saturation responses at different redshift bins and checking consistency with the velocity-addition rule.
 \item The running curvature coupling $\beta_{\mathrm{eff}}(a)$ must be a monotone transition function (already confirmed: $\beta_{\mathrm{early}} \approx 2.8 \to \beta_{\mathrm{late}} \approx 2.0$ \cite{Geiger2026b}).
-\item No alternative relaxation profile (logistic, power-law, etc.) can fit the data \textit{and} be scale-coherent simultaneously.
+\item No alternative relaxation profile (logistic, power-law, etc.) can claim theorem-level support unless it also realizes a scale-coherent composition law and explains the projective quotient.
 \end{enumerate}
 
 \textbf{UV-dependent predictions} (discriminating between completions):
@@ -549,7 +562,7 @@ The Saturation Theorem has two classes of predictions:
 
 \subsection{The missing piece: why \textit{these} parameters?}
 
-The Saturation Theorem determines the \textit{form} but not the \textit{coefficients}. The remaining open question is:
+The Saturation Theorem determines the Abel/collar structure and, under D', the projective \textit{form}, but not the \textit{coefficients}. The remaining open question is:
 
 \begin{quote}
 \textit{Why does the universe have the specific values $k \approx 9.8$, $\Phi_0 \approx 0.43$, $\gamma \sim \mathcal{O}(1)\,H_0^{-2}$?}
@@ -584,11 +597,11 @@ with $\epsilon \ll 1$. These oscillations would be a direct signature of the \te
 \subsection{What has been achieved}
 
 \begin{enumerate}
-\item \textbf{A No-Go theorem:} Any cosmological theory satisfying Axioms~A--D with boundary regularity must produce $\tanh$-type saturation. This is a structural result, independent of specific QG programs.
+\item \textbf{A conditional No-Go theorem:} Any cosmological theory satisfying Axioms~A--D plus projective boundary-quotient normalization D' must produce $\tanh$-type saturation. Axioms~A--D alone produce the Abel/collar structure.
 
-\item \textbf{Universality explained:} The observation that LQG, asymptotic safety, strings, causal sets, and NCG all produce structurally similar saturation dynamics is no longer mysterious -- it follows from the Saturation Theorem.
+\item \textbf{Universality clarified:} The observation that LQG, asymptotic safety, strings, causal sets, and NCG all produce structurally similar saturation dynamics is no longer mysterious at the Abel-structure level; the precise $\tanh$ representative additionally depends on the projective boundary quotient.
 
-\item \textbf{CRM elevated:} The CRM's saturation ODE $dX/da = k(1-X^2)$ is not an ad hoc phenomenological fit, but the universal normal form of capacity-limited cooperative relaxation -- the canonical smooth, scale-coherent saturation profile under boundary regularity.
+\item \textbf{CRM calibrated:} The CRM's saturation ODE $dX/da = k(1-X^2)$ is not an ad hoc phenomenological fit, but the canonical projective normal form of capacity-limited cooperative relaxation.
 
 \item \textbf{Ontological clarity:} Quantum gravity is not the quantization of the metric, but the theory of geometric order -- a phase transition from a pre-geometric quantum system to classical spacetime.
 \end{enumerate}
@@ -597,24 +610,52 @@ with $\epsilon \ll 1$. These oscillations would be a direct signature of the \te
 
 This paper completes the conceptual arc of the CRM series: game-theoretic foundation (Paper~I \cite{Geiger2026}), phenomenological fit with $\Delta\chi^2 = -5.5$ (Paper~II \cite{Geiger2026b}), Lagrangian derivation (Paper~III \cite{Geiger2026c}), galactic dynamics (Paper~IV \cite{Geiger2026d}), and now axiomatic foundation (this work). The logical status of the CRM is:
 \begin{enumerate}
-\item The \textit{form} of the dynamics ($\tanh$) is a mathematical theorem (this paper).
+\item The \textit{form} of the dynamics ($\tanh$) is a mathematical theorem once the projective boundary quotient D' is accepted; without D' the theorem proves the Abel/collar structure.
 \item The \textit{Lagrangian} is derived (Paper~III).
 \item The \textit{parameters} are constrained by data (Papers~II, III, IV).
-\item The \textit{UV completion} remains open -- but the theorem shows that \textit{any} viable completion must reproduce the CRM effective dynamics.
+\item The \textit{UV completion} remains open -- and must explain why the projective boundary quotient, rather than a different smooth collar, is the physical composition variable.
 \end{enumerate}
+
+\subsection{Post-Zookeeper operator transfer}
+
+The later FST/Zookeeper proof vocabulary sharpens the role of this
+paper while sharpening its proof obligations.  In that vocabulary, a stability
+claim is strongest when it can be written as a Galerkin-compatible
+operator family
+\[
+  A_X^{(N)} = H_X^{(N)} + B_X^{(N)}, \qquad
+  \|(I-P_{V_X})k_X\| \leq \frac{r_X}{g_X},
+\]
+where $B_X^{(N)}$ is a rank-one or finite-rank defect, $r_X$ is the
+combined secular/quasimode residual, and $g_X$ is a coercive complement
+gap.  For the present Saturation Theorem the idealised situation is the
+zero-defect projective limit: the RG composition law is exact, the Abel coordinate
+is one-dimensional, D' fixes the projective collar, and the hyperbolic composition
+$\mathcal{C}(x,y)=(x+y)/(1+xy)$ has no off-channel leakage.
+
+The useful transfer is therefore not a new proof of the theorem, but a
+proof obligation for perturbations of it.  Multi-field corrections,
+stochastic inflation, EFT-of-dark-energy perturbations, or
+nonperturbative UV--IR matching effects should be treated as defects
+$B_X$ of the one-dimensional saturation channel.  A future extension is
+strong only if the residual produced by those defects is dominated by a
+coercive stability gap.  In this sense the Zookeeper transfer turns the
+paper's qualitative caveat---``up to reparametrization and within a
+single deterministic saturation channel''---into the quantitative test
+$r_X/g_X \ll 1$.
 
 \subsection{Limitations and caveats}
 
 \begin{enumerate}
-\item \textbf{Axiom D is strong.} The renormalization-group composition law is the most restrictive axiom. Theories without a well-defined RG flow (some discrete approaches, multiverse scenarios) may not satisfy it. We regard this as a feature, not a bug: Axiom~D is precisely the condition that distinguishes predictive theories from frameworks without observable consequences.
+\item \textbf{Axiom D and D' are strong.} The renormalization-group composition law is restrictive, and the projective boundary-quotient normalization is an additional mathematical and physical choice. Theories without a well-defined RG flow (some discrete approaches, multiverse scenarios) may not satisfy D; theories with a different boundary collar may satisfy D but fail D'. This distinction is essential: D gives scale coherence, D' selects the $\tanh$ representative.
 
-\item \textbf{The proof is algebraic, not constructive.} The theorem establishes the form of the response function but does not construct the UV theory. The ``reparametrization'' $u(g)$ absorbs all microscopic information; determining $u(g)$ from first principles requires solving the specific QG theory. A potential objection is that any bounded monotone function can trivially be written as $\tanh(\alpha\,u(g))$ for a suitable $u(g)$, making the $\tanh$ form contentless. We address this directly: the theorem's non-trivial, falsifiable content resides in the \textit{composition law} $\mathcal{C}(x,y) = (x+y)/(1+xy)$, not in the profile shape. The composition law is a structural constraint on how responses at different scales combine -- it is the gravitational analog of the relativistic velocity addition rule. This constraint (i)~is not satisfied by generic bounded monotone functions (e.g., $\text{erf}(g)$ does not admit an associative smooth composition with absorbing boundary), (ii)~is testable in principle by comparing saturation responses at different scales, and (iii)~restricts the space of allowed effective theories to those whose RG flow has the one-dimensional group structure identified by the theorem.
+\item \textbf{The proof is algebraic, not constructive.} The theorem establishes the Abel structure of the response and, under D', its projective $\tanh$ representative, but it does not construct the UV theory. The ``reparametrization'' $u(g)$ absorbs microscopic information; determining $u(g)$ from first principles requires solving the specific QG theory. A potential objection is that any bounded monotone function can trivially be written as $\tanh(\alpha\,u(g))$ for a suitable $u(g)$, making the profile shape contentless. The non-trivial content therefore resides in the \textit{composition law} and, for the $\tanh$ selection, in the projective quotient law $R(C)=R(x)R(y)$.
 
 \item \textbf{Cosmological restriction.} The axioms are formulated for cosmological observables. Whether they extend to local physics (black holes, gravitational waves) requires further analysis. The CRM's existing predictions for local physics (chameleon screening, $\alpha_T = 0$, Bullet Cluster resolution \cite{Geiger2026b,Geiger2026c,Geiger2026d}) are derived from the Lagrangian, not from the axioms.
 
 \item \textbf{The continuous group classification and single-field restriction.} The proof relies on Acz\'el's representation theorem for continuous associative operations \cite{Aczel1966} and the classification of one-dimensional formal group laws \cite{Hazewinkel1978}. While these results are well-established, the physical applicability requires the assumption that the composition is \textit{one-dimensional} -- i.e., that there is a single relevant direction. This is a genuine limitation: the CRM itself (Paper~IV \cite{Geiger2026d}) introduces a vector sector alongside the scalar, and realistic modified gravity theories (e.g., Horndeski, beyond-Horndeski) generically have multiple coupled degrees of freedom. However, we note that the theorem applies to the \textit{scalar sector in isolation}: the CRM's scalar saturation channel $\Omega_\Phi(a) = \Phi_0 \tanh(k(a - a_{\mathrm{trans}}))$ is a one-dimensional response that satisfies the axioms independently of the vector sector. The multi-field extension (classifying multi-dimensional commutative group laws, including elliptic and Lubin-Tate formal groups) is an open mathematical problem that would strengthen the theorem but is not required for the scalar-sector result.
 
-\item \textbf{The uniqueness selection.} The selection of $\mathrm{arctanh}$ as the unique odd Abel function whose induced composition extends to $C^\infty([-1,1]^2)$ rests on four pillars: (i)~explicit verification against all standard alternatives (algebraic: $x/(1-x^2)$, $\tan(\pi x/2)$, $x/\sqrt{1-x^2}$; modulated logarithmic: $(1+\alpha x^2)\,\mathrm{arctanh}(x)$); (ii)~the structural argument that only the logarithmic divergence rate of $\mathrm{arctanh}$ produces a \textit{rational} composition $(x+y)/(1+xy)$, hence automatic $C^\infty$ extension; (iii)~the perturbative argument (Step~2) that any deviation from $\mathrm{arctanh}$ flat at the boundary introduces logarithmic divergences in higher derivatives; and (iv)~the \textit{shift-regularity argument} (Step~2): $C^\infty$-regularity of the translation family $T_v(u) = \psi(u+v)$ at the boundary forces the defect $\delta(u) = 1 - \psi(u)$ to decay exponentially, which integrates to $\phi = c\,\mathrm{arctanh}$ globally. Pillar~(iv) provides the strongest argument, reducing the uniqueness to a single analytic principle (exponential boundary attachment from shift regularity).
+\item \textbf{Boundary-collar freedom.} Smooth boundary behavior alone does not select $\mathrm{arctanh}$. The counter-collar $\phi_\varepsilon=\operatorname{arctanh}+\varepsilon x$ preserves a smooth positive boundary collar but changes the Abel coordinate. The uniqueness selection is therefore deliberately moved to D': once the projective quotient $R=(1+x)/(1-x)$ is required to multiply under composition, $\mathrm{arctanh}=\frac12\log R$ follows immediately and uniquely up to scale.
 \end{enumerate}
 
 \subsection{The No-Go theorem as a filter}
@@ -625,9 +666,10 @@ The Saturation Theorem serves as a \textit{filter} for quantum gravity proposals
 \item Any proposed QG theory that violates Axiom~A (allows infinite geometric order) must address the singularity problem separately.
 \item Any theory that violates Axiom~C (has oscillating or multi-fixed-point dynamics) must explain why the observed universe has a unique thermodynamic arrow.
 \item Any theory that violates Axiom~D (lacks scale coherence) must explain why its predictions are insensitive to the observation scale.
+\item Any theory that satisfies D but violates D' must identify which non-projective boundary collar replaces the CRM rapidity coordinate.
 \end{itemize}
 
-Theories satisfying all four axioms are \textit{constrained} to produce $\tanh$ saturation, providing a concrete, falsifiable prediction for their cosmological sector.
+Theories satisfying Axioms~A--D are constrained to an Abel/collar saturation law. Theories satisfying Axioms~A--D and D' are constrained to $\tanh$ saturation, providing a concrete, falsifiable prediction for their cosmological sector.
 
 \subsection{Relation to other frameworks}
 
@@ -644,7 +686,7 @@ Three directions are immediate:
 
 \item \textbf{Multi-field extension.} Extending the theorem to theories with multiple saturation channels (e.g., scalar + vector in the CRM \cite{Geiger2026d}) requires the classification of multi-dimensional commutative group laws (the higher-dimensional analog of the Abel-equation reduction). This is mathematically richer and may yield constraints on the vector sector parameters $K_B$ and $\mathcal{F}$.
 
-\item \textbf{Black hole interior.} If the Saturation Theorem applies to black hole interiors (with the radial coordinate replacing the scale factor), it predicts $\tanh$-type singularity resolution -- consistent with LQG bounce models \cite{Ashtekar2006} and the Planck star scenario \cite{Rovelli2014}.
+\item \textbf{Black hole interior.} If the Saturation Theorem applies to black hole interiors (with the radial coordinate replacing the scale factor) and the projective boundary quotient is the correct interior collar, it predicts $\tanh$-type singularity resolution -- consistent with LQG bounce models \cite{Ashtekar2006} and the Planck star scenario \cite{Rovelli2014}.
 \end{enumerate}
 
 
@@ -654,22 +696,22 @@ Three directions are immediate:
 \section{Conclusion}
 \label{sec:conclusion}
 
-We have proven the Saturation Theorem: any quantum gravity theory satisfying four minimal axioms plus boundary regularity of the composition -- finite geometric capacity, cooperative reinforcement, monotone cosmic control, and renormalization-group composition -- must produce cosmological dynamics with a $\tanh$-type saturation profile. This is not a model choice but a mathematical necessity, analogous to how gauge symmetry forces the existence of gauge bosons without specifying the coupling constant.
+We have proven a corrected Saturation Theorem: finite geometric capacity, cooperative reinforcement, monotone cosmic control, and renormalization-group composition reduce one-dimensional cosmological saturation to an Abel-coordinate boundary-collar structure. The $\tanh$ profile follows when the saturation boundary is additionally normalized by the projective quotient $R=(1+x)/(1-x)$.
 
 The theorem has three consequences:
 
 \begin{enumerate}
-\item The CRM's saturation ODE $dX/da = k(1-X^2)$ is the \textit{universal normal form} of capacity-limited cooperative relaxation -- the unique response function compatible with boundedness, cooperativity, monotonicity, and scale coherence.
+\item The CRM's saturation ODE $dX/da = k(1-X^2)$ is the \textit{projective normal form} of capacity-limited cooperative relaxation -- the unique response after fixing the boundary quotient.
 
-\item The observation that LQG, asymptotic safety, string theory, causal sets, and noncommutative geometry all produce $\tanh$-type saturation in their cosmological sectors is \textit{explained}: it follows from the axioms that each program satisfies.
+\item The observation that LQG, asymptotic safety, string theory, causal sets, and noncommutative geometry all produce similar saturation structures is explained at the Abel/collar level; the specific $\tanh$ representative requires the projective quotient.
 
 \item Quantum gravity is reconceptualized as the theory of geometric order -- a phase transition from a pre-geometric quantum system to classical spacetime -- rather than the ``quantization of the metric.''
 \end{enumerate}
 
-The remaining open problem -- deriving the specific parameters $(k, \Phi_0, \gamma)$ from a UV completion -- is the analog of deriving the fine-structure constant from a theory of quantum electrodynamics. The theorem constrains the \textit{form} of any viable theory; the community's task is now to determine which UV completion selects the \textit{observed} values.
+The remaining open problem -- deriving the specific parameters $(k, \Phi_0, \gamma)$ and the projective boundary quotient from a UV completion -- is the analog of deriving the fine-structure constant from a theory of quantum electrodynamics. The theorem constrains the \textit{normal form} of any viable theory once the boundary quotient is fixed.
 
 \begin{quote}
-\textit{The saturation profile is constrained by the axioms to be of the $\tanh$ type -- not as a model choice, but as a consequence of scale coherence and boundary regularity.}
+\textit{The saturation profile is constrained to the $\tanh$ type by scale coherence plus the projective boundary quotient; bare smooth boundary regularity gives the wider Abel-collar class.}
 \end{quote}
 
 
@@ -683,7 +725,7 @@ This work was conducted as independent research without institutional funding. T
 
 \textit{Funding information.} This research received no external funding.
 
-\textit{Data availability.} This paper is purely theoretical. The CRM analysis code and data are available at \url{https://github.com/research-line/crm-cosmology} (DOI: \href{https://doi.org/10.5281/zenodo.18728935}{10.5281/zenodo.18728935}).
+\textit{Data availability.} This paper is purely theoretical. The CRM analysis code and data are available at \url{https://github.com/lukisch/crm-cosmology} (DOI: \href{https://doi.org/10.5281/zenodo.18728935}{10.5281/zenodo.18728935}).
 \end{acknowledgments}
 
 
@@ -696,7 +738,7 @@ This work was conducted as independent research without institutional funding. T
 L.~Geiger (2026).
 Game-Theoretic Cosmology and the Curvature Relaxation Model: Nash Equilibria Between Null Space and Spacetime Bubble.
 Companion paper (Paper~I).
-\url{https://github.com/research-line/crm-cosmology}.
+\url{https://github.com/lukisch/crm-cosmology}.
 \href{https://doi.org/10.5281/zenodo.18728935}{doi:10.5281/zenodo.18728935}.
 
 \bibitem{Geiger2026b}
@@ -733,6 +775,7 @@ arXiv:2003.00044 (2020).
 A.~Eichhorn and A.~Held,
 \textit{Top mass from asymptotic safety},
 Phys.\ Lett.\ B \textbf{777}, 217--221 (2018).
+DOI: 10.1016/j.physletb.2017.12.040.
 arXiv:1707.01107.
 
 \bibitem{Weinberg1979}
@@ -773,6 +816,7 @@ J.~Maldacena (1998).
 The large-$N$ limit of superconformal field theories and supergravity.
 \textit{Adv.\ Theor.\ Math.\ Phys.}\ \textbf{2}, 231--252.
 [Reprinted in \textit{Int.\ J.\ Theor.\ Phys.}\ \textbf{38}, 1113--1133 (1999).]
+DOI: 10.4310/ATMP.1998.v2.n2.a1.
 arXiv:hep-th/9711200.
 
 \bibitem{Sorkin2003}
@@ -889,7 +933,7 @@ The spectral dimension of the universe is scale dependent.
 DOI: 10.1103/PhysRevLett.95.171301.
 arXiv:hep-th/0505113.
 
-\bibitem{Loll2019}
+\bibitem{Loll2020}
 R.~Loll (2020).
 Quantum gravity from causal dynamical triangulations: a review.
 \textit{Classical and Quantum Gravity}, 37(1), 013002.
