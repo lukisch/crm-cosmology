@@ -19,6 +19,7 @@ venv/
 *.aux
 *.log
 *.out
+*.tmp
 *.toc
 *.bbl
 *.blg
@@ -26,6 +27,7 @@ venv/
 *.fdb_latexmk
 *.fls
 *Notes.bib
+*_compile*.tmp
 
 # PDFs: ignore everywhere EXCEPT papers/
 *.pdf
@@ -54,12 +56,14 @@ Plan.txt
 BEWEISNOTIZ.md
 BEWEISNOTIZ*.md
 BEWEISNOTIZ_LANG_ALT.md
+IDEEN_ANHANG*.md
 KONZEPT.md
 AKTIONSPLAN.md
 PUBLIKATIONSPLAN.md
 POSTRELEASE-PR.md
 MEILENSTEINE.md
 CORE*.txt
+QUELLENVERIFIKATION*.md
 REVISE.txt
 REVIEW.txt
 REVIEW_CHAIN*.md
@@ -72,6 +76,7 @@ _partners/
 _handoff/
 _reviews/
 _private/
+_sources/
 *_submission/
 _SciPost_submission/
 _data/
@@ -95,6 +100,8 @@ TODO.md
 DONE.md
 FORSCHUNGSSTAND*.md
 GAPS*.md
+POI-USECASES.md
+VERGRIFFEN.md
 LINKEDIN.txt
 PUBLICATION_STRATEGY.txt
 *TOKEN*

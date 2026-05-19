@@ -48,10 +48,10 @@
 \date{\today}
 
 \begin{abstract}
-Wir formulieren vier minimale Axiome -- endliche geometrische Kapazität, kooperative Verstärkung mit antisymmetrischer Erweiterung, monotone kosmische Kontrolle und Renormierungsgruppen-Komposition -- die jede Quantentheorie der Gravitation erfüllen muss, wenn ihr makroskopischer Limes die allgemeine Relativitätstheorie mit einem beschränkten Relaxationsmechanismus reproduziert. Diese Axiome liefern eine Abel-Koordinatenbeschreibung eindimensionaler Sättigungsdynamik. Ein Tangens-hyperbolicus-Profil folgt, sobald der Sättigungsrand zusätzlich durch eine projektive Randquotienten-Normalisierung festgelegt wird: der Quotient $R(x)=(1+x)/(1-x)$ muss sich unter Komposition multiplizieren. Ohne diese Normalisierung lässt glatte Randregularität allein eine Familie glatter hyperbolischer Randkrägen zu, etwa Abel-Koordinaten der Form $\operatorname{arctanh}(x)+\varepsilon x$. Das korrigierte \textit{Sättigungstheorem} ist daher ein projektives Randkragen-Normalformtheorem: $S(g)=S_{\max}\tanh(\alpha\,u(g))$ wird durch Skalenkohärenz plus projektiven Randquotienten ausgewählt, nicht durch bloße Glattheit allein. Große Quantengravitationsprogramme -- Schleifen-Quantengravitation, Asymptotic Safety, String-/holographische Ansätze, Kausalmengentheorie und nichtkommutative Geometrie -- motivieren die Axiome auf natürliche Weise, wenn sie auf kosmologische Observablen eingeschränkt werden. Das Resultat erhebt die $\tanh$-Sättigungs-ODE $dX/da = k(1-X^2)$ des Curvature Relaxation Model von einem phänomenologischen Fit zu einer kanonischen projektiven Normalform kapazitätsbegrenzter kooperativer Relaxation, wobei offen bleibt, welche UV-Vervollständigung $k$, $\Phi_0$ und den projektiven Quotienten physikalisch festlegt.
+Wir formulieren vier minimale Axiome -- endliche geometrische Kapazität, kooperative Verstärkung mit antisymmetrischer Erweiterung, monotone kosmische Kontrolle und Renormierungsgruppen-Komposition -- als makroskopische Kandidatenbedingungen für jede Quantentheorie der Gravitation, deren kosmologischer Limes die allgemeine Relativitätstheorie mit einem beschränkten Relaxationsmechanismus reproduziert. Diese Axiome liefern eine Abel-Koordinatenbeschreibung eindimensionaler Sättigungsdynamik. Ein Tangens-hyperbolicus-Profil folgt, sobald der Sättigungsrand zusätzlich durch eine projektive Randquotienten-Normalisierung festgelegt wird: der Quotient $R(x)=(1+x)/(1-x)$ muss sich unter Komposition multiplizieren. Ohne diese Normalisierung lässt glatte Randregularität allein eine Familie glatter hyperbolischer Randkrägen zu, etwa Abel-Koordinaten der Form $\operatorname{arctanh}(x)+\varepsilon x$. Das korrigierte \textit{Sättigungstheorem} ist daher ein projektives Randkragen-Normalformtheorem: $S(g)=S_{\max}\tanh(\alpha\,u(g))$ wird durch Skalenkohärenz plus projektiven Randquotienten ausgewählt, nicht durch bloße Glattheit allein. Große Quantengravitationsprogramme -- Schleifen-Quantengravitation, Asymptotic Safety, String-/holographische Ansätze, Kausalmengentheorie und nichtkommutative Geometrie -- motivieren A--D auf natürliche Weise, wenn sie auf kosmologische Observablen eingeschränkt werden; D' bleibt dagegen eine separate diagnostische Normalisierung, die physikalisch erst herzuleiten ist. Das Resultat erhebt die $\tanh$-Sättigungs-ODE $dX/da = k(1-X^2)$ des Curvature Relaxation Model von einem phänomenologischen Fit zu einer kanonischen projektiven Normalform kapazitätsbegrenzter kooperativer Relaxation, wobei offen bleibt, welche UV-Vervollständigung $k$, $\Phi_0$ und den projektiven Quotienten physikalisch festlegt.
 \end{abstract}
 
-\keywords{Quantengravitation, Sättigungsdynamik, axiomatische Kosmologie, No-Go-Theorem, Curvature Relaxation Model, tanh-Universalität, Renormierungsgruppe}
+\keywords{Quantengravitation, Sättigungsdynamik, axiomatische Kosmologie, konditionales No-Go-Theorem, Curvature Relaxation Model, tanh-Universalität, Renormierungsgruppe}
 
 \thanks{KI-Werkzeuge (Claude, Anthropic; Copilot, Microsoft/GitHub; Gemini, Google DeepMind) wurden für mathematische Formalisierung, Literaturrecherche, Code-Entwicklung und Texterstellung verwendet. Alle physikalischen Hypothesen, axiomatischen Entscheidungen, wissenschaftliche Interpretation und Verantwortung für die Inhalte liegen vollständig beim Autor.}
 
@@ -98,7 +98,7 @@ Das vorliegende Papier erhebt diese Beobachtung von \textit{struktureller Analog
 
 \subsection{Umfang und Struktur}
 
-Das zentrale Ergebnis ist das \textit{Saturation Theorem} (Theorem~\ref{thm:saturation}): Die Axiome A--D reduzieren die effektive kosmologische Antwort auf eine Abel-Koordinate, während die projektive Randquotienten-Normalisierung D' die $\tanh$-Normalform bis auf Umparametrisierung eindeutig auswählt. Das Papier ist wie folgt strukturiert:
+Das zentrale Ergebnis ist das \textit{Saturation Theorem} (Theorem~\ref{thm:saturation}): Die Axiome A--D reduzieren zusammen mit der signierten Antisymmetrie B' und der inneren Gruppenform $D^\pm$ die effektive kosmologische Antwort auf eine Abel-Koordinate, während die projektive Randquotienten-Normalisierung D' die $\tanh$-Normalform bis auf Umparametrisierung eindeutig auswählt. Das Papier ist wie folgt strukturiert:
 
 \begin{itemize}
 \item Section~\ref{sec:axioms}: Formulierung der vier Axiome.
@@ -191,12 +191,12 @@ Es gibt genau eine relevante Richtung (Kontrollparameter), die den Übergang von
 \item Stabile Expansion zu einem de~Sitter-Attraktor.
 \end{itemize}
 
-Im CRM ist der Kontrollparameter der Skalenfaktor $a$; in RG-Sprache entspricht er der einzelnen relevanten Richtung, die vom UV-Fixpunkt zum IR fließt \cite{Percacci2017}. Axiom C wird verletzt durch zyklische Kosmologien und durch Modelle mit mehreren stabilen Vakua -- beide denen ein eindeutiger thermodynamischer Pfeil fehlt. Wir beachten, dass Axiom C eine Einschränkung auf den \textit{kosmologischen Sektor} mit einem einzelnen dominanten Übergang ist: es behandelt nicht die String-Landschaft (wo Tunneln zwischen metastabilen Vakua zu nicht-monotonen Trajektorien führt) oder stochastische Inflation (wo lokale Fluktuationen die Monotonie brechen). Diese Szenarios betreffen mehrere effektive Kontrollparameter oder stochastische Dynamik und liegen außerhalb des Bereichs des Einfeld-, deterministischen Axiom-Systems. Das Theorem sollte so gelesen werden: A--D liefern eine Abel-/Randkragenklasse für einen einzelnen deterministischen Sättigungskanal; erst D' wählt den projektiven $\tanh$-Repräsentanten aus.
+Im CRM ist der Kontrollparameter der Skalenfaktor $a$; in RG-Sprache entspricht er der einzelnen relevanten Richtung, die vom UV-Fixpunkt zum IR fließt \cite{Percacci2017}. Axiom C wird verletzt durch zyklische Kosmologien und durch Modelle mit mehreren stabilen Vakua -- beide denen ein eindeutiger thermodynamischer Pfeil fehlt. Wir beachten, dass Axiom C eine Einschränkung auf den \textit{kosmologischen Sektor} mit einem einzelnen dominanten Übergang ist: es behandelt nicht die String-Landschaft (wo Tunneln zwischen metastabilen Vakua zu nicht-monotonen Trajektorien führt) oder stochastische Inflation (wo lokale Fluktuationen die Monotonie brechen). Diese Szenarios betreffen mehrere effektive Kontrollparameter oder stochastische Dynamik und liegen außerhalb des Bereichs des Einfeld-, deterministischen Axiom-Systems. Das Theorem sollte so gelesen werden: A--D liefern zusammen mit B' und der inneren Gruppenform $D^\pm$ eine Abel-/Randkragenklasse für einen einzelnen deterministischen Sättigungskanal; erst D' wählt den projektiven $\tanh$-Repräsentanten aus.
 
 \textit{Verbindung zum CRM.} Die Monotonie von $\Omega_\Phi(a)$ ist eine direkte Konsequenz der ODE~\eqref{eq:saturation_ode}: da $1 - X^2 > 0$ für $|X| < 1$ ist, ist die Lösung streng wachsend.
 
 \begin{remark}[Axiom-Interdependenz]
-Wie in Corollary~\ref{cor:monotonicity} gezeigt, folgt Monotonie (Axiom C) aus den Axiomen A, B, B' und D. Wir behalten dennoch Axiom C als explizite Aussage für physikalische Transparenz: es verbindet sich direkt mit dem thermodynamischen Zeitpfeil und macht den Ausschluss von oszillierender/chaotischer Kosmologie auf der Axiom-Ebene sichtbar. Der logische Gehalt des Axiom-Systems ist daher: drei unabhängige Axiome (A, B/B', D) plus eine abgeleitete Konsequenz (C).
+Wie in Corollary~\ref{cor:monotonicity} gezeigt, folgt Monotonie (Axiom C), sobald Axiom~D in seiner inneren Gruppenform $D^\pm$ verwendet wird. Wir behalten dennoch Axiom C als explizite Aussage für physikalische Transparenz: es verbindet sich direkt mit dem thermodynamischen Zeitpfeil und macht den Ausschluss von oszillierender/chaotischer Kosmologie auf der Axiom-Ebene sichtbar. Der logische Gehalt des Axiom-Systems ist daher: A, B/B' und das verstärkte Kompositionsgesetz $D^\pm$ implizieren C; ohne diese innere Gruppenbedingung bleibt C ein explizites Axiom.
 \end{remark}
 
 \subsection{Axiom D: Renormalisierungsgruppenkomposition}
@@ -213,7 +213,7 @@ wobei $\mathcal{C}$ eine glatte, kommutative, assoziative Komposition mit neutra
 \mathcal{C}(S, 0) = S\,, \quad \mathcal{C}(S, S_{\max}) = S_{\max}\,.
 \label{eq:composition_boundary}
 \end{equation}
-Überdies erstreckt sich $\mathcal{C}$ glatt (d.h. $C^\infty$) auf das abgeschlossene Quadrat $[0, S_{\max}]^2$.
+Überdies erstreckt sich $\mathcal{C}$ glatt (d.h. $C^\infty$) auf das abgeschlossene Quadrat $[0, S_{\max}]^2$. Im folgenden Satz wird D in seiner antisymmetrischen inneren Gruppenform $D^\pm$ verwendet: Nach Normalisierung durch $S_{\max}$ und Erweiterung durch B' ist die Einschränkung $C:(-1,1)^2\to(-1,1)$ kürzbar und in jedem Argument strikt monoton, und jede Translation $y\mapsto C(x,y)$ ist ein glatter Diffeomorphismus mit Inverser $y\mapsto C(-x,y)$. Dies ist eine zusätzliche Annahme über einen eindimensionalen deterministischen Kanal, nicht eine Konsequenz des bloßen positiven Rand-Halbgruppengesetzes allein.
 \end{axiom}
 
 \begin{remark}[Randkragen-Guardrail]
@@ -243,7 +243,13 @@ unter Komposition multiplikativ:
 Äquivalent ist das Verhältnis der Abstände zu den beiden Sättigungsflächen die additive Arbeits-/Rapiditätskoordinate des eindimensionalen Antwortkanals.
 \end{axiom}
 
-\textit{Physikalischer Inhalt.} Dies ist das tiefste Axiom. Es besagt, dass die geometrische Antwort \textit{selbst-konsistent unter Grobkörnung} sein muss: das Universum bei zwei aufeinanderfolgenden Skalen zu beobachten und die Ergebnisse zu kombinieren muss die gleiche Antwort geben wie die direkte Beobachtung bei der kombinierten Skala. Dies ist die definierende Eigenschaft einer Renormalisierungsgruppe.
+\textit{Physikalischer Status von D'.} D' wird hier nicht aus Schleifen-Quantengravitation, Asymptotic Safety, Stringtheorie, Causal Sets, CDT oder nichtkommutativer Geometrie hergeleitet. Es ist eine projektive Response-Bilanzannahme: Die physikalisch komponierte Größe ist das Verhältnis von realisierter Ordnung zu verbleibender Kapazität, analog zu einer Log-Odds- oder Rapiditätskoordinate. Für jedes UV-Kandidatenprogramm ist der diagnostische Defekt
+\[
+  \Delta_{D'}(x,y):=\log R(C(x,y))-\log R(x)-\log R(y),
+\]
+der für den exakten projektiven $\tanh$-Repräsentanten verschwinden muss. $\Delta_{D'}=0$ aus einer mikroskopischen Theorie herzuleiten bleibt eine offene physikalische Aufgabe.
+
+\textit{Physikalischer Gehalt von D.} Axiom~D ist das tiefste Kompositionsaxiom. Es besagt, dass die geometrische Antwort \textit{selbstkonsistent unter Vergröberung} sein muss: das Universum auf zwei aufeinanderfolgenden Skalen zu beobachten und die Ergebnisse zu kombinieren muss dieselbe Antwort ergeben wie die direkte Beobachtung auf der kombinierten Skala. Dies ist die definierende Eigenschaft einer Renormierungsgruppe.
 
 Das Kompositionsgesetz~\eqref{eq:composition} kodiert die Anforderung, dass die Theorie \textit{skala-kohärent} im folgenden präzisen Sinne sein muss: die Antwortfunktion $S_T$ ist ein Homomorphismus von der additiven Struktur des Kontrollparameters zur Kompositionsalgebra von Antworten; d.h. keine bevorzugte Skala existiert, auf der diese Homomorphismus-Eigenschaft abbricht oder ihren Charakter ändert. Die absorbierende Randbedingung $\mathcal{C}(S, S_{\max}) = S_{\max}$ spiegelt die Tatsache, dass vollständig gesättigte Geometrie nicht weiter geordnet werden kann -- sie ist ein Fixpunkt.
 
@@ -268,7 +274,7 @@ Die $C^\infty$-Erweiterungsanforderung hat eine direkte physikalische Interpreta
 
 \begin{theorem}[Saturation Theorem, projektive Randkragenform]
 \label{thm:saturation}
-Sei $T$ eine Theorie, deren effektive Antwortfunktion $S_T(g)$ die Axiome A--D erfüllt und die Antisymmetrie-Bedingung B'. Dann besitzt die normalisierte Antwort $\sigma(g)=S_T(g)/S_{\max}$ eine ungerade Abel-Koordinate $\phi:(-1,1)\to\mathbb{R}$ mit
+Sei $T$ eine Theorie, deren effektive Antwortfunktion $S_T(g)$ die Axiome A--D, die Antisymmetrie-Bedingung B' und die bei Axiom~D beschriebene innere Gruppenform $D^\pm$ erfüllt. Dann besitzt die normalisierte Antwort $\sigma(g)=S_T(g)/S_{\max}$ eine ungerade Abel-Koordinate $\phi:(-1,1)\to\mathbb{R}$ mit
 \[
   \phi(C(x,y))=\phi(x)+\phi(y).
 \]
@@ -277,7 +283,7 @@ Wenn zusätzlich die projektive Randquotienten-Normalisierung D' gilt, dann exis
 S_T(g) = S_{\max}\,\tanh\!\left(\alpha\,u(g)\right)\,.
 \label{eq:saturation_form}
 \end{equation}
-Das Kompositionsgesetz ist dann als relativistische Geschwindigkeitsaddition $\mathcal{C}(x,y) = (x+y)/(1+xy)$ bestimmt, bis auf Reskalierung durch $S_{\max}$. Ohne D' bestimmen die Axiome A--D die Abel-/Randkragenstruktur, schließen aber nicht alle glatten nichtprojektiven Randkrägen aus.
+Das Kompositionsgesetz ist dann als relativistische Geschwindigkeitsaddition $\mathcal{C}(x,y) = (x+y)/(1+xy)$ bestimmt, bis auf Reskalierung durch $S_{\max}$. Ohne D' bestimmen diese Voraussetzungen die Abel-/Randkragenstruktur, schließen aber nicht alle glatten nichtprojektiven Randkrägen aus.
 \end{theorem}
 
 \subsection{Zentrale Lemmata}
@@ -322,9 +328,9 @@ Definiere die normalisierte Antwort $\sigma(g) = S_T(g)/S_{\max} \in [0, 1)$. Di
 wobei $C: [0,1) \times [0,1) \to [0,1)$ kommutativ, assoziativ, mit Neutralelement $0$ und absorbierendem Rand $1$ ist.
 
 \textit{Schritt 2: Reduktion auf Abels Gleichung.}
-Nach Axiom B hat $\sigma$ die lokale Entwicklung~\eqref{eq:ir_expansion} mit $c_1 > 0$. Nach Axiom B' [Gl.~\eqref{eq:antisymmetry}] gilt $\sigma(-g) = -\sigma(g)$, daher erweitert sich $C$ zu einer Gruppenoperation auf $(-1,1)$ mit absorbierenden Rändern bei $\pm 1$.
+Nach Axiom B hat $\sigma$ die lokale Entwicklung~\eqref{eq:ir_expansion} mit $c_1 > 0$. Axiom B' [Gl.~\eqref{eq:antisymmetry}] liefert die ungerade Erweiterung $\sigma(-g)=-\sigma(g)$. Zusammen mit der inneren Gruppenform $D^\pm$ von Axiom~D ergibt dies eine glatte kürzbare Gruppenoperation auf $(-1,1)$, deren absorbierende Ränder bei $\pm 1$ nur als Grenzflächen behandelt werden.
 
-Die Assoziativitätsbedingung $C(C(x,y),z) = C(x, C(y,z))$ zusammen mit Kommutativität und Randbedingungen impliziert, dass $C$ ein \textit{einparametriges stetiges Gruppengesetz} auf $(-1,1)$ definiert (die Taylorentwicklung am Ursprung definiert ein eindimensionales kommutatives formales Gruppengesetz im Sinne von \cite{Hazewinkel1978}; hier ist die Verbindung, dass jede glatte, assoziative, kommutative binäre Operation auf einer Umgebung von $0 \in \mathbb{R}$ mit Neutralelement $0$ durch Taylorentwicklung ein formales Gruppengesetz über $\mathbb{R}$ ist, und umgekehrt wendet sich Aczéls analytischer Satz auf die konvergente Realisierung dieser formalen Struktur auf dem Intervall $(-1,1)$ an). Wir wenden Aczéls Darstellungssatz \cite{Aczel1966} auf das \textit{offene Intervall} $(-1,1)$ an, wobei $C$ glatt, strikt monoton in jedem Argument ist (da $\sigma$ strikt monoton nach Axiom C ist) und das Neutralelement $0$ im Inneren liegt. Die absorbierenden Randbedingungen $C(x, \pm 1) = \pm 1$ sind \textit{nicht} Teil des Definitionsbereichs, auf den Aczéls Satz angewendet wird; sie werden als Grenzverhalten behandelt. Konkret ergibt Aczéls Satz eine stetige, strikt monotone Funktion $\phi: (-1,1) \to \mathbb{R}$ mit $\phi(0) = 0$. Die absorbierenden Randbedingungen implizieren dann $\phi(x) \to +\infty$ für $x \to 1^-$ und $\phi(x) \to -\infty$ für $x \to -1^+$ (da $C(x,y) \to 1$ für $y \to 1$ impliziert, dass $\phi(x) + \phi(y) \to \infty$, was $\phi(y) \to \infty$ erfordert):
+Unter $D^\pm$ definieren die Assoziativitätsbedingung $C(C(x,y),z) = C(x, C(y,z))$ und Kommutativität ein \textit{einparametriges stetiges Gruppengesetz} auf $(-1,1)$ (die Taylorentwicklung am Ursprung definiert ein eindimensionales kommutatives formales Gruppengesetz im Sinne von \cite{Hazewinkel1978}; hier ist die Verbindung, dass jede glatte, assoziative, kommutative binäre Operation auf einer Umgebung von $0 \in \mathbb{R}$ mit Neutralelement $0$ durch Taylorentwicklung ein formales Gruppengesetz über $\mathbb{R}$ ist, und umgekehrt wendet sich Aczéls analytischer Satz auf die konvergente Realisierung dieser formalen Struktur auf dem Intervall $(-1,1)$ an). Wir wenden Aczéls Darstellungssatz \cite{Aczel1966} auf das \textit{offene Intervall} $(-1,1)$ an, wobei $C$ glatt und strikt monoton in jedem Argument ist und das Neutralelement $0$ im Inneren liegt. Die absorbierenden Randbedingungen $C(x, \pm 1) = \pm 1$ sind \textit{nicht} Teil des Definitionsbereichs, auf den Aczéls Satz angewendet wird; sie werden als Grenzverhalten behandelt. Konkret ergibt Aczéls Satz eine stetige, strikt monotone Funktion $\phi: (-1,1) \to \mathbb{R}$ mit $\phi(0) = 0$. Die absorbierenden Randbedingungen implizieren dann $\phi(x) \to +\infty$ für $x \to 1^-$ und $\phi(x) \to -\infty$ für $x \to -1^+$ (da $C(x,y) \to 1$ für $y \to 1$ impliziert, dass $\phi(x) + \phi(y) \to \infty$, was $\phi(y) \to \infty$ erfordert):
 \begin{equation}
 \phi(C(x,y)) = \phi(x) + \phi(y)\,.
 \label{eq:abel}
@@ -344,21 +350,21 @@ Da $\phi(\sigma(g)) = c\,\mathrm{arctanh}(\sigma(g))$ eine additive Funktion des
 \begin{equation}
 \sigma(g) = \tanh(\alpha\,u(g))\,,
 \end{equation}
-und daher $S_T(g) = S_{\max}\,\tanh(\alpha\,u(g))$, nachdem die positive Konstante $c$ in $\alpha u$ absorbiert wurde. Wenn die Axiome A--D und D' exakt gelten, ist das Resultat exakt. Approximative Axiom-Erfüllung (z.B. Zusammenbruch des Kompositionsgesetzes bei sehr kleinem $g$, wo Standardgravitation dominiert) würde Korrektionen einführen; eine formale Stabilitätsanalyse solcher Störungen ist ein offenes Problem. \hfill $\square$
+und daher $S_T(g) = S_{\max}\,\tanh(\alpha\,u(g))$, nachdem die positive Konstante $c$ in $\alpha u$ absorbiert wurde. Wenn die Axiome A--D, B', $D^\pm$ und D' exakt gelten, ist das Resultat exakt. Approximative Axiom-Erfüllung (z.B. Zusammenbruch des Kompositionsgesetzes bei sehr kleinem $g$, wo Standardgravitation dominiert) würde Korrektionen einführen; eine formale Stabilitätsanalyse solcher Störungen ist ein offenes Problem. \hfill $\square$
 
-\begin{corollary}[Monotonizität ist automatisch]
+\begin{corollary}[Monotonie aus dem inneren Gruppengesetz]
 \label{cor:monotonicity}
-Axiom C (monotone kosmische Kontrolle) folgt aus den Axiomen A, B, B' und D. Das heißt, jede Antwortfunktion, die $A + B + B' + D$ erfüllt, ist automatisch strikt monoton wachsend.
+Unter der inneren Gruppenform $D^\pm$ von Axiom~D folgt Axiom C (monotone kosmische Kontrolle) aus den Axiomen A, B, B' und D. Das heißt, jede Antwortfunktion, die $A + B + B' + D^\pm$ erfüllt, ist auf dem eindimensionalen Kanal automatisch strikt monoton wachsend.
 \end{corollary}
 
 \textit{Beweis.} Differenziere $\sigma(g + h) = C(\sigma(g), \sigma(h))$ bezüglich $h$ an der Stelle $h = 0$:
 \[
 \sigma'(g) = \partial_2 C(\sigma(g), 0) \cdot \sigma'(0)\,.
 \]
-Definiere $a(x) := \partial_2 C(x, 0)$. Nach der Gruppenstruktur von Axiom D ist für jedes feste $x \in (-1,1)$ die Abbildung $y \mapsto C(x,y)$ ein $C^\infty$ Diffeomorphismus von $(-1,1)$ (sein Inverses ist $y \mapsto C(-x, y)$ aus dem Gruppen-Inversen). Daher gilt $\partial_2 C(x, 0) = a(x) \neq 0$ für alle $x \in (-1,1)$. Da $(-1,1)$ zusammenhängend ist und $a(0) = \partial_2 C(0,0) = 1 > 0$ (aus $C(0,y) = y$), impliziert Stetigkeit $a(x) > 0$ für alle $x$. Mit $\sigma'(0) = c_1 > 0$ (Axiom B) erhalten wir $\sigma'(g) = a(\sigma(g)) \cdot c_1 > 0$ für alle $g$. \hfill $\square$
+Definiere $a(x) := \partial_2 C(x, 0)$. Nach $D^\pm$ ist für jedes feste $x \in (-1,1)$ die Abbildung $y \mapsto C(x,y)$ ein $C^\infty$ Diffeomorphismus von $(-1,1)$ (sein Inverses ist $y \mapsto C(-x, y)$ aus dem Gruppen-Inversen). Daher gilt $\partial_2 C(x, 0) = a(x) \neq 0$ für alle $x \in (-1,1)$. Da $(-1,1)$ zusammenhängend ist und $a(0) = \partial_2 C(0,0) = 1 > 0$ (aus $C(0,y) = y$), impliziert Stetigkeit $a(x) > 0$ für alle $x$. Mit $\sigma'(0) = c_1 > 0$ (Axiom B) erhalten wir $\sigma'(g) = a(\sigma(g)) \cdot c_1 > 0$ für alle $g$. \hfill $\square$
 
 \begin{remark}
-Dies bedeutet, dass das Axiom-System auf drei unabhängige Axiome (A, B/B', D) plus die abgeleitete Konsequenz C reduziert werden kann. Wir behalten Axiom C als separate Aussage für physikalische Transparenz: sie macht die Monotonie-Annahme explizit und verbindet sich direkt mit dem thermodynamischen Pfeil der Zeit. Aber logisch ist es ein Theorem, kein Axiom.
+Dies bedeutet, dass das Axiom-System auf A, B/B' und $D^\pm$ plus die abgeleitete Konsequenz C reduziert werden kann, sobald das eindimensionale innere Gruppengesetz physikalisch gerechtfertigt ist. Wir behalten Axiom C als separate Aussage für physikalische Transparenz: sie macht die Monotonie-Annahme explizit und verbindet sich direkt mit dem thermodynamischen Pfeil der Zeit. Ohne $D^\pm$ ist sie als unabhängige Ein-Kanal-Annahme zu lesen.
 \end{remark}
 
 \begin{proposition}[Axiom-Unabhängigkeit]
@@ -369,7 +375,7 @@ Die Axiome sind logisch unabhängig: für jedes Axiom existiert eine Funktion, d
 
 \textit{(2) Verletzt B', erfüllt A,C,D:} $\sigma(g) = 1 - e^{-g}$ für $g \geq 0$, mit $C(x,y) = x + y - xy$ (probabilistisches Oder); keine antisymmetrische Erweiterung.
 
-\textit{(3) Verletzt C, erfüllt A,B/B' aber nicht D:} $\sigma(g) = \tanh(g) \cdot \cos(\epsilon g)$ für kleine $\epsilon > 0$; beschränkt, antisymmetrisch, glatt mit $\sigma'(0) > 0$, aber nicht-monoton für $g \gg 1$. Dieses Beispiel zeigt, dass C unabhängig von $\{A, B, B'\}$ allein ist. Aber nach Korollar~\ref{cor:monotonicity} ist C \textit{nicht} unabhängig von $\{A, B, B', D\}$ gemeinsam -- es folgt als abgeleitete Konsequenz. Daher ist C ein abhängiges Axiom, behalten für physikalische Klarheit.
+\textit{(3) Verletzt C, erfüllt A,B/B' aber nicht $D^\pm$:} $\sigma(g) = \tanh(g) \cdot \cos(\epsilon g)$ für kleine $\epsilon > 0$; beschränkt, antisymmetrisch, glatt mit $\sigma'(0) > 0$, aber nicht-monoton für $g \gg 1$. Dieses Beispiel zeigt, dass C unabhängig von $\{A, B, B'\}$ allein ist. Aber nach Korollar~\ref{cor:monotonicity} ist C \textit{nicht} unabhängig von $\{A, B, B', D^\pm\}$ gemeinsam -- es folgt unter dem inneren Gruppengesetz als abgeleitete Konsequenz. Daher bleibt C für physikalische Klarheit und zur expliziten Markierung des Ein-Kanal-Pfeils erhalten.
 
 \textit{(4) Verletzt D, erfüllt A--C,B':} $\sigma(g) = (2/\pi)\arctan(g)$; beschränkt, monoton, antisymmetrisch, aber seine induzierte Komposition (über $\phi = \tan(\pi x/2)$) entwickelt divergente zweite Ableitungen ($\sim \epsilon^{-1}$) am Rand von $[-1,1]^2$, was die $C^\infty$-Erweiterungs-Anforderung von Axiom D verletzt. Ähnlich hat $\sigma(g) = g/\sqrt{1+g^2}$ (mit $\phi(x) = x/\sqrt{1-x^2}$) divergente zweite Ableitungen am Rand ($\sim \epsilon^{-1/2}$).
 \end{proposition}
@@ -396,7 +402,7 @@ Die Umparametrisierung $u(g)$ absorbiert die mikroskopischen Details der Theorie
 
 \begin{corollary}[Ausschluss alternativer Sättigungsprofile]
 \label{cor:exclusion}
-Keines der folgenden Profile kann die Axiome~A--D plus die projektive Normalisierung D' gleichzeitig erfüllen, außer wenn es durch zulässige Reparametrisierung $u(g)$ auf die $\tanh$-Form reduzierbar ist:
+Keines der folgenden Profile kann die strukturellen Voraussetzungen des Theorems plus die projektive Normalisierung D' gleichzeitig erfüllen, außer wenn es durch zulässige Reparametrisierung $u(g)$ auf die $\tanh$-Form reduzierbar ist:
 \begin{enumerate}
 \item[(i)] \textbf{Logistisches Profil:} $S_{\max}/(1 + e^{-\beta u})$.
 \item[(ii)] \textbf{Rationales Profil:} $S_{\max}\,u/(1 + u)$.
@@ -411,12 +417,12 @@ Keines der folgenden Profile kann die Axiome~A--D plus die projektive Normalisie
 
 \textit{(ii) Rational.} Die Funktion $R(u) = u/(1+u)$ hat Abel-Transformation $\phi(x) = x/(1-x)$, die $C(x,y) = \phi^{-1}(\phi(x) + \phi(y)) = (x + y - 2xy)/(1 - xy)$ ergibt. Für kleine $x, y$ erhält man $C(x,y) \approx x + y - 2xy$. Der quadratische Mischterm $-2xy$ ist unverträglich mit der Antisymmetriebedingung (Axiom~B'): Antisymmetrisches $\sigma$ impliziert, dass die induzierte Komposition $C(-x,-y) = -C(x,y)$ erfüllen muss, aber $(x+y-2xy)/(1-xy)$ tut das nicht. Äquivalent: $R(u)$ selbst ist nicht antisymmetrisch, was Axiom~B' verletzt.
 
-\textit{(iii) Arkustangens.} Die Funktion $A(u) = (2/\pi)\arctan(\beta u)$ hat Abel-Transformation $\phi(x) = \tan(\pi x/2)$, die $C(x,y) = (2/\pi)\arctan(\tan(\pi x/2) + \tan(\pi y/2))$ ergibt. Während diese Komposition auf dem offenen Quadrat $(-1,1)^2$ wohldefiniert und glatt ist, kann sie nicht glatt auf das geschlossene Quadrat $[-1,1]^2$ erweitert werden: die zweiten partiellen Ableitungen $\partial^2 C/\partial x^2$ und $\partial^2 C/\partial x\,\partial y$ divergieren beide, wenn $(x,y) \to (1,1)$ (numerisch $\sim \epsilon^{-1}$ entlang $x = y = 1 - \epsilon$), was die $C^\infty$-Randregularitätsanforderung von Axiom~D verletzt. Diese algebraische ($\epsilon^{-1}$) Divergenz ist charakteristisch für alle Abel-Funktionen mit Potenzgesetz-Randverhalten; nur die logarithmische Divergenz von $\mathrm{arctanh}$ ergibt eine rationale -- und damit automatisch glatte -- Komposition.
+\textit{(iii) Arkustangens.} Die Funktion $A(u) = (2/\pi)\arctan(\beta u)$ hat Abel-Transformation $\phi(x) = \tan(\pi x/2)$, die $C(x,y) = (2/\pi)\arctan(\tan(\pi x/2) + \tan(\pi y/2))$ ergibt. Während diese Komposition auf dem offenen Quadrat $(-1,1)^2$ wohldefiniert und glatt ist, kann sie nicht glatt auf das geschlossene Quadrat $[-1,1]^2$ erweitert werden: die zweiten partiellen Ableitungen $\partial^2 C/\partial x^2$ und $\partial^2 C/\partial x\,\partial y$ divergieren beide, wenn $(x,y) \to (1,1)$ (numerisch $\sim \epsilon^{-1}$ entlang $x = y = 1 - \epsilon$), was die $C^\infty$-Randregularitätsanforderung von Axiom~D verletzt. Diese algebraische ($\epsilon^{-1}$) Divergenz ist charakteristisch für Abel-Funktionen mit Potenzgesetz-Randverhalten. Logarithmische Krägen sind die zulässige Randklasse an dieser Fläche; D' wählt daraus den projektiven logarithmischen Kragen $\mathrm{arctanh}$ aus.
 
 \textit{(iv) Harte Sättigung.} $\min(u, 1)$ ist bei $u = 1$ nicht $C^\infty$, was die Glattheitsanforderung von Axiom~B verletzt. \hfill $\square$
 
 \begin{remark}
-Der logistische Fall (i) ist instruktiv: er scheint eine echte Alternative zu sein, aber das Kompositionsgesetz zwingt ihn, sich auf $\tanh$ zu reduzieren. Dies veranschaulicht die Kraft von Axiom~D: oberflächliche Freiheit bei der Profilwahl wird durch die Anforderung der Skalenkohärenz eliminiert.
+Der logistische Fall (i) ist instruktiv: er scheint eine echte Alternative zu sein, aber Kompositionsgesetz plus projektiver Quotient zwingen ihn, sich auf $\tanh$ zu reduzieren. Dies veranschaulicht die Kraft von Skalenkohärenz zusammen mit D': oberflächliche Freiheit bei der Profilwahl wird auf eine Randkragenwahl reduziert, und der projektive Quotient fixiert den CRM-Rapiditätsrepräsentanten.
 \end{remark}
 
 
@@ -426,7 +432,7 @@ Der logistische Fall (i) ist instruktiv: er scheint eine echte Alternative zu se
 \section{Die Axiome in Quantengravitations-Programmen}
 \label{sec:qg}
 
-Wir verifizieren nun, dass die vier Axiome erfüllt sind -- oder zumindest natürlicherweise kompatibel sind -- in jedem großen Quantengravitations-Programm, wenn beschränkt auf kosmologische Observablen.
+Wir prüfen nun, wie A--D in jedem großen Quantengravitations-Programm erfüllt sind -- oder zumindest natürlicherweise kompatibel sind --, wenn man sich auf kosmologische Observablen beschränkt. Die stärkere innere Form $D^\pm$ und die projektive Normalisierung D' werden separat als offene Diagnostika geführt.
 
 \subsection{Loop Quantum Gravity / Loop Quantum Cosmology}
 
@@ -479,22 +485,22 @@ Das Programm von Connes \cite{Connes1994} rekonstruiert Geometrie aus spektralen
 
 \subsection{Zusammenfassung: Warum Universalität?}
 
-Tabelle~\ref{tab:axiom_check} fasst die Axiom-Verifikation zusammen. Kein einzelnes QG-Programm ist rigoros bewiesen worden, alle vier Axiome gleichzeitig zu erfüllen; stattdessen erfüllt jedes Programm natürlicherweise eine wesentliche Teilmenge, wobei die restlichen Axiome plausibel aber noch nicht formal etabliert sind (angedeutet durch ($\checkmark$) und ? in der Tabelle). Der Wert des Theorems ist daher zweifach: (i)~als \textit{bedingtes} Resultat identifiziert es die präzisen Bedingungen, unter denen $\tanh$-Sättigung unvermeidbar ist, und (ii)~als \textit{Diagnostikum} zeigt es auf, welche Eigenschaften jedes QG-Programms weitere Untersuchung erfordern. Die breite Kompatibilität über Programme hinweg erklärt die ``unreasonable Universalität'' der Sättigungs-Dynamik: nicht dass die Programme in mikroskopischen Details übereinstimmen, sondern dass sie alle -- oder plausiblerweise alle -- dieselben makroskopischen Zwänge erfüllen.
+Tabelle~\ref{tab:axiom_check} fasst die Axiom-Verifikation zusammen. Für kein externes QG-Programm wird hier rigoros bewiesen, dass es A--D, $D^\pm$ und D' gleichzeitig erfüllt; stattdessen erfüllt jedes Programm natürlicherweise eine wesentliche Teilmenge, wobei die restlichen Axiome plausibel, aber noch nicht formal etabliert sind (angedeutet durch ($\checkmark$) und ? in der Tabelle). D' ist dabei besonders wichtig: Es ist für die aufgelisteten UV-Programme in diesem Paper nicht verifiziert, sondern wird vom effektiven CRM-Kanal als projektive Response-Normalisierung angenommen. Der Wert des Theorems ist daher zweifach: (i)~als \textit{bedingtes} Resultat identifiziert es die präzisen Bedingungen, unter denen $\tanh$-Sättigung unvermeidbar ist, und (ii)~als \textit{Diagnostikum} zeigt es auf, welche Eigenschaften jedes QG-Programms weitere Untersuchung erfordern. Die breite Kompatibilität über Programme hinweg erklärt die Abel-/Randkragen-Universalität der Sättigungsdynamik; der exakte $\tanh$-Repräsentant erfordert zusätzlich den projektiven Quotienten.
 
 \begin{table}[h]
-\caption{Axiom-Verifikation über Quantengravitations-Programme. $\checkmark$ = natürlicherweise erfüllt mit expliziter Konstruktion, ($\checkmark$) = plausibel mit milden Annahmen, ? = offene Frage, die weitere Analyse erfordert.}
+\caption{Axiom-Verifikation über Quantengravitations-Programme. $\checkmark$ = natürlicherweise erfüllt mit expliziter Konstruktion, ($\checkmark$) = plausibel mit milden Annahmen, ? = offene Frage, die weitere Analyse erfordert. Die D'-Spalte notiert, ob der projektive Randquotient hergeleitet oder explizit angenommen wird.}
 \label{tab:axiom_check}
 \begin{ruledtabular}
-\begin{tabular}{lcccc}
-Programm & A & B/B' & C & D \\
+\begin{tabular}{lccccc}
+Programm & A & B/B' & C & D & D' \\
 \hline
-LQG/LQC & $\checkmark$ & $\checkmark$ & $\checkmark$ & ? \\
-Asymptotic Safety & $\checkmark$ & ($\checkmark$) & $\checkmark$ & $\checkmark$ \\
-Strings/Holographie & $\checkmark$ & ($\checkmark$) & ($\checkmark$) & ($\checkmark$) \\
-Causal Sets & $\checkmark$ & ? & $\checkmark$ & ? \\
-CDT & $\checkmark$ & ($\checkmark$) & ($\checkmark$) & ? \\
-NCG & $\checkmark$ & ? & ? & ? \\
-CRM (effektiv) & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+LQG/LQC & $\checkmark$ & $\checkmark$ & $\checkmark$ & ? & ? \\
+Asymptotic Safety & $\checkmark$ & ($\checkmark$) & $\checkmark$ & $\checkmark$ & ? \\
+Strings/Holographie & $\checkmark$ & ($\checkmark$) & ($\checkmark$) & ($\checkmark$) & ? \\
+Causal Sets & $\checkmark$ & ? & $\checkmark$ & ? & ? \\
+CDT & $\checkmark$ & ($\checkmark$) & ($\checkmark$) & ? & ? \\
+NCG & $\checkmark$ & ? & ? & ? & ? \\
+CRM (effektiv) & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & angenommen \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -505,7 +511,7 @@ CRM (effektiv) & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
 \section{Raumzeit als geordnete Phase}
 \label{sec:ontology}
 
-Die umfassende Axiom-Erfüllung in Tabelle~\ref{tab:axiom_check} wirft eine konzeptionelle Frage auf: Falls die $\tanh$-Form universal ist, was bedeutet diese Universalität für die Natur der Raumzeit?
+Die umfassende Axiom-Erfüllung in Tabelle~\ref{tab:axiom_check} wirft eine konzeptionelle Frage auf: Falls der projektive $\tanh$-Repräsentant immer dann wiederkehrt, wenn D' physikalisch realisiert ist, was bedeutet diese Universalität für die Natur der Raumzeit?
 
 \subsection{Die konzeptionelle Verschiebung}
 
@@ -601,7 +607,7 @@ mit $\epsilon \ll 1$. Diese Oszillationen würden eine direkte Signatur der \tex
 \subsection{Was wurde erreicht}
 
 \begin{enumerate}
-\item \textbf{Ein konditionales No-Go-Theorem:} Jede kosmologische Theorie, die die Axiome~A--D plus die projektive Randquotienten-Normalisierung D' erfüllt, muss eine $\tanh$-artige Sättigung produzieren. Axiome~A--D allein liefern die Abel-/Randkragenstruktur.
+\item \textbf{Ein konditionales No-Go-Theorem:} Jede kosmologische Theorie, die die Axiome~A--D, B', $D^\pm$ und die projektive Randquotienten-Normalisierung D' erfüllt, muss eine $\tanh$-artige Sättigung produzieren. Ohne D' liefern dieselben strukturellen Voraussetzungen die Abel-/Randkragenstruktur.
 
 \item \textbf{Universalität geklärt:} Die Beobachtung, dass LQG, Asymptotic Safety, Stringtheorie, Causal Sets und Noncommutative Geometry alle strukturell ähnliche Sättigungsdynamiken produzieren, ist auf Abel-Strukturebene nicht länger rätselhaft; der konkrete $\tanh$-Repräsentant hängt zusätzlich vom projektiven Randquotienten ab.
 
@@ -614,7 +620,7 @@ mit $\epsilon \ll 1$. Diese Oszillationen würden eine direkte Signatur der \tex
 
 Dieses Paper vervollständigt den konzeptionellen Bogen der CRM-Serie: spieltheoretische Grundlagen (Paper~I \cite{Geiger2026}), phänomenologisches Fitting mit $\Delta\chi^2 = -5.5$ (Paper~II \cite{Geiger2026b}), Lagrangian-Herleitung (Paper~III \cite{Geiger2026c}), galaktische Dynamik (Paper~IV \cite{Geiger2026d}), und nun axiomatische Grundlegung (diese Arbeit). Der logische Status des CRM ist:
 \begin{enumerate}
-\item Die \textit{Form} der Dynamik ($\tanh$) ist ein mathematisches Theorem, sobald der projektive Randquotient D' akzeptiert wird; ohne D' beweist das Theorem die Abel-/Randkragenstruktur.
+\item Die \textit{Form} der Dynamik ($\tanh$) ist ein mathematisches Theorem, sobald die signierten inneren Kompositionsvoraussetzungen und der projektive Randquotient D' akzeptiert werden; ohne D' beweist das Theorem die Abel-/Randkragenstruktur.
 \item Das \textit{Lagrangian} ist hergeleitet (Paper~III).
 \item Die \textit{Parameter} sind durch Daten eingeschränkt (Papers~II, III, IV).
 \item Die \textit{UV-Vervollständigung} bleibt offen -- und muss erklären, warum der projektive Randquotient und nicht ein anderer glatter Randkragen die physikalische Kompositionsvariable ist.
@@ -675,7 +681,7 @@ Das Saturation Theorem dient als ein \textit{Filter} für Quantengravitations-Vo
 \item Jede Theorie, die D erfüllt, aber D' verletzt, muss angeben, welcher nichtprojektive Randkragen die CRM-Rapiditätskoordinate ersetzt.
 \end{itemize}
 
-Theorien, die die Axiome A--D erfüllen, sind auf ein Abel-/Randkragen-Sättigungsgesetz eingeschränkt. Theorien, die A--D und D' erfüllen, sind auf $\tanh$-Sättigung eingeschränkt, was eine konkrete, falsifizierbare Vorhersage für ihren kosmologischen Sektor liefert.
+Theorien, die die Axiome A--D zusammen mit B' und $D^\pm$ erfüllen, sind auf ein Abel-/Randkragen-Sättigungsgesetz eingeschränkt. Theorien, die diese strukturellen Voraussetzungen und D' erfüllen, sind auf $\tanh$-Sättigung eingeschränkt, was eine konkrete, falsifizierbare Vorhersage für ihren kosmologischen Sektor liefert.
 
 \subsection{Relation zu anderen Rahmenwerken}
 
@@ -731,7 +737,7 @@ Diese Arbeit wurde als unabhängige Forschung ohne institutionelle Finanzierung 
 
 \textit{Finanzierungsinformationen.} Diese Forschung erhielt keine externe Finanzierung.
 
-\textit{Datenverfügbarkeit.} Dieses Paper ist rein theoretisch. Der CRM-Analysecode und die Daten sind verfügbar unter \url{https://github.com/lukisch/crm-cosmology} (DOI: \href{https://doi.org/10.5281/zenodo.18728935}{10.5281/zenodo.18728935}).
+\textit{Datenverfügbarkeit.} Dieses Paper ist rein theoretisch. Der CRM-Analysecode und die Daten sind verfügbar unter \url{https://github.com/research-line/crm-cosmology/tree/main/papers/extensions} (DOI: \href{https://doi.org/10.5281/zenodo.18728935}{10.5281/zenodo.18728935}).
 \end{acknowledgments}
 
 
@@ -746,7 +752,7 @@ Diese Arbeit wurde als unabhängige Forschung ohne institutionelle Finanzierung 
 L.~Geiger (2026).
 Game-Theoretic Cosmology and the Curvature Relaxation Model: Nash Equilibria Between Null Space and Spacetime Bubble.
 Companion paper (Paper~I).
-\url{https://github.com/lukisch/crm-cosmology}.
+\url{https://github.com/research-line/crm-cosmology/tree/main/papers/extensions}.
 \href{https://doi.org/10.5281/zenodo.18728935}{doi:10.5281/zenodo.18728935}.
 
 \bibitem{Geiger2026b}

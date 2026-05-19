@@ -24,10 +24,10 @@ The Curvature Relaxation Model (CRM) replaces dark energy with a geometric curva
 
 | Paper | EN | DE | Topic | DOI |
 |-------|----|----|-------|-----|
-| V | `papers/extensions/Paper5_EN.tex` | `papers/extensions/Paper5_DE.tex` | The Saturation Theorem: tanh profile as mathematical necessity from 4 QG axioms | [10.5281/zenodo.19036188](https://doi.org/10.5281/zenodo.19036188) |
+| V | `papers/extensions/Paper5_EN.tex` | `papers/extensions/Paper5_DE.tex` | The Saturation Theorem: conditional projective-collar normal form for tanh saturation | [10.5281/zenodo.19036188](https://doi.org/10.5281/zenodo.19036188) |
 | VI | `papers/extensions/Paper6_EN.tex` | `papers/extensions/Paper6_DE.tex` | QG-CRM: Ultraviolet Completion via Quantum Quadratic Gravity (DRAFT) | [10.5281/zenodo.19352448](https://doi.org/10.5281/zenodo.19352448) |
 
-**Paper V -- The Saturation Theorem** proves that the tanh saturation profile of Papers I--IV is not a model choice but a mathematical necessity: any quantum gravity theory satisfying four minimal axioms must produce the tanh form. All major QG programs (LQG, asymptotic safety, strings, causal sets, noncommutative geometry) are shown to satisfy the axioms.
+**Paper V -- The Saturation Theorem** identifies a conditional normal form for saturation dynamics. Axioms A--D, together with the signed interior composition assumptions, force an Abel/collar structure; the exact tanh representative follows once the additional projective boundary quotient D' is imposed. Major QG programs motivate the macroscopic A--D structure, while D' remains an explicit diagnostic/open physical ingredient rather than a derived microscopic theorem.
 
 **Paper VI -- QG-CRM: Ultraviolet Completion** answers the open question from Paper V: "which UV completion selects k and Phi_0?" By identifying the gamma*R^2 sector of the CRM Lagrangian with asymptotically free quantum quadratic gravity (QQG), inflation is generated dynamically via RG running without an inflaton field. The Saturation Theorem provides the unique UV-IR interface. Predictions: n_s ~ 1 - 4/(3N) ~ 0.976, r >= 0.01, testable with Stage IV CMB experiments.
 
